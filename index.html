@@ -1,16 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serbis MVP Landing Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -21,7 +16,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: 80vh;
             padding: 20px;
         }
         .title {
@@ -49,27 +44,60 @@
             height: 900px;
             border: none;
         }
-        @media (max-width: 400px) {
-            .title {
-                font-size: 1.5rem;
-            }
-            .subtitle {
-                font-size: 0.9rem;
-            }
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Serbis</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#prototype">Prototype</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="home" class="container">
         <h1 class="title">Welcome to Serbis</h1>
         <p class="subtitle">Connecting local service providers with clients seamlessly</p>
-        
-        <div class="figma-container">
-            <iframe 
-                src="https://embed.figma.com/proto/FWlUSRDh0U6mrEJ5rAs48r/MVP?page-id=0%3A1&node-id=1-213&node-type=canvas&viewport=40%2C161%2C0.23&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=57%3A353&embed-host=share" 
+
+        <div id="prototype" class="figma-container">
+            <iframe
+                src="https://embed.figma.com/proto/FWlUSRDh0U6mrEJ5rAs48r/MVP?page-id=0%3A1&node-id=1-213&node-type=canvas&viewport=40%2C161%2C0.23&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=57%3A353&embed-host=share"
                 allowfullscreen>
             </iframe>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white">
+        <div class="container">
+            <p>&copy; 2024 Serbis. All rights reserved.</p>
+            <p>Contact us: info@serbisapp.com</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
