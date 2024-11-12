@@ -11160,3 +11160,13 @@ footer a:hover, footer a:active, footer a:focus {
     max-width: 17rem;
   }
 }
+
+.figma-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 393px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
