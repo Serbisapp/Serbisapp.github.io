@@ -16,6 +16,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* Responsive iframe styling */
+        .figma-frame {
+            width: 390px;
+            height: 844px;
+            border: none;
+        }
+        
+        /* Adjust for mobile screens */
+        @media (max-width: 576px) {
+            .figma-frame {
+                width: 100%;
+                height: 600px; /* Adjust height as needed */
+            }
+        }
+    </style>
 </head>
 <body id="page-top">
     <!-- Navigation-->
@@ -50,7 +66,7 @@
                 <div class="col-lg-6">
                     <!-- Masthead text and app badges-->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="display-1 lh-1 mb-3">Conectándotecc con Servicios Locales Confiables en Minutos</h1>
+                        <h1 class="display-1 lh-1 mb-3">Conectándote con Servicios Locales Confiables en Minutos</h1>
                         <p class="lead fw-normal text-muted mb-5">Serbis es una plataforma diseñada para facilitar la contratación de ayuda rápida y confiable con solo un clic. Ya sea para reparaciones del hogar o mantenimiento, Serbis está a tu disposición.</p>
                         <div class="d-flex flex-column flex-lg-row align-items-center">
                             <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="Google Play Store" /></a>
@@ -59,11 +75,11 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!-- Figma prototype iframe -->
+                    <!-- Figma prototype iframe with responsive styling -->
                     <iframe
                         src="https://embed.figma.com/proto/FWlUSRDh0U6mrEJ5rAs48r/MVP?page-id=0%3A1&node-id=1-213&node-type=canvas&viewport=40%2C161%2C0.23&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=57%3A353&embed-host=share"
                         allowfullscreen
-                        style="width: 390px; height: 844px; border: none;">
+                        class="figma-frame">
                     </iframe>
                 </div>
             </div>
