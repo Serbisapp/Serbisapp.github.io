@@ -11170,3 +11170,36 @@ footer a:hover, footer a:active, footer a:focus {
   border-radius: 8px;
   overflow: hidden;
 }
+
+/* Enhanced Styling for the SDG Section with gradient */
+.sdg-section {
+  color: #fff;
+  background: linear-gradient(45deg, #6a0dad, #8e44ad); /* Purple gradient */
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  text-align: center;
+}
+.sdg-section .sdg-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+.sdg-section .sdg-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.sdg-section .sdg-item img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.sdg-section p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}
