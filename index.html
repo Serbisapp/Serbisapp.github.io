@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app!" />
+    <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
     <meta name="author" content="Serbis" />
     <title>Serbis | Tu Solución de Servicios Locales en 5 Segundos</title>
     
@@ -12,92 +12,124 @@
     <meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://serbis.app" />
-    <meta property="og:image" content="assets/img/og-image.jpg" /> <!-- Make sure this image exists and is relevant -->
+    <meta property="og:image" content="assets/img/og-image.jpg" />
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
     <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://serbis.app" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> <!-- Make sure this exists -->
-    
-    <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
     
-    <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     
-    <!-- Core theme CSS (Bootstrap) -->
-    <link href="css/styles.css" rel="stylesheet" /> <!-- Your existing styles.css -->
+    <link href="css/styles.css" rel="stylesheet" />
 
-    <!-- Embedded Custom Styles for New Sections -->
     <style>
+        :root {
+            --serbis-primary: #0d6efd; /* Your brand primary color */
+            --serbis-light-bg: #f8f9fa; /* Very light grey for subtle backgrounds */
+            --serbis-dark-text: #212529;
+            --serbis-muted-text: #495057;
+            --serbis-section-padding-y: 5rem;
+        }
+
         body {
             font-family: 'Mulish', sans-serif;
+            color: var(--serbis-dark-text);
+            line-height: 1.6;
         }
 
         .masthead {
-            padding-top: 8rem; /* Adjust if navbar height changes */
-            padding-bottom: 6rem;
-            background: linear-gradient(45deg, #f3f4f6, #e9ecef); /* Light, modern gradient */
-            color: #333;
+            padding-top: 9rem; /* Increased for more space */
+            padding-bottom: 7rem; /* Increased for more space */
+            background-color: var(--serbis-light-bg); 
         }
 
         .masthead h1 {
             font-family: 'Newsreader', serif;
             font-weight: 700;
-            font-size: 2.8rem; /* Responsive font size */
-            line-height: 1.2;
-            color: #212529;
+            font-size: 3rem; 
+            line-height: 1.25;
+            color: var(--serbis-dark-text);
+            margin-bottom: 1rem;
         }
         .masthead h1 strong {
-            color: #0d6efd; /* Bootstrap primary or your brand color */
+            color: var(--serbis-primary);
         }
 
         .masthead .lead {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 400;
-            color: #495057;
-            margin-bottom: 2rem;
+            color: var(--serbis-muted-text);
+            margin-bottom: 2.5rem;
+            max-width: 550px; /* Constrain line length for readability */
+        }
+        /* Center lead text if text-lg-start is applied for consistency */
+        .text-lg-start .lead {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 992px) {
+            .text-lg-start .lead {
+                 margin-left: 0;
+                 margin-right: 0;
+            }
         }
 
-        .masthead .btn-primary {
-            background-color: #0d6efd; /* Bootstrap primary or your brand color */
-            border-color: #0d6efd;
+
+        .btn-serbis-primary { /* Renamed for clarity */
+            background-color: var(--serbis-primary);
+            border-color: var(--serbis-primary);
+            color: #fff;
             font-weight: 600;
-            padding: 0.8rem 2rem;
+            padding: 0.9rem 2.2rem;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
+            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
+            border-radius: 0.3rem; /* Subtle rounding */
         }
-        .masthead .btn-primary:hover {
-            background-color: #0b5ed7;
+        .btn-serbis-primary:hover {
+            background-color: #0b5ed7; /* Darken primary */
             border-color: #0a58ca;
+            color: #fff;
             transform: translateY(-2px);
         }
 
         .app-badges-container {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         .app-badge {
-            height: 50px; /* Adjust as needed */
-            margin: 0 0.5rem;
+            height: 48px; 
+            margin: 0 0.4rem;
             transition: transform 0.2s ease-in-out;
+            display: inline-block; /* Ensure proper spacing and alignment */
+        }
+        .app-badge img {
+            height: 100%;
+            width: auto;
         }
         .app-badge:hover {
             transform: scale(1.05);
         }
         
+        .navbar-custom { /* Assuming styles.css has this */
+             background-color: #fff; /* Ensure navbar is solid for fixed-top */
+        }
         .navbar-custom .navbar-nav .nav-link {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            text-transform: none; /* Less shouty, more Rams */
+            letter-spacing: 0.2px;
+            color: var(--serbis-muted-text);
+        }
+        .navbar-custom .navbar-nav .nav-link:hover,
+        .navbar-custom .navbar-nav .nav-link.active {
+            color: var(--serbis-primary);
         }
         .navbar-brand-centered {
             position: absolute;
@@ -108,54 +140,51 @@
         .section-title {
             font-family: 'Newsreader', serif;
             font-weight: 600;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
+            font-size: 2.2rem; /* Slightly reduced for balance */
+            margin-bottom: 3.5rem; /* More space after title */
+            color: var(--serbis-dark-text);
         }
 
+        .content-section { /* Generic class for content sections */
+            padding-top: var(--serbis-section-padding-y);
+            padding-bottom: var(--serbis-section-padding-y);
+        }
         #how-it-works {
-            padding: 5rem 0;
             background-color: #ffffff;
         }
         .how-it-works-step {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
-        .how-it-works-step .icon-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #eef2ff; /* Light accent color */
-            color: #0d6efd; /* Primary color for icon */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem auto;
-            font-size: 2.5rem; /* Icon size */
+        .how-it-works-step .bi { /* Icon styling directly */
+            font-size: 2.8rem; /* Icon size */
+            color: var(--serbis-primary);
+            margin-bottom: 1rem;
+            display: inline-block;
         }
         .how-it-works-step h3 {
             font-family: 'Newsreader', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #343a40;
+            color: var(--serbis-dark-text);
         }
         .how-it-works-step p {
-            color: #6c757d;
-            font-size: 1rem;
+            color: var(--serbis-muted-text);
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         #why-serbis {
-            padding: 5rem 0;
-            background-color: #f8f9fa; /* Light gray background */
+            background-color: var(--serbis-light-bg);
         }
         .feature-item {
             text-align: center;
             margin-bottom: 2.5rem;
         }
-        .feature-item .bi { /* Bootstrap Icon styling */
-            font-size: 3rem; /* Icon size */
-            color: #0d6efd; /* Primary color */
+        .feature-item .bi {
+            font-size: 2.8rem; 
+            color: var(--serbis-primary); 
             margin-bottom: 1rem;
             display: inline-block;
         }
@@ -164,28 +193,38 @@
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            color: #343a40;
+            color: var(--serbis-dark-text);
         }
         .feature-item p {
-            color: #6c757d;
+            color: var(--serbis-muted-text);
             font-size: 0.95rem;
+            line-height: 1.5;
         }
         
-        .app-mockup-hero {
-            /* Basic styling for an app mockup image if you use one */
-            /* Example: Add a subtle shadow or border */
+        .hero-app-mockup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .hero-app-mockup-container img {
             max-width: 100%;
+            max-height: 500px; /* Control max height of mockup */
             height: auto;
-            /* border-radius: 20px; */ /* If your mockup is phone-shaped */
-            /* box-shadow: 0 10px 30px rgba(0,0,0,0.1); */
+            /* Optional: if your mockup image doesn't have a shadow */
+            /* box-shadow: 0 15px 35px rgba(0,0,0,0.08); */
+            /* border-radius: 20px; */ /* If it's a phone shape */
         }
 
+
         .footer {
-            background-color: #212529; /* Dark background for footer */
-            color: rgba(255, 255, 255, 0.7);
+            background-color: #2c3e50; /* Slightly softer dark for footer */
+            color: rgba(255, 255, 255, 0.6);
+            padding-top: 3rem;
+            padding-bottom: 3rem;
         }
         .footer a {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
         }
         .footer a:hover {
@@ -193,77 +232,80 @@
             text-decoration: underline;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 991.98px) { /* lg breakpoint */
+        @media (max-width: 991.98px) {
             .navbar-brand-centered {
-                position: static; /* Reset for collapsed nav */
+                position: relative; 
+                left: 0;
                 transform: none;
-                margin-left: 0; /* Adjust as needed */
+                margin-left: 0; 
             }
             .navbar-custom .navbar-nav {
-                margin-top: 1rem; /* Space between logo and links in collapsed menu */
+                margin-top: 1rem; 
+            }
+            .masthead {
+                padding-top: 7rem;
+                padding-bottom: 5rem;
             }
             .masthead h1 {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
             .masthead .lead {
                 font-size: 1.1rem;
+                margin-left: auto; /* Center on smaller screens */
+                margin-right: auto;
             }
             .masthead .text-lg-start {
                 text-align: center !important;
             }
-            .hero-app-mockup-col {
-                margin-top: 3rem; /* Space above mockup on smaller screens */
-                display: flex;
-                justify-content: center;
+            .hero-app-mockup-container {
+                margin-top: 3rem;
             }
         }
-        @media (max-width: 767.98px) { /* md breakpoint */
+        @media (max-width: 767.98px) {
             .masthead h1 {
-                font-size: 2rem;
+                font-size: 2.1rem;
             }
             .app-badge {
-                height: 40px;
+                height: 42px;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+            .how-it-works-step h3, .feature-item h3 {
+                font-size: 1.2rem;
             }
         }
-
     </style>
 
-    <!-- Structured Data (Schema.org) - Kept from original -->
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Serbis",
     "url": "https://serbis.app",
-    "logo": "https://serbis.app/logo.svg",
+    "logo": "https://serbis.app/assets/img/logo.svg",
     "description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
     "address": {
         "@type": "PostalAddress",
         "addressLocality": "Buenos Aires",
         "addressCountry": "AR"
     },
-    "sameAs": [
-        "https://facebook.com/serbisapp",
-        "https://twitter.com/serbisapp",
-        "https://linkedin.com/company/serbis"
-    ]
+    "sameAs": []
     }
     </script>
 </head>
 <body id="page-top">
-    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand fw-bold navbar-brand-centered" href="#page-top">
-                <img src="assets/img/logo.svg" alt="Logo de Serbis" style="height: 40px;">
+                <img src="assets/img/logo.svg" alt="Logo de Serbis" style="height: 36px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="#!">Soy Proveedor</a></li>
+                    <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
                     <li class="nav-item"><a class="nav-link" href="#how-it-works">Cómo Funciona</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about-us-footer">Nosotros</a></li>
                 </ul>
@@ -271,57 +313,52 @@
         </div>
     </nav>
 
-    <!-- Masthead (Hero) Header-->
     <header class="masthead">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
                 <div class="col-lg-7">
-                    <!-- Masthead text-->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="display-1 lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
+                        <h1 class="lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
                         <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
-                        <a class="btn btn-primary btn-lg px-4 py-3 me-sm-3 fw-bold" href="#!">Publicá tu Pedido Ahora</a>
+                        <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
                         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
-                            <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
-                            <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
+                            <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
+                            <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 hero-app-mockup-col">
-                    <!-- Placeholder for a clean app screen mockup -->
-                    <!-- Example: <img src="assets/img/app-hero-mockup.png" alt="App Serbis en acción" class="app-mockup-hero"> -->
-                    <!-- For now, a simple visual representation or leave empty for focus on text -->
-                    <div style="background-image: url('assets/img/placeholder-app.png'); background-size: contain; background-repeat: no-repeat; background-position: center; min-height: 400px; width: 100%; max-width:300px; margin:auto;">
-                        <!-- Replace with your actual app mockup image using an <img> tag for better SEO and accessibility -->
-                        <!-- e.g., <img src="assets/img/serbis-app-screen.png" alt="Pantalla de la app Serbis" class="img-fluid rounded shadow-lg"> -->
+                <div class="col-lg-5">
+                    <div class="hero-app-mockup-container">
+                        <!-- IMPORTANT: Replace this with your actual app mockup image -->
+                        <img src="assets/img/placeholder-app-mockup.png" alt="App Serbis en un teléfono" class="img-fluid">
+                        <!-- Example: <img src="assets/img/serbis-app-hero.png" alt="App Serbis en acción" class="img-fluid rounded shadow-sm"> -->
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-5">
+    <section id="how-it-works" class="content-section">
         <div class="container px-4 px-lg-5">
             <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-4">
                     <div class="how-it-works-step">
-                        <div class="icon-circle"><i class="bi bi-pencil-square"></i></div>
+                        <i class="bi bi-pencil-square"></i>
                         <h3>1. Describí tu Necesidad</h3>
                         <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="how-it-works-step">
-                        <div class="icon-circle"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <i class="bi bi-lightning-charge-fill"></i>
                         <h3>2. Conectá al Instante</h3>
                         <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="how-it-works-step">
-                        <div class="icon-circle"><i class="bi bi-check2-circle"></i></div>
+                        <i class="bi bi-check2-circle"></i>
                         <h3>3. Resolvé y Calificá</h3>
                         <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
                     </div>
@@ -330,8 +367,7 @@
         </div>
     </section>
 
-    <!-- Why Serbis? / Trust Builders Section -->
-    <section id="why-serbis" class="py-5">
+    <section id="why-serbis" class="content-section">
         <div class="container px-4 px-lg-5">
             <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
             <div class="row gx-4 gx-lg-5">
@@ -364,35 +400,92 @@
                     </div>
                 </div>
             </div>
-             <!-- Optional: Add a small app mockup here as well, or another CTA -->
              <div class="text-center mt-5">
-                <a class="btn btn-primary btn-lg px-4 py-3 fw-bold" href="#!">Descargá la App y Empezá</a>
+                <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
             </div>
         </div>
     </section>
     
-    <!-- Footer-->
-    <footer class="py-5 footer" id="about-us-footer">
+    <footer class="footer" id="about-us-footer">
         <div class="container px-4 px-lg-5">
-            <div class="text-center">
+            <div class="text-center small">
                 <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
                 <div class="mb-2">Buenos Aires, Argentina</div>
                 <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
-                <!-- Add social media links here if you have them -->
-                <!-- Example:
-                <div class="mt-3">
-                    <a href="#!" class="text-white-50 me-3"><i class="bi bi-facebook fs-4"></i></a>
-                    <a href="#!" class="text-white-50 me-3"><i class="bi bi-twitter fs-4"></i></a>
-                    <a href="#!" class="text-white-50"><i class="bi bi-linkedin fs-4"></i></a>
-                </div>
-                -->
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap core JS (comes with the template usually, for toggler)-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS (if your template has one for specific behaviors like scroll-triggered nav changes) -->
-    <!-- <script src="js/scripts.js"></script> --> <!-- Uncomment if you have a scripts.js -->
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- CONFIGURATION: REPLACE THESE URLs ---
+            const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL"; // e.g., "https://apps.apple.com/ar/app/your-app-name/idYOUR_APP_ID"
+            const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL"; // e.g., "https://play.google.com/store/apps/details?id=com.your.app.package"
+            const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL"; // e.g., "https://serbis.app/publicar-pedido"
+            const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL"; // e.g., "https://serbis.app/registro-proveedor"
+            // --- END CONFIGURATION ---
+
+            function getOS() {
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                if (/android/i.test(userAgent)) {
+                    return "Android";
+                }
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    return "iOS";
+                }
+                return "Desktop"; // or "unknown"
+            }
+
+            const os = getOS();
+
+            // Main CTA button
+            const mainCtaButton = document.getElementById('main-cta-button');
+            if (mainCtaButton) {
+                mainCtaButton.addEventListener('click', function () {
+                    if (os === "iOS") {
+                        window.location.href = APPLE_APP_STORE_URL;
+                    } else if (os === "Android") {
+                        window.location.href = GOOGLE_PLAY_STORE_URL;
+                    } else { // Desktop or other
+                        window.location.href = DESKTOP_WEB_FORM_URL;
+                    }
+                });
+            }
+
+            // Secondary CTA button
+            const secondaryCtaButton = document.getElementById('secondary-cta-button');
+            if (secondaryCtaButton) {
+                secondaryCtaButton.addEventListener('click', function () {
+                    if (os === "iOS") {
+                        window.location.href = APPLE_APP_STORE_URL;
+                    } else if (os === "Android") {
+                        window.location.href = GOOGLE_PLAY_STORE_URL;
+                    } else { // Desktop or other
+                        window.location.href = DESKTOP_WEB_FORM_URL; // Or could also go to app stores
+                    }
+                });
+            }
+            
+            // Google Play badge link
+            const googlePlayLink = document.getElementById('google-play-link');
+            if (googlePlayLink) {
+                googlePlayLink.href = GOOGLE_PLAY_STORE_URL; // Always goes to Play Store
+            }
+
+            // App Store badge link
+            const appStoreLink = document.getElementById('app-store-link');
+            if (appStoreLink) {
+                appStoreLink.href = APPLE_APP_STORE_URL; // Always goes to App Store
+            }
+
+            // "Soy Proveedor" link
+            const soyProveedorLink = document.getElementById('soy-proveedor-link');
+            if (soyProveedorLink) {
+                soyProveedorLink.href = SOY_PROVEEDOR_URL;
+            }
+        });
+    </script>
 </body>
 </html>
