@@ -129,6 +129,7 @@
         .navbar-custom .navbar-nav .nav-link.active {
             color: var(--serbis-primary);
         }
+        /* This class is no longer used for the main logo, but kept here in case it's used elsewhere or for future reference */
         .navbar-brand-centered {
             position: absolute;
             left: 50%;
@@ -278,6 +279,10 @@
         /* --- End Poker Card Styles --- */
 
         @media (max-width: 991.98px) {
+            /* The .navbar-brand-centered styles for responsive might not be needed for the logo anymore,
+               but kept for potential other uses or for reference.
+               Bootstrap's default navbar-brand behavior will handle left alignment on small screens.
+            */
             .navbar-brand-centered {
                 position: relative; 
                 left: 0;
@@ -377,7 +382,8 @@
 <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand fw-bold navbar-brand-centered" href="#page-top">
+            <!-- MODIFIED LINE: Removed navbar-brand-centered class -->
+            <a class="navbar-brand fw-bold" href="#page-top">
                 <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis" style="height: 36px;">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
