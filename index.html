@@ -29,7 +29,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     
     <link href="css/styles.css" rel="stylesheet" />
-
     <style>
         :root {
             --serbis-primary: #0d6efd; /* Your brand primary color */
@@ -38,19 +37,16 @@
             --serbis-muted-text: #495057;
             --serbis-section-padding-y: 5rem;
         }
-
         body {
             font-family: 'Mulish', sans-serif;
             color: var(--serbis-dark-text);
             line-height: 1.6;
         }
-
         .masthead {
             padding-top: 9rem; /* Increased for more space */
             padding-bottom: 7rem; /* Increased for more space */
             background-color: var(--serbis-light-bg); 
         }
-
         .masthead h1 {
             font-family: 'Newsreader', serif;
             font-weight: 700;
@@ -62,7 +58,6 @@
         .masthead h1 strong {
             color: var(--serbis-primary);
         }
-
         .masthead .lead {
             font-size: 1.2rem;
             font-weight: 400;
@@ -80,7 +75,6 @@
                  margin-right: 0;
             }
         }
-
         .btn-serbis-primary {
             background-color: var(--serbis-primary);
             border-color: var(--serbis-primary);
@@ -97,7 +91,6 @@
             color: #fff;
             transform: translateY(-2px);
         }
-
         .app-badges-container {
             margin-top: 2rem;
         }
@@ -134,7 +127,6 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
         .section-title {
             font-family: 'Newsreader', serif;
             font-weight: 600;
@@ -142,7 +134,6 @@
             margin-bottom: 3.5rem;
             color: var(--serbis-dark-text);
         }
-
         .content-section {
             padding-top: var(--serbis-section-padding-y);
             padding-bottom: var(--serbis-section-padding-y);
@@ -172,7 +163,6 @@
             font-size: 0.95rem;
             line-height: 1.5;
         }
-
         #why-serbis {
             background-color: var(--serbis-light-bg);
         }
@@ -213,97 +203,144 @@
             color: #fff;
             text-decoration: underline;
         }
-
-        /* --- Styles for Poker Card App Screenshots --- */
+        /* --- Improved App Screenshots Carousel --- */
         .hero-app-mockup-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%; /* Ensure it takes vertical space */
-            min-height: 480px; /* Adjust as needed for vertical space */
-            perspective: 1200px; /* Adds depth for 3D rotations */
-            padding: 2rem 0; /* Add some padding */
-            position: relative; /* Needed for absolute positioning of children */
-        }
-
-        .app-screenshots-poker {
+            height: 100%;
+            min-height: 540px; /* Increased for better visibility */
+            padding: 2rem 0;
             position: relative;
-            /* Responsive width for the central card stack */
-            /* Min width, preferred width (relative to viewport), max width */
-            width: clamp(200px, 70vw, 270px); 
-            /* Height is determined by aspect-ratio of the images */
-            cursor: pointer; /* Indicate interactivity */
         }
-
+        
+        .app-screenshots-carousel {
+            position: relative;
+            width: clamp(240px, 70vw, 290px);
+            height: 550px;
+            perspective: 1200px;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
         .app-screenshot {
             position: absolute;
-            /* Center the screenshots before transforming */
-            top: 50%; 
-            left: 50%; 
-            
-            width: 100%; /* Take full width of parent */
-            height: auto; /* Maintain aspect ratio */
-            /* Enforce a common phone screen aspect ratio */
-            aspect-ratio: 9 / 19.5; 
-            object-fit: cover; /* Cover the area, might crop slightly */
-            
-            /* Styling for the "phone screen" look */
-            border-radius: 22px; /* Adjust for desired roundness */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12); /* Softer initial shadow */
-            
-            /* Optional: Add a subtle border to mimic phone edge */
-            border: 1px solid rgba(0,0,0,0.03); 
-            /* Or a thicker, more pronounced phone-like border: */
-            /* border: 6px solid #333; */
-            /* border-radius: 28px; */ /* Adjust radius if using thick border */
-            
-            /* Smooth, slightly bouncy transition */
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-color: #fff; /* Fallback bg color */
-            
-            /* Initial transform corrects the top/left 50% */
-            transform-origin: center center; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9 / 19.5;
+            object-fit: cover;
+            border-radius: 22px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border: 1px solid rgba(0,0,0,0.05);
+            backface-visibility: hidden;
+            transition: transform 0.6s ease-in-out, opacity 0.4s ease-in-out;
         }
-
-        /* --- Initial Stacked Positions --- */
-        .app-screenshot.screen1 { /* Top card */
+        
+        /* Initial positions for the screenshots */
+        .app-screenshot.screen1 {
+            transform: translateZ(100px);
             z-index: 3;
-            /* Translate back to center, move slightly up, slight rotate */
-            transform: translate(-50%, -50%) translateY(-15px) rotate(2deg) scale(1); 
+            opacity: 1;
         }
-
-        .app-screenshot.screen2 { /* Middle card */
+        
+        .app-screenshot.screen2 {
+            transform: rotateY(120deg) translateZ(100px);
             z-index: 2;
-            /* Translate back to center, slight offset, opposite rotate, smaller */
-            transform: translate(-50%, -50%) translateY(0px) rotate(-3deg) scale(0.92); 
+            opacity: 0.7;
         }
-
-        .app-screenshot.screen3 { /* Bottom card */
+        
+        .app-screenshot.screen3 {
+            transform: rotateY(240deg) translateZ(100px);
             z-index: 1;
-            /* Translate back to center, further offset, more rotate, smallest */
-            transform: translate(-50%, -50%) translateY(15px) rotate(4deg) scale(0.84);
+            opacity: 0.7;
         }
-
-        /* --- Hover Effect on the Container --- */
-        .app-screenshots-poker:hover .screen1 {
-            /* Move significantly up, straighten, slight scale up for focus */
-            transform: translate(-50%, -50%) translateY(-110%) rotate(0deg) scale(1.02); 
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15), 0 20px 45px rgba(0,0,0,0.2); /* Enhanced shadow */
+        
+        /* Navigation arrows */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+            z-index: 10;
         }
-
-        .app-screenshots-poker:hover .screen2 {
-            /* Move to the middle position, adjust rotation/scale */
-            transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94); 
+        
+        .carousel-arrow {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: var(--serbis-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            pointer-events: auto;
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
         }
-
-        .app-screenshots-poker:hover .screen3 {
-            /* Move to the bottom position, adjust rotation/scale */
-            transform: translate(-50%, -50%) translateY(110%) rotate(5deg) scale(0.86); 
+        
+        .carousel-arrow:hover {
+            background-color: var(--serbis-primary);
+            color: white;
+            transform: scale(1.1);
         }
-        /* --- End Poker Card Styles --- */
-
-
+        
+        .carousel-dots {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(13, 110, 253, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--serbis-primary);
+            transform: scale(1.2);
+        }
+        
+        /* Hover effect to invite interaction */
+        .app-screenshots-carousel:hover .app-screenshot.active {
+            transform: translateZ(130px) scale(1.05);
+        }
+        
+        /* Phone frame overlay for more realistic app look */
+        .phone-frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% + 15px);
+            height: auto;
+            z-index: 5;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        
+        /* Making carousel responsive */
         @media (max-width: 991.98px) {
             .navbar-brand-centered {
                 position: relative; 
@@ -330,25 +367,20 @@
             .masthead .text-lg-start { /* Override for hero text section */
                 text-align: center !important;
             }
-            /* Poker card styles for medium screens */
             .hero-app-mockup-container {
-                margin-top: 3rem; 
-                min-height: 420px; 
+                margin-top: 3rem;
+                min-height: 480px;
             }
-            .app-screenshots-poker {
-                width: clamp(180px, 65vw, 240px); /* Smaller screenshots */
+            .app-screenshots-carousel {
+                width: clamp(200px, 65vw, 260px);
+                height: 480px;
             }
-            /* Adjust hover transforms for less vertical space */
-             .app-screenshots-poker:hover .screen1 {
-                 transform: translate(-50%, -50%) translateY(-100%) rotate(0deg) scale(1.02);
-             }
-             .app-screenshots-poker:hover .screen2 {
-                 transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94);
-             }
-             .app-screenshots-poker:hover .screen3 {
-                 transform: translate(-50%, -50%) translateY(100%) rotate(5deg) scale(0.86);
-             }
+            .carousel-arrow {
+                width: 34px;
+                height: 34px;
+            }
         }
+        
         @media (max-width: 767.98px) {
             .masthead h1 {
                 font-size: 2.1rem;
@@ -362,34 +394,23 @@
             .how-it-works-step h3, .feature-item h3 {
                 font-size: 1.2rem;
             }
-            /* Poker card styles for small screens */
             .hero-app-mockup-container {
-                min-height: 380px;
+                min-height: 450px;
             }
-            .app-screenshots-poker {
-                 width: clamp(170px, 60vw, 220px); /* Even smaller */
+            .app-screenshots-carousel {
+                width: clamp(180px, 60vw, 220px);
+                height: 440px;
             }
-             /* Adjust initial stacking slightly if needed */
-            .app-screenshot.screen1 {
-                transform: translate(-50%, -50%) translateY(-10px) rotate(2deg) scale(1);
+            .carousel-arrow {
+                width: 30px;
+                height: 30px;
             }
-            /* .app-screenshot.screen2's initial position uses base CSS, no override needed here */
-            .app-screenshot.screen3 {
-                transform: translate(-50%, -50%) translateY(10px) rotate(4deg) scale(0.84);
-            }
-            /* Further reduce hover separation */
-             .app-screenshots-poker:hover .screen1 {
-                transform: translate(-50%, -50%) translateY(-90%) rotate(0deg) scale(1.02);
-            }
-            .app-screenshots-poker:hover .screen2 {
-                transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94);
-            }
-            .app-screenshots-poker:hover .screen3 {
-                transform: translate(-50%, -50%) translateY(90%) rotate(5deg) scale(0.86);
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
             }
         }
     </style>
-
     <script type="application/ld+json">
     {
     "@context": "https://schema.org",
@@ -425,7 +446,6 @@
             </div>
         </div>
     </nav>
-
     <header class="masthead">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
@@ -441,24 +461,34 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
-                    <!-- Hero Mockup Container: Centers content and provides perspective -->
                     <div class="hero-app-mockup-container">
-                        <!-- Poker Card Wrapper: Hover target, defines base size -->
-                        <div class="app-screenshots-poker">
-                            <!-- 
-                                TODO: Replace these src attributes with your actual app screenshot paths.
-                                Recommended image aspect ratio is portrait (e.g., 9:19.5 or similar).
-                            -->
-                            <img src="assets/img/sim1.png" alt="Serbis App - Pantalla Principal" class="app-screenshot screen1">
-                            <img src="assets/img/sim2.png" alt="Serbis App - Detalle de Servicio" class="app-screenshot screen2">
-                            <img src="assets/img/sim3.png" alt="Serbis App - Chat con Profesional" class="app-screenshot screen3">
+                        <div class="app-screenshots-carousel">
+                            <div class="carousel-container" id="app-carousel">
+                                <img src="assets/img/sim1.png" alt="Serbis App Screenshot 1" class="app-screenshot screen1 active" data-position="0">
+                                <img src="assets/img/sim2.png" alt="Serbis App Screenshot 2" class="app-screenshot screen2" data-position="1">
+                                <img src="assets/img/sim3.png" alt="Serbis App Screenshot 3" class="app-screenshot screen3" data-position="2">
+                            </div>
+                            
+                            <div class="carousel-nav">
+                                <button class="carousel-arrow prev" aria-label="Previous screenshot">
+                                    <i class="bi bi-chevron-left"></i>
+                                </button>
+                                <button class="carousel-arrow next" aria-label="Next screenshot">
+                                    <i class="bi bi-chevron-right"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="carousel-dots">
+                                <div class="carousel-dot active" data-slide="0"></div>
+                                <div class="carousel-dot" data-slide="1"></div>
+                                <div class="carousel-dot" data-slide="2"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
     <section id="how-it-works" class="content-section">
         <div class="container px-4 px-lg-5">
             <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
@@ -487,7 +517,6 @@
             </div>
         </div>
     </section>
-
     <section id="why-serbis" class="content-section">
         <div class="container px-4 px-lg-5">
             <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
@@ -536,7 +565,6 @@
             </div>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
@@ -547,7 +575,7 @@
             const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL"; // e.g., "https://serbis.app/publicar-pedido"
             const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL"; // e.g., "https://serbis.app/registro-proveedor"
             // --- END CONFIGURATION ---
-
+            
             function getOS() {
                 const userAgent = navigator.userAgent || navigator.vendor || window.opera;
                 if (/android/i.test(userAgent)) {
@@ -558,9 +586,9 @@
                 }
                 return "Desktop"; // or "unknown"
             }
-
+            
             const os = getOS();
-
+            
             // Main CTA button
             const mainCtaButton = document.getElementById('main-cta-button');
             if (mainCtaButton) {
@@ -574,7 +602,7 @@
                     }
                 });
             }
-
+            
             // Secondary CTA button
             const secondaryCtaButton = document.getElementById('secondary-cta-button');
             if (secondaryCtaButton) {
@@ -594,19 +622,64 @@
             if (googlePlayLink) {
                 googlePlayLink.href = GOOGLE_PLAY_STORE_URL; // Always goes to Play Store
             }
-
+            
             // App Store badge link
             const appStoreLink = document.getElementById('app-store-link');
             if (appStoreLink) {
                 appStoreLink.href = APPLE_APP_STORE_URL; // Always goes to App Store
             }
-
+            
             // "Soy Proveedor" link
             const soyProveedorLink = document.getElementById('soy-proveedor-link');
             if (soyProveedorLink) {
                 soyProveedorLink.href = SOY_PROVEEDOR_URL;
             }
-        });
-    </script>
-</body>
-</html>
+            
+            // --- App Screenshots Carousel ---
+            const carousel = document.getElementById('app-carousel');
+            const screenshots = document.querySelectorAll('.app-screenshot');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-arrow.prev');
+            const nextBtn = document.querySelector('.carousel-arrow.next');
+            let currentIndex = 0;
+            let autoRotateInterval;
+            
+            // Function to rotate carousel to specific index
+            function rotateCarousel(index) {
+                // Wrap around for infinite rotation
+                if (index < 0) index = screenshots.length - 1;
+                if (index >= screenshots.length) index = 0;
+                
+                currentIndex = index;
+                
+                // Update carousel rotation
+                carousel.style.transform = `rotateY(${-120 * currentIndex}deg)`;
+                
+                // Update active states
+                screenshots.forEach((screenshot, idx) => {
+                    screenshot.classList.remove('active');
+                    if (idx === currentIndex) {
+                        screenshot.classList.add('active');
+                    }
+                });
+                
+                dots.forEach((dot, idx) => {
+                    dot.classList.remove('active');
+                    if (idx === currentIndex) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            // Set up event listeners for navigation
+            prevBtn.addEventListener('click', () => {
+                rotateCarousel(currentIndex - 1);
+                resetAutoRotate();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                rotateCarousel(currentIndex + 1);
+                resetAutoRotate();
+            });
+            
+            // Set up event listeners for dots
