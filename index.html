@@ -28,366 +28,1088 @@
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     
-    <link href="css/styles.css" rel="stylesheet" />
+    <!-- <link href="css/styles.css" rel="stylesheet" /> Your original styles.css if any -->
 
     <style>
+        /*
+        ==========================================================================
+        Serbis - Apple-Inspired Redesign
+        ==========================================================================
+        Version: 1.0
+        Author: AI Assistant
+        Description: A comprehensive stylesheet to give the Serbis landing page
+                     an Apple-like aesthetic, focusing on typography, spacing,
+                     color, and interaction details.
+        ==========================================================================
+        Table of Contents:
+        ------------------
+        1.  Root Variables & Global Configuration
+            1.1 Color Palette
+            1.2 Typography
+            1.3 Spacing & Sizing
+            1.4 Transitions & Animations
+            1.5 Borders & Shadows
+        2.  Global Resets & Base Styles
+            2.1 HTML & Body
+            2.2 Font Smoothing & Text Rendering
+            2.3 Links & Interactive Elements Base
+            2.4 Headings Base
+            2.5 Paragraphs & Text Elements
+        3.  Layout & Grid System (Leveraging Bootstrap, with overrides)
+            3.1 Container Adjustments
+        4.  Navigation System (navbar-custom)
+            4.1 Main Navigation Bar Styling
+            4.2 Brand Logo Styling
+            4.3 Navigation Links
+            4.4 Mobile Navigation Toggler
+            4.5 Navbar States (Scroll, Focus)
+        5.  Masthead (Hero Section)
+            5.1 Masthead General Layout
+            5.2 Hero Typography (Headline, Lead)
+            5.3 Call-to-Action Buttons (btn-serbis-primary)
+            5.4 App Badges Styling
+            5.5 Hero App Mockup Container
+                5.5.1 App Screenshots Wrapper
+                5.5.2 Individual App Screenshot Styling
+                5.5.3 Screenshot Hover & Focus Effects
+                5.5.4 Screenshot Animations (Subtle)
+        6.  Content Sections
+            6.1 General Section Styling
+            6.2 Section Titles
+            6.3 "How It Works" Section (how-it-works)
+                6.3.1 Step Item Styling
+                6.3.2 Step Icons & Text
+            6.4 "Why Serbis" Section (why-serbis)
+                6.4.1 Feature Item Styling
+                6.4.2 Feature Icons & Text
+        7.  Footer
+            7.1 Footer General Styling
+            7.2 Footer Text & Links
+        8.  Utility Classes (Apple-specific additions if any)
+        9.  Animations & Keyframes
+            9.1 Subtle Fade-in
+            9.2 Button Press Effect
+        10. Responsive Design Adjustments
+            10.1 Extra Large Desktops (1400px+)
+            10.2 Large Desktops (1200px - 1399px)
+            10.3 Desktops & Small Laptops (992px - 1199px) - (Bootstrap lg)
+            10.4 Tablets - Landscape (768px - 991px) - (Bootstrap md)
+            10.5 Tablets - Portrait & Large Phones (576px - 767px) - (Bootstrap sm)
+            10.6 Small Phones (Below 576px) - (Bootstrap xs)
+        11. Accessibility Enhancements
+            11.1 Focus Visible Styles
+        12. Print Styles (Basic)
+        ==========================================================================
+        */
+
+        /*
+        ==========================================================================
+        1. Root Variables & Global Configuration
+        ==========================================================================
+        */
         :root {
-            --serbis-primary: #0d6efd; /* Your brand primary color */
-            --serbis-light-bg: #f8f9fa; /* Very light grey for subtle backgrounds */
-            --serbis-dark-text: #212529;
-            --serbis-muted-text: #495057;
-            --serbis-section-padding-y: 5rem;
+            /* 1.1 Color Palette */
+            --serbis-primary-blue: #0d6efd; /* Original brand blue, can be refined if needed e.g. #007aff */
+            --apple-black: #1d1d1f;
+            --apple-white: #ffffff;
+            --apple-off-white: #f5f5f7; /* Common Apple background */
+            --apple-light-gray: #f8f9fa; /* Existing, good for subtle bg */
+            --apple-medium-gray: #e8e8ed;
+            --apple-text-primary: var(--apple-black);
+            --apple-text-secondary: #515152; /* Softer black for body text */
+            --apple-text-tertiary: #6e6e73; /* For less important text, captions */
+            --apple-text-quaternary: #86868b;
+            --apple-link-color: var(--serbis-primary-blue);
+            --apple-link-hover-color: #0056b3; /* Darker shade of primary blue */
+            --apple-nav-background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            --apple-nav-background-scrolled: rgba(245, 245, 247, 0.85);
+            --apple-nav-text-color: var(--apple-text-secondary);
+            --apple-nav-text-hover-color: var(--serbis-primary-blue);
+            --apple-footer-background: #111113; /* Very dark, almost black */
+            --apple-footer-text-color: var(--apple-text-quaternary);
+            --apple-footer-link-color: #bcbcc1;
+
+            /* 1.2 Typography */
+            --apple-font-sans-serif: 'Mulish', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --apple-font-serif: 'Newsreader', Georgia, Times, serif; /* For headlines as per original */
+            --apple-font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Fallback/alternative */
+
+            /* Base font sizes for rem calculation */
+            --apple-font-size-base: 16px; /* Typically 16px or 17px */
+            --apple-line-height-base: 1.65;
+            --apple-letter-spacing-tight: -0.02em;
+            --apple-letter-spacing-normal: 0em;
+            --apple-letter-spacing-loose: 0.01em;
+
+            /* 1.3 Spacing & Sizing */
+            --apple-spacing-unit: 8px; /* Base unit for margins/padding */
+            --apple-section-padding-y-base: 6rem; /* 96px */
+            --apple-section-padding-y-sm: 4rem; /* 64px */
+            --apple-component-padding: 1.5rem; /* 24px */
+            --apple-border-radius-sm: 6px;
+            --apple-border-radius-md: 12px; /* Common for cards, larger elements */
+            --apple-border-radius-lg: 18px; /* For app mockups */
+            --apple-border-radius-pill: 980px; /* For pill-shaped buttons */
+            
+            /* 1.4 Transitions & Animations */
+            --apple-transition-duration-fast: 0.15s;
+            --apple-transition-duration-normal: 0.3s;
+            --apple-transition-duration-slow: 0.5s;
+            --apple-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* Material Design like, but smooth */
+            --apple-transition-timing-function-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            
+            /* 1.5 Borders & Shadows */
+            --apple-border-color-light: rgba(0,0,0,0.08);
+            --apple-border-color-medium: rgba(0,0,0,0.12);
+            --apple-shadow-xs: 0 1px 2px rgba(0,0,0,0.03);
+            --apple-shadow-sm: 0 2px 4px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+            --apple-shadow-md: 0 4px 12px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.05);
+            --apple-shadow-lg: 0 10px 25px rgba(0,0,0,0.08), 0 5px 10px rgba(0,0,0,0.06);
+            --apple-shadow-xl: 0px 20px 50px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0,0,0,0.07);
         }
 
+        /*
+        ==========================================================================
+        2. Global Resets & Base Styles
+        ==========================================================================
+        */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        }
+
+        html {
+            font-size: var(--apple-font-size-base);
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+        }
+
+        /* 2.1 HTML & Body */
         body {
-            font-family: 'Mulish', sans-serif;
-            color: var(--serbis-dark-text);
-            line-height: 1.6;
-        }
-
-        .masthead {
-            padding-top: 9rem; /* Increased for more space */
-            padding-bottom: 7rem; /* Increased for more space */
-            background-color: var(--serbis-light-bg); 
-        }
-
-        .masthead h1 {
-            font-family: 'Newsreader', serif;
-            font-weight: 700;
-            font-size: 3rem; 
-            line-height: 1.25;
-            color: var(--serbis-dark-text);
-            margin-bottom: 1rem;
-        }
-        .masthead h1 strong {
-            color: var(--serbis-primary);
-        }
-
-        .masthead .lead {
-            font-size: 1.2rem;
+            font-family: var(--apple-font-sans-serif);
             font-weight: 400;
-            color: var(--serbis-muted-text);
-            margin-bottom: 2.5rem;
-            max-width: 550px; /* Constrain line length for readability */
+            line-height: var(--apple-line-height-base);
+            color: var(--apple-text-secondary);
+            background-color: var(--apple-white); /* Default white background */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            position: relative; /* For potential fixed elements or pseudo-elements */
         }
-        .text-lg-start .lead {
-            margin-left: auto;
-            margin-right: auto;
+
+        /* 2.2 Font Smoothing & Text Rendering */
+        body, input, textarea, button {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
         }
-        @media (min-width: 992px) {
-            .text-lg-start .lead {
-                 margin-left: 0;
-                 margin-right: 0;
+        
+        /* 2.3 Links & Interactive Elements Base */
+        a {
+            color: var(--apple-link-color);
+            text-decoration: none; /* Apple typically doesn't underline links unless contextual */
+            transition: color var(--apple-transition-duration-fast) var(--apple-transition-timing-function);
+        }
+        a:hover {
+            color: var(--apple-link-hover-color);
+            text-decoration: underline; /* Underline on hover for clarity */
+        }
+
+        button,
+        input[type="button"],
+        input[type="submit"],
+        input[type="reset"] {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            appearance: none; /* Remove default system styling */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        /* 2.4 Headings Base */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--apple-font-serif); /* Using Newsreader as specified */
+            color: var(--apple-text-primary);
+            font-weight: 600; /* Default bold for headings */
+            line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: calc(var(--apple-spacing-unit) * 2); /* 16px */
+            letter-spacing: var(--apple-letter-spacing-tight); /* Slightly tighter for large text */
+        }
+        /* Specific heading sizes - can be fine-tuned */
+        h1 { font-size: 2.75rem; font-weight: 700; } /* ~44px */
+        h2 { font-size: 2.25rem; font-weight: 600; } /* ~36px */
+        h3 { font-size: 1.5rem; font-weight: 600; }  /* ~24px */
+        h4 { font-size: 1.25rem; font-weight: 500; } /* ~20px */
+        h5 { font-size: 1rem; font-weight: 500; }    /* ~16px */
+        h6 { font-size: 0.875rem; font-weight: 500; }/* ~14px */
+
+        /* 2.5 Paragraphs & Text Elements */
+        p {
+            margin-bottom: calc(var(--apple-spacing-unit) * 2); /* 16px */
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        strong, b {
+            font-weight: 600; /* Use a semi-bold for strong tags */
+        }
+
+        em, i {
+            /* If using Bootstrap Icons, their styles are separate */
+        }
+
+        small {
+            font-size: 0.875em; /* Relative to parent */
+            color: var(--apple-text-tertiary);
+        }
+
+        img, svg, video, canvas, audio, iframe, embed, object {
+            display: block;
+            max-width: 100%;
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /*
+        ==========================================================================
+        3. Layout & Grid System (Leveraging Bootstrap, with overrides)
+        ==========================================================================
+        */
+        /* 3.1 Container Adjustments */
+        .container, .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+            /* Apple sites often have wider content areas on large screens */
+            /* Bootstrap's default max-widths are fine, but padding can be adjusted */
+            padding-left: calc(var(--apple-spacing-unit) * 2.5); /* 20px */
+            padding-right: calc(var(--apple-spacing-unit) * 2.5); /* 20px */
+        }
+        
+        /*
+        ==========================================================================
+        4. Navigation System (navbar-custom)
+        ==========================================================================
+        */
+        /* 4.1 Main Navigation Bar Styling */
+        .navbar-custom {
+            background-color: var(--apple-nav-background);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: none; /* Apple navs are often borderless or have subtle bottom border */
+            border-bottom: 1px solid var(--apple-border-color-light);
+            padding-top: calc(var(--apple-spacing-unit) * 1.5); /* 12px */
+            padding-bottom: calc(var(--apple-spacing-unit) * 1.5); /* 12px */
+            transition: background-color var(--apple-transition-duration-normal) var(--apple-transition-timing-function),
+                        border-color var(--apple-transition-duration-normal) var(--apple-transition-timing-function);
+            height: 60px; /* Typical Apple nav height */
+            display: flex;
+            align-items: center;
+        }
+        .navbar-custom.is-scrolled { /* Example class to add on scroll via JS if needed */
+            background-color: var(--apple-nav-background-scrolled);
+            border-bottom-color: var(--apple-border-color-medium);
+        }
+
+        /* Remove Bootstrap fixed-top shadow if it's there by default */
+        .navbar-custom.fixed-top.shadow-sm {
+            box-shadow: none !important;
+        }
+
+        /* 4.2 Brand Logo Styling */
+        .navbar-custom .navbar-brand {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-right: calc(var(--apple-spacing-unit) * 3); /* 24px */
+            display: flex;
+            align-items: center;
+        }
+        .navbar-custom .navbar-brand img {
+            height: 28px; /* Adjust logo size for nav bar */
+            width: auto;
+            transition: transform var(--apple-transition-duration-fast) var(--apple-transition-timing-function);
+        }
+        .navbar-custom .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* For the centered brand, this needs careful handling with other nav items */
+        .navbar-brand-centered {
+            /* Default Bootstrap handling is fine if kept, but usually Apple places logo left */
+            /* Or if centered, nav items are equally spaced on either side */
+            /* For simplicity, keeping its current logic but ensuring it looks clean */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 50%; /* Align vertically if navbar height changes */
+            transform: translate(-50%, -50%);
+        }
+        @media (max-width: 991.98px) {
+            .navbar-brand-centered {
+                position: relative; /* Reset for collapsed menu */
+                left: 0;
+                transform: none;
+                top: 0;
             }
         }
 
-        .btn-serbis-primary {
-            background-color: var(--serbis-primary);
-            border-color: var(--serbis-primary);
-            color: #fff;
-            font-weight: 600;
-            padding: 0.9rem 2.2rem;
-            font-size: 1.1rem;
-            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
-            border-radius: 0.3rem;
+        /* 4.3 Navigation Links */
+        .navbar-custom .navbar-nav .nav-link {
+            font-family: var(--apple-font-sans-serif);
+            font-size: 0.875rem; /* ~14px, Apple uses smallish nav text */
+            font-weight: 500; /* Slightly bolder than body text */
+            color: var(--apple-nav-text-color);
+            padding: calc(var(--apple-spacing-unit) * 0.75) calc(var(--apple-spacing-unit) * 1.5); /* 6px 12px */
+            margin-left: var(--apple-spacing-unit); /* 8px */
+            margin-right: var(--apple-spacing-unit); /* 8px */
+            text-transform: none; /* No uppercase */
+            letter-spacing: var(--apple-letter-spacing-normal);
+            transition: color var(--apple-transition-duration-fast) var(--apple-transition-timing-function);
+            border-radius: var(--apple-border-radius-sm); /* Subtle rounding for focus */
         }
-        .btn-serbis-primary:hover {
-            background-color: #0b5ed7;
-            border-color: #0a58ca;
-            color: #fff;
-            transform: translateY(-2px);
+        .navbar-custom .navbar-nav .nav-link:hover,
+        .navbar-custom .navbar-nav .nav-link.active {
+            color: var(--apple-nav-text-hover-color);
+            background-color: transparent; /* No background on hover typically */
+        }
+        .navbar-custom .navbar-nav .nav-link:focus-visible {
+            outline: 2px solid var(--serbis-primary-blue);
+            outline-offset: 2px;
+        }
+        
+        /* 4.4 Mobile Navigation Toggler */
+        .navbar-custom .navbar-toggler {
+            border: none;
+            padding: calc(var(--apple-spacing-unit) * 0.5); /* 4px */
+            font-size: 1.5rem; /* Make icon larger */
+            color: var(--apple-text-primary);
+            transition: color var(--apple-transition-duration-fast) ease-in-out;
+        }
+        .navbar-custom .navbar-toggler:focus {
+            box-shadow: none; /* Remove Bootstrap focus shadow */
+        }
+        .navbar-custom .navbar-toggler:focus-visible {
+            outline: 2px solid var(--serbis-primary-blue);
+            outline-offset: 2px;
+            border-radius: var(--apple-border-radius-sm);
+        }
+        .navbar-custom .navbar-toggler .bi-list {
+            /* Style the icon if needed, Bootstrap icons are usually fine */
         }
 
+        /* Mobile navigation panel */
+        .navbar-collapse {
+            background-color: var(--apple-white); /* Solid background for dropdown */
+            border-top: 1px solid var(--apple-border-color-light); /* Separator for mobile */
+            margin-top: 1px; /* Push below the border */
+        }
+        @media (min-width: 992px) { /* lg breakpoint */
+            .navbar-collapse {
+                background-color: transparent;
+                border-top: none;
+                margin-top: 0;
+            }
+            .navbar-custom .navbar-nav { /* Ensure correct alignment on desktop */
+                 align-items: center;
+            }
+        }
+        @media (max-width: 991.98px) {
+            .navbar-custom .navbar-nav {
+                padding-top: var(--apple-spacing-unit);
+                padding-bottom: var(--apple-spacing-unit);
+            }
+            .navbar-custom .navbar-nav .nav-item {
+                width: 100%;
+            }
+            .navbar-custom .navbar-nav .nav-link {
+                padding: calc(var(--apple-spacing-unit) * 1.25) calc(var(--apple-spacing-unit) * 2); /* 10px 16px */
+                margin-left: 0;
+                margin-right: 0;
+                display: block; /* Full width tap target */
+            }
+        }
+
+        /*
+        ==========================================================================
+        5. Masthead (Hero Section)
+        ==========================================================================
+        */
+        /* 5.1 Masthead General Layout */
+        .masthead {
+            padding-top: calc(var(--apple-section-padding-y-base) + 2rem); /* Extra top padding for nav */
+            padding-bottom: var(--apple-section-padding-y-base);
+            background-color: var(--apple-white); /* Clean white background */
+            min-height: calc(100vh - 60px); /* Try to make it full viewport height minus nav */
+            display: flex;
+            align-items: center;
+        }
+
+        /* 5.2 Hero Typography (Headline, Lead) */
+        .masthead h1 {
+            font-family: var(--apple-font-serif); /* Newsreader as per original */
+            font-size: 3.5rem; /* Large, impactful */
+            font-weight: 700; /* Bold */
+            line-height: 1.15;
+            color: var(--apple-text-primary);
+            margin-bottom: calc(var(--apple-spacing-unit) * 2.5); /* 20px */
+            letter-spacing: var(--apple-letter-spacing-tight);
+        }
+        .masthead h1 strong { /* Style the highlighted part */
+            color: var(--serbis-primary-blue);
+            font-weight: 700; /* Ensure it matches */
+        }
+
+        .masthead .lead {
+            font-family: var(--apple-font-sans-serif);
+            font-size: 1.25rem; /* ~20px */
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--apple-text-secondary);
+            margin-bottom: calc(var(--apple-spacing-unit) * 4); /* 32px */
+            max-width: 580px; /* Control line length for readability */
+        }
+        /* Center lead text on smaller screens if text-lg-start is used */
+        @media (max-width: 991.98px) {
+            .masthead .text-lg-start .lead,
+            .masthead .text-lg-start h1 {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* 5.3 Call-to-Action Buttons (btn-serbis-primary) */
+        .btn-serbis-primary {
+            font-family: var(--apple-font-sans-serif);
+            background-color: var(--serbis-primary-blue);
+            border: 1px solid var(--serbis-primary-blue);
+            color: var(--apple-white);
+            font-weight: 500; /* Apple buttons often use medium weight */
+            padding: calc(var(--apple-spacing-unit) * 1.75) calc(var(--apple-spacing-unit) * 4); /* 14px 32px */
+            font-size: 1rem; /* ~16px */
+            letter-spacing: var(--apple-letter-spacing-loose);
+            border-radius: var(--apple-border-radius-md); /* Rounded corners */
+            transition: background-color var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out),
+                        border-color var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out),
+                        transform var(--apple-transition-duration-fast) var(--apple-transition-timing-function-ease-out),
+                        box-shadow var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out);
+            display: inline-block; /* Ensure proper spacing and sizing */
+            text-align: center;
+            vertical-align: middle;
+            user-select: none; /* Prevent text selection */
+        }
+        .btn-serbis-primary:hover {
+            background-color: var(--apple-link-hover-color);
+            border-color: var(--apple-link-hover-color);
+            color: var(--apple-white);
+            transform: translateY(-2px); /* Subtle lift */
+            box-shadow: var(--apple-shadow-md);
+        }
+        .btn-serbis-primary:active {
+            transform: translateY(0px); /* Press down effect */
+            background-color: #004a99; /* Even darker for active state */
+            border-color: #004a99;
+            box-shadow: var(--apple-shadow-sm);
+        }
+        .btn-serbis-primary:focus-visible {
+            outline: 3px solid var(--serbis-primary-blue);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.3); /* Softer focus ring around */
+        }
+        /* Larger button variant, if needed from original btn-lg */
+        .btn-serbis-primary.btn-lg {
+             padding: calc(var(--apple-spacing-unit) * 2) calc(var(--apple-spacing-unit) * 5); /* 16px 40px */
+             font-size: 1.125rem; /* ~18px */
+        }
+
+        /* 5.4 App Badges Styling */
         .app-badges-container {
-            margin-top: 2rem;
+            margin-top: calc(var(--apple-spacing-unit) * 3.5); /* 28px */
         }
         .app-badge {
-            height: 48px; 
-            margin: 0 0.4rem;
-            transition: transform 0.2s ease-in-out;
+            height: 44px; /* Slightly smaller than original for sleeker look */
+            margin: 0 calc(var(--apple-spacing-unit) * 0.5); /* 4px */
+            transition: transform var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out),
+                        opacity var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out);
             display: inline-block;
+            opacity: 0.9; /* Slightly transparent to blend better */
         }
         .app-badge img {
             height: 100%;
             width: auto;
+            object-fit: contain; /* Ensure badges are not distorted */
         }
         .app-badge:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) translateY(-1px);
+            opacity: 1;
         }
-        
-        .navbar-custom {
-             background-color: #fff; 
-        }
-        .navbar-custom .navbar-nav .nav-link {
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: none;
-            letter-spacing: 0.2px;
-            color: var(--serbis-muted-text);
-        }
-        .navbar-custom .navbar-nav .nav-link:hover,
-        .navbar-custom .navbar-nav .nav-link.active {
-            color: var(--serbis-primary);
-        }
-        .navbar-brand-centered {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        .app-badge:first-child { margin-left: 0; }
+        .app-badge:last-child { margin-right: 0; }
 
-        .section-title {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 2.2rem;
-            margin-bottom: 3.5rem;
-            color: var(--serbis-dark-text);
-        }
-
-        .content-section {
-            padding-top: var(--serbis-section-padding-y);
-            padding-bottom: var(--serbis-section-padding-y);
-        }
-        #how-it-works {
-            background-color: #ffffff;
-        }
-        .how-it-works-step {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .how-it-works-step .bi {
-            font-size: 2.8rem;
-            color: var(--serbis-primary);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .how-it-works-step h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--serbis-dark-text);
-        }
-        .how-it-works-step p {
-            color: var(--serbis-muted-text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        #why-serbis {
-            background-color: var(--serbis-light-bg);
-        }
-        .feature-item {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .feature-item .bi {
-            font-size: 2.8rem; 
-            color: var(--serbis-primary); 
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .feature-item h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--serbis-dark-text);
-        }
-        .feature-item p {
-            color: var(--serbis-muted-text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        .footer {
-            background-color: #2c3e50;
-            color: rgba(255, 255, 255, 0.6);
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-        .footer a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-        }
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        /* --- Styles for Poker Card App Screenshots --- */
+        /* 5.5 Hero App Mockup Container */
         .hero-app-mockup-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%; /* Ensure it takes vertical space */
-            min-height: 480px; /* Adjust as needed for vertical space */
-            perspective: 1200px; /* Adds depth for 3D rotations */
-            padding: 2rem 0; /* Add some padding */
-            position: relative; /* Needed for absolute positioning of children */
-        }
-
-        .app-screenshots-poker {
+            height: 100%;
+            min-height: 520px; /* Increased for more space */
+            padding: calc(var(--apple-spacing-unit) * 2) 0; /* 16px */
             position: relative;
-            /* Responsive width for the central card stack */
-            /* Min width, preferred width (relative to viewport), max width */
-            width: clamp(200px, 70vw, 270px); 
-            /* Height is determined by aspect-ratio of the images */
-            cursor: pointer; /* Indicate interactivity */
+            perspective: 1500px; /* Add perspective for 3D effects */
         }
 
+        /* 5.5.1 App Screenshots Wrapper */
+        .app-screenshots-horizontal-overlap {
+            position: relative;
+            width: 100%;
+            max-width: 650px; /* Slightly wider spread */
+            height: 450px; /* Adjusted height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d; /* Enable 3D transformations for children */
+        }
+
+        /* 5.5.2 Individual App Screenshot Styling */
         .app-screenshot {
             position: absolute;
-            /* Center the screenshots before transforming */
-            top: 50%; 
-            left: 50%; 
-            
-            width: 100%; /* Take full width of parent */
-            height: auto; /* Maintain aspect ratio */
-            /* Enforce a common phone screen aspect ratio */
-            aspect-ratio: 9 / 19.5; 
-            object-fit: cover; /* Cover the area, might crop slightly */
-            
-            /* Styling for the "phone screen" look */
-            border-radius: 22px; /* Adjust for desired roundness */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12); /* Softer initial shadow */
-            
-            /* Optional: Add a subtle border to mimic phone edge */
-            border: 1px solid rgba(0,0,0,0.03); 
-            /* Or a thicker, more pronounced phone-like border: */
-            /* border: 6px solid #333; */
-            /* border-radius: 28px; */ /* Adjust radius if using thick border */
-            
-            /* Smooth, slightly bouncy transition */
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-color: #fff; /* Fallback bg color */
-            
-            /* Initial transform corrects the top/left 50% */
-            transform-origin: center center; 
+            width: clamp(180px, 26vw, 240px); /* Responsive width */
+            height: auto;
+            aspect-ratio: 9 / 19.5; /* Maintain phone aspect ratio */
+            object-fit: cover;
+            border-radius: var(--apple-border-radius-lg); /* Apple-like rounded corners */
+            /* Multi-layered shadow for depth */
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.05), 
+                        0px 8px 20px rgba(0,0,0,0.08),
+                        0px 15px 35px rgba(0,0,0,0.06); 
+            border: 1px solid rgba(0,0,0,0.05); /* Very subtle border */
+            background-color: var(--apple-off-white); /* Fallback */
+            cursor: pointer;
+            transform-origin: center bottom; /* Rotate from bottom for a more stable feel */
+            transition: transform var(--apple-transition-duration-slow) var(--apple-transition-timing-function-ease-out),
+                        box-shadow var(--apple-transition-duration-slow) var(--apple-transition-timing-function-ease-out),
+                        z-index 0s linear var(--apple-transition-duration-fast); /* Delay z-index change */
         }
 
-        /* --- Initial Stacked Positions --- */
-        .app-screenshot.screen1 { /* Top card */
-            z-index: 3;
-            /* Translate back to center, move slightly up, slight rotate */
-            transform: translate(-50%, -50%) translateY(-15px) rotate(2deg) scale(1); 
-        }
-
-        .app-screenshot.screen2 { /* Middle card */
-            z-index: 2;
-            /* Translate back to center, slight offset, opposite rotate, smaller */
-            transform: translate(-50%, -50%) translateY(0px) rotate(-3deg) scale(0.92); 
-        }
-
-        .app-screenshot.screen3 { /* Bottom card */
+        /* 5.5.3 Screenshot Positions & Initial Transforms */
+        .app-screenshot.screen1 { /* Left screen */
             z-index: 1;
-            /* Translate back to center, further offset, more rotate, smallest */
-            transform: translate(-50%, -50%) translateY(15px) rotate(4deg) scale(0.84);
+            transform: translateX(-48%) rotateY(10deg) rotateZ(-10deg) scale(0.88);
+        }
+        .app-screenshot.screen2 { /* Center screen - most prominent */
+            z-index: 2;
+            transform: translateX(0%) rotateY(0deg) rotateZ(0deg) scale(1);
+        }
+        .app-screenshot.screen3 { /* Right screen */
+            z-index: 1;
+            transform: translateX(48%) rotateY(-10deg) rotateZ(10deg) scale(0.88);
         }
 
-        /* --- Hover Effect on the Container --- */
-        .app-screenshots-poker:hover .screen1 {
-            /* Move significantly up, straighten, slight scale up for focus */
-            transform: translate(-50%, -50%) translateY(-110%) rotate(0deg) scale(1.02); 
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15), 0 20px 45px rgba(0,0,0,0.2); /* Enhanced shadow */
+        /* 5.5.4 Screenshot Hover & Focus Effects */
+        .app-screenshots-horizontal-overlap:hover .app-screenshot {
+            /* Make non-hovered items recede slightly */
+            /* transform: scale(0.95); Not this one, affects individual hover */
+        }
+        .app-screenshot:hover {
+            z-index: 3 !important; /* Ensure hovered is always on top */
+            transform: translateY(-20px) scale(1.08) rotateY(0deg) rotateZ(0deg) !important; /* Override base position */
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.08),
+                        0px 15px 35px rgba(0,0,0,0.12),
+                        0px 25px 60px rgba(0,0,0,0.1);
+        }
+        /* Specific hover adjustments if needed to fine-tune individual pop-out direction */
+        .app-screenshot.screen1:hover {
+             transform: translateX(-5%) translateY(-20px) scale(1.08) rotateY(0deg) rotateZ(-2deg) !important;
+        }
+        .app-screenshot.screen3:hover {
+             transform: translateX(5%) translateY(-20px) scale(1.08) rotateY(0deg) rotateZ(2deg) !important;
         }
 
-        .app-screenshots-poker:hover .screen2 {
-            /* Move to the middle position, adjust rotation/scale */
-            transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94); 
+
+        /*
+        ==========================================================================
+        6. Content Sections
+        ==========================================================================
+        */
+        /* 6.1 General Section Styling */
+        .content-section {
+            padding-top: var(--apple-section-padding-y-base);
+            padding-bottom: var(--apple-section-padding-y-base);
+            border-bottom: 1px solid var(--apple-border-color-light); /* Subtle separator */
+        }
+        .content-section:last-of-type {
+            border-bottom: none; /* No border for the last content section before footer */
+        }
+        
+        #how-it-works {
+            background-color: var(--apple-white); /* Default white */
+        }
+        #why-serbis {
+            background-color: var(--apple-light-gray); /* Alternate light gray */
         }
 
-        .app-screenshots-poker:hover .screen3 {
-            /* Move to the bottom position, adjust rotation/scale */
-            transform: translate(-50%, -50%) translateY(110%) rotate(5deg) scale(0.86); 
+        /* 6.2 Section Titles */
+        .section-title {
+            font-family: var(--apple-font-serif); /* Newsreader */
+            font-size: 2.75rem; /* ~44px, consistent with large headings */
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--apple-text-primary);
+            margin-bottom: calc(var(--apple-spacing-unit) * 7.5); /* 60px */
+            text-align: center;
+            letter-spacing: var(--apple-letter-spacing-tight);
         }
-        /* --- End Poker Card Styles --- */
+        /* Sub-headline for section titles, if one existed */
+        .section-title + .section-subtitle {
+            font-family: var(--apple-font-sans-serif);
+            font-size: 1.25rem;
+            color: var(--apple-text-tertiary);
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: calc(var(--apple-spacing-unit) * -5.5); /* Pull up below title */
+            margin-bottom: calc(var(--apple-spacing-unit) * 7.5); /* 60px */
+            line-height: 1.5;
+        }
+
+        /* 6.3 "How It Works" Section (how-it-works) */
+        .how-it-works-step {
+            text-align: center;
+            margin-bottom: calc(var(--apple-spacing-unit) * 5); /* 40px */
+            padding: 0 calc(var(--apple-spacing-unit) * 1.5); /* 12px horizontal padding */
+        }
+        .how-it-works-step .bi { /* Icon styling */
+            font-size: 2.5rem; /* ~40px */
+            color: var(--serbis-primary-blue);
+            margin-bottom: calc(var(--apple-spacing-unit) * 2.5); /* 20px */
+            display: inline-block;
+            transition: transform var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out);
+        }
+        .how-it-works-step:hover .bi {
+            transform: scale(1.1);
+        }
+        .how-it-works-step h3 {
+            font-family: var(--apple-font-serif); /* Newsreader */
+            font-size: 1.375rem; /* ~22px */
+            font-weight: 600;
+            margin-bottom: var(--apple-spacing-unit); /* 8px */
+            color: var(--apple-text-primary);
+        }
+        .how-it-works-step p {
+            font-family: var(--apple-font-sans-serif);
+            color: var(--apple-text-secondary);
+            font-size: 0.9375rem; /* ~15px */
+            line-height: 1.6;
+            max-width: 320px; /* Control text width for readability */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 6.4 "Why Serbis" Section (why-serbis) */
+        .feature-item {
+            text-align: center;
+            margin-bottom: calc(var(--apple-spacing-unit) * 5); /* 40px */
+            padding: 0 calc(var(--apple-spacing-unit) * 1.5); /* 12px */
+        }
+        .feature-item .bi { /* Icon styling */
+            font-size: 2.5rem; /* ~40px */
+            color: var(--serbis-primary-blue);
+            margin-bottom: calc(var(--apple-spacing-unit) * 2.5); /* 20px */
+            display: inline-block;
+            transition: transform var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out);
+        }
+        .feature-item:hover .bi {
+            transform: scale(1.1) rotate(-5deg); /* Slight rotation on hover */
+        }
+        .feature-item h3 {
+            font-family: var(--apple-font-serif); /* Newsreader */
+            font-size: 1.375rem; /* ~22px */
+            font-weight: 600;
+            margin-bottom: var(--apple-spacing-unit); /* 8px */
+            color: var(--apple-text-primary);
+        }
+        .feature-item p {
+            font-family: var(--apple-font-sans-serif);
+            color: var(--apple-text-secondary);
+            font-size: 0.9375rem; /* ~15px */
+            line-height: 1.6;
+            max-width: 300px; /* Control text width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Secondary CTA button in "Why Serbis" section */
+        #why-serbis .text-center .btn-serbis-primary {
+            margin-top: calc(var(--apple-spacing-unit) * 2.5); /* 20px, was 5 originally, reduced as per Apple spacing */
+        }
+
+        /*
+        ==========================================================================
+        7. Footer
+        ==========================================================================
+        */
+        /* 7.1 Footer General Styling */
+        .footer {
+            background-color: var(--apple-footer-background);
+            color: var(--apple-footer-text-color);
+            padding-top: calc(var(--apple-spacing-unit) * 6); /* 48px */
+            padding-bottom: calc(var(--apple-spacing-unit) * 6); /* 48px */
+            font-size: 0.8125rem; /* ~13px, Apple footers use small text */
+        }
+
+        /* 7.2 Footer Text & Links */
+        .footer .small { /* Override Bootstrap's small if needed */
+            font-size: inherit; /* Use footer's font-size */
+        }
+        .footer .mb-2 {
+            margin-bottom: calc(var(--apple-spacing-unit) * 0.75) !important; /* 6px */
+        }
+        .footer a {
+            color: var(--apple-footer-link-color);
+            text-decoration: none;
+            transition: color var(--apple-transition-duration-fast) var(--apple-transition-timing-function);
+        }
+        .footer a:hover {
+            color: var(--apple-white); /* Brighter white on hover */
+            text-decoration: underline;
+        }
+        .footer a:focus-visible {
+            outline: 1px solid var(--apple-footer-link-color);
+            outline-offset: 2px;
+            border-radius: var(--apple-border-radius-sm);
+        }
+
+        /*
+        ==========================================================================
+        8. Utility Classes (Apple-specific additions if any)
+        ==========================================================================
+        */
+        .visually-hidden { /* Standard visually hidden class */
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0,0,0,0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        .apple-card-style { /* Example of a reusable card style if needed */
+            background-color: var(--apple-white);
+            border-radius: var(--apple-border-radius-md);
+            box-shadow: var(--apple-shadow-md);
+            padding: var(--apple-component-padding);
+            transition: transform var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out),
+                        box-shadow var(--apple-transition-duration-normal) var(--apple-transition-timing-function-ease-out);
+        }
+        .apple-card-style:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--apple-shadow-lg);
+        }
 
 
+        /*
+        ==========================================================================
+        9. Animations & Keyframes
+        ==========================================================================
+        */
+        /* 9.1 Subtle Fade-in (Example, apply to elements with a class like .fade-in) */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+            animation: fadeIn var(--apple-transition-duration-slow) var(--apple-transition-timing-function-ease-out) forwards;
+            opacity: 0; /* Start hidden */
+        }
+
+        /*
+        ==========================================================================
+        10. Responsive Design Adjustments
+        ==========================================================================
+        */
+
+        /* 10.1 Extra Large Desktops (1400px+) */
+        @media (min-width: 1400px) {
+            :root {
+                --apple-font-size-base: 17px; /* Slightly larger base for very large screens */
+            }
+            .masthead h1 { font-size: 4rem; } /* ~64px */
+            .masthead .lead { font-size: 1.375rem; max-width: 620px; } /* ~22px */
+            .section-title { font-size: 3rem; } /* ~48px */
+            .app-screenshots-horizontal-overlap { max-width: 700px; height: 500px; }
+            .app-screenshot { width: clamp(200px, 25vw, 260px); border-radius: 22px; }
+        }
+
+        /* 10.2 Large Desktops (1200px - 1399px) - (Bootstrap xl) */
+        /* Styles inherited from base and 1400px+ if not overridden */
+
+        /* 10.3 Desktops & Small Laptops (992px - 1199px) - (Bootstrap lg) */
+        @media (max-width: 1199.98px) {
+            :root {
+                --apple-section-padding-y-base: 5rem; /* 80px */
+            }
+            .masthead h1 { font-size: 3rem; } /* ~48px */
+            .masthead .lead { font-size: 1.1875rem; max-width: 540px; } /* ~19px */
+            .section-title { font-size: 2.5rem; } /* ~40px */
+            .app-screenshots-horizontal-overlap { max-width: 600px; height: 420px; }
+            .app-screenshot { width: clamp(170px, 27vw, 230px); border-radius: var(--apple-border-radius-lg); } /* Revert to default lg */
+        }
+        
+        /* 10.4 Tablets - Landscape (768px - 991px) - (Bootstrap md) */
         @media (max-width: 991.98px) {
-            .navbar-brand-centered {
-                position: relative; 
-                left: 0;
-                transform: none;
-                margin-left: 0; 
+             :root {
+                --apple-section-padding-y-base: 4.5rem; /* 72px */
             }
-            .navbar-custom .navbar-nav {
-                margin-top: 1rem; 
+            .navbar-brand-centered { /* Reset for mobile nav layout */
+                position: relative; left: 0; transform: none; margin-left: 0;
             }
+            .navbar-custom .navbar-nav { margin-top: var(--apple-spacing-unit); } /* In collapsed state */
+            
             .masthead {
-                padding-top: 7rem;
-                padding-bottom: 5rem;
-                text-align: center; /* Center text on smaller screens */
+                padding-top: calc(var(--apple-section-padding-y-sm) + 60px); /* 60px for nav */
+                padding-bottom: var(--apple-section-padding-y-sm);
+                text-align: center; /* Center text content */
+                min-height: auto; /* Allow content to dictate height */
             }
             .masthead h1 {
-                font-size: 2.4rem;
-            }
-            .masthead .lead {
-                font-size: 1.1rem;
+                font-size: 2.625rem; /* ~42px */
                 margin-left: auto;
                 margin-right: auto;
             }
-            .masthead .text-lg-start { /* Override for hero text section */
-                text-align: center !important;
+            .masthead .lead {
+                font-size: 1.125rem; /* ~18px */
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 500px;
             }
-            /* Poker card styles for medium screens */
+            .masthead .text-lg-start { text-align: center !important; }
+            .masthead .row > div:first-child { /* Ensure text content comes first on mobile layout stack */
+                order: 2;
+            }
+            .masthead .row > div:last-child { /* Mockup container */
+                order: 1;
+            }
+
             .hero-app-mockup-container {
-                margin-top: 3rem; 
-                min-height: 420px; 
+                margin-top: 0; /* Reset from original */
+                margin-bottom: calc(var(--apple-spacing-unit) * 5); /* 40px space below mockups */
+                min-height: 400px; /* Adjust for smaller size */
             }
-            .app-screenshots-poker {
-                width: clamp(180px, 65vw, 240px); /* Smaller screenshots */
+            .app-screenshots-horizontal-overlap {
+                max-width: 90%; /* Allow it to be wider relative to small screen */
+                height: 380px;
             }
-            /* Adjust hover transforms for less vertical space */
-             .app-screenshots-poker:hover .screen1 {
-                 transform: translate(-50%, -50%) translateY(-100%) rotate(0deg) scale(1.02);
-             }
-             .app-screenshots-poker:hover .screen2 {
-                 transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94);
-             }
-             .app-screenshots-poker:hover .screen3 {
-                 transform: translate(-50%, -50%) translateY(100%) rotate(5deg) scale(0.86);
-             }
-        }
-        @media (max-width: 767.98px) {
-            .masthead h1 {
-                font-size: 2.1rem;
+            .app-screenshot {
+                width: clamp(150px, 33vw, 190px); /* Adjust width, vw unit becomes more effective */
+                border-radius: var(--apple-border-radius-md); /* Slightly smaller radius */
             }
-            .app-badge {
-                height: 42px;
+            /* Adjust screenshot fanning for tablet */
+            .app-screenshot.screen1 { transform: translateX(-40%) rotateY(8deg) rotateZ(-8deg) scale(0.85); }
+            .app-screenshot.screen2 { transform: scale(0.95); } /* Center one slightly smaller */
+            .app-screenshot.screen3 { transform: translateX(40%) rotateY(-8deg) rotateZ(8deg) scale(0.85); }
+            
+            .app-screenshot:hover { /* Softer hover for tablets */
+                transform: translateY(-12px) scale(1.03) rotateY(0deg) rotateZ(0deg) !important;
             }
+            .app-screenshot.screen1:hover {
+                 transform: translateX(-3%) translateY(-12px) scale(1.03) rotateY(0deg) rotateZ(-1deg) !important;
+            }
+            .app-screenshot.screen3:hover {
+                 transform: translateX(3%) translateY(-12px) scale(1.03) rotateY(0deg) rotateZ(1deg) !important;
+            }
+
             .section-title {
-                font-size: 1.9rem;
+                font-size: 2.125rem; /* ~34px */
+                margin-bottom: calc(var(--apple-spacing-unit) * 6); /* 48px */
+            }
+            .section-title + .section-subtitle {
+                margin-bottom: calc(var(--apple-spacing-unit) * 6); /* 48px */
+                font-size: 1.125rem;
+            }
+
+            .how-it-works-step, .feature-item {
+                margin-bottom: calc(var(--apple-spacing-unit) * 4); /* 32px */
             }
             .how-it-works-step h3, .feature-item h3 {
-                font-size: 1.2rem;
+                font-size: 1.25rem; /* ~20px */
             }
-            /* Poker card styles for small screens */
-            .hero-app-mockup-container {
-                min-height: 380px;
-            }
-            .app-screenshots-poker {
-                 width: clamp(170px, 60vw, 220px); /* Even smaller */
-            }
-             /* Adjust initial stacking slightly if needed */
-            .app-screenshot.screen1 {
-                transform: translate(-50%, -50%) translateY(-10px) rotate(2deg) scale(1);
-            }
-            /* .app-screenshot.screen2's initial position uses base CSS, no override needed here */
-            .app-screenshot.screen3 {
-                transform: translate(-50%, -50%) translateY(10px) rotate(4deg) scale(0.84);
-            }
-            /* Further reduce hover separation */
-             .app-screenshots-poker:hover .screen1 {
-                transform: translate(-50%, -50%) translateY(-90%) rotate(0deg) scale(1.02);
-            }
-            .app-screenshots-poker:hover .screen2 {
-                transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94);
-            }
-            .app-screenshots-poker:hover .screen3 {
-                transform: translate(-50%, -50%) translateY(90%) rotate(5deg) scale(0.86);
+            .how-it-works-step p, .feature-item p {
+                font-size: 0.875rem; /* ~14px */
             }
         }
+        
+        /* 10.5 Tablets - Portrait & Large Phones (576px - 767px) - (Bootstrap sm) */
+        @media (max-width: 767.98px) {
+            :root {
+                --apple-font-size-base: 15px; /* Smaller base for small screens */
+                --apple-section-padding-y-base: 3.5rem; /* 56px */
+                --apple-section-padding-y-sm: 2.5rem; /* 40px */
+            }
+            .navbar-custom { height: 56px; }
+            .navbar-custom .navbar-brand img { height: 24px; }
+
+            .masthead {
+                padding-top: calc(var(--apple-section-padding-y-sm) + 56px);
+            }
+            .masthead h1 { font-size: 2.25rem; } /* ~36px based on 16px, adjusted for 15px it's ~33px */
+            .masthead .lead { font-size: 1rem; } /* ~15px */
+            .btn-serbis-primary {
+                padding: calc(var(--apple-spacing-unit) * 1.5) calc(var(--apple-spacing-unit) * 3); /* 12px 24px */
+                font-size: 0.9375rem; /* ~14px */
+            }
+            .btn-serbis-primary.btn-lg { /* Adjust large button too */
+                 padding: calc(var(--apple-spacing-unit) * 1.75) calc(var(--apple-spacing-unit) * 3.5); /* 14px 28px */
+                 font-size: 1rem; /* ~15px */
+            }
+            .app-badge { height: 40px; }
+            .app-badges-container {
+                flex-direction: column; /* Stack badges vertically */
+            }
+            .app-badges-container .app-badge {
+                margin: calc(var(--apple-spacing-unit) * 0.75) 0 !important; /* 6px vertical margin */
+            }
+            
+            .hero-app-mockup-container {
+                min-height: 340px; /* Even smaller */
+                margin-bottom: calc(var(--apple-spacing-unit) * 4); /* 32px */
+            }
+            .app-screenshots-horizontal-overlap {
+                height: 300px;
+                max-width: 100%; /* Let it take full available width of its parent col */
+            }
+            .app-screenshot {
+                width: clamp(130px, 38vw, 160px); /* Smaller screenshots */
+                border-radius: var(--apple-border-radius-sm); /* Smaller radius for smaller items */
+                box-shadow: var(--apple-shadow-sm); /* Lighter shadow */
+            }
+             /* Tighter initial spread for small screens */
+            .app-screenshot.screen1 { transform: translateX(-35%) rotateY(6deg) rotateZ(-6deg) scale(0.82); }
+            .app-screenshot.screen2 { transform: scale(0.90); }
+            .app-screenshot.screen3 { transform: translateX(35%) rotateY(-6deg) rotateZ(6deg) scale(0.82); }
+
+            .app-screenshot:hover { /* Very subtle hover for smallest screens */
+                transform: translateY(-8px) scale(1.01) !important;
+                box-shadow: var(--apple-shadow-md) !important;
+            }
+
+            .section-title {
+                font-size: 1.875rem; /* ~28px */
+                margin-bottom: calc(var(--apple-spacing-unit) * 5); /* 40px */
+            }
+            .section-title + .section-subtitle {
+                font-size: 1rem; /* ~15px */
+                margin-bottom: calc(var(--apple-spacing-unit) * 5); /* 40px */
+            }
+             .how-it-works-step .bi, .feature-item .bi {
+                font-size: 2.25rem; /* ~36px */
+                margin-bottom: var(--apple-spacing-unit) * 2; /* 16px */
+            }
+            .how-it-works-step h3, .feature-item h3 {
+                font-size: 1.125rem; /* ~18px */
+            }
+        }
+
+        /* 10.6 Small Phones (Below 576px) - (Bootstrap xs) */
+        @media (max-width: 575.98px) {
+             :root {
+                --apple-section-padding-y-base: 3rem; /* 48px */
+                --apple-section-padding-y-sm: 2rem; /* 32px */
+            }
+            .container, .container-fluid, .container-sm /* etc. */ {
+                padding-left: calc(var(--apple-spacing-unit) * 1.5); /* 12px */
+                padding-right: calc(var(--apple-spacing-unit) * 1.5); /* 12px */
+            }
+            .masthead h1 { font-size: 2rem; } /* ~30px */
+            .masthead .lead { font-size: 0.9375rem; } /* ~14px */
+            
+            .hero-app-mockup-container {
+                min-height: 280px;
+                margin-bottom: calc(var(--apple-spacing-unit) * 3); /* 24px */
+            }
+            .app-screenshots-horizontal-overlap { height: 260px; }
+            .app-screenshot { width: clamp(110px, 35vw, 140px); }
+             /* Even tighter spread */
+            .app-screenshot.screen1 { transform: translateX(-30%) rotateY(5deg) rotateZ(-5deg) scale(0.8); }
+            .app-screenshot.screen2 { transform: scale(0.88); }
+            .app-screenshot.screen3 { transform: translateX(30%) rotateY(-5deg) rotateZ(5deg) scale(0.8); }
+
+            .section-title { font-size: 1.625rem; } /* ~26px */
+            .how-it-works-step h3, .feature-item h3 { font-size: 1rem; } /* ~15px */
+            .how-it-works-step p, .feature-item p { font-size: 0.8125rem; } /* ~13px */
+
+            .footer {
+                padding-top: calc(var(--apple-spacing-unit) * 4); /* 32px */
+                padding-bottom: calc(var(--apple-spacing-unit) * 4); /* 32px */
+                font-size: 0.75rem; /* ~12px */
+            }
+        }
+
+        /*
+        ==========================================================================
+        11. Accessibility Enhancements
+        ==========================================================================
+        */
+        /* General focus-visible style for keyboard navigation - already applied to specific elements */
+        /* If you need a fallback for elements not explicitly styled: */
+        *:focus-visible {
+            outline: 2px solid var(--serbis-primary-blue);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 3px rgba(0,122,255,0.25); /* Example soft glow */
+        }
+        /* Remove outline for mouse users if not using :focus-visible selectively (not recommended) */
+        /* *:focus:not(:focus-visible) { outline: none; box-shadow: none; } */
+
+        /* Ensure sufficient contrast for text elements if default colors are overridden by Bootstrap */
+        /* This is mostly handled by the color palette choices */
+
+        /*
+        ==========================================================================
+        12. Print Styles (Basic)
+        ==========================================================================
+        */
+        @media print {
+            body {
+                background-color: var(--apple-white) !important;
+                color: #000 !important;
+                font-size: 12pt;
+                line-height: 1.4;
+            }
+            .navbar-custom,
+            .masthead .hero-app-mockup-container,
+            .app-badges-container,
+            .footer,
+            .btn, .btn-serbis-primary /* Hide interactive elements */
+            {
+                display: none !important;
+            }
+            .content-section {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+                border: none !important;
+                background-color: transparent !important;
+            }
+            a {
+                color: #000 !important;
+                text-decoration: underline !important;
+            }
+            a[href^="http"]:after {
+                content: " (" attr(href) ")";
+                font-size: 0.8em;
+            }
+            h1,h2,h3,h4,h5,h6 {
+                color: #000 !important;
+                page-break-after: avoid;
+            }
+            p { orphans: 3; widows: 3; }
+        }
+
     </style>
 
     <script type="application/ld+json">
@@ -408,20 +1130,27 @@
     </script>
 </head>
 <body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom" id="mainNav">
         <div class="container px-4 px-lg-5">
+            <!-- Logo: For Apple style, logo often on left, or nav links balanced if logo is centered -->
+            <!-- Keeping original structure: Centered logo -->
             <a class="navbar-brand fw-bold navbar-brand-centered" href="#page-top">
-                <img src="assets/img/app_logo.png" alt="Logo de Serbis" style="height: 36px;">
+                <img src="assets/img/app_logo.png" alt="Logo de Serbis" style="height: 36px;"> <!-- Inline style will be overridden by CSS if selector is specific enough -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="bi-list"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <!-- Navigation links will be styled to feel Apple-like -->
+                <ul class="navbar-nav ms-auto my-2 my-lg-0"> <!-- ms-auto pushes to right -->
                     <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
                     <li class="nav-item"><a class="nav-link" href="#how-it-works">Cómo Funciona</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about-us-footer">Nosotros</a></li>
                 </ul>
+                 <!-- If logo was on left, other nav items could be here:
+                <ul class="navbar-nav mx-auto"> ... centrally aligned items ... </ul>
+                <ul class="navbar-nav me-auto"> ... right aligned items ... </ul>
+                -->
             </div>
         </div>
     </nav>
@@ -429,7 +1158,7 @@
     <header class="masthead">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-lg-7">
+                <div class="col-lg-7"> <!-- Text content column -->
                     <div class="mb-5 mb-lg-0 text-center text-lg-start">
                         <h1 class="lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
                         <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
@@ -440,18 +1169,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <!-- Hero Mockup Container: Centers content and provides perspective -->
+                <div class="col-lg-5"> <!-- App mockup column -->
                     <div class="hero-app-mockup-container">
-                        <!-- Poker Card Wrapper: Hover target, defines base size -->
-                        <div class="app-screenshots-poker">
-                            <!-- 
-                                TODO: Replace these src attributes with your actual app screenshot paths.
-                                Recommended image aspect ratio is portrait (e.g., 9:19.5 or similar).
-                            -->
-                            <img src="assets/img/sim1.png" alt="Serbis App - Pantalla Principal" class="app-screenshot screen1">
-                            <img src="assets/img/sim2.png" alt="Serbis App - Detalle de Servicio" class="app-screenshot screen2">
-                            <img src="assets/img/sim3.png" alt="Serbis App - Chat con Profesional" class="app-screenshot screen3">
+                        <div class="app-screenshots-horizontal-overlap">
+                            <img src="assets/img/sim1.png" alt="Serbis App - Funcionalidad Principal" class="app-screenshot screen1">
+                            <img src="assets/img/sim2.png" alt="Serbis App - Vista Central Detallada" class="app-screenshot screen2">
+                            <img src="assets/img/sim3.png" alt="Serbis App - Otra Característica Clave" class="app-screenshot screen3">
                         </div>
                     </div>
                 </div>
@@ -461,7 +1184,8 @@
 
     <section id="how-it-works" class="content-section">
         <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
+            <h2 class="section-title">Así de fácil es con Serbis</h2>
+            <!-- Optional: <p class="section-subtitle">Un proceso simple en tres pasos para conectar con profesionales.</p> -->
             <div class="row gx-4 gx-lg-5">
                 <div class="col-md-4">
                     <div class="how-it-works-step">
@@ -490,7 +1214,8 @@
 
     <section id="why-serbis" class="content-section">
         <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
+            <h2 class="section-title">¿Por qué elegir Serbis?</h2>
+            <!-- Optional: <p class="section-subtitle">Descubrí las ventajas que te ofrece nuestra plataforma para resolver tus necesidades.</p> -->
             <div class="row gx-4 gx-lg-5">
                 <div class="col-lg-3 col-md-6">
                     <div class="feature-item">
@@ -521,7 +1246,7 @@
                     </div>
                 </div>
             </div>
-             <div class="text-center mt-5">
+             <div class="text-center mt-5"> <!-- This mt-5 is Bootstrap, adjust with custom vars if needed -->
                 <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
             </div>
         </div>
@@ -533,6 +1258,7 @@
                 <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
                 <div class="mb-2">Buenos Aires, Argentina</div>
                 <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
+                <!-- Apple footers sometimes have more links, e.g. Privacy Policy, Terms of Use -->
             </div>
         </div>
     </footer>
@@ -605,6 +1331,18 @@
             const soyProveedorLink = document.getElementById('soy-proveedor-link');
             if (soyProveedorLink) {
                 soyProveedorLink.href = SOY_PROVEEDOR_URL;
+            }
+
+            // Optional: Add a class to navbar on scroll for styles like background change
+            const mainNav = document.getElementById('mainNav');
+            if (mainNav) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) { // Adjust scroll threshold as needed
+                        mainNav.classList.add('is-scrolled');
+                    } else {
+                        mainNav.classList.remove('is-scrolled');
+                    }
+                });
             }
         });
     </script>
