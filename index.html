@@ -1,418 +1,194 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
-    <meta name="author" content="Serbis" />
-    <title>Serbis | Tu Solución de Servicios Locales en 5 Segundos</title>
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
-    <meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://serbis.app" />
-    <meta property="og:image" content="assets/img/og-image.jpg" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
-    <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
-    
-    <link rel="canonical" href="https://serbis.app" />
-    <link rel="icon" type="image/x-icon" href="assets/img/app_logo.png" />
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-    
-    <link href="css/styles.css" rel="stylesheet" />
-    <style>
-        :root {
-            --serbis-primary: #0d6efd; /* Your brand primary color */
-            --serbis-light-bg: #f8f9fa; /* Very light grey for subtle backgrounds */
-            --serbis-dark-text: #212529;
-            --serbis-muted-text: #495057;
-            --serbis-section-padding-y: 5rem;
-        }
-        body {
-            font-family: 'Mulish', sans-serif;
-            color: var(--serbis-dark-text);
-            line-height: 1.6;
-        }
-        .masthead {
-            padding-top: 9rem; /* Increased for more space */
-            padding-bottom: 7rem; /* Increased for more space */
-            background-color: var(--serbis-light-bg); 
-        }
-        .masthead h1 {
-            font-family: 'Newsreader', serif;
-            font-weight: 700;
-            font-size: 3rem; 
-            line-height: 1.25;
-            color: var(--serbis-dark-text);
-            margin-bottom: 1rem;
-        }
-        .masthead h1 strong {
-            color: var(--serbis-primary);
-        }
-        .masthead .lead {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--serbis-muted-text);
-            margin-bottom: 2.5rem;
-            max-width: 550px; /* Constrain line length for readability */
-        }
-        .text-lg-start .lead {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        @media (min-width: 992px) {
-            .text-lg-start .lead {
-                 margin-left: 0;
-                 margin-right: 0;
-            }
-        }
-        .btn-serbis-primary {
-            background-color: var(--serbis-primary);
-            border-color: var(--serbis-primary);
-            color: #fff;
-            font-weight: 600;
-            padding: 0.9rem 2.2rem;
-            font-size: 1.1rem;
-            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
-            border-radius: 0.3rem;
-        }
-        .btn-serbis-primary:hover {
-            background-color: #0b5ed7;
-            border-color: #0a58ca;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-        .app-badges-container {
-            margin-top: 2rem;
-        }
-        .app-badge {
-            height: 48px; 
-            margin: 0 0.4rem;
-            transition: transform 0.2s ease-in-out;
-            display: inline-block;
-        }
-        .app-badge img {
-            height: 100%;
-            width: auto;
-        }
-        .app-badge:hover {
-            transform: scale(1.05);
-        }
-        
-        .navbar-custom {
-             background-color: #fff; 
-        }
-        .navbar-custom .navbar-nav .nav-link {
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: none;
-            letter-spacing: 0.2px;
-            color: var(--serbis-muted-text);
-        }
-        .navbar-custom .navbar-nav .nav-link:hover,
-        .navbar-custom .navbar-nav .nav-link.active {
-            color: var(--serbis-primary);
-        }
-        .navbar-brand-centered {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .section-title {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 2.2rem;
-            margin-bottom: 3.5rem;
-            color: var(--serbis-dark-text);
-        }
-        .content-section {
-            padding-top: var(--serbis-section-padding-y);
-            padding-bottom: var(--serbis-section-padding-y);
-        }
-        #how-it-works {
-            background-color: #ffffff;
-        }
-        .how-it-works-step {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .how-it-works-step .bi {
-            font-size: 2.8rem;
-            color: var(--serbis-primary);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .how-it-works-step h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--serbis-dark-text);
-        }
-        .how-it-works-step p {
-            color: var(--serbis-muted-text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        #why-serbis {
-            background-color: var(--serbis-light-bg);
-        }
-        .feature-item {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .feature-item .bi {
-            font-size: 2.8rem; 
-            color: var(--serbis-primary); 
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .feature-item h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--serbis-dark-text);
-        }
-        .feature-item p {
-            color: var(--serbis-muted-text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        .footer {
-            background-color: #2c3e50;
-            color: rgba(255, 255, 255, 0.6);
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-        .footer a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-        }
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-        /* --- Improved App Screenshots Carousel --- */
-        .hero-app-mockup-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            min-height: 540px; /* Increased for better visibility */
-            padding: 2rem 0;
-            position: relative;
-        }
-        
-        .app-screenshots-carousel {
-            position: relative;
-            width: clamp(240px, 70vw, 290px);
-            height: 550px;
-            perspective: 1200px;
-        }
-        
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .app-screenshot {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 9 / 19.5;
-            object-fit: cover;
-            border-radius: 22px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            border: 1px solid rgba(0,0,0,0.05);
-            backface-visibility: hidden;
-            transition: transform 0.6s ease-in-out, opacity 0.4s ease-in-out;
-        }
-        
-        /* Initial positions for the screenshots */
-        .app-screenshot.screen1 {
-            transform: translateZ(100px);
-            z-index: 3;
-            opacity: 1;
-        }
-        
-        .app-screenshot.screen2 {
-            transform: rotateY(120deg) translateZ(100px);
-            z-index: 2;
-            opacity: 0.7;
-        }
-        
-        .app-screenshot.screen3 {
-            transform: rotateY(240deg) translateZ(100px);
-            z-index: 1;
-            opacity: 0.7;
-        }
-        
-        /* Navigation arrows */
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            pointer-events: none;
-            z-index: 10;
-        }
-        
-        .carousel-arrow {
-            background-color: rgba(255, 255, 255, 0.8);
-            color: var(--serbis-primary);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            pointer-events: auto;
-            transition: all 0.3s ease;
-            border: none;
-            outline: none;
-        }
-        
-        .carousel-arrow:hover {
-            background-color: var(--serbis-primary);
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        .carousel-dots {
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            z-index: 10;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(13, 110, 253, 0.3);
-            cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        
-        .carousel-dot.active {
-            background-color: var(--serbis-primary);
-            transform: scale(1.2);
-        }
-        
-        /* Hover effect to invite interaction */
-        .app-screenshots-carousel:hover .app-screenshot.active {
-            transform: translateZ(130px) scale(1.05);
-        }
-        
-        /* Phone frame overlay for more realistic app look */
-        .phone-frame {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100% + 15px);
-            height: auto;
-            z-index: 5;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-        
-        /* Making carousel responsive */
-        @media (max-width: 991.98px) {
-            .navbar-brand-centered {
-                position: relative; 
-                left: 0;
-                transform: none;
-                margin-left: 0; 
-            }
-            .navbar-custom .navbar-nav {
-                margin-top: 1rem; 
-            }
-            .masthead {
-                padding-top: 7rem;
-                padding-bottom: 5rem;
-                text-align: center; /* Center text on smaller screens */
-            }
-            .masthead h1 {
-                font-size: 2.4rem;
-            }
-            .masthead .lead {
-                font-size: 1.1rem;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .masthead .text-lg-start { /* Override for hero text section */
-                text-align: center !important;
-            }
-            .hero-app-mockup-container {
-                margin-top: 3rem;
-                min-height: 480px;
-            }
-            .app-screenshots-carousel {
-                width: clamp(200px, 65vw, 260px);
-                height: 480px;
-            }
-            .carousel-arrow {
-                width: 34px;
-                height: 34px;
-            }
-        }
-        
-        @media (max-width: 767.98px) {
-            .masthead h1 {
-                font-size: 2.1rem;
-            }
-            .app-badge {
-                height: 42px;
-            }
-            .section-title {
-                font-size: 1.9rem;
-            }
-            .how-it-works-step h3, .feature-item h3 {
-                font-size: 1.2rem;
-            }
-            .hero-app-mockup-container {
-                min-height: 450px;
-            }
-            .app-screenshots-carousel {
-                width: clamp(180px, 60vw, 220px);
-                height: 440px;
-            }
-            .carousel-arrow {
-                width: 30px;
-                height: 30px;
-            }
-            .carousel-dot {
-                width: 10px;
-                height: 10px;
-            }
-        }
-    </style>
-    <script type="application/ld+json">
-    {
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
+  <meta name="author" content="Serbis" />
+  <title>Serbis | Tu Solución de Servicios Locales en 5 Segundos</title>
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
+  <meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://serbis.app" />
+  <meta property="og:image" content="assets/img/og-image.jpg" />
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
+  <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
+  <link rel="canonical" href="https://serbis.app" />
+  <link rel="icon" type="image/x-icon" href="assets/img/app_logo.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+  <link href="css/styles.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --serbis-primary: #0d6efd;
+      --serbis-light-bg: #f8f9fa;
+      --serbis-dark-text: #212529;
+      --serbis-muted-text: #495057;
+      --serbis-section-padding-y: 5rem;
+    }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      color: var(--serbis-dark-text);
+      line-height: 1.6;
+    }
+
+    .masthead {
+      padding-top: 9rem;
+      padding-bottom: 7rem;
+      background-color: var(--serbis-light-bg);
+    }
+    .masthead h1 {
+      font-family: 'Newsreader', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1.25;
+      color: var(--serbis-dark-text);
+      margin-bottom: 1rem;
+    }
+    .masthead h1 strong {
+      color: var(--serbis-primary);
+    }
+    .masthead .lead {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--serbis-muted-text);
+      margin-bottom: 2.5rem;
+      max-width: 550px;
+    }
+    .text-lg-start .lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 992px) {
+      .text-lg-start .lead { margin-left: 0; margin-right: 0; }
+    }
+
+    .btn-serbis-primary {
+      background-color: var(--serbis-primary);
+      border-color: var(--serbis-primary);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.9rem 2.2rem;
+      font-size: 1.1rem;
+      transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+      border-radius: 0.3rem;
+    }
+    .btn-serbis-primary:hover {
+      background-color: #0b5ed7;
+      border-color: #0a58ca;
+      transform: translateY(-2px);
+    }
+
+    .app-badges-container { margin-top: 2rem; }
+    .app-badge { height: 48px; margin: 0 0.4rem; display: inline-block; transition: transform 0.2s; }
+    .app-badge img { height: 100%; width: auto; }
+    .app-badge:hover { transform: scale(1.05); }
+
+    .navbar-custom { background-color: #fff; }
+    .navbar-custom .nav-link { font-size: 0.9rem; font-weight: 500; color: var(--serbis-muted-text); }
+    .navbar-custom .nav-link:hover,
+    .navbar-custom .nav-link.active { color: var(--serbis-primary); }
+    .navbar-brand-centered {
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+
+    .section-title {
+      font-family: 'Newsreader', serif;
+      font-weight: 600;
+      font-size: 2.2rem;
+      margin-bottom: 3.5rem;
+      color: var(--serbis-dark-text);
+    }
+    .content-section {
+      padding: var(--serbis-section-padding-y) 0;
+    }
+    #how-it-works { background-color: #fff; }
+    .how-it-works-step { text-align: center; margin-bottom: 2.5rem; }
+    .how-it-works-step .bi { font-size: 2.8rem; color: var(--serbis-primary); margin-bottom: 1rem; }
+    .how-it-works-step h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .how-it-works-step p {
+      color: var(--serbis-muted-text);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    #why-serbis { background-color: var(--serbis-light-bg); }
+    .feature-item { text-align: center; margin-bottom: 2.5rem; }
+    .feature-item .bi {
+      font-size: 2.8rem; color: var(--serbis-primary); margin-bottom: 1rem;
+    }
+    .feature-item h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .feature-item p {
+      color: var(--serbis-muted-text);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .footer {
+      background-color: #2c3e50;
+      color: rgba(255,255,255,0.6);
+      padding: 3rem 0;
+    }
+    .footer a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* Carousel screenshot styling */
+    .hero-app-mockup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 480px;
+      padding: 2rem 0;
+    }
+    #screenshotsCarousel {
+      width: clamp(200px, 70vw, 270px);
+      perspective: 1200px;
+    }
+    .carousel-screenshot {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 9 / 19.5;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #screenshotsCarousel .carousel-item.active .carousel-screenshot {
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 20px 45px rgba(0,0,0,0.18);
+    }
+    @media (max-width: 767.98px) {
+      #screenshotsCarousel { width: clamp(170px, 60vw, 220px); }
+      .hero-app-mockup-container { min-height: 380px; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Serbis",
@@ -420,266 +196,196 @@
     "logo": "https://serbis.app/assets/img/app_logo.png",
     "description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
     "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Buenos Aires",
-        "addressCountry": "AR"
+      "@type": "PostalAddress",
+      "addressLocality": "Buenos Aires",
+      "addressCountry": "AR"
     },
     "sameAs": []
-    }
-    </script>
+  }
+  </script>
 </head>
 <body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand fw-bold navbar-brand-centered" href="#page-top">
-                <img src="assets/img/app_logo.png" alt="Logo de Serbis" style="height: 36px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi-list"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#how-it-works">Cómo Funciona</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about-us-footer">Nosotros</a></li>
-                </ul>
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm navbar-custom" id="mainNav">
+    <div class="container px-4 px-lg-5">
+      <a class="navbar-brand fw-bold navbar-brand-centered" href="#page-top">
+        <img src="assets/img/app_logo.png" alt="Logo de Serbis" style="height: 36px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+        <i class="bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto my-2 my-lg-0">
+          <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">Cómo Funciona</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about-us-footer">Nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-lg-7">
+          <div class="mb-5 mb-lg-0 text-center text-lg-start">
+            <h1 class="lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
+            <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
+            <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
+            <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
+              <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!">
+                <img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" />
+              </a>
+              <a class="app-badge" id="app-store-link" href="#!">
+                <img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" />
+              </a>
             </div>
+          </div>
         </div>
-    </nav>
-    <header class="masthead">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-lg-7">
-                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
-                        <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
-                        <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
-                        <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
-                            <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
-                            <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
-                        </div>
-                    </div>
+        <div class="col-lg-5">
+          <div class="hero-app-mockup-container">
+            <div id="screenshotsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Pantalla 1"></button>
+                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="1" aria-label="Pantalla 2"></button>
+                <button type="button" data-bs-target="#screenshotsCarousel" data-bs-slide-to="2" aria-label="Pantalla 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="assets/img/sim1.png" class="d-block w-100 carousel-screenshot" alt="Serbis App Screenshot 1">
                 </div>
-                <div class="col-lg-5">
-                    <div class="hero-app-mockup-container">
-                        <div class="app-screenshots-carousel">
-                            <div class="carousel-container" id="app-carousel">
-                                <img src="assets/img/sim1.png" alt="Serbis App Screenshot 1" class="app-screenshot screen1 active" data-position="0">
-                                <img src="assets/img/sim2.png" alt="Serbis App Screenshot 2" class="app-screenshot screen2" data-position="1">
-                                <img src="assets/img/sim3.png" alt="Serbis App Screenshot 3" class="app-screenshot screen3" data-position="2">
-                            </div>
-                            
-                            <div class="carousel-nav">
-                                <button class="carousel-arrow prev" aria-label="Previous screenshot">
-                                    <i class="bi bi-chevron-left"></i>
-                                </button>
-                                <button class="carousel-arrow next" aria-label="Next screenshot">
-                                    <i class="bi bi-chevron-right"></i>
-                                </button>
-                            </div>
-                            
-                            <div class="carousel-dots">
-                                <div class="carousel-dot active" data-slide="0"></div>
-                                <div class="carousel-dot" data-slide="1"></div>
-                                <div class="carousel-dot" data-slide="2"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="carousel-item">
+                  <img src="assets/img/sim2.png" class="d-block w-100 carousel-screenshot" alt="Serbis App Screenshot 2">
                 </div>
+                <div class="carousel-item">
+                  <img src="assets/img/sim3.png" class="d-block w-100 carousel-screenshot" alt="Serbis App Screenshot 3">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#screenshotsCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+              </button>
             </div>
+          </div>
         </div>
-    </header>
-    <section id="how-it-works" class="content-section">
-        <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-pencil-square"></i>
-                        <h3>1. Describí tu Necesidad</h3>
-                        <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-lightning-charge-fill"></i>
-                        <h3>2. Conectá al Instante</h3>
-                        <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-check2-circle"></i>
-                        <h3>3. Resolvé y Calificá</h3>
-                        <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="how-it-works" class="content-section">
+    <div class="container px-4 px-lg-5">
+      <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4">
+          <div class="how-it-works-step">
+            <i class="bi bi-pencil-square"></i>
+            <h3>1. Describí tu Necesidad</h3>
+            <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
+          </div>
         </div>
-    </section>
-    <section id="why-serbis" class="content-section">
-        <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-people-fill"></i>
-                        <h3>Ayuda de tu Comunidad</h3>
-                        <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-patch-check-fill"></i>
-                        <h3>Calificaciones Reales</h3>
-                        <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-chat-dots-fill"></i>
-                        <h3>Comunicación Directa</h3>
-                        <p>Chat seguro para coordinar todos los detalles del servicio.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-speedometer2"></i>
-                        <h3>Rápido y Eficaz</h3>
-                        <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
-                    </div>
-                </div>
-            </div>
-             <div class="text-center mt-5">
-                <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
-            </div>
+        <div class="col-md-4">
+          <div class="how-it-works-step">
+            <i class="bi bi-lightning-charge-fill"></i>
+            <h3>2. Conectá al Instante</h3>
+            <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
+          </div>
         </div>
-    </section>
-    
-    <footer class="footer" id="about-us-footer">
-        <div class="container px-4 px-lg-5">
-            <div class="text-center small">
-                <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
-                <div class="mb-2">Buenos Aires, Argentina</div>
-                <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
-            </div>
+        <div class="col-md-4">
+          <div class="how-it-works-step">
+            <i class="bi bi-check2-circle"></i>
+            <h3>3. Resolvé y Calificá</h3>
+            <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
+          </div>
         </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // --- CONFIGURATION: REPLACE THESE URLs ---
-            const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL"; // e.g., "https://apps.apple.com/ar/app/your-app-name/idYOUR_APP_ID"
-            const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL"; // e.g., "https://play.google.com/store/apps/details?id=com.your.app.package"
-            const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL"; // e.g., "https://serbis.app/publicar-pedido"
-            const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL"; // e.g., "https://serbis.app/registro-proveedor"
-            // --- END CONFIGURATION ---
-            
-            function getOS() {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                if (/android/i.test(userAgent)) {
-                    return "Android";
-                }
-                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    return "iOS";
-                }
-                return "Desktop"; // or "unknown"
-            }
-            
-            const os = getOS();
-            
-            // Main CTA button
-            const mainCtaButton = document.getElementById('main-cta-button');
-            if (mainCtaButton) {
-                mainCtaButton.addEventListener('click', function () {
-                    if (os === "iOS") {
-                        window.location.href = APPLE_APP_STORE_URL;
-                    } else if (os === "Android") {
-                        window.location.href = GOOGLE_PLAY_STORE_URL;
-                    } else { // Desktop or other
-                        window.location.href = DESKTOP_WEB_FORM_URL;
-                    }
-                });
-            }
-            
-            // Secondary CTA button
-            const secondaryCtaButton = document.getElementById('secondary-cta-button');
-            if (secondaryCtaButton) {
-                secondaryCtaButton.addEventListener('click', function () {
-                    if (os === "iOS") {
-                        window.location.href = APPLE_APP_STORE_URL;
-                    } else if (os === "Android") {
-                        window.location.href = GOOGLE_PLAY_STORE_URL;
-                    } else { // Desktop or other
-                        window.location.href = DESKTOP_WEB_FORM_URL; // Or could also go to app stores
-                    }
-                });
-            }
-            
-            // Google Play badge link
-            const googlePlayLink = document.getElementById('google-play-link');
-            if (googlePlayLink) {
-                googlePlayLink.href = GOOGLE_PLAY_STORE_URL; // Always goes to Play Store
-            }
-            
-            // App Store badge link
-            const appStoreLink = document.getElementById('app-store-link');
-            if (appStoreLink) {
-                appStoreLink.href = APPLE_APP_STORE_URL; // Always goes to App Store
-            }
-            
-            // "Soy Proveedor" link
-            const soyProveedorLink = document.getElementById('soy-proveedor-link');
-            if (soyProveedorLink) {
-                soyProveedorLink.href = SOY_PROVEEDOR_URL;
-            }
-            
-            // --- App Screenshots Carousel ---
-            const carousel = document.getElementById('app-carousel');
-            const screenshots = document.querySelectorAll('.app-screenshot');
-            const dots = document.querySelectorAll('.carousel-dot');
-            const prevBtn = document.querySelector('.carousel-arrow.prev');
-            const nextBtn = document.querySelector('.carousel-arrow.next');
-            let currentIndex = 0;
-            let autoRotateInterval;
-            
-            // Function to rotate carousel to specific index
-            function rotateCarousel(index) {
-                // Wrap around for infinite rotation
-                if (index < 0) index = screenshots.length - 1;
-                if (index >= screenshots.length) index = 0;
-                
-                currentIndex = index;
-                
-                // Update carousel rotation
-                carousel.style.transform = `rotateY(${-120 * currentIndex}deg)`;
-                
-                // Update active states
-                screenshots.forEach((screenshot, idx) => {
-                    screenshot.classList.remove('active');
-                    if (idx === currentIndex) {
-                        screenshot.classList.add('active');
-                    }
-                });
-                
-                dots.forEach((dot, idx) => {
-                    dot.classList.remove('active');
-                    if (idx === currentIndex) {
-                        dot.classList.add('active');
-                    }
-                });
-            }
-            
-            // Set up event listeners for navigation
-            prevBtn.addEventListener('click', () => {
-                rotateCarousel(currentIndex - 1);
-                resetAutoRotate();
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                rotateCarousel(currentIndex + 1);
-                resetAutoRotate();
-            });
-            
-            // Set up event listeners for dots
+      </div>
+    </div>
+  </section>
+
+  <section id="why-serbis" class="content-section">
+    <div class="container px-4 px-lg-5">
+      <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
+      <div class="row gx-4 gx-lg-5">
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-item">
+            <i class="bi bi-people-fill"></i>
+            <h3>Ayuda de tu Comunidad</h3>
+            <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-item">
+            <i class="bi bi-patch-check-fill"></i>
+            <h3>Calificaciones Reales</h3>
+            <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-item">
+            <i class="bi bi-chat-dots-fill"></i>
+            <h3>Comunicación Directa</h3>
+            <p>Chat seguro para coordinar todos los detalles del servicio.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-item">
+            <i class="bi bi-speedometer2"></i>
+            <h3>Rápido y Eficaz</h3>
+            <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="about-us-footer">
+    <div class="container px-4 px-lg-5">
+      <div class="text-center small">
+        <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
+        <div class="mb-2">Buenos Aires, Argentina</div>
+        <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const APPLE_APP_STORE_URL   = "YOUR_APPLE_APP_STORE_URL";
+      const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL";
+      const DESKTOP_WEB_FORM_URL  = "YOUR_DESKTOP_WEB_FORM_URL";
+      const SOY_PROVEEDOR_URL     = "YOUR_SOY_PROVEEDOR_URL";
+
+      function getOS() {
+        const ua = navigator.userAgent || navigator.vendor;
+        if (/android/i.test(ua)) return "Android";
+        if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) return "iOS";
+        return "Desktop";
+      }
+      const os = getOS();
+
+      function bindCTA(id, urlDesktop) {
+        const btn = document.getElementById(id);
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          if (os === "iOS")       window.location.href = APPLE_APP_STORE_URL;
+          else if (os === "Android") window.location.href = GOOGLE_PLAY_STORE_URL;
+          else                     window.location.href = urlDesktop;
+        });
+      }
+
+      bindCTA('main-cta-button',     DESKTOP_WEB_FORM_URL);
+      bindCTA('secondary-cta-button', DESKTOP_WEB_FORM_URL);
+
+      document.getElementById('google-play-link').href = GOOGLE_PLAY_STORE_URL;
+      document.getElementById('app-store-link').href   = APPLE_APP_STORE_URL;
+      document.getElementById('soy-proveedor-link').href = SOY_PROVEEDOR_URL;
+    });
+  </script>
+</body>
+</html>
