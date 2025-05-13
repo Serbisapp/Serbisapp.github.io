@@ -219,73 +219,87 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            min-height: 480px; /* Adjusted to ensure space for the stack */
-            perspective: 1200px; /* For 3D effect on rotated cards */
-            padding: 2rem 0; 
+            height: 100%; /* Ensure it takes vertical space */
+            min-height: 480px; /* Adjust as needed for vertical space */
+            perspective: 1200px; /* Adds depth for 3D rotations */
+            padding: 2rem 0; /* Add some padding */
+            position: relative; /* Needed for absolute positioning of children */
         }
 
         .app-screenshots-poker {
             position: relative;
-            /* Width of the central card, responsive */
+            /* Responsive width for the central card stack */
+            /* Min width, preferred width (relative to viewport), max width */
             width: clamp(200px, 70vw, 270px); 
-            /* Height will be determined by its content and transformations. 
-               The parent container's min-height and flex alignment will handle overall space. */
+            /* Height is determined by aspect-ratio of the images */
+            cursor: pointer; /* Indicate interactivity */
         }
 
         .app-screenshot {
             position: absolute;
-            top: 50%; /* For vertical centering */
-            left: 50%; /* For horizontal centering */
+            /* Center the screenshots before transforming */
+            top: 50%; 
+            left: 50%; 
             
-            width: 100%; /* Full width of .app-screenshots-poker */
+            width: 100%; /* Take full width of parent */
             height: auto; /* Maintain aspect ratio */
-            aspect-ratio: 9 / 19.5; /* Common phone screen aspect ratio (e.g., iPhone X/11/12/13/14) */
-            object-fit: cover; /* Cover the area, cropping if necessary */
+            /* Enforce a common phone screen aspect ratio */
+            aspect-ratio: 9 / 19.5; 
+            object-fit: cover; /* Cover the area, might crop slightly */
             
-            border-radius: 22px; /* Rounded corners for app screen feel */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12);
+            /* Styling for the "phone screen" look */
+            border-radius: 22px; /* Adjust for desired roundness */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12); /* Softer initial shadow */
             
-            /* Subtle border to mimic phone edge or distinguish screenshot */
+            /* Optional: Add a subtle border to mimic phone edge */
             border: 1px solid rgba(0,0,0,0.03); 
-            /* If you want a thicker, more pronounced phone-like border: */
+            /* Or a thicker, more pronounced phone-like border: */
             /* border: 6px solid #333; */
-            /* border-radius: 28px; */ /* Adjust if border is thick */
+            /* border-radius: 28px; */ /* Adjust radius if using thick border */
             
-            /* Smooth transition for hover effects */
+            /* Smooth, slightly bouncy transition */
             transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
                         box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-color: #fff; /* Fallback if images are transparent/loading */
+            background-color: #fff; /* Fallback bg color */
+            
+            /* Initial transform corrects the top/left 50% */
+            transform-origin: center center; 
         }
 
-        /* Initial positions for the stacked cards */
+        /* --- Initial Stacked Positions --- */
         .app-screenshot.screen1 { /* Top card */
             z-index: 3;
-            transform: translate(-50%, -50%) translateY(-20px) rotate(1.5deg) scale(1);
+            /* Translate back to center, move slightly up, slight rotate */
+            transform: translate(-50%, -50%) translateY(-15px) rotate(2deg) scale(1); 
         }
 
         .app-screenshot.screen2 { /* Middle card */
             z-index: 2;
-            /* Slightly offset and scaled down */
-            transform: translate(-50%, -50%) translateY(5px) rotate(-3deg) scale(0.92);
+            /* Translate back to center, slight offset, opposite rotate, smaller */
+            transform: translate(-50%, -50%) translateY(0px) rotate(-3deg) scale(0.92); 
         }
 
         .app-screenshot.screen3 { /* Bottom card */
             z-index: 1;
-            /* Further offset and scaled down */
-            transform: translate(-50%, -50%) translateY(30px) rotate(3.5deg) scale(0.84);
+            /* Translate back to center, further offset, more rotate, smallest */
+            transform: translate(-50%, -50%) translateY(15px) rotate(4deg) scale(0.84);
         }
 
-        /* Hover effect on the container to fan them out */
+        /* --- Hover Effect on the Container --- */
         .app-screenshots-poker:hover .screen1 {
-            transform: translate(-50%, -50%) translateY(-60px) rotate(0deg) scale(1.03);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 20px 45px rgba(0,0,0,0.18);
+            /* Move significantly up, straighten, slight scale up for focus */
+            transform: translate(-50%, -50%) translateY(-110%) rotate(0deg) scale(1.02); 
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15), 0 20px 45px rgba(0,0,0,0.2); /* Enhanced shadow */
         }
+
         .app-screenshots-poker:hover .screen2 {
-            transform: translate(-50%, -50%) translateY(-5px) rotate(-5deg) scale(0.95);
+            /* Move to the middle position, adjust rotation/scale */
+            transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94); 
         }
+
         .app-screenshots-poker:hover .screen3 {
-            transform: translate(-50%, -50%) translateY(50px) rotate(6deg) scale(0.87);
+            /* Move to the bottom position, adjust rotation/scale */
+            transform: translate(-50%, -50%) translateY(110%) rotate(5deg) scale(0.86); 
         }
         /* --- End Poker Card Styles --- */
 
@@ -316,32 +330,24 @@
             .masthead .text-lg-start { /* Override for hero text section */
                 text-align: center !important;
             }
+            /* Poker card styles for medium screens */
             .hero-app-mockup-container {
-                margin-top: 3rem; /* Existing style, good */
+                margin-top: 3rem; 
                 min-height: 420px; 
             }
             .app-screenshots-poker {
                 width: clamp(180px, 65vw, 240px); /* Smaller screenshots */
             }
-             /* Adjust transforms for smaller viewports if needed */
-            .app-screenshot.screen1 {
-                transform: translate(-50%, -50%) translateY(-15px) rotate(1.5deg);
-            }
-            .app-screenshot.screen2 {
-                transform: translate(-50%, -50%) translateY(0px) rotate(-3deg) scale(0.92);
-            }
-            .app-screenshot.screen3 {
-                transform: translate(-50%, -50%) translateY(25px) rotate(3.5deg) scale(0.84);
-            }
+            /* Adjust hover transforms for less vertical space */
              .app-screenshots-poker:hover .screen1 {
-                transform: translate(-50%, -50%) translateY(-50px) rotate(0deg) scale(1.03);
-            }
-            .app-screenshots-poker:hover .screen2 {
-                transform: translate(-50%, -50%) translateY(-0px) rotate(-5deg) scale(0.95);
-            }
-            .app-screenshots-poker:hover .screen3 {
-                transform: translate(-50%, -50%) translateY(40px) rotate(6deg) scale(0.87);
-            }
+                 transform: translate(-50%, -50%) translateY(-100%) rotate(0deg) scale(1.02);
+             }
+             .app-screenshots-poker:hover .screen2 {
+                 transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94);
+             }
+             .app-screenshots-poker:hover .screen3 {
+                 transform: translate(-50%, -50%) translateY(100%) rotate(5deg) scale(0.86);
+             }
         }
         @media (max-width: 767.98px) {
             .masthead h1 {
@@ -356,29 +362,30 @@
             .how-it-works-step h3, .feature-item h3 {
                 font-size: 1.2rem;
             }
+            /* Poker card styles for small screens */
             .hero-app-mockup-container {
                 min-height: 380px;
             }
             .app-screenshots-poker {
                  width: clamp(170px, 60vw, 220px); /* Even smaller */
             }
+             /* Adjust initial stacking slightly if needed */
             .app-screenshot.screen1 {
-                transform: translate(-50%, -50%) translateY(-10px) rotate(1.5deg);
+                transform: translate(-50%, -50%) translateY(-10px) rotate(2deg) scale(1);
             }
-            .app-screenshot.screen2 {
-                transform: translate(-50%, -50%) translateY(2px) rotate(-2.5deg) scale(0.93);
-            }
+            /* .app-screenshot.screen2's initial position uses base CSS, no override needed here */
             .app-screenshot.screen3 {
-                transform: translate(-50%, -50%) translateY(20px) rotate(3deg) scale(0.86);
+                transform: translate(-50%, -50%) translateY(10px) rotate(4deg) scale(0.84);
             }
+            /* Further reduce hover separation */
              .app-screenshots-poker:hover .screen1 {
-                transform: translate(-50%, -50%) translateY(-40px) rotate(0deg) scale(1.03);
+                transform: translate(-50%, -50%) translateY(-90%) rotate(0deg) scale(1.02);
             }
             .app-screenshots-poker:hover .screen2 {
-                transform: translate(-50%, -50%) translateY(0px) rotate(-4deg) scale(0.96);
+                transform: translate(-50%, -50%) translateY(0%) rotate(-4deg) scale(0.94);
             }
             .app-screenshots-poker:hover .screen3 {
-                transform: translate(-50%, -50%) translateY(30px) rotate(5deg) scale(0.89);
+                transform: translate(-50%, -50%) translateY(90%) rotate(5deg) scale(0.86);
             }
         }
     </style>
@@ -434,16 +441,17 @@
                     </div>
                 </div>
                 <div class="col-lg-5">
+                    <!-- Hero Mockup Container: Centers content and provides perspective -->
                     <div class="hero-app-mockup-container">
+                        <!-- Poker Card Wrapper: Hover target, defines base size -->
                         <div class="app-screenshots-poker">
                             <!-- 
                                 TODO: Replace these src attributes with your actual app screenshot paths.
                                 Recommended image aspect ratio is portrait (e.g., 9:19.5 or similar).
-                                Example placeholder URLs are used below.
                             -->
-                            <img src="assets/img/sim1.png" alt="Serbis App Screenshot 1" class="app-screenshot screen1">
-                            <img src="assets/img/sim2.png" alt="Serbis App Screenshot 2" class="app-screenshot screen2">
-                            <img src="assets/img/sim3.png" alt="Serbis App Screenshot 3" class="app-screenshot screen3">
+                            <img src="assets/img/sim1.png" alt="Serbis App - Pantalla Principal" class="app-screenshot screen1">
+                            <img src="assets/img/sim2.png" alt="Serbis App - Detalle de Servicio" class="app-screenshot screen2">
+                            <img src="assets/img/sim3.png" alt="Serbis App - Chat con Profesional" class="app-screenshot screen3">
                         </div>
                     </div>
                 </div>
