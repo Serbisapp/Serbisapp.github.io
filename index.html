@@ -25,8 +25,9 @@
 <link href="css/styles.css" rel="stylesheet" />
 <style>
     :root {
-        --serbis-primary: #0d6efd; /* Your brand primary color */
-        --serbis-light-bg: #f8f9fa; /* Very light grey for subtle backgrounds */
+        --serbis-primary: #0d6efd;
+        --serbis-primary-rgb: 13, 110, 253; /* For use in rgba */
+        --serbis-light-bg: #f8f9fa;
         --serbis-dark-text: #212529;
         --serbis-muted-text: #495057;
         --serbis-section-padding-y: 5rem;
@@ -39,9 +40,10 @@
     }
 
     .masthead {
-        padding-top: 9rem; /* Increased for more space */
-        padding-bottom: 7rem; /* Increased for more space */
+        padding-top: 9rem;
+        padding-bottom: 7rem;
         background-color: var(--serbis-light-bg); 
+        overflow: hidden; /* Important for containing background pseudo-elements */
     }
 
     .masthead h1 {
@@ -61,7 +63,7 @@
         font-weight: 400;
         color: var(--serbis-muted-text);
         margin-bottom: 2.5rem;
-        max-width: 550px; /* Constrain line length for readability */
+        max-width: 550px;
     }
     .text-lg-start .lead {
         margin-left: auto;
@@ -207,71 +209,164 @@
         text-decoration: underline;
     }
 
-    /* --- Styles for 3D iPhone Mockup --- */
+    /* --- Styles for ENHANCED 3D iPhone Mockup --- */
     .hero-app-mockup-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
-        min-height: 480px; /* Adjust based on mockup size and preference */
-        perspective: 1500px; /* Strength of the 3D effect */
-        padding: 2rem 0;
+        min-height: 520px; /* Increased min-height for more visual space */
+        perspective: 1800px; /* Enhanced 3D effect */
+        padding: 3rem 0;
         position: relative;
+        background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.05) 0%, transparent 60%);
     }
+
+    /* Background Glow Elements */
+    .hero-app-mockup-container::before,
+    .hero-app-mockup-container::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(120px); /* Intense blur for soft glow */
+        z-index: 0; /* Behind the phone, but above container background */
+        pointer-events: none; /* Allow clicks through */
+    }
+
+    .hero-app-mockup-container::before {
+        width: 450px; /* Larger glow */
+        height: 450px;
+        background: hsla(var(--serbis-primary-rgb), 0.18); /* Primary color, subtle opacity */
+        top: 50%;
+        left: 50%;
+        transform: translate(-60%, -60%); /* Offset to one side */
+        animation: pulse-glow-1 10s infinite alternate ease-in-out;
+    }
+
+    .hero-app-mockup-container::after {
+        width: 350px;
+        height: 350px;
+        background: hsla(210, 80%, 70%, 0.15); /* A complementary subtle blue */
+        top: 50%;
+        left: 50%;
+        transform: translate(40%, 30%); /* Offset to another side */
+        animation: pulse-glow-2 12s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulse-glow-1 {
+        0% { opacity: 0.18; transform: translate(-60%, -60%) scale(1); }
+        100% { opacity: 0.25; transform: translate(-55%, -55%) scale(1.1); }
+    }
+    @keyframes pulse-glow-2 {
+        0% { opacity: 0.15; transform: translate(40%, 30%) scale(1); }
+        100% { opacity: 0.22; transform: translate(45%, 35%) scale(1.05); }
+    }
+
 
     .iphone-mockup {
         /* CSS Variables for responsive scaling */
-        --iphone-width: 260px;
-        --iphone-aspect-ratio: 2.0517; /* Height/Width ratio (e.g., iPhone 13 Pro) */
+        --iphone-width: 270px; /* Slightly larger for more presence */
+        --iphone-aspect-ratio: 2.0517;
         --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
-        --iphone-border-radius: calc(var(--iphone-width) * 0.184); /* ~48px for 260px width */
-        --iphone-bezel-padding: calc(var(--iphone-width) * 0.046); /* ~12px for 260px width */
-        --screen-border-radius: calc(var(--iphone-width) * 0.138); /* ~36px for 260px width */
-        --notch-width: calc(var(--iphone-width) * 0.38); /* ~100px for 260px width */
-        --notch-height: calc(var(--iphone-width) * 0.107); /* ~28px for 260px width */
-        --button-thickness: calc(var(--iphone-width) * 0.0135); /* ~3.5px */
-        --button-v-height: calc(var(--iphone-width) * 0.115); /* ~30px */
-        --button-p-height: calc(var(--iphone-width) * 0.211); /* ~55px */
+        --iphone-border-radius: calc(var(--iphone-width) * 0.17); /* ~46px */
+        --iphone-bezel-padding: calc(var(--iphone-width) * 0.044); /* ~12px */
+        --screen-border-radius: calc(var(--iphone-width) * 0.13); /* ~35px */
+        --notch-width: calc(var(--iphone-width) * 0.37); /* ~100px */
+        --notch-height: calc(var(--iphone-width) * 0.103); /* ~28px */
+        --button-thickness: calc(var(--iphone-width) * 0.013); /* ~3.5px */
+        --button-v-height: calc(var(--iphone-width) * 0.111); /* ~30px */
+        --button-p-height: calc(var(--iphone-width) * 0.203); /* ~55px */
         --button-vol-up-top: calc(var(--iphone-height) * 0.177);
         --button-vol-down-top: calc(var(--iphone-height) * 0.252);
         --button-power-top: calc(var(--iphone-height) * 0.215);
 
         width: var(--iphone-width);
         height: var(--iphone-height);
-        position: relative;
+        position: relative; /* For z-index stacking and pseudo-elements */
+        z-index: 1; /* Above background glows */
         transform-style: preserve-3d;
-        transform: rotateY(-25deg) rotateX(15deg) translateZ(50px);
-        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-                    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-        background: #28282b; /* Dark grey phone body */
+        transform: rotateY(-28deg) rotateX(18deg) translateZ(60px); /* More dynamic initial angle */
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), /* Smoother, bouncier transition */
+                    box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        /* Metallic sheen with gradient */
+        background: linear-gradient(145deg, #3a3a3f, #202023); 
         border-radius: var(--iphone-border-radius);
         padding: var(--iphone-bezel-padding);
+        /* Enhanced shadows for more depth and realism */
         box-shadow:
-            -10px 15px 35px rgba(0, 0, 0, 0.25), /* Main shadow */
-            5px -5px 15px rgba(0,0,0,0.1) /* Shadow from rotation */,
-            inset 0px 0px 3px rgba(255, 255, 255, 0.05), /* Inner bezel highlight */
-            inset 0 0 0 1.5px rgba(255,255,255,0.07), /* Metallic edge reflection */
-            0 0 0 0.5px rgba(0,0,0,0.2); /* Outer device border */
+            -15px 20px 50px rgba(0, 0, 0, 0.28), /* Main softer shadow */
+            8px -8px 25px rgba(0,0,0,0.12), /* Shadow from rotation */
+            inset 0px 1px 2px rgba(255, 255, 255, 0.1), /* Top edge highlight */
+            inset 0px -1px 2px rgba(0, 0, 0, 0.3), /* Bottom edge shadow */
+            inset 1px 0px 2px rgba(255,255,255,0.07), /* Left edge highlight */
+            inset -1px 0px 2px rgba(0,0,0,0.2), /* Right edge shadow */
+            0 0 0 1px rgba(0,0,0,0.25); /* Outer device border for crispness */
     }
 
     .iphone-mockup:hover {
-        transform: rotateY(-15deg) rotateX(10deg) translateZ(60px) scale(1.03);
+        transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04); /* More pronounced hover */
         box-shadow:
-            -15px 20px 45px rgba(0, 0, 0, 0.3),
-            8px -8px 20px rgba(0,0,0,0.15),
-            inset 0px 0px 4px rgba(255, 255, 255, 0.07),
-            inset 0 0 0 1.5px rgba(255,255,255,0.09),
-            0 0 0 0.5px rgba(0,0,0,0.25);
+            -20px 28px 65px rgba(0, 0, 0, 0.35),
+            10px -10px 30px rgba(0,0,0,0.18),
+            inset 0px 1px 3px rgba(255, 255, 255, 0.15),
+            inset 0px -1px 3px rgba(0, 0, 0, 0.35),
+            inset 1px 0px 3px rgba(255,255,255,0.1),
+            inset -1px 0px 3px rgba(0,0,0,0.25),
+            0 0 0 1px rgba(0,0,0,0.3);
     }
+    
+    /* Floor Shadow */
+    .iphone-mockup::after {
+        content: '';
+        position: absolute;
+        bottom: calc(-1 * var(--iphone-bezel-padding) - 30px); /* Position below the phone */
+        left: 10%;
+        width: 80%;
+        height: 40px; /* Height of the shadow ellipse */
+        background: rgba(0,0,0,0.2);
+        border-radius: 50%;
+        filter: blur(25px); /* Soften the shadow */
+        transform: scaleY(0.7) translateZ(-80px); /* Flatten and push back */
+        z-index: -1; /* Behind the phone body */
+        transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
+        opacity: 0.7;
+    }
+    .iphone-mockup:hover::after {
+        opacity: 0.9;
+        filter: blur(30px);
+        transform: scaleY(0.75) translateZ(-70px) translateY(10px);
+    }
+
 
     .iphone-screen-area {
         width: 100%;
         height: 100%;
-        background: #000; /* Screen background */
-        border-radius: var(--screen-border-radius); /* Inner screen corners */
-        overflow: hidden; /* Clip app content */
+        background: #000;
+        border-radius: var(--screen-border-radius);
+        overflow: hidden;
         position: relative;
     }
+    
+    /* Screen Glare */
+    .iphone-screen-area::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 150%; /* Wider to allow for skewing */
+        height: 150%; /* Taller */
+        background: linear-gradient(
+            165deg, /* Angle of the glare */
+            rgba(255,255,255,0.15) 0%, 
+            rgba(255,255,255,0.08) 30%,
+            rgba(255,255,255,0) 50% /* Fades out */
+        );
+        transform: translateX(-20%) translateY(-20%) rotate(-25deg); /* Position and angle */
+        z-index: 5; /* Above app content but below notch */
+        pointer-events: none; /* Allow clicks through */
+        opacity: 0.7;
+    }
+
 
     .iphone-app-content {
         width: 100%;
@@ -282,23 +377,25 @@
 
     .iphone-notch {
         position: absolute;
-        top: var(--iphone-bezel-padding); /* Sits on top of the screen area */
+        top: var(--iphone-bezel-padding);
         left: 50%;
         transform: translateX(-50%);
         width: var(--notch-width);
         height: var(--notch-height);
-        background: #28282b; /* Match phone body */
-        border-bottom-left-radius: calc(var(--notch-height) * 0.4); /* Rounded bottom notch corners */
-        border-bottom-right-radius: calc(var(--notch-height) * 0.4);
-        z-index: 10; /* Above screen content */
+        background: #202023; /* Match darker phone body gradient part */
+        border-bottom-left-radius: calc(var(--notch-height) * 0.45); 
+        border-bottom-right-radius: calc(var(--notch-height) * 0.45);
+        z-index: 10; 
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
     }
 
     .iphone-side-button {
         position: absolute;
-        background: #4a4a4e; /* Button color */
-        border-radius: calc(var(--button-thickness) * 0.6); /* Rounded button edges */
-        box-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.3) inset,
-                    -0.5px -0.5px 1px rgba(255,255,255,0.05) inset;
+        background: linear-gradient(145deg, #525257, #404043); /* Button color with gradient */
+        border-radius: calc(var(--button-thickness) * 0.5); 
+        box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset,
+                    -0.5px -0.5px 1px rgba(255,255,255,0.08) inset,
+                    0 0 1px rgba(0,0,0,0.2); /* Outer subtle shadow */
     }
     .iphone-volume-up {
         left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
@@ -315,7 +412,7 @@
         width: var(--button-thickness); height: var(--button-p-height);
         border-top-left-radius: 0; border-bottom-left-radius: 0;
     }
-    /* --- End 3D iPhone Mockup Styles --- */
+    /* --- End ENHANCED 3D iPhone Mockup Styles --- */
 
 
     /* --- Styles for New App Feature Sections --- */
@@ -411,12 +508,15 @@
         
         .hero-app-mockup-container {
             margin-top: 3rem; 
-            min-height: 440px; 
+            min-height: 480px; /* Adjusted */
         }
         .iphone-mockup {
-            --iphone-width: 240px; /* Adjust iPhone size for tablets */
-            transform: rotateY(-20deg) rotateX(12deg) translateZ(40px);
+            --iphone-width: 250px; 
+            transform: rotateY(-22deg) rotateX(15deg) translateZ(50px);
         }
+        .hero-app-mockup-container::before { width: 400px; height: 400px; filter: blur(100px);}
+        .hero-app-mockup-container::after { width: 300px; height: 300px; filter: blur(100px);}
+
 
         .app-feature-text {
             text-align: center;
@@ -451,15 +551,18 @@
         }
         
         .hero-app-mockup-container {
-            min-height: 400px;
+            min-height: 440px; /* Adjusted */
         }
         .iphone-mockup {
-            --iphone-width: 220px; /* Adjust iPhone size for small devices */
-            transform: rotateY(-15deg) rotateX(10deg) translateZ(30px);
+            --iphone-width: 230px; 
+            transform: rotateY(-18deg) rotateX(12deg) translateZ(40px);
         }
-        .iphone-mockup:hover {
-            transform: rotateY(-10deg) rotateX(8deg) translateZ(40px) scale(1.02);
+         .iphone-mockup:hover {
+            transform: rotateY(-12deg) rotateX(10deg) translateZ(50px) scale(1.03);
         }
+        .hero-app-mockup-container::before { width: 350px; height: 350px; filter: blur(90px);}
+        .hero-app-mockup-container::after { width: 250px; height: 250px; filter: blur(90px);}
+
 
         .app-feature-text .feature-title {
             font-size: 1.9rem;
@@ -470,15 +573,17 @@
     }
      @media (max-width: 575.98px) { /* xs */
         .hero-app-mockup-container {
-            min-height: 360px;
+            min-height: 380px; /* Adjusted */
         }
         .iphone-mockup {
-            --iphone-width: 200px; /* Adjust iPhone size for extra small devices */
-            transform: rotateY(-10deg) rotateX(5deg) translateZ(20px);
+            --iphone-width: 210px; 
+            transform: rotateY(-12deg) rotateX(8deg) translateZ(30px);
         }
-        .iphone-mockup:hover {
-            transform: rotateY(-5deg) rotateX(3deg) translateZ(30px) scale(1.01);
+         .iphone-mockup:hover {
+            transform: rotateY(-8deg) rotateX(5deg) translateZ(40px) scale(1.02);
         }
+        .hero-app-mockup-container::before { width: 300px; height: 300px; filter: blur(80px);}
+        .hero-app-mockup-container::after { width: 200px; height: 200px; filter: blur(80px);}
     }
 </style>
 <script type="application/ld+json">
@@ -535,7 +640,7 @@
             <div class="col-lg-5">
                 <br><br>
                 <div class="hero-app-mockup-container">
-                    <!-- Start: 3D iPhone Mockup -->
+                    <!-- Start: ENHANCED 3D iPhone Mockup -->
                     <div class="iphone-mockup">
                         <div class="iphone-screen-area">
                             <img src="assets/img/sim1.png" alt="Serbis App en iPhone" class="iphone-app-content">
@@ -545,7 +650,7 @@
                         <div class="iphone-side-button iphone-volume-down"></div>
                         <div class="iphone-side-button iphone-power-button"></div>
                     </div>
-                    <!-- End: 3D iPhone Mockup -->
+                    <!-- End: ENHANCED 3D iPhone Mockup -->
                 </div>
             </div>
         </div>
@@ -790,8 +895,6 @@
             soyProveedorLink.href = SOY_PROVEEDOR_URL;
         }
 
-        // No JavaScript needed for the 3D iPhone mockup as it's CSS driven.
-        // The old poker card JavaScript has been removed.
     });
 </script>
 </body>
