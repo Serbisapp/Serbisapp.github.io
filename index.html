@@ -207,70 +207,123 @@
         text-decoration: underline;
     }
 
-    /* --- Styles for Poker Card App Screenshots (Horizontal Fan) --- */
+    /* --- Styles for 3D iPhone Mockup --- */
     .hero-app-mockup-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
-        min-height: 480px; /* Adjust as needed */
-        perspective: 1200px; /* Enables 3D transformations for child elements */
+        min-height: 480px; /* Adjust based on mockup size and preference */
+        perspective: 1500px; /* Strength of the 3D effect */
         padding: 2rem 0;
-        position: relative; /* Needed for absolute positioning of screenshots */
-    }
-
-    .app-screenshots-poker {
         position: relative;
-        width: clamp(200px, 70vw, 270px); /* Base width of the card stack "footprint" */
-        /* Height will be determined by aspect ratio of cards & content */
-        cursor: pointer; /* Indicate the whole stack is interactive */
     }
 
-    .app-screenshot {
-        position: absolute;
-        top: 50%; /* Center registration point */
-        left: 50%; /* Center registration point */
-        width: 100%; /* Make card width relative to .app-screenshots-poker */
-        height: auto;
-        aspect-ratio: 9 / 19.5; /* Maintain phone screen aspect ratio */
+    .iphone-mockup {
+        /* CSS Variables for responsive scaling */
+        --iphone-width: 260px;
+        --iphone-aspect-ratio: 2.0517; /* Height/Width ratio (e.g., iPhone 13 Pro) */
+        --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
+        --iphone-border-radius: calc(var(--iphone-width) * 0.184); /* ~48px for 260px width */
+        --iphone-bezel-padding: calc(var(--iphone-width) * 0.046); /* ~12px for 260px width */
+        --screen-border-radius: calc(var(--iphone-width) * 0.138); /* ~36px for 260px width */
+        --notch-width: calc(var(--iphone-width) * 0.38); /* ~100px for 260px width */
+        --notch-height: calc(var(--iphone-width) * 0.107); /* ~28px for 260px width */
+        --button-thickness: calc(var(--iphone-width) * 0.0135); /* ~3.5px */
+        --button-v-height: calc(var(--iphone-width) * 0.115); /* ~30px */
+        --button-p-height: calc(var(--iphone-width) * 0.211); /* ~55px */
+        --button-vol-up-top: calc(var(--iphone-height) * 0.177);
+        --button-vol-down-top: calc(var(--iphone-height) * 0.252);
+        --button-power-top: calc(var(--iphone-height) * 0.215);
+
+        width: var(--iphone-width);
+        height: var(--iphone-height);
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateY(-25deg) rotateX(15deg) translateZ(50px);
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                    box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        background: #28282b; /* Dark grey phone body */
+        border-radius: var(--iphone-border-radius);
+        padding: var(--iphone-bezel-padding);
+        box-shadow:
+            -10px 15px 35px rgba(0, 0, 0, 0.25), /* Main shadow */
+            5px -5px 15px rgba(0,0,0,0.1) /* Shadow from rotation */,
+            inset 0px 0px 3px rgba(255, 255, 255, 0.05), /* Inner bezel highlight */
+            inset 0 0 0 1.5px rgba(255,255,255,0.07), /* Metallic edge reflection */
+            0 0 0 0.5px rgba(0,0,0,0.2); /* Outer device border */
+    }
+
+    .iphone-mockup:hover {
+        transform: rotateY(-15deg) rotateX(10deg) translateZ(60px) scale(1.03);
+        box-shadow:
+            -15px 20px 45px rgba(0, 0, 0, 0.3),
+            8px -8px 20px rgba(0,0,0,0.15),
+            inset 0px 0px 4px rgba(255, 255, 255, 0.07),
+            inset 0 0 0 1.5px rgba(255,255,255,0.09),
+            0 0 0 0.5px rgba(0,0,0,0.25);
+    }
+
+    .iphone-screen-area {
+        width: 100%;
+        height: 100%;
+        background: #000; /* Screen background */
+        border-radius: var(--screen-border-radius); /* Inner screen corners */
+        overflow: hidden; /* Clip app content */
+        position: relative;
+    }
+
+    .iphone-app-content {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border-radius: 22px; /* Phone-like rounded corners */
-        /* Initial box-shadow, JS will update for different positions */
-        box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12);
-        border: 1px solid rgba(0,0,0,0.03);
-        /* Smooth transition for transform and box-shadow changes */
-        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                    box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        background-color: #fff; /* Fallback if images are transparent */
-        transform-origin: center center; /* Crucial for rotation and scaling */
-        user-select: none; /* Prevent image dragging on click/drag */
+        display: block;
     }
 
-    /* Initial Fan Positions - These classes set up the deck's appearance on load. */
-    /* JavaScript will take over to dynamically change transform and z-index on click. */
-    .app-screenshot.screen1 { /* Visually front-most card initially */
-        z-index: 3; /* Higher z-index = on top */
-        transform: translate(-50%, -50%) translateX(-20px) rotate(-10deg) scale(1);
-    }
-    .app-screenshot.screen2 { /* Middle card initially */
-        z-index: 2;
-        transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1);
-    }
-    .app-screenshot.screen3 { /* Visually back-most card initially */
-        z-index: 1;
-        transform: translate(-50%, -50%) translateX(20px) rotate(10deg) scale(1);
+    .iphone-notch {
+        position: absolute;
+        top: var(--iphone-bezel-padding); /* Sits on top of the screen area */
+        left: 50%;
+        transform: translateX(-50%);
+        width: var(--notch-width);
+        height: var(--notch-height);
+        background: #28282b; /* Match phone body */
+        border-bottom-left-radius: calc(var(--notch-height) * 0.4); /* Rounded bottom notch corners */
+        border-bottom-right-radius: calc(var(--notch-height) * 0.4);
+        z-index: 10; /* Above screen content */
     }
 
-    /* CSS Hover effects are removed to let JavaScript handle all state changes on click */
-    /* --- End Poker Card Styles --- */
+    .iphone-side-button {
+        position: absolute;
+        background: #4a4a4e; /* Button color */
+        border-radius: calc(var(--button-thickness) * 0.6); /* Rounded button edges */
+        box-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.3) inset,
+                    -0.5px -0.5px 1px rgba(255,255,255,0.05) inset;
+    }
+    .iphone-volume-up {
+        left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
+        width: var(--button-thickness); height: var(--button-v-height);
+        border-top-right-radius: 0; border-bottom-right-radius: 0;
+    }
+    .iphone-volume-down {
+        left: calc(-1 * var(--button-thickness)); top: var(--button-vol-down-top);
+        width: var(--button-thickness); height: var(--button-v-height);
+        border-top-right-radius: 0; border-bottom-right-radius: 0;
+    }
+    .iphone-power-button {
+        right: calc(-1 * var(--button-thickness)); top: var(--button-power-top);
+        width: var(--button-thickness); height: var(--button-p-height);
+        border-top-left-radius: 0; border-bottom-left-radius: 0;
+    }
+    /* --- End 3D iPhone Mockup Styles --- */
+
 
     /* --- Styles for New App Feature Sections --- */
     .app-feature-section {
         padding-top: var(--serbis-section-padding-y);
         padding-bottom: var(--serbis-section-padding-y);
     }
-    /* Alternating background colors for visual separation */
-    .app-feature-section:nth-of-type(even) { /* Assuming these sections will be siblings and start after an odd one relative to parent */
+    .app-feature-section:nth-of-type(even) { 
         background-color: var(--serbis-light-bg);
     }
     .app-feature-section:nth-of-type(odd) {
@@ -280,7 +333,7 @@
     .app-feature-text .feature-title {
         font-family: 'Newsreader', serif;
         font-weight: 700;
-        font-size: 2.5rem; /* Slightly larger for prominence */
+        font-size: 2.5rem;
         line-height: 1.2;
         color: var(--serbis-dark-text);
         margin-bottom: 1rem;
@@ -293,7 +346,7 @@
         font-weight: 400;
         color: var(--serbis-muted-text);
         margin-bottom: 2rem;
-        max-width: 500px; /* Constrain line length */
+        max-width: 500px;
     }
     .app-feature-list {
         list-style: none;
@@ -304,33 +357,32 @@
         color: var(--serbis-dark-text);
         margin-bottom: 0.75rem;
         display: flex;
-        align-items: flex-start; /* Align icon nicely with multi-line text */
+        align-items: flex-start;
     }
     .app-feature-list li .bi {
         color: var(--serbis-primary);
         margin-right: 0.75rem;
-        font-size: 1.2rem; /* Icon size */
-        margin-top: 0.1em; /* Fine-tune vertical alignment */
+        font-size: 1.2rem;
+        margin-top: 0.1em;
     }
 
     .app-screenshot-container {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem; /* Some breathing room around the image */
+        padding: 1rem;
     }
     .app-feature-image {
-        max-width: 280px; /* Control the size of the screenshot */
+        max-width: 280px;
         width: 100%;
         height: auto;
-        border-radius: 24px; /* Rounded corners like a modern phone */
+        border-radius: 24px;
         box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
-        /* Consider adding a subtle border: border: 1px solid rgba(0,0,0,0.05); */
     }
     /* --- End Styles for New App Feature Sections --- */
 
 
-    @media (max-width: 991.98px) {
+    @media (max-width: 991.98px) { /* md */
         .navbar-brand-centered {
             position: relative; 
             left: 0;
@@ -356,16 +408,16 @@
         .masthead .text-lg-start {
             text-align: center !important;
         }
+        
         .hero-app-mockup-container {
             margin-top: 3rem; 
-            min-height: 420px; 
+            min-height: 440px; 
         }
-        .app-screenshots-poker {
-            width: clamp(180px, 65vw, 240px);
+        .iphone-mockup {
+            --iphone-width: 240px; /* Adjust iPhone size for tablets */
+            transform: rotateY(-20deg) rotateX(12deg) translateZ(40px);
         }
-        /* Initial positions for smaller screens might need slight adjustments if the JS ones don't scale perfectly */
 
-        /* Responsive adjustments for titles and layout in feature sections */
         .app-feature-text {
             text-align: center;
         }
@@ -374,17 +426,17 @@
             margin-right: auto;
         }
         .app-feature-list {
-            display: inline-block; /* To center the list items if text is centered */
-            text-align: left; /* Keep list items left-aligned within their block */
+            display: inline-block;
+            text-align: left;
         }
         .app-screenshot-container {
-            margin-top: 2rem; /* Add space above screenshot on mobile */
+            margin-top: 2rem;
         }
         .app-feature-text .feature-title {
             font-size: 2.1rem;
         }
     }
-    @media (max-width: 767.98px) {
+    @media (max-width: 767.98px) { /* sm */
         .masthead h1 {
             font-size: 2.1rem;
         }
@@ -397,29 +449,35 @@
         .how-it-works-step h3, .feature-item h3 {
             font-size: 1.2rem;
         }
+        
         .hero-app-mockup-container {
-            min-height: 380px;
+            min-height: 400px;
         }
-        .app-screenshots-poker {
-            width: clamp(170px, 60vw, 220px);
+        .iphone-mockup {
+            --iphone-width: 220px; /* Adjust iPhone size for small devices */
+            transform: rotateY(-15deg) rotateX(10deg) translateZ(30px);
         }
-        /* Adjust initial positions if needed, though JS will define active state */
-        .app-screenshot.screen1 {
-            transform: translate(-50%, -50%) translateX(-15px) rotate(-8deg) scale(1);
-        }
-        .app-screenshot.screen2 {
-             transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1);
-        }
-        .app-screenshot.screen3 {
-            transform: translate(-50%, -50%) translateX(15px) rotate(8deg) scale(1);
+        .iphone-mockup:hover {
+            transform: rotateY(-10deg) rotateX(8deg) translateZ(40px) scale(1.02);
         }
 
-        /* Further responsive adjustments for feature sections */
         .app-feature-text .feature-title {
             font-size: 1.9rem;
         }
         .app-feature-image {
             max-width: 240px;
+        }
+    }
+     @media (max-width: 575.98px) { /* xs */
+        .hero-app-mockup-container {
+            min-height: 360px;
+        }
+        .iphone-mockup {
+            --iphone-width: 200px; /* Adjust iPhone size for extra small devices */
+            transform: rotateY(-10deg) rotateX(5deg) translateZ(20px);
+        }
+        .iphone-mockup:hover {
+            transform: rotateY(-5deg) rotateX(3deg) translateZ(30px) scale(1.01);
         }
     }
 </style>
@@ -477,12 +535,17 @@
             <div class="col-lg-5">
                 <br><br>
                 <div class="hero-app-mockup-container">
-                    <!-- Ensure these image paths are correct -->
-                    <div class="app-screenshots-poker">
-                        <img src="assets/img/sim1.png" alt="Serbis App - Pantalla Principal" class="app-screenshot screen1">
-                        <img src="assets/img/sim2.png" alt="Serbis App - Detalle de Servicio" class="app-screenshot screen2">
-                        <img src="assets/img/sim3.png" alt="Serbis App - Chat con Profesional" class="app-screenshot screen3">
+                    <!-- Start: 3D iPhone Mockup -->
+                    <div class="iphone-mockup">
+                        <div class="iphone-screen-area">
+                            <img src="assets/img/sim1.png" alt="Serbis App en iPhone" class="iphone-app-content">
+                        </div>
+                        <div class="iphone-notch"></div>
+                        <div class="iphone-side-button iphone-volume-up"></div>
+                        <div class="iphone-side-button iphone-volume-down"></div>
+                        <div class="iphone-side-button iphone-power-button"></div>
                     </div>
+                    <!-- End: 3D iPhone Mockup -->
                 </div>
             </div>
         </div>
@@ -727,72 +790,8 @@
             soyProveedorLink.href = SOY_PROVEEDOR_URL;
         }
 
-        // --- Playing Card Effect for App Screenshots ---
-        const pokerContainer = document.querySelector('.app-screenshots-poker');
-        if (pokerContainer) {
-            // Define the visual properties for each "slot" in the fan. Order: Front, Middle, Back.
-            const cardPositions = [
-                { // Front-most card: slightly larger, more prominent shadow, angled
-                    transform: 'translate(-50%, -50%) translateX(-25px) rotate(-12deg) scale(1.03)',
-                    zIndex: 3, // Highest z-index
-                    boxShadow: '0 10px 25px rgba(0,0,0,0.1), 0 18px 40px rgba(0,0,0,0.15)'
-                },
-                { // Middle card: standard appearance
-                    transform: 'translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1)',
-                    zIndex: 2,
-                    boxShadow: '0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12)'
-                },
-                { // Back-most card: slightly smaller, softer shadow, angled opposite to front
-                    transform: 'translate(-50%, -50%) translateX(25px) rotate(12deg) scale(0.97)',
-                    zIndex: 1, // Lowest z-index
-                    boxShadow: '0 6px 12px rgba(0,0,0,0.06), 0 10px 20px rgba(0,0,0,0.1)'
-                }
-            ];
-
-            let currentOrder = [];
-            const s1 = pokerContainer.querySelector('.screen1');
-            const s2 = pokerContainer.querySelector('.screen2');
-            const s3 = pokerContainer.querySelector('.screen3');
-
-            // Establish initial order based on CSS classes (screen1=front, screen2=middle, screen3=back)
-            if (s1 && s2 && s3) {
-                currentOrder = [s1, s2, s3];
-            } else {
-                // Fallback if classes are missing, use DOM order (less reliable for visual intent)
-                currentOrder = Array.from(pokerContainer.querySelectorAll('.app-screenshot'));
-                console.warn("Initial screen classes (.screen1, .screen2, .screen3) not all found. Card order might be based on DOM structure.");
-            }
-            
-            // Ensure we have exactly 3 cards for this specific logic
-            if (currentOrder.length !== 3) {
-                console.error("Playing card effect requires exactly 3 '.app-screenshot' elements with .screen1, .screen2, .screen3 classes for initial setup. Found:", currentOrder.length);
-                return; // Stop if we don't have the expected setup
-            }
-
-            function applyCardStyles() {
-                currentOrder.forEach((card, index) => {
-                    if (card && cardPositions[index]) {
-                        const pos = cardPositions[index];
-                        card.style.transform = pos.transform;
-                        card.style.zIndex = pos.zIndex;
-                        card.style.boxShadow = pos.boxShadow;
-                    }
-                });
-            }
-
-            // Apply the defined styles on initial load to match our JS-controlled state
-            applyCardStyles(); 
-
-            pokerContainer.addEventListener('click', () => {
-                // On click, move the current front card to the back of the order
-                const frontCard = currentOrder.shift(); // Remove the first element (front card)
-                currentOrder.push(frontCard);          // Add it to the end of the array (becomes back card)
-                
-                // Re-apply styles to all cards based on their new order
-                // CSS transitions on .app-screenshot will animate the changes
-                applyCardStyles();
-            });
-        }
+        // No JavaScript needed for the 3D iPhone mockup as it's CSS driven.
+        // The old poker card JavaScript has been removed.
     });
 </script>
 </body>
