@@ -264,6 +264,72 @@
     /* CSS Hover effects are removed to let JavaScript handle all state changes on click */
     /* --- End Poker Card Styles --- */
 
+    /* --- Styles for New App Feature Sections --- */
+    .app-feature-section {
+        padding-top: var(--serbis-section-padding-y);
+        padding-bottom: var(--serbis-section-padding-y);
+    }
+    /* Alternating background colors for visual separation */
+    .app-feature-section:nth-of-type(even) { /* Assuming these sections will be siblings and start after an odd one relative to parent */
+        background-color: var(--serbis-light-bg);
+    }
+    .app-feature-section:nth-of-type(odd) {
+        background-color: #ffffff;
+    }
+
+    .app-feature-text .feature-title {
+        font-family: 'Newsreader', serif;
+        font-weight: 700;
+        font-size: 2.5rem; /* Slightly larger for prominence */
+        line-height: 1.2;
+        color: var(--serbis-dark-text);
+        margin-bottom: 1rem;
+    }
+    .app-feature-text .feature-title strong {
+        color: var(--serbis-primary);
+    }
+    .app-feature-text .lead {
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--serbis-muted-text);
+        margin-bottom: 2rem;
+        max-width: 500px; /* Constrain line length */
+    }
+    .app-feature-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    .app-feature-list li {
+        font-size: 1rem;
+        color: var(--serbis-dark-text);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: flex-start; /* Align icon nicely with multi-line text */
+    }
+    .app-feature-list li .bi {
+        color: var(--serbis-primary);
+        margin-right: 0.75rem;
+        font-size: 1.2rem; /* Icon size */
+        margin-top: 0.1em; /* Fine-tune vertical alignment */
+    }
+
+    .app-screenshot-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem; /* Some breathing room around the image */
+    }
+    .app-feature-image {
+        max-width: 280px; /* Control the size of the screenshot */
+        width: 100%;
+        height: auto;
+        border-radius: 24px; /* Rounded corners like a modern phone */
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
+        /* Consider adding a subtle border: border: 1px solid rgba(0,0,0,0.05); */
+    }
+    /* --- End Styles for New App Feature Sections --- */
+
+
     @media (max-width: 991.98px) {
         .navbar-brand-centered {
             position: relative; 
@@ -298,6 +364,25 @@
             width: clamp(180px, 65vw, 240px);
         }
         /* Initial positions for smaller screens might need slight adjustments if the JS ones don't scale perfectly */
+
+        /* Responsive adjustments for titles and layout in feature sections */
+        .app-feature-text {
+            text-align: center;
+        }
+        .app-feature-text .lead {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .app-feature-list {
+            display: inline-block; /* To center the list items if text is centered */
+            text-align: left; /* Keep list items left-aligned within their block */
+        }
+        .app-screenshot-container {
+            margin-top: 2rem; /* Add space above screenshot on mobile */
+        }
+        .app-feature-text .feature-title {
+            font-size: 2.1rem;
+        }
     }
     @media (max-width: 767.98px) {
         .masthead h1 {
@@ -327,6 +412,14 @@
         }
         .app-screenshot.screen3 {
             transform: translate(-50%, -50%) translateX(15px) rotate(8deg) scale(1);
+        }
+
+        /* Further responsive adjustments for feature sections */
+        .app-feature-text .feature-title {
+            font-size: 1.9rem;
+        }
+        .app-feature-image {
+            max-width: 240px;
         }
     }
 </style>
@@ -461,6 +554,124 @@
         </div>
     </div>
 </section>
+
+<!-- INICIO NUEVAS SECCIONES DE CARACTERÍSTICAS DE LA APP -->
+<section id="app-home" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Explorá el <strong>Home</strong></h2>
+                    <p class="lead fw-normal mb-4">Descubrí los servicios más populares, proveedores destacados y las últimas novedades de tu comunidad, todo en un solo lugar.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-compass-fill"></i>Navegación intuitiva para encontrar lo que necesitás al instante.</li>
+                        <li><i class="bi bi-star-fill"></i>Recomendaciones personalizadas basadas en tus intereses.</li>
+                        <li><i class="bi bi-bell-fill"></i>Acceso rápido a tus pedidos y chats recientes.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/sim1.png" alt="Screenshot de la pantalla Home de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="app-chat" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6 order-lg-last">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Comunicación Fluida con el <strong>Chat</strong></h2>
+                    <p class="lead fw-normal mb-4">Coordiná detalles, compartí imágenes y resolvé dudas directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-send-fill"></i>Mensajería instantánea para respuestas rápidas.</li>
+                        <li><i class="bi bi-paperclip"></i>Compartí archivos y fotos relevantes para el servicio.</li>
+                        <li><i class="bi bi-shield-check"></i>Conversaciones seguras y privadas dentro de la app.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/sim1.png" alt="Screenshot de la pantalla Chat de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="app-search" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title"><strong>Búsqueda</strong> Inteligente y Precisa</h2>
+                    <p class="lead fw-normal mb-4">Encontrá exactamente el servicio o profesional que buscás con filtros avanzados y sugerencias inteligentes. ¡Más rápido, imposible!</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-funnel-fill"></i>Filtrá por categoría, ubicación, calificación y más.</li>
+                        <li><i class="bi bi-lightbulb-fill"></i>Sugerencias predictivas mientras escribís.</li>
+                        <li><i class="bi bi-geo-alt-fill"></i>Resultados geolocalizados para encontrar lo más cercano.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/sim1.png" alt="Screenshot de la pantalla Search de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="app-status" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6 order-lg-last">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
+                    <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-clock-history"></i>Historial completo de todos tus pedidos y servicios.</li>
+                        <li><i class="bi bi-bell-fill"></i>Notificaciones instantáneas sobre actualizaciones importantes.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Visualizá claramente cada etapa del proceso.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/sim1.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="app-activity" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Tu Centro de <strong>Actividad</strong></h2>
+                    <p class="lead fw-normal mb-4">Un resumen de todas tus interacciones: nuevos mensajes, calificaciones pendientes, ofertas recibidas y más, para que no te pierdas nada.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-person-lines-fill"></i>Gestioná tu perfil y preferencias fácilmente.</li>
+                        <li><i class="bi bi-patch-question-fill"></i>Accedé a la sección de ayuda y soporte.</li>
+                        <li><i class="bi bi-graph-up"></i>Revisá tus estadísticas y contribuciones a la comunidad.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/sim1.png" alt="Screenshot de la pantalla Activity de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FIN NUEVAS SECCIONES DE CARACTERÍSTICAS DE LA APP -->
+
 <footer class="footer" id="about-us-footer">
     <div class="container px-4 px-lg-5">
         <div class="text-center small">
