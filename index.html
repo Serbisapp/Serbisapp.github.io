@@ -37,25 +37,38 @@
         font-family: 'Mulish', sans-serif;
         color: var(--serbis-dark-text);
         line-height: 1.6;
+        /* Bootstrap automatically adds padding-top for fixed-top navbar.
+           If more adjustment is needed, it can be done here, but usually
+           adjusting masthead padding is sufficient. */
     }
 
     .masthead {
-        padding-top: 9rem;
-        padding-bottom: 7rem;
+        padding-top: 6rem; /* Reduced top padding */
+        padding-bottom: 6rem; /* Adjusted bottom padding for balance */
         background-color: var(--serbis-light-bg); 
         overflow: hidden; /* Important for containing background pseudo-elements */
     }
 
-    .masthead h1 {
+    .masthead .masthead-pre-title {
         font-family: 'Newsreader', serif;
-        font-weight: 700;
-        font-size: 3rem; 
-        line-height: 1.25;
+        font-weight: 700; /* Bold for impact */
+        font-size: 3.8rem; /* Larger to be the main visual anchor */
+        line-height: 1.15;
+        color: var(--serbis-dark-text);
+        margin-bottom: 0.5rem; /* Closer to the h1 */
+    }
+
+    .masthead h1 { /* This is the "Encontrá al profesional ideal..." part */
+        font-family: 'Newsreader', serif;
+        font-weight: 700; /* Keep it bold */
+        font-size: 2.6rem; /* Slightly smaller than pre-title */
+        line-height: 1.2;
         color: var(--serbis-dark-text);
         margin-bottom: 1rem;
     }
-    .masthead h1 strong {
+    .masthead h1 strong { /* This is the "En 5 segundos." part */
         color: var(--serbis-primary);
+        /* Font size will be inherited from h1, weight also from h1 or can be overridden if needed */
     }
 
     .masthead .lead {
@@ -215,41 +228,40 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        min-height: 520px; /* Increased min-height for more visual space */
-        perspective: 1800px; /* Enhanced 3D effect */
-        padding: 3rem 0;
+        min-height: 520px; 
+        perspective: 1800px; 
+        padding: 3rem 0; /* Keep padding for internal spacing around mockup */
         position: relative;
         background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.05) 0%, transparent 60%);
     }
 
-    /* Background Glow Elements */
     .hero-app-mockup-container::before,
     .hero-app-mockup-container::after {
         content: '';
         position: absolute;
         border-radius: 50%;
-        filter: blur(120px); /* Intense blur for soft glow */
-        z-index: 0; /* Behind the phone, but above container background */
-        pointer-events: none; /* Allow clicks through */
+        filter: blur(120px); 
+        z-index: 0; 
+        pointer-events: none; 
     }
 
     .hero-app-mockup-container::before {
-        width: 450px; /* Larger glow */
+        width: 450px; 
         height: 450px;
-        background: hsla(var(--serbis-primary-rgb), 0.18); /* Primary color, subtle opacity */
+        background: hsla(var(--serbis-primary-rgb), 0.18); 
         top: 50%;
         left: 50%;
-        transform: translate(-60%, -60%); /* Offset to one side */
+        transform: translate(-60%, -60%); 
         animation: pulse-glow-1 10s infinite alternate ease-in-out;
     }
 
     .hero-app-mockup-container::after {
         width: 350px;
         height: 350px;
-        background: hsla(210, 80%, 70%, 0.15); /* A complementary subtle blue */
+        background: hsla(210, 80%, 70%, 0.15); 
         top: 50%;
         left: 50%;
-        transform: translate(40%, 30%); /* Offset to another side */
+        transform: translate(40%, 30%); 
         animation: pulse-glow-2 12s infinite alternate ease-in-out;
     }
 
@@ -264,47 +276,44 @@
 
 
     .iphone-mockup {
-        /* CSS Variables for responsive scaling */
-        --iphone-width: 270px; /* Slightly larger for more presence */
+        --iphone-width: 270px; 
         --iphone-aspect-ratio: 2.0517;
         --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
-        --iphone-border-radius: calc(var(--iphone-width) * 0.17); /* ~46px */
-        --iphone-bezel-padding: calc(var(--iphone-width) * 0.044); /* ~12px */
-        --screen-border-radius: calc(var(--iphone-width) * 0.13); /* ~35px */
-        --notch-width: calc(var(--iphone-width) * 0.37); /* ~100px */
-        --notch-height: calc(var(--iphone-width) * 0.103); /* ~28px */
-        --button-thickness: calc(var(--iphone-width) * 0.013); /* ~3.5px */
-        --button-v-height: calc(var(--iphone-width) * 0.111); /* ~30px */
-        --button-p-height: calc(var(--iphone-width) * 0.203); /* ~55px */
+        --iphone-border-radius: calc(var(--iphone-width) * 0.17); 
+        --iphone-bezel-padding: calc(var(--iphone-width) * 0.044); 
+        --screen-border-radius: calc(var(--iphone-width) * 0.13); 
+        --notch-width: calc(var(--iphone-width) * 0.37); 
+        --notch-height: calc(var(--iphone-width) * 0.103); 
+        --button-thickness: calc(var(--iphone-width) * 0.013); 
+        --button-v-height: calc(var(--iphone-width) * 0.111); 
+        --button-p-height: calc(var(--iphone-width) * 0.203); 
         --button-vol-up-top: calc(var(--iphone-height) * 0.177);
         --button-vol-down-top: calc(var(--iphone-height) * 0.252);
         --button-power-top: calc(var(--iphone-height) * 0.215);
 
         width: var(--iphone-width);
         height: var(--iphone-height);
-        position: relative; /* For z-index stacking and pseudo-elements */
-        z-index: 1; /* Above background glows */
+        position: relative; 
+        z-index: 1; 
         transform-style: preserve-3d;
-        transform: rotateY(-28deg) rotateX(18deg) translateZ(60px); /* More dynamic initial angle */
-        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), /* Smoother, bouncier transition */
+        transform: rotateY(-28deg) rotateX(18deg) translateZ(60px); 
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), 
                     box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        /* Metallic sheen with gradient */
         background: linear-gradient(145deg, #3a3a3f, #202023); 
         border-radius: var(--iphone-border-radius);
         padding: var(--iphone-bezel-padding);
-        /* Enhanced shadows for more depth and realism */
         box-shadow:
-            -15px 20px 50px rgba(0, 0, 0, 0.28), /* Main softer shadow */
-            8px -8px 25px rgba(0,0,0,0.12), /* Shadow from rotation */
-            inset 0px 1px 2px rgba(255, 255, 255, 0.1), /* Top edge highlight */
-            inset 0px -1px 2px rgba(0, 0, 0, 0.3), /* Bottom edge shadow */
-            inset 1px 0px 2px rgba(255,255,255,0.07), /* Left edge highlight */
-            inset -1px 0px 2px rgba(0,0,0,0.2), /* Right edge shadow */
-            0 0 0 1px rgba(0,0,0,0.25); /* Outer device border for crispness */
+            -15px 20px 50px rgba(0, 0, 0, 0.28), 
+            8px -8px 25px rgba(0,0,0,0.12), 
+            inset 0px 1px 2px rgba(255, 255, 255, 0.1), 
+            inset 0px -1px 2px rgba(0, 0, 0, 0.3), 
+            inset 1px 0px 2px rgba(255,255,255,0.07), 
+            inset -1px 0px 2px rgba(0,0,0,0.2), 
+            0 0 0 1px rgba(0,0,0,0.25); 
     }
 
     .iphone-mockup:hover {
-        transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04); /* More pronounced hover */
+        transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04); 
         box-shadow:
             -20px 28px 65px rgba(0, 0, 0, 0.35),
             10px -10px 30px rgba(0,0,0,0.18),
@@ -315,19 +324,18 @@
             0 0 0 1px rgba(0,0,0,0.3);
     }
     
-    /* Floor Shadow */
     .iphone-mockup::after {
         content: '';
         position: absolute;
-        bottom: calc(-1 * var(--iphone-bezel-padding) - 30px); /* Position below the phone */
+        bottom: calc(-1 * var(--iphone-bezel-padding) - 30px); 
         left: 10%;
         width: 80%;
-        height: 40px; /* Height of the shadow ellipse */
+        height: 40px; 
         background: rgba(0,0,0,0.2);
         border-radius: 50%;
-        filter: blur(25px); /* Soften the shadow */
-        transform: scaleY(0.7) translateZ(-80px); /* Flatten and push back */
-        z-index: -1; /* Behind the phone body */
+        filter: blur(25px); 
+        transform: scaleY(0.7) translateZ(-80px); 
+        z-index: -1; 
         transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
         opacity: 0.7;
     }
@@ -347,23 +355,22 @@
         position: relative;
     }
     
-    /* Screen Glare */
     .iphone-screen-area::before {
         content: '';
         position: absolute;
         top: 0;
         left: 0;
-        width: 150%; /* Wider to allow for skewing */
-        height: 150%; /* Taller */
+        width: 150%; 
+        height: 150%; 
         background: linear-gradient(
-            165deg, /* Angle of the glare */
+            165deg, 
             rgba(255,255,255,0.15) 0%, 
             rgba(255,255,255,0.08) 30%,
-            rgba(255,255,255,0) 50% /* Fades out */
+            rgba(255,255,255,0) 50% 
         );
-        transform: translateX(-20%) translateY(-20%) rotate(-25deg); /* Position and angle */
-        z-index: 5; /* Above app content but below notch */
-        pointer-events: none; /* Allow clicks through */
+        transform: translateX(-20%) translateY(-20%) rotate(-25deg); 
+        z-index: 5; 
+        pointer-events: none; 
         opacity: 0.7;
     }
 
@@ -382,7 +389,7 @@
         transform: translateX(-50%);
         width: var(--notch-width);
         height: var(--notch-height);
-        background: #202023; /* Match darker phone body gradient part */
+        background: #202023; 
         border-bottom-left-radius: calc(var(--notch-height) * 0.45); 
         border-bottom-right-radius: calc(var(--notch-height) * 0.45);
         z-index: 10; 
@@ -391,11 +398,11 @@
 
     .iphone-side-button {
         position: absolute;
-        background: linear-gradient(145deg, #525257, #404043); /* Button color with gradient */
+        background: linear-gradient(145deg, #525257, #404043); 
         border-radius: calc(var(--button-thickness) * 0.5); 
         box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset,
                     -0.5px -0.5px 1px rgba(255,255,255,0.08) inset,
-                    0 0 1px rgba(0,0,0,0.2); /* Outer subtle shadow */
+                    0 0 1px rgba(0,0,0,0.2); 
     }
     .iphone-volume-up {
         left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
@@ -490,12 +497,15 @@
             margin-top: 1rem; 
         }
         .masthead {
-            padding-top: 7rem;
-            padding-bottom: 5rem;
+            padding-top: 5rem; /* Adjusted responsive padding */
+            padding-bottom: 4rem; /* Adjusted responsive padding */
             text-align: center;
         }
+        .masthead .masthead-pre-title {
+            font-size: 3rem; /* Responsive pre-title size */
+        }
         .masthead h1 {
-            font-size: 2.4rem;
+            font-size: 2.2rem; /* Responsive h1 size */
         }
         .masthead .lead {
             font-size: 1.1rem;
@@ -508,7 +518,7 @@
         
         .hero-app-mockup-container {
             margin-top: 3rem; 
-            min-height: 480px; /* Adjusted */
+            min-height: 480px; 
         }
         .iphone-mockup {
             --iphone-width: 250px; 
@@ -537,8 +547,11 @@
         }
     }
     @media (max-width: 767.98px) { /* sm */
+        .masthead .masthead-pre-title {
+            font-size: 2.6rem; /* Responsive pre-title size */
+        }
         .masthead h1 {
-            font-size: 2.1rem;
+            font-size: 2rem; /* Responsive h1 size */
         }
         .app-badge {
             height: 42px;
@@ -551,7 +564,7 @@
         }
         
         .hero-app-mockup-container {
-            min-height: 440px; /* Adjusted */
+            min-height: 440px; 
         }
         .iphone-mockup {
             --iphone-width: 230px; 
@@ -572,8 +585,14 @@
         }
     }
      @media (max-width: 575.98px) { /* xs */
+        .masthead .masthead-pre-title {
+            font-size: 2.2rem; /* Responsive pre-title size */
+        }
+        .masthead h1 {
+            font-size: 1.8rem; /* Responsive h1 size */
+        }
         .hero-app-mockup-container {
-            min-height: 380px; /* Adjusted */
+            min-height: 380px; 
         }
         .iphone-mockup {
             --iphone-width: 210px; 
@@ -625,8 +644,9 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-lg-7">
-            <br><br>
+                <!-- Removed <br><br> here -->
                 <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="masthead-pre-title">Basta de listas.</h2>
                     <h1 class="lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
                     <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
                     <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
@@ -636,9 +656,9 @@
                     </div>
                 </div>
             </div>
-            <br><br>
+            <!-- Removed <br><br> that was here between columns -->
             <div class="col-lg-5">
-                <br><br>
+                <!-- Removed <br><br> here -->
                 <div class="hero-app-mockup-container">
                     <!-- Start: ENHANCED 3D iPhone Mockup -->
                     <div class="iphone-mockup">
