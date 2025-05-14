@@ -6,383 +6,350 @@
     <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
     <meta name="author" content="Serbis" />
     <title>Serbis | Tu Solución de Servicios Locales en 5 Segundos</title>
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
-    <meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://serbis.app" />
-    <meta property="og:image" content="assets/img/og-image.jpg" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
-    <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
-    
-    <link rel="canonical" href="https://serbis.app" />
-    <link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-    
-    <link href="css/styles.css" rel="stylesheet" />
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
+<meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://serbis.app" />
+<meta property="og:image" content="assets/img/og-image.jpg" />
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
+<meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
+<link rel="canonical" href="https://serbis.app" />
+<link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+    :root {
+        --serbis-primary: #0d6efd; /* Your brand primary color */
+        --serbis-light-bg: #f8f9fa; /* Very light grey for subtle backgrounds */
+        --serbis-dark-text: #212529;
+        --serbis-muted-text: #495057;
+        --serbis-section-padding-y: 5rem;
+    }
 
-    <style>
-        :root {
-            --serbis-primary: #0d6efd; /* Your brand primary color */
-            --serbis-light-bg: #f8f9fa; /* Very light grey for subtle backgrounds */
-            --serbis-dark-text: #212529;
-            --serbis-muted-text: #495057;
-            --serbis-section-padding-y: 5rem;
-        }
+    body {
+        font-family: 'Mulish', sans-serif;
+        color: var(--serbis-dark-text);
+        line-height: 1.6;
+    }
 
-        body {
-            font-family: 'Mulish', sans-serif;
-            color: var(--serbis-dark-text);
-            line-height: 1.6;
-        }
+    .masthead {
+        padding-top: 9rem; /* Increased for more space */
+        padding-bottom: 7rem; /* Increased for more space */
+        background-color: var(--serbis-light-bg); 
+    }
 
-        .masthead {
-            padding-top: 9rem; /* Increased for more space */
-            padding-bottom: 7rem; /* Increased for more space */
-            background-color: var(--serbis-light-bg); 
-        }
+    .masthead h1 {
+        font-family: 'Newsreader', serif;
+        font-weight: 700;
+        font-size: 3rem; 
+        line-height: 1.25;
+        color: var(--serbis-dark-text);
+        margin-bottom: 1rem;
+    }
+    .masthead h1 strong {
+        color: var(--serbis-primary);
+    }
 
-        .masthead h1 {
-            font-family: 'Newsreader', serif;
-            font-weight: 700;
-            font-size: 3rem; 
-            line-height: 1.25;
-            color: var(--serbis-dark-text);
-            margin-bottom: 1rem;
-        }
-        .masthead h1 strong {
-            color: var(--serbis-primary);
-        }
-
-        .masthead .lead {
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--serbis-muted-text);
-            margin-bottom: 2.5rem;
-            max-width: 550px; /* Constrain line length for readability */
-        }
+    .masthead .lead {
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: var(--serbis-muted-text);
+        margin-bottom: 2.5rem;
+        max-width: 550px; /* Constrain line length for readability */
+    }
+    .text-lg-start .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @media (min-width: 992px) {
         .text-lg-start .lead {
+             margin-left: 0;
+             margin-right: 0;
+        }
+    }
+
+    .btn-serbis-primary {
+        background-color: var(--serbis-primary);
+        border-color: var(--serbis-primary);
+        color: #fff;
+        font-weight: 600;
+        padding: 0.9rem 2.2rem;
+        font-size: 1.1rem;
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
+        border-radius: 0.3rem;
+    }
+    .btn-serbis-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    .app-badges-container {
+        margin-top: 2rem;
+    }
+    .app-badge {
+        height: 48px; 
+        margin: 0 0.4rem;
+        transition: transform 0.2s ease-in-out;
+        display: inline-block;
+    }
+    .app-badge img {
+        height: 100%;
+        width: auto;
+    }
+    .app-badge:hover {
+        transform: scale(1.05);
+    }
+    
+    .navbar-custom {
+         background-color: #fff; 
+    }
+    .navbar-custom .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-transform: none;
+        letter-spacing: 0.2px;
+        color: var(--serbis-muted-text);
+    }
+    .navbar-custom .navbar-nav .nav-link:hover,
+    .navbar-custom .navbar-nav .nav-link.active {
+        color: var(--serbis-primary);
+    }
+    .navbar-brand-centered {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .section-title {
+        font-family: 'Newsreader', serif;
+        font-weight: 600;
+        font-size: 2.2rem;
+        margin-bottom: 3.5rem;
+        color: var(--serbis-dark-text);
+    }
+
+    .content-section {
+        padding-top: var(--serbis-section-padding-y);
+        padding-bottom: var(--serbis-section-padding-y);
+    }
+    #how-it-works {
+        background-color: #ffffff;
+    }
+    .how-it-works-step {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    .how-it-works-step .bi {
+        font-size: 2.8rem;
+        color: var(--serbis-primary);
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+    .how-it-works-step h3 {
+        font-family: 'Newsreader', serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--serbis-dark-text);
+    }
+    .how-it-works-step p {
+        color: var(--serbis-muted-text);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    #why-serbis {
+        background-color: var(--serbis-light-bg);
+    }
+    .feature-item {
+        text-align: center;
+        margin-bottom: 2.5rem;
+    }
+    .feature-item .bi {
+        font-size: 2.8rem; 
+        color: var(--serbis-primary); 
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+    .feature-item h3 {
+        font-family: 'Newsreader', serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--serbis-dark-text);
+    }
+    .feature-item p {
+        color: var(--serbis-muted-text);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .footer {
+        background-color: #2c3e50;
+        color: rgba(255, 255, 255, 0.6);
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+    .footer a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+    }
+    .footer a:hover {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    /* --- Styles for Poker Card App Screenshots (Horizontal Fan) --- */
+    .hero-app-mockup-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        min-height: 480px; /* Adjust as needed */
+        perspective: 1200px; /* Enables 3D transformations for child elements */
+        padding: 2rem 0;
+        position: relative; /* Needed for absolute positioning of screenshots */
+    }
+
+    .app-screenshots-poker {
+        position: relative;
+        width: clamp(200px, 70vw, 270px); /* Base width of the card stack "footprint" */
+        /* Height will be determined by aspect ratio of cards & content */
+        cursor: pointer; /* Indicate the whole stack is interactive */
+    }
+
+    .app-screenshot {
+        position: absolute;
+        top: 50%; /* Center registration point */
+        left: 50%; /* Center registration point */
+        width: 100%; /* Make card width relative to .app-screenshots-poker */
+        height: auto;
+        aspect-ratio: 9 / 19.5; /* Maintain phone screen aspect ratio */
+        object-fit: cover;
+        border-radius: 22px; /* Phone-like rounded corners */
+        /* Initial box-shadow, JS will update for different positions */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12);
+        border: 1px solid rgba(0,0,0,0.03);
+        /* Smooth transition for transform and box-shadow changes */
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                    box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        background-color: #fff; /* Fallback if images are transparent */
+        transform-origin: center center; /* Crucial for rotation and scaling */
+        user-select: none; /* Prevent image dragging on click/drag */
+    }
+
+    /* Initial Fan Positions - These classes set up the deck's appearance on load. */
+    /* JavaScript will take over to dynamically change transform and z-index on click. */
+    .app-screenshot.screen1 { /* Visually front-most card initially */
+        z-index: 3; /* Higher z-index = on top */
+        transform: translate(-50%, -50%) translateX(-20px) rotate(-10deg) scale(1);
+    }
+    .app-screenshot.screen2 { /* Middle card initially */
+        z-index: 2;
+        transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1);
+    }
+    .app-screenshot.screen3 { /* Visually back-most card initially */
+        z-index: 1;
+        transform: translate(-50%, -50%) translateX(20px) rotate(10deg) scale(1);
+    }
+
+    /* CSS Hover effects are removed to let JavaScript handle all state changes on click */
+    /* --- End Poker Card Styles --- */
+
+    @media (max-width: 991.98px) {
+        .navbar-brand-centered {
+            position: relative; 
+            left: 0;
+            transform: none;
+            margin-left: 0; 
+        }
+        .navbar-custom .navbar-nav {
+            margin-top: 1rem; 
+        }
+        .masthead {
+            padding-top: 7rem;
+            padding-bottom: 5rem;
+            text-align: center;
+        }
+        .masthead h1 {
+            font-size: 2.4rem;
+        }
+        .masthead .lead {
+            font-size: 1.1rem;
             margin-left: auto;
             margin-right: auto;
         }
-        @media (min-width: 992px) {
-            .text-lg-start .lead {
-                 margin-left: 0;
-                 margin-right: 0;
-            }
+        .masthead .text-lg-start {
+            text-align: center !important;
         }
-
-        .btn-serbis-primary {
-            background-color: var(--serbis-primary);
-            border-color: var(--serbis-primary);
-            color: #fff;
-            font-weight: 600;
-            padding: 0.9rem 2.2rem;
-            font-size: 1.1rem;
-            transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
-            border-radius: 0.3rem;
+        .hero-app-mockup-container {
+            margin-top: 3rem; 
+            min-height: 420px; 
         }
-        .btn-serbis-primary:hover {
-            background-color: #0b5ed7;
-            border-color: #0a58ca;
-            color: #fff;
-            transform: translateY(-2px);
+        .app-screenshots-poker {
+            width: clamp(180px, 65vw, 240px);
         }
-
-        .app-badges-container {
-            margin-top: 2rem;
+        /* Initial positions for smaller screens might need slight adjustments if the JS ones don't scale perfectly */
+    }
+    @media (max-width: 767.98px) {
+        .masthead h1 {
+            font-size: 2.1rem;
         }
         .app-badge {
-            height: 48px; 
-            margin: 0 0.4rem;
-            transition: transform 0.2s ease-in-out;
-            display: inline-block;
+            height: 42px;
         }
-        .app-badge img {
-            height: 100%;
-            width: auto;
-        }
-        .app-badge:hover {
-            transform: scale(1.05);
-        }
-        
-        .navbar-custom {
-             background-color: #fff; 
-        }
-        .navbar-custom .navbar-nav .nav-link {
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-transform: none;
-            letter-spacing: 0.2px;
-            color: var(--serbis-muted-text);
-        }
-        .navbar-custom .navbar-nav .nav-link:hover,
-        .navbar-custom .navbar-nav .nav-link.active {
-            color: var(--serbis-primary);
-        }
-        /* This class is no longer used for the main logo, but kept here in case it's used elsewhere or for future reference */
-        .navbar-brand-centered {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
         .section-title {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-            font-size: 2.2rem;
-            margin-bottom: 3.5rem;
-            color: var(--serbis-dark-text);
+            font-size: 1.9rem;
         }
-
-        .content-section {
-            padding-top: var(--serbis-section-padding-y);
-            padding-bottom: var(--serbis-section-padding-y);
+        .how-it-works-step h3, .feature-item h3 {
+            font-size: 1.2rem;
         }
-        #how-it-works {
-            background-color: #ffffff;
-        }
-        .how-it-works-step {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .how-it-works-step .bi {
-            font-size: 2.8rem;
-            color: var(--serbis-primary);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .how-it-works-step h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--serbis-dark-text);
-        }
-        .how-it-works-step p {
-            color: var(--serbis-muted-text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        #why-serbis {
-            background-color: var(--serbis-light-bg);
-        }
-        .feature-item {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        .feature-item .bi {
-            font-size: 2.8rem; 
-            color: var(--serbis-primary); 
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .feature-item h3 {
-            font-family: 'Newsreader', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--serbis-dark-text);
-        }
-        .feature-item p {
-            color: var(--serbis-muted-text);
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        .footer {
-            background-color: #2c3e50;
-            color: rgba(255, 255, 255, 0.6);
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-        .footer a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-        }
-        .footer a:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        /* --- Styles for Poker Card App Screenshots (Horizontal Fan) --- */
         .hero-app-mockup-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            min-height: 480px;
-            perspective: 1200px;
-            padding: 2rem 0;
-            position: relative;
+            min-height: 380px;
         }
-
         .app-screenshots-poker {
-            position: relative;
-            width: clamp(200px, 70vw, 270px);
-            cursor: pointer;
+            width: clamp(170px, 60vw, 220px);
         }
-
-        .app-screenshot {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 9 / 19.5;
-            object-fit: cover;
-            border-radius: 22px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12);
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-                        box-shadow 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background-color: #fff;
-            transform-origin: center center;
-        }
-
-        /* Initial Fan Positions */
+        /* Adjust initial positions if needed, though JS will define active state */
         .app-screenshot.screen1 {
-            z-index: 3;
-            transform: translate(-50%, -50%) translateX(-20px) rotate(-10deg) scale(1);
+            transform: translate(-50%, -50%) translateX(-15px) rotate(-8deg) scale(1);
         }
         .app-screenshot.screen2 {
-            z-index: 2;
-            transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1);
+             transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1);
         }
         .app-screenshot.screen3 {
-            z-index: 1;
-            transform: translate(-50%, -50%) translateX(20px) rotate(10deg) scale(1);
+            transform: translate(-50%, -50%) translateX(15px) rotate(8deg) scale(1);
         }
-
-        /* Hover Fan-Out */
-        .app-screenshots-poker:hover .screen1 {
-            transform: translate(-50%, -50%) translateX(-60px) rotate(-15deg) scale(1.05);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15), 0 20px 45px rgba(0,0,0,0.2);
-        }
-        .app-screenshots-poker:hover .screen2 {
-            transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1.05);
-        }
-        .app-screenshots-poker:hover .screen3 {
-            transform: translate(-50%, -50%) translateX(60px) rotate(15deg) scale(1.05);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15), 0 20px 45px rgba(0,0,0,0.2);
-        }
-        /* --- End Poker Card Styles --- */
-
-        @media (max-width: 991.98px) {
-            /* The .navbar-brand-centered styles for responsive might not be needed for the logo anymore,
-               but kept for potential other uses or for reference.
-               Bootstrap's default navbar-brand behavior will handle left alignment on small screens.
-            */
-            .navbar-brand-centered {
-                position: relative; 
-                left: 0;
-                transform: none;
-                margin-left: 0; 
-            }
-            .navbar-custom .navbar-nav {
-                margin-top: 1rem; 
-            }
-            .masthead {
-                padding-top: 7rem;
-                padding-bottom: 5rem;
-                text-align: center;
-            }
-            .masthead h1 {
-                font-size: 2.4rem;
-            }
-            .masthead .lead {
-                font-size: 1.1rem;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .masthead .text-lg-start {
-                text-align: center !important;
-            }
-            .hero-app-mockup-container {
-                margin-top: 3rem; 
-                min-height: 420px; 
-            }
-            .app-screenshots-poker {
-                width: clamp(180px, 65vw, 240px);
-            }
-            .app-screenshots-poker:hover .screen1 {
-                transform: translate(-50%, -50%) translateX(-50px) rotate(-15deg) scale(1.05);
-            }
-            .app-screenshots-poker:hover .screen2 {
-                transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1.05);
-            }
-            .app-screenshots-poker:hover .screen3 {
-                transform: translate(-50%, -50%) translateX(50px) rotate(15deg) scale(1.05);
-            }
-        }
-        @media (max-width: 767.98px) {
-            .masthead h1 {
-                font-size: 2.1rem;
-            }
-            .app-badge {
-                height: 42px;
-            }
-            .section-title {
-                font-size: 1.9rem;
-            }
-            .how-it-works-step h3, .feature-item h3 {
-                font-size: 1.2rem;
-            }
-            .hero-app-mockup-container {
-                min-height: 380px;
-            }
-            .app-screenshots-poker {
-                width: clamp(170px, 60vw, 220px);
-            }
-            .app-screenshot.screen1 {
-                transform: translate(-50%, -50%) translateX(-15px) rotate(-8deg) scale(1);
-            }
-            .app-screenshot.screen3 {
-                transform: translate(-50%, -50%) translateX(15px) rotate(8deg) scale(1);
-            }
-            .app-screenshots-poker:hover .screen1 {
-                transform: translate(-50%, -50%) translateX(-45px) rotate(-12deg) scale(1.05);
-            }
-            .app-screenshots-poker:hover .screen2 {
-                transform: translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1.05);
-            }
-            .app-screenshots-poker:hover .screen3 {
-                transform: translate(-50%, -50%) translateX(45px) rotate(12deg) scale(1.05);
-            }
-        }
-    </style>
-
-    <script type="application/ld+json">
-    {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Serbis",
-    "url": "https://serbis.app",
-    "logo": "https://serbis.app/assets/img/app_logo_nobg.png",
-    "description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Buenos Aires",
-        "addressCountry": "AR"
-    },
-    "sameAs": []
     }
-    </script>
+</style>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"name": "Serbis",
+"url": "https://serbis.app",
+"logo": "https://serbis.app/assets/img/app_logo_nobg.png",
+"description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
+"address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Buenos Aires",
+    "addressCountry": "AR"
+},
+"sameAs": []
+}
+</script>
 </head>
 <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <!-- MODIFIED LINE: Removed navbar-brand-centered class -->
             <a class="navbar-brand fw-bold" href="#page-top">
                 <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis" style="height: 36px;">
             </a>
@@ -398,183 +365,242 @@
             </div>
         </div>
     </nav>
-
-    <header class="masthead">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-lg-7">
-                </br></br>
-                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                        <h1 class="lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
-                        <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
-                        <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
-                        <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
-                            <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
-                            <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
-                        </div>
+<header class="masthead">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-7">
+            </br></br>
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h1 class="lh-1 mb-3">Encontrá al profesional ideal. <strong>En 5 segundos.</strong></h1>
+                    <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
+                    <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
+                    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
+                        <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
+                        <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="hero-app-mockup-container">
-                        <div class="app-screenshots-poker">
-                            <img src="assets/img/sim1.png" alt="Serbis App - Pantalla Principal" class="app-screenshot screen1">
-                            <img src="assets/img/sim2.png" alt="Serbis App - Detalle de Servicio" class="app-screenshot screen2">
-                            <img src="assets/img/sim3.png" alt="Serbis App - Chat con Profesional" class="app-screenshot screen3">
-                        </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-app-mockup-container">
+                    <!-- Ensure these image paths are correct -->
+                    <div class="app-screenshots-poker">
+                        <img src="assets/img/sim1.png" alt="Serbis App - Pantalla Principal" class="app-screenshot screen1">
+                        <img src="assets/img/sim2.png" alt="Serbis App - Detalle de Servicio" class="app-screenshot screen2">
+                        <img src="assets/img/sim3.png" alt="Serbis App - Chat con Profesional" class="app-screenshot screen3">
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <section id="how-it-works" class="content-section">
-        <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-pencil-square"></i>
-                        <h3>1. Describí tu Necesidad</h3>
-                        <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
-                    </div>
+    </div>
+</header>
+<section id="how-it-works" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-pencil-square"></i>
+                    <h3>1. Describí tu Necesidad</h3>
+                    <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-lightning-charge-fill"></i>
-                        <h3>2. Conectá al Instante</h3>
-                        <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <h3>2. Conectá al Instante</h3>
+                    <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-check2-circle"></i>
-                        <h3>3. Resolvé y Calificá</h3>
-                        <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-check2-circle"></i>
+                    <h3>3. Resolvé y Calificá</h3>
+                    <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="why-serbis" class="content-section">
-        <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
-            <div class="row gx-4 gx-lg-5">
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-people-fill"></i>
-                        <h3>Ayuda de tu Comunidad</h3>
-                        <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-patch-check-fill"></i>
-                        <h3>Calificaciones Reales</h3>
-                        <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-chat-dots-fill"></i>
-                        <h3>Comunicación Directa</h3>
-                        <p>Chat seguro para coordinar todos los detalles del servicio.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="feature-item">
-                        <i class="bi bi-speedometer2"></i>
-                        <h3>Rápido y Eficaz</h3>
-                        <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
-                    </div>
+    </div>
+</section>
+<section id="why-serbis" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-people-fill"></i>
+                    <h3>Ayuda de tu Comunidad</h3>
+                    <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
                 </div>
             </div>
-             <div class="text-center mt-5">
-                <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <h3>Calificaciones Reales</h3>
+                    <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <h3>Comunicación Directa</h3>
+                    <p>Chat seguro para coordinar todos los detalles del servicio.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <h3>Rápido y Eficaz</h3>
+                    <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
+                </div>
             </div>
         </div>
-    </section>
-    
-    <footer class="footer" id="about-us-footer">
-        <div class="container px-4 px-lg-5">
-            <div class="text-center small">
-                <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
-                <div class="mb-2">Buenos Aires, Argentina</div>
-                <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
-            </div>
+         <div class="text-center mt-5">
+            <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
         </div>
-    </footer>
+    </div>
+</section>
+<footer class="footer" id="about-us-footer">
+    <div class="container px-4 px-lg-5">
+        <div class="text-center small">
+            <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
+            <div class="mb-2">Buenos Aires, Argentina</div>
+            <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- CONFIGURATION: REPLACE THESE URLs ---
+        const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL"; // e.g., "https://apps.apple.com/ar/app/your-app-name/idYOUR_APP_ID"
+        const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL"; // e.g., "https://play.google.com/store/apps/details?id=com.your.app.package"
+        const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL"; // e.g., "https://serbis.app/publicar-pedido"
+        const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL"; // e.g., "https://serbis.app/registro-proveedor"
+        // --- END CONFIGURATION ---
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // --- CONFIGURATION: REPLACE THESE URLs ---
-            const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL"; // e.g., "https://apps.apple.com/ar/app/your-app-name/idYOUR_APP_ID"
-            const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL"; // e.g., "https://play.google.com/store/apps/details?id=com.your.app.package"
-            const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL"; // e.g., "https://serbis.app/publicar-pedido"
-            const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL"; // e.g., "https://serbis.app/registro-proveedor"
-            // --- END CONFIGURATION ---
-
-            function getOS() {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                if (/android/i.test(userAgent)) {
-                    return "Android";
-                }
-                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    return "iOS";
-                }
-                return "Desktop"; // or "unknown"
+        function getOS() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                return "Android";
             }
-
-            const os = getOS();
-
-            // Main CTA button
-            const mainCtaButton = document.getElementById('main-cta-button');
-            if (mainCtaButton) {
-                mainCtaButton.addEventListener('click', function () {
-                    if (os === "iOS") {
-                        window.location.href = APPLE_APP_STORE_URL;
-                    } else if (os === "Android") {
-                        window.location.href = GOOGLE_PLAY_STORE_URL;
-                    } else { // Desktop or other
-                        window.location.href = DESKTOP_WEB_FORM_URL;
-                    }
-                });
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
             }
+            return "Desktop"; // or "unknown"
+        }
 
-            // Secondary CTA button
-            const secondaryCtaButton = document.getElementById('secondary-cta-button');
-            if (secondaryCtaButton) {
-                secondaryCtaButton.addEventListener('click', function () {
-                    if (os === "iOS") {
-                        window.location.href = APPLE_APP_STORE_URL;
-                    } else if (os === "Android") {
-                        window.location.href = GOOGLE_PLAY_STORE_URL;
-                    } else { // Desktop or other
-                        window.location.href = DESKTOP_WEB_FORM_URL; // Or could also go to app stores
-                    }
-                });
+        const os = getOS();
+
+        // Main CTA button
+        const mainCtaButton = document.getElementById('main-cta-button');
+        if (mainCtaButton) {
+            mainCtaButton.addEventListener('click', function () {
+                if (os === "iOS") {
+                    window.location.href = APPLE_APP_STORE_URL;
+                } else if (os === "Android") {
+                    window.location.href = GOOGLE_PLAY_STORE_URL;
+                } else { // Desktop or other
+                    window.location.href = DESKTOP_WEB_FORM_URL;
+                }
+            });
+        }
+
+        // Secondary CTA button
+        const secondaryCtaButton = document.getElementById('secondary-cta-button');
+        if (secondaryCtaButton) {
+            secondaryCtaButton.addEventListener('click', function () {
+                if (os === "iOS") {
+                    window.location.href = APPLE_APP_STORE_URL;
+                } else if (os === "Android") {
+                    window.location.href = GOOGLE_PLAY_STORE_URL;
+                } else { // Desktop or other
+                    window.location.href = DESKTOP_WEB_FORM_URL; 
+                }
+            });
+        }
+        
+        const googlePlayLink = document.getElementById('google-play-link');
+        if (googlePlayLink) {
+            googlePlayLink.href = GOOGLE_PLAY_STORE_URL;
+        }
+
+        const appStoreLink = document.getElementById('app-store-link');
+        if (appStoreLink) {
+            appStoreLink.href = APPLE_APP_STORE_URL;
+        }
+
+        const soyProveedorLink = document.getElementById('soy-proveedor-link');
+        if (soyProveedorLink) {
+            soyProveedorLink.href = SOY_PROVEEDOR_URL;
+        }
+
+        // --- Playing Card Effect for App Screenshots ---
+        const pokerContainer = document.querySelector('.app-screenshots-poker');
+        if (pokerContainer) {
+            // Define the visual properties for each "slot" in the fan. Order: Front, Middle, Back.
+            const cardPositions = [
+                { // Front-most card: slightly larger, more prominent shadow, angled
+                    transform: 'translate(-50%, -50%) translateX(-25px) rotate(-12deg) scale(1.03)',
+                    zIndex: 3, // Highest z-index
+                    boxShadow: '0 10px 25px rgba(0,0,0,0.1), 0 18px 40px rgba(0,0,0,0.15)'
+                },
+                { // Middle card: standard appearance
+                    transform: 'translate(-50%, -50%) translateX(0px) rotate(0deg) scale(1)',
+                    zIndex: 2,
+                    boxShadow: '0 8px 16px rgba(0,0,0,0.08), 0 15px 30px rgba(0,0,0,0.12)'
+                },
+                { // Back-most card: slightly smaller, softer shadow, angled opposite to front
+                    transform: 'translate(-50%, -50%) translateX(25px) rotate(12deg) scale(0.97)',
+                    zIndex: 1, // Lowest z-index
+                    boxShadow: '0 6px 12px rgba(0,0,0,0.06), 0 10px 20px rgba(0,0,0,0.1)'
+                }
+            ];
+
+            let currentOrder = [];
+            const s1 = pokerContainer.querySelector('.screen1');
+            const s2 = pokerContainer.querySelector('.screen2');
+            const s3 = pokerContainer.querySelector('.screen3');
+
+            // Establish initial order based on CSS classes (screen1=front, screen2=middle, screen3=back)
+            if (s1 && s2 && s3) {
+                currentOrder = [s1, s2, s3];
+            } else {
+                // Fallback if classes are missing, use DOM order (less reliable for visual intent)
+                currentOrder = Array.from(pokerContainer.querySelectorAll('.app-screenshot'));
+                console.warn("Initial screen classes (.screen1, .screen2, .screen3) not all found. Card order might be based on DOM structure.");
             }
             
-            // Google Play badge link
-            const googlePlayLink = document.getElementById('google-play-link');
-            if (googlePlayLink) {
-                googlePlayLink.href = GOOGLE_PLAY_STORE_URL; // Always goes to Play Store
+            // Ensure we have exactly 3 cards for this specific logic
+            if (currentOrder.length !== 3) {
+                console.error("Playing card effect requires exactly 3 '.app-screenshot' elements with .screen1, .screen2, .screen3 classes for initial setup. Found:", currentOrder.length);
+                return; // Stop if we don't have the expected setup
             }
 
-            // App Store badge link
-            const appStoreLink = document.getElementById('app-store-link');
-            if (appStoreLink) {
-                appStoreLink.href = APPLE_APP_STORE_URL; // Always goes to App Store
+            function applyCardStyles() {
+                currentOrder.forEach((card, index) => {
+                    if (card && cardPositions[index]) {
+                        const pos = cardPositions[index];
+                        card.style.transform = pos.transform;
+                        card.style.zIndex = pos.zIndex;
+                        card.style.boxShadow = pos.boxShadow;
+                    }
+                });
             }
 
-            // "Soy Proveedor" link
-            const soyProveedorLink = document.getElementById('soy-proveedor-link');
-            if (soyProveedorLink) {
-                soyProveedorLink.href = SOY_PROVEEDOR_URL;
-            }
-        });
-    </script>
+            // Apply the defined styles on initial load to match our JS-controlled state
+            applyCardStyles(); 
+
+            pokerContainer.addEventListener('click', () => {
+                // On click, move the current front card to the back of the order
+                const frontCard = currentOrder.shift(); // Remove the first element (front card)
+                currentOrder.push(frontCard);          // Add it to the end of the array (becomes back card)
+                
+                // Re-apply styles to all cards based on their new order
+                // CSS transitions on .app-screenshot will animate the changes
+                applyCardStyles();
+            });
+        }
+    });
+</script>
 </body>
 </html>
