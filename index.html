@@ -482,6 +482,12 @@
         height: auto;
         border-radius: 24px;
         box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* MODIFIED: Added transition */
+    }
+    .app-feature-image:hover { /* ADDED: Hover effects */
+        transform: scale(1.05) translateY(-8px);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.16), /* Enhanced shadow: offsetY +6, blur +12, opacity +0.04 */
+                    0 22px 50px rgba(0,0,0,0.13); /* Enhanced shadow: offsetY +7, blur +15, opacity +0.03 */
     }
     /* --- End Styles for New App Feature Sections --- */
 
@@ -757,7 +763,10 @@
 <section id="app-status" class="app-feature-section">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-lg-6 order-lg-last">
+            <div class="col-lg-6 order-lg-last"> <!-- This was col-lg-6, keeping it consistent but image was on left before. Request implies image on left, text on right. This is text on right, image on left. -->
+                <!-- To match the pattern of image on the right for the "status" section like "home", text should be col-lg-6 and image col-lg-6 order-lg-last -->
+                <!-- Let's assume the original layout was intended: app-home (text left, img right), app-chat (img left, text right), app-status (text left, img right) -->
+                <!-- The provided code has app-status with text on right (order-lg-last) and image on left (order-lg-first). I will keep this structure. -->
                 <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
                     <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
                     <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
@@ -768,7 +777,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6 order-lg-first">
+            <div class="col-lg-6 order-lg-first"> 
                 <div class="app-screenshot-container">
                     <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
                 </div>
