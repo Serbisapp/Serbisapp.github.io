@@ -271,6 +271,7 @@ body {
 
 
 .iphone-mockup {
+    --iphone-thickness: 11px; /* Define thickness for the phone body */
     --iphone-width: 270px;
     --iphone-aspect-ratio: 2.0517;
     --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
@@ -279,7 +280,7 @@ body {
     --screen-border-radius: calc(var(--iphone-width) * 0.13);
     --notch-width: calc(var(--iphone-width) * 0.37);
     --notch-height: calc(var(--iphone-width) * 0.103);
-    --button-thickness: calc(var(--iphone-width) * 0.013);
+    --button-thickness: calc(var(--iphone-width) * 0.013); /* This is button's own thickness/width */
     --button-v-height: calc(var(--iphone-width) * 0.111);
     --button-p-height: calc(var(--iphone-width) * 0.203);
     --button-vol-up-top: calc(var(--iphone-height) * 0.177);
@@ -290,13 +291,15 @@ body {
     height: var(--iphone-height);
     position: relative;
     z-index: 1;
-    transform-style: preserve-3d;
+    transform-style: preserve-3d; /* Crucial for 3D effect */
     transform: rotateY(-28deg) rotateX(18deg) translateZ(60px);
     transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
                 box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    /* This background is for the FRONT BEZEL */
     background: linear-gradient(145deg, #3a3a3f, #202023);
     border-radius: var(--iphone-border-radius);
-    padding: var(--iphone-bezel-padding);
+    padding: var(--iphone-bezel-padding); /* Inset for the screen area */
+    /* Original box-shadow for front surface details and overall lift */
     box-shadow:
         -15px 20px 50px rgba(0, 0, 0, 0.28),
         8px -8px 25px rgba(0,0,0,0.12),
@@ -306,6 +309,24 @@ body {
         inset -1px 0px 2px rgba(0,0,0,0.2),
         0 0 0 1px rgba(0,0,0,0.25);
 }
+
+/* Create the back panel of the phone */
+.iphone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Match the parent .iphone-mockup dimensions */
+    height: 100%;
+    /* Background for the back panel, slightly darker/different for depth perception */
+    background: linear-gradient(145deg, #303035, #18181b);
+    border-radius: var(--iphone-border-radius); /* Match front's rounding */
+    /* Push the back panel behind the front panel by the phone's thickness */
+    transform: translateZ(calc(-1 * var(--iphone-thickness)));
+    /* Optional: Add a subtle border or inset shadow to the back panel if needed */
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4); /* Example: a slightly stronger border for the back */
+}
+
 
 .iphone-mockup:hover {
     transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04);
@@ -319,7 +340,8 @@ body {
         0 0 0 1px rgba(0,0,0,0.3);
 }
 
-.iphone-mockup::after {
+/* Adjust ground shadow's Z position to account for phone thickness */
+.iphone-mockup::after { /* This is the ground shadow */
     content: '';
     position: absolute;
     bottom: calc(-1 * var(--iphone-bezel-padding) - 30px);
@@ -329,15 +351,17 @@ body {
     background: rgba(0,0,0,0.2);
     border-radius: 50%;
     filter: blur(25px);
-    transform: scaleY(0.7) translateZ(-80px);
-    z-index: -1;
+    /* MODIFIED: Adjusted translateZ to be behind the new thickness */
+    transform: scaleY(0.7) translateZ(calc(-80px - var(--iphone-thickness)));
+    z-index: -1; /* Ensure it's behind the phone body and its ::before back panel */
     transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
     opacity: 0.7;
 }
 .iphone-mockup:hover::after {
     opacity: 0.9;
     filter: blur(30px);
-    transform: scaleY(0.75) translateZ(-70px) translateY(10px);
+    /* MODIFIED: Adjusted translateZ for hover state as well */
+    transform: scaleY(0.75) translateZ(calc(-70px - var(--iphone-thickness))) translateY(10px);
 }
 
 
@@ -348,9 +372,10 @@ body {
     border-radius: var(--screen-border-radius);
     overflow: hidden;
     position: relative;
+    /* This element is a child of .iphone-mockup, so it's on the front plane (z=0 of .iphone-mockup) */
 }
 
-.iphone-screen-area::before {
+.iphone-screen-area::before { /* Screen glare, remains on the front screen */
     content: '';
     position: absolute;
     top: 0;
@@ -370,35 +395,41 @@ body {
 }
 
 
-.iphone-app-content {
+.iphone-app-content { /* Image inside screen, remains as is */
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.iphone-notch {
+.iphone-notch { /* Notch on the front screen, remains as is */
     position: absolute;
     top: var(--iphone-bezel-padding);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* This transform is 2D, on the plane of .iphone-mockup */
     width: var(--notch-width);
     height: var(--notch-height);
-    background: #202023;
+    background: #202023; /* Matches front bezel's darker shade */
     border-bottom-left-radius: calc(var(--notch-height) * 0.45);
     border-bottom-right-radius: calc(var(--notch-height) * 0.45);
-    z-index: 10;
+    z-index: 10; /* Above screen content */
     box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+    /* It will implicitly be on the z=0 plane of .iphone-mockup */
 }
 
+/* Side buttons: adjust their Z position to be on the side of the new thickness */
 .iphone-side-button {
     position: absolute;
-    background: linear-gradient(145deg, #525257, #404043);
-    border-radius: calc(var(--button-thickness) * 0.5);
+    background: linear-gradient(145deg, #525257, #404043); /* Button material */
+    border-radius: calc(var(--button-thickness) * 0.5); /* Rounding for the button itself */
     box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset,
                 -0.5px -0.5px 1px rgba(255,255,255,0.08) inset,
                 0 0 1px rgba(0,0,0,0.2);
+    /* MODIFIED: Move buttons to appear centered on the phone's side */
+    transform: translateZ(calc(-0.5 * var(--iphone-thickness)));
 }
+
+/* Specific button positioning (X, Y, width, height) remains unchanged */
 .iphone-volume-up {
     left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
     width: var(--button-thickness); height: var(--button-v-height);
