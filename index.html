@@ -118,25 +118,121 @@ body {
     transform: scale(1.05);
 }
 
+/* === ENHANCED NAVBAR STYLES - START === */
 .navbar-custom {
-     background-color: #fff;
+    background-color: #fff; /* White background is clean */
+    padding-top: 0.75rem;    /* Increased vertical padding */
+    padding-bottom: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); /* Softer, more diffused shadow */
+    transition: padding 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+/* Optional: If you implement a "scrolled" class via JavaScript when user scrolls down */
+/*
+.navbar-custom.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+*/
+
+.navbar-custom .navbar-brand img {
+    height: 40px; /* Slightly larger logo */
+    transition: height 0.3s ease-in-out;
+}
+
+/*
+.navbar-custom.scrolled .navbar-brand img {
+    height: 34px;
+}
+*/
+
 .navbar-custom .navbar-nav .nav-link {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.92rem; /* Slightly adjusted font size */
+    font-weight: 500; /* Good weight */
     text-transform: none;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.1px;
     color: var(--serbis-muted-text);
+    padding: 0.6rem 1rem; /* More generous padding around links */
+    border-radius: 6px; /* Subtle rounding for hover/active states if they get a background */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    position: relative; /* For the active indicator */
+    margin: 0 0.15rem; /* Small horizontal margin between items */
 }
-.navbar-custom .navbar-nav .nav-link:hover,
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: var(--serbis-primary);
+    background-color: rgba(var(--serbis-primary-rgb), 0.07); /* Very subtle background on hover */
+}
+
 .navbar-custom .navbar-nav .nav-link.active {
     color: var(--serbis-primary);
+    font-weight: 600; /* Bolder active link */
+    background-color: rgba(var(--serbis-primary-rgb), 0.05);
 }
+
+/* Active link indicator (subtle underline) */
+.navbar-custom .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 6px; /* Position the line slightly up from the bottom of the link padding */
+    left: 1rem;  /* Align with link's horizontal padding */
+    right: 1rem; /* Align with link's horizontal padding */
+    height: 2px;
+    background-color: var(--serbis-primary);
+    border-radius: 1px;
+}
+
+/* Special styling for "Soy Proveedor" link as a button */
+/* Targeting the specific ID is more robust */
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+    color: var(--serbis-primary);
+    border: 1.5px solid var(--serbis-primary);
+    padding: 0.5rem 1.2rem; /* Adjust padding to fit button style */
+    border-radius: 0.3rem;   /* Match other buttons on the page */
+    margin-left: 0.75rem;    /* More spacing before this button-like link */
+    font-weight: 600;
+    background-color: transparent; /* Explicitly set for override if needed */
+}
+
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link:hover {
+    background-color: var(--serbis-primary);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(var(--serbis-primary-rgb), 0.3);
+}
+
+/* Ensure the active underline doesn't appear for the button-style link */
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active::after {
+    display: none;
+}
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active {
+    background-color: var(--serbis-primary); /* Keep hover style if active */
+    color: #fff;
+}
+
+
+/* Toggler Icon - make it match primary color for consistency */
+.navbar-custom .navbar-toggler {
+    border: 1px solid transparent; /* Remove default border or make it transparent */
+    padding: 0.25rem 0.5rem; /* Adjust padding if needed */
+}
+.navbar-custom .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--serbis-primary-rgb), 0.25); /* Focus ring matching primary */
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--serbis-primary-rgb), 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* This style is not directly related to navbar-custom but often used with it */
 .navbar-brand-centered {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
+/* === END ENHANCED NAVBAR STYLES === */
+
 
 .section-title {
     font-family: 'Newsreader', serif;
@@ -525,9 +621,31 @@ body {
         transform: none;
         margin-left: 0;
     }
+    /* Enhanced Navbar Mobile Adjustments */
     .navbar-custom .navbar-nav {
-        margin-top: 1rem;
+        margin-top: 0.75rem;
     }
+    .navbar-custom .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+    }
+    .navbar-custom .navbar-nav .nav-link.active::after {
+        bottom: 0.5rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+    .navbar-custom .navbar-collapse {
+        border-top: 1px solid #eee;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+    /* End Enhanced Navbar Mobile Adjustments */
+
     .masthead {
         padding-top: 5rem;
         padding-bottom: 4rem;
@@ -682,10 +800,10 @@ body {
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand fw-bold" href="#page-top">
-                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis" style="height: 36px;">
+                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis" style="height: 36px;"> <!-- Initial height is set here, CSS will override -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="bi-list"></i>
+                <i class="bi-list"></i> <!-- Bootstrap default icon, will be overridden by CSS if .navbar-toggler-icon is used in HTML or by CSS directly -->
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -933,6 +1051,18 @@ function getOS() {
     const soyProveedorLink = document.getElementById('soy-proveedor-link');
     if (soyProveedorLink) {
         soyProveedorLink.href = SOY_PROVEEDOR_URL;
+    }
+
+
+    const mainNav = document.getElementById('mainNav');
+    if (mainNav) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) { // Adjust 50 (pixels) to your preference
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        });
     }
 
 });
