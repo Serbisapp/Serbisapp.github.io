@@ -35,38 +35,34 @@ body {
     font-family: 'Mulish', sans-serif;
     color: var(--serbis-dark-text);
     line-height: 1.6;
-    /* Bootstrap automatically adds padding-top for fixed-top navbar.
-       If more adjustment is needed, it can be done here, but usually
-       adjusting masthead padding is sufficient. */
 }
 
 .masthead {
-    padding-top: 6rem; /* Reduced top padding */
-    padding-bottom: 6rem; /* Adjusted bottom padding for balance */
-    background-color: var(--serbis-light-bg); 
-    overflow: hidden; /* Important for containing background pseudo-elements */
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--serbis-light-bg);
+    overflow: hidden;
 }
 
 .masthead .masthead-pre-title {
     font-family: 'Newsreader', serif;
-    font-weight: 700; /* Bold for impact */
-    font-size: 3.8rem; /* Larger to be the main visual anchor */
+    font-weight: 700;
+    font-size: 3.8rem;
     line-height: 1.15;
     color: var(--serbis-dark-text);
-    margin-bottom: 0.5rem; /* Closer to the h1 */
+    margin-bottom: 0.5rem;
 }
 
 .masthead h1 { /* This is the "Encontrá al profesional ideal..." part */
     font-family: 'Newsreader', serif;
-    font-weight: 700; /* Keep it bold */
-    font-size: 2.6rem; /* Slightly smaller than pre-title */
-    line-height: 1.2;
+    font-weight: 700;
+    font-size: 2.6rem;
+    line-height: 1.2; /* Ensured this is active by removing lh-1 from HTML */
     color: var(--serbis-dark-text);
     margin-bottom: 1rem;
 }
 .masthead h1 strong { /* This is the "En 5 segundos." part */
     color: var(--serbis-primary);
-    /* Font size will be inherited from h1, weight also from h1 or can be overridden if needed */
 }
 
 .masthead .lead {
@@ -92,8 +88,9 @@ body {
     border-color: var(--serbis-primary);
     color: #fff;
     font-weight: 600;
-    padding: 0.9rem 2.2rem;
-    font-size: 1.1rem;
+    /* MODIFIED: Slightly adjusted base padding and font-size */
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
     border-radius: 0.3rem;
 }
@@ -108,7 +105,7 @@ body {
     margin-top: 2rem;
 }
 .app-badge {
-    height: 48px; 
+    height: 48px;
     margin: 0 0.4rem;
     transition: transform 0.2s ease-in-out;
     display: inline-block;
@@ -122,7 +119,7 @@ body {
 }
 
 .navbar-custom {
-     background-color: #fff; 
+     background-color: #fff;
 }
 .navbar-custom .navbar-nav .nav-link {
     font-size: 0.9rem;
@@ -187,8 +184,8 @@ body {
     margin-bottom: 2.5rem;
 }
 .feature-item .bi {
-    font-size: 2.8rem; 
-    color: var(--serbis-primary); 
+    font-size: 2.8rem;
+    color: var(--serbis-primary);
     margin-bottom: 1rem;
     display: inline-block;
 }
@@ -226,8 +223,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-height: 520px; 
-    perspective: 1800px; 
+    min-height: 520px;
+    perspective: 1800px;
     padding: 3rem 0; /* Keep padding for internal spacing around mockup */
     position: relative;
     background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.05) 0%, transparent 60%);
@@ -238,28 +235,28 @@ body {
     content: '';
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px); 
-    z-index: 0; 
-    pointer-events: none; 
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .hero-app-mockup-container::before {
-    width: 450px; 
+    width: 450px;
     height: 450px;
-    background: hsla(var(--serbis-primary-rgb), 0.18); 
+    background: hsla(var(--serbis-primary-rgb), 0.18);
     top: 50%;
     left: 50%;
-    transform: translate(-60%, -60%); 
+    transform: translate(-60%, -60%);
     animation: pulse-glow-1 10s infinite alternate ease-in-out;
 }
 
 .hero-app-mockup-container::after {
     width: 350px;
     height: 350px;
-    background: hsla(210, 80%, 70%, 0.15); 
+    background: hsla(210, 80%, 70%, 0.15);
     top: 50%;
     left: 50%;
-    transform: translate(40%, 30%); 
+    transform: translate(40%, 30%);
     animation: pulse-glow-2 12s infinite alternate ease-in-out;
 }
 
@@ -274,44 +271,44 @@ body {
 
 
 .iphone-mockup {
-    --iphone-width: 270px; 
+    --iphone-width: 270px;
     --iphone-aspect-ratio: 2.0517;
     --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
-    --iphone-border-radius: calc(var(--iphone-width) * 0.17); 
-    --iphone-bezel-padding: calc(var(--iphone-width) * 0.044); 
-    --screen-border-radius: calc(var(--iphone-width) * 0.13); 
-    --notch-width: calc(var(--iphone-width) * 0.37); 
-    --notch-height: calc(var(--iphone-width) * 0.103); 
-    --button-thickness: calc(var(--iphone-width) * 0.013); 
-    --button-v-height: calc(var(--iphone-width) * 0.111); 
-    --button-p-height: calc(var(--iphone-width) * 0.203); 
+    --iphone-border-radius: calc(var(--iphone-width) * 0.17);
+    --iphone-bezel-padding: calc(var(--iphone-width) * 0.044);
+    --screen-border-radius: calc(var(--iphone-width) * 0.13);
+    --notch-width: calc(var(--iphone-width) * 0.37);
+    --notch-height: calc(var(--iphone-width) * 0.103);
+    --button-thickness: calc(var(--iphone-width) * 0.013);
+    --button-v-height: calc(var(--iphone-width) * 0.111);
+    --button-p-height: calc(var(--iphone-width) * 0.203);
     --button-vol-up-top: calc(var(--iphone-height) * 0.177);
     --button-vol-down-top: calc(var(--iphone-height) * 0.252);
     --button-power-top: calc(var(--iphone-height) * 0.215);
 
     width: var(--iphone-width);
     height: var(--iphone-height);
-    position: relative; 
-    z-index: 1; 
+    position: relative;
+    z-index: 1;
     transform-style: preserve-3d;
-    transform: rotateY(-28deg) rotateX(18deg) translateZ(60px); 
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), 
+    transform: rotateY(-28deg) rotateX(18deg) translateZ(60px);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
                 box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    background: linear-gradient(145deg, #3a3a3f, #202023); 
+    background: linear-gradient(145deg, #3a3a3f, #202023);
     border-radius: var(--iphone-border-radius);
     padding: var(--iphone-bezel-padding);
     box-shadow:
-        -15px 20px 50px rgba(0, 0, 0, 0.28), 
-        8px -8px 25px rgba(0,0,0,0.12), 
-        inset 0px 1px 2px rgba(255, 255, 255, 0.1), 
-        inset 0px -1px 2px rgba(0, 0, 0, 0.3), 
-        inset 1px 0px 2px rgba(255,255,255,0.07), 
-        inset -1px 0px 2px rgba(0,0,0,0.2), 
-        0 0 0 1px rgba(0,0,0,0.25); 
+        -15px 20px 50px rgba(0, 0, 0, 0.28),
+        8px -8px 25px rgba(0,0,0,0.12),
+        inset 0px 1px 2px rgba(255, 255, 255, 0.1),
+        inset 0px -1px 2px rgba(0, 0, 0, 0.3),
+        inset 1px 0px 2px rgba(255,255,255,0.07),
+        inset -1px 0px 2px rgba(0,0,0,0.2),
+        0 0 0 1px rgba(0,0,0,0.25);
 }
 
 .iphone-mockup:hover {
-    transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04); 
+    transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04);
     box-shadow:
         -20px 28px 65px rgba(0, 0, 0, 0.35),
         10px -10px 30px rgba(0,0,0,0.18),
@@ -325,15 +322,15 @@ body {
 .iphone-mockup::after {
     content: '';
     position: absolute;
-    bottom: calc(-1 * var(--iphone-bezel-padding) - 30px); 
+    bottom: calc(-1 * var(--iphone-bezel-padding) - 30px);
     left: 10%;
     width: 80%;
-    height: 40px; 
+    height: 40px;
     background: rgba(0,0,0,0.2);
     border-radius: 50%;
-    filter: blur(25px); 
-    transform: scaleY(0.7) translateZ(-80px); 
-    z-index: -1; 
+    filter: blur(25px);
+    transform: scaleY(0.7) translateZ(-80px);
+    z-index: -1;
     transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
     opacity: 0.7;
 }
@@ -358,17 +355,17 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 150%; 
-    height: 150%; 
+    width: 150%;
+    height: 150%;
     background: linear-gradient(
-        165deg, 
-        rgba(255,255,255,0.15) 0%, 
+        165deg,
+        rgba(255,255,255,0.15) 0%,
         rgba(255,255,255,0.08) 30%,
-        rgba(255,255,255,0) 50% 
+        rgba(255,255,255,0) 50%
     );
-    transform: translateX(-20%) translateY(-20%) rotate(-25deg); 
-    z-index: 5; 
-    pointer-events: none; 
+    transform: translateX(-20%) translateY(-20%) rotate(-25deg);
+    z-index: 5;
+    pointer-events: none;
     opacity: 0.7;
 }
 
@@ -387,20 +384,20 @@ body {
     transform: translateX(-50%);
     width: var(--notch-width);
     height: var(--notch-height);
-    background: #202023; 
-    border-bottom-left-radius: calc(var(--notch-height) * 0.45); 
+    background: #202023;
+    border-bottom-left-radius: calc(var(--notch-height) * 0.45);
     border-bottom-right-radius: calc(var(--notch-height) * 0.45);
-    z-index: 10; 
+    z-index: 10;
     box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
 }
 
 .iphone-side-button {
     position: absolute;
-    background: linear-gradient(145deg, #525257, #404043); 
-    border-radius: calc(var(--button-thickness) * 0.5); 
+    background: linear-gradient(145deg, #525257, #404043);
+    border-radius: calc(var(--button-thickness) * 0.5);
     box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset,
                 -0.5px -0.5px 1px rgba(255,255,255,0.08) inset,
-                0 0 1px rgba(0,0,0,0.2); 
+                0 0 1px rgba(0,0,0,0.2);
 }
 .iphone-volume-up {
     left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
@@ -425,7 +422,7 @@ body {
     padding-top: var(--serbis-section-padding-y);
     padding-bottom: var(--serbis-section-padding-y);
 }
-.app-feature-section:nth-of-type(even) { 
+.app-feature-section:nth-of-type(even) {
     background-color: var(--serbis-light-bg);
 }
 .app-feature-section:nth-of-type(odd) {
@@ -480,36 +477,36 @@ body {
     height: auto;
     border-radius: 24px;
     box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
-.app-feature-image:hover { 
+.app-feature-image:hover {
     transform: scale(1.05) translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.16), 
-                0 22px 50px rgba(0,0,0,0.13); 
+    box-shadow: 0 18px 40px rgba(0,0,0,0.16),
+                0 22px 50px rgba(0,0,0,0.13);
 }
 /* --- End Styles for New App Feature Sections --- */
 
 
 @media (max-width: 991.98px) { /* md */
     .navbar-brand-centered {
-        position: relative; 
+        position: relative;
         left: 0;
         transform: none;
-        margin-left: 0; 
+        margin-left: 0;
     }
     .navbar-custom .navbar-nav {
-        margin-top: 1rem; 
+        margin-top: 1rem;
     }
     .masthead {
-        padding-top: 5rem; /* Adjusted responsive padding */
-        padding-bottom: 4rem; /* Adjusted responsive padding */
+        padding-top: 5rem;
+        padding-bottom: 4rem;
         text-align: center;
     }
     .masthead .masthead-pre-title {
-        font-size: 3rem; /* Responsive pre-title size */
+        font-size: 3rem;
     }
     .masthead h1 {
-        font-size: 2.2rem; /* Responsive h1 size */
+        font-size: 2.2rem;
     }
     .masthead .lead {
         font-size: 1.1rem;
@@ -519,13 +516,13 @@ body {
     .masthead .text-lg-start {
         text-align: center !important;
     }
-    
+
     .hero-app-mockup-container {
-        margin-top: 3rem; 
-        min-height: 480px; 
+        margin-top: 3rem;
+        min-height: 480px;
     }
     .iphone-mockup {
-        --iphone-width: 250px; 
+        --iphone-width: 250px;
         transform: rotateY(-22deg) rotateX(15deg) translateZ(50px);
     }
     .hero-app-mockup-container::before { width: 400px; height: 400px; filter: blur(100px);}
@@ -551,11 +548,16 @@ body {
     }
 }
 @media (max-width: 767.98px) { /* sm */
+    /* NEW: Reduced section padding for sm screens */
+    :root {
+        --serbis-section-padding-y: 3.5rem;
+    }
+
     .masthead .masthead-pre-title {
-        font-size: 2.6rem; /* Responsive pre-title size */
+        font-size: 2.6rem;
     }
     .masthead h1 {
-        font-size: 2rem; /* Responsive h1 size */
+        font-size: 2rem;
     }
     .app-badge {
         height: 42px;
@@ -566,12 +568,12 @@ body {
     .how-it-works-step h3, .feature-item h3 {
         font-size: 1.2rem;
     }
-    
+
     .hero-app-mockup-container {
-        min-height: 440px; 
+        min-height: 440px;
     }
     .iphone-mockup {
-        --iphone-width: 230px; 
+        --iphone-width: 230px;
         transform: rotateY(-18deg) rotateX(12deg) translateZ(40px);
     }
      .iphone-mockup:hover {
@@ -589,17 +591,36 @@ body {
     }
 }
  @media (max-width: 575.98px) { /* xs */
+    /* NEW: Further reduced section padding for xs screens */
+    :root {
+        --serbis-section-padding-y: 2.5rem;
+    }
+
     .masthead .masthead-pre-title {
-        font-size: 2.2rem; /* Responsive pre-title size */
+        font-size: 2.2rem;
     }
     .masthead h1 {
-        font-size: 1.8rem; /* Responsive h1 size */
+        font-size: 1.8rem;
     }
+
+    /* NEW: Adjusted primary button for xs screens */
+    .btn-serbis-primary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    /* If you use Bootstrap's .btn-lg with your custom button,
+       and want to specifically target that combination for masthead on xs: */
+    .masthead .btn-serbis-primary.btn-lg {
+        padding: 0.75rem 1.6rem; /* Example adjustment */
+        font-size: 0.95rem;      /* Example adjustment */
+    }
+
+
     .hero-app-mockup-container {
-        min-height: 380px; 
+        min-height: 380px;
     }
     .iphone-mockup {
-        --iphone-width: 210px; 
+        --iphone-width: 210px;
         transform: rotateY(-12deg) rotateX(8deg) translateZ(30px);
     }
      .iphone-mockup:hover {
@@ -608,7 +629,6 @@ body {
     .hero-app-mockup-container::before { width: 300px; height: 300px; filter: blur(80px);}
     .hero-app-mockup-container::after { width: 200px; height: 200px; filter: blur(80px);}
 }
-Use code with caution.
 </style>
 <script type="application/ld+json">
 {
@@ -649,12 +669,15 @@ Use code with caution.
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-lg-7">
-                <!-- Removed <br><br> here -->
                 <div class="mb-5 mb-lg-0 text-center text-lg-start">
                     <h2 class="masthead-pre-title">Basta de listas.</h2>
-                    <h1 class="lh-1 mb-3">Encontrá al profesional ideal.   
-                    <p></p><strong>En 5 segundos.</strong></h1>
+                    <!-- MODIFIED HTML: Removed lh-1 class and empty <p></p>, added <br> for line break -->
+                    <h1 class="mb-3">Encontrá al profesional ideal.<br><strong>En 5 segundos.</strong></h1>
                     <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
+                    <!-- Note: Bootstrap padding utilities px-4 py-3 might override .btn-serbis-primary padding.
+                         Consider removing them if you want CSS to fully control button padding.
+                         For this example, I'm leaving them as they were in your original code.
+                         If you remove px-4 py-3, the CSS for .btn-serbis-primary will take full effect. -->
                     <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
                     <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
                         <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
@@ -662,11 +685,8 @@ Use code with caution.
                     </div>
                 </div>
             </div>
-            <!-- Removed <br><br> that was here between columns -->
             <div class="col-lg-5">
-                <!-- Removed <br><br> here -->
                 <div class="hero-app-mockup-container">
-                    <!-- Start: ENHANCED 3D iPhone Mockup -->
                     <div class="iphone-mockup">
                         <div class="iphone-screen-area">
                             <img src="assets/img/sim2.png" alt="Serbis App en iPhone" class="iphone-app-content">
@@ -676,7 +696,6 @@ Use code with caution.
                         <div class="iphone-side-button iphone-volume-down"></div>
                         <div class="iphone-side-button iphone-power-button"></div>
                     </div>
-                    <!-- End: ENHANCED 3D iPhone Mockup -->
                 </div>
             </div>
         </div>
@@ -710,7 +729,6 @@ Use code with caution.
         </div>
     </div>
 </section>
-<!-- INICIO NUEVAS SECCIONES DE CARACTERÍSTICAS DE LA APP -->
 <section id="app-home" class="app-feature-section">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
@@ -758,8 +776,7 @@ Use code with caution.
 <section id="app-status" class="app-feature-section">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
-            <!-- MODIFIED: Removed order-lg-last from text column -->
-            <div class="col-lg-6"> 
+            <div class="col-lg-6">
                 <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
                     <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
                     <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
@@ -770,8 +787,7 @@ Use code with caution.
                     </ul>
                 </div>
             </div>
-            <!-- MODIFIED: Removed order-lg-first from image column -->
-            <div class="col-lg-6"> 
+            <div class="col-lg-6">
                 <div class="app-screenshot-container">
                     <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
                 </div>
@@ -779,7 +795,6 @@ Use code with caution.
         </div>
     </div>
 </section>
-<!-- FIN NUEVAS SECCIONES DE CARACTERÍSTICAS DE LA APP -->
 <section id="why-serbis" class="content-section">
     <div class="container px-4 px-lg-5">
         <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
@@ -849,7 +864,6 @@ function getOS() {
 
     const os = getOS();
 
-    // Main CTA button
     const mainCtaButton = document.getElementById('main-cta-button');
     if (mainCtaButton) {
         mainCtaButton.addEventListener('click', function () {
@@ -863,7 +877,6 @@ function getOS() {
         });
     }
 
-    // Secondary CTA button
     const secondaryCtaButton = document.getElementById('secondary-cta-button');
     if (secondaryCtaButton) {
         secondaryCtaButton.addEventListener('click', function () {
@@ -872,11 +885,11 @@ function getOS() {
             } else if (os === "Android") {
                 window.location.href = GOOGLE_PLAY_STORE_URL;
             } else { // Desktop or other
-                window.location.href = DESKTOP_WEB_FORM_URL; 
+                window.location.href = DESKTOP_WEB_FORM_URL;
             }
         });
     }
-    
+
     const googlePlayLink = document.getElementById('google-play-link');
     if (googlePlayLink) {
         googlePlayLink.href = GOOGLE_PLAY_STORE_URL;
