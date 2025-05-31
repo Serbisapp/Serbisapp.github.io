@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -6,1106 +5,1040 @@
     <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
     <meta name="author" content="Serbis" />
     <title>Serbis | Tu Solución de Servicios Locales en 5 Segundos</title>
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
-    <meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://serbis.app" />
-    <meta property="og:image" content="assets/img/og-image.jpg" />
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
-    <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
-    <link rel="canonical" href="https://serbis.app" />
-    <link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-    <!-- Styles -->
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-light: #3b82f6;
-            --primary-dark: #1d4ed8;
-            --black: #0f172a;
-            --gray-dark: #334155;
-            --gray: #64748b;
-            --gray-light: #e2e8f0;
-            --white: #ffffff;
-            --bg: #f8fafc;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --rounded-sm: 0.25rem;
-            --rounded: 0.5rem;
-            --rounded-lg: 1rem;
-            --rounded-full: 9999px;
-            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --section-padding: 8rem;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--black);
-            background-color: var(--white);
-            line-height: 1.5;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.025em;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-        }
-
-        p {
-            color: var(--gray-dark);
-            font-size: 1.125rem;
-        }
-
-        .text-primary {
-            color: var(--primary);
-        }
-
-        .text-gradient {
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Layout */
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section {
-            padding: var(--section-padding) 0;
-            position: relative;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--rounded);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--white);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(37, 99, 235, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .btn-lg {
-            padding: 1rem 2rem;
-            font-size: 1.125rem;
-        }
-
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            padding: 1.5rem 0;
-            transition: var(--transition);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background-color: rgba(255, 255, 255, 0.8);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
-        }
-
-        .navbar.scrolled {
-            padding: 1rem 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: var(--black);
-            text-decoration: none;
-        }
-
-        .navbar-brand img {
-            height: 2.5rem;
-            margin-right: 0.75rem;
-        }
-
-        .navbar-menu {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .navbar-link {
-            font-weight: 500;
-            color: var(--gray-dark);
-            text-decoration: none;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .navbar-link:hover {
-            color: var(--primary);
-        }
-
-        .navbar-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .navbar-link:hover::after {
-            width: 100%;
-        }
-
-        .navbar-cta {
-            margin-left: 1rem;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--black);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding-top: 10rem;
-            padding-bottom: 6rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            left: -10%;
-            width: 120%;
-            height: 120%;
-            background: radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero-title {
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-description {
-            margin-bottom: 2.5rem;
-            font-size: 1.25rem;
-            max-width: 500px;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .app-badges {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .app-badge {
-            height: 3.5rem;
-            transition: var(--transition);
-        }
-
-        .app-badge:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .phone-mockup {
-            width: 320px;
-            height: auto;
-            border-radius: 2.5rem;
-            box-shadow: var(--shadow-lg);
-            transform: perspective(1000px) rotateY(-15deg) rotateX(10deg);
-            transition: var(--transition);
-            position: relative;
-            z-index: 1;
-        }
-
-        .phone-mockup:hover {
-            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg) scale(1.03);
-        }
-
-        .phone-mockup::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 2.5rem;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .floating-shape {
-            position: absolute;
-            border-radius: var(--rounded-full);
-            filter: blur(60px);
-            opacity: 0.6;
-            z-index: 0;
-        }
-
-        .shape-1 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--primary-light), transparent 70%);
-            top: -50px;
-            right: -50px;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .shape-2 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, #818cf8, transparent 70%);
-            bottom: -50px;
-            left: -50px;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-
-        /* How It Works Section */
-        .how-it-works {
-            background-color: var(--bg);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            margin-bottom: 1.5rem;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .step {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: var(--rounded-lg);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .step:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .step-icon {
-            width: 64px;
-            height: 64px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: var(--white);
-            border-radius: var(--rounded-full);
-            margin: 0 auto 1.5rem;
-            font-size: 1.75rem;
-        }
-
-        .step-title {
-            margin-bottom: 1rem;
-        }
-
-        /* Features Section */
-        .feature {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 6rem;
-        }
-
-        .feature:last-child {
-            margin-bottom: 0;
-        }
-
-        .feature-content {
-            max-width: 500px;
-        }
-
-        .feature-title {
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-description {
-            margin-bottom: 2rem;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .feature-item i {
-            color: var(--primary);
-            margin-right: 0.75rem;
-            font-size: 1.25rem;
-            margin-top: 0.25rem;
-        }
-
-        .feature-image {
-            position: relative;
-            border-radius: var(--rounded-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-        }
-
-        .feature-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .feature-image:hover {
-            transform: scale(1.02);
-        }
-
-        .feature-reverse .feature-content {
-            order: 2;
-        }
-
-        .feature-reverse .feature-image {
-            order: 1;
-        }
-
-        /* Why Choose Section */
-        .why-choose {
-            background-color: var(--bg);
-            text-align: center;
-        }
-
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .benefit {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: var(--rounded-lg);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .benefit:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .benefit-icon {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(37, 99, 235, 0.1);
-            color: var(--primary);
-            border-radius: var(--rounded-full);
-            margin: 0 auto 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .benefit-title {
-            margin-bottom: 1rem;
-        }
-
-        /* CTA Section */
-        .cta {
-            text-align: center;
-            padding: 6rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(37, 99, 235, 0.1));
-            z-index: -1;
-        }
-
-        .cta-title {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-description {
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--black);
-            color: var(--gray-light);
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo img {
-            height: 2rem;
-            margin-right: 0.75rem;
-        }
-
-        .footer-logo span {
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .footer-description {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-title {
-            color: var(--white);
-            font-size: 1.125rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-link {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-link a {
-            color: var(--gray-light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-link a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(226, 232, 240, 0.1);
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            :root {
-                --section-padding: 6rem;
-            }
-
-            h1 {
-                font-size: 3rem;
-            }
-
-            h2 {
-                font-size: 2.25rem;
-            }
-
-            .hero-container {
-                gap: 2rem;
-            }
-
-            .feature {
-                gap: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --section-padding: 4rem;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .navbar-menu {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                box-shadow: var(--shadow-md);
-                transform: translateY(-150%);
-                opacity: 0;
-                transition: var(--transition);
-                border-radius: 0 0 var(--rounded) var(--rounded);
-            }
-
-            .navbar-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .navbar-cta {
-                margin-left: 0;
-                margin-top: 0.5rem;
-            }
-
-            .hero {
-                padding-top: 8rem;
-                padding-bottom: 4rem;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content {
-                margin: 0 auto;
-            }
-
-            .hero-cta {
-                justify-content: center;
-            }
-
-            .app-badges {
-                justify-content: center;
-            }
-
-            .hero-image {
-                margin-top: 3rem;
-            }
-
-            .feature {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .feature-content {
-                order: 2;
-                margin: 0 auto;
-            }
-
-            .feature-image {
-                order: 1;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-
-            .feature-reverse .feature-content {
-                order: 2;
-            }
-
-            .feature-reverse .feature-image {
-                order: 1;
-            }
-
-            .feature-list {
-                text-align: left;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-        }
-
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .app-badges {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
+<meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://serbis.app" />
+<meta property="og:image" content="assets/img/og-image.jpg" />
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
+<meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
+<link rel="canonical" href="https://serbis.app" />
+<link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+    :root {
+        --serbis-primary: #0d6efd;
+        --serbis-primary-rgb: 13, 110, 253; /* For use in rgba */
+        --serbis-light-bg: #f8f9fa;
+        --serbis-dark-text: #212529;
+        --serbis-muted-text: #495057;
+        --serbis-section-padding-y: 5rem;
+    }
+body {
+    font-family: 'Mulish', sans-serif;
+    color: var(--serbis-dark-text);
+    line-height: 1.6;
+}
+
+.masthead {
+    padding-top: 8rem; /* Adjusted to account for potentially larger initial navbar */
+    padding-bottom: 6rem;
+    background-color: var(--serbis-light-bg);
+    overflow: hidden;
+}
+
+.masthead .masthead-pre-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+    line-height: 1.15;
+    color: var(--serbis-dark-text);
+    margin-bottom: 0.5rem;
+}
+
+.masthead h1 { /* This is the "Encontrá al profesional ideal..." part */
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    line-height: 1.2; /* Ensured this is active by removing lh-1 from HTML */
+    color: var(--serbis-dark-text);
+    margin-bottom: 1rem;
+}
+.masthead h1 strong { /* This is the "En 5 segundos." part */
+    color: var(--serbis-primary);
+}
+
+.masthead .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--serbis-muted-text);
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+}
+.text-lg-start .lead {
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 992px) {
+    .text-lg-start .lead {
+         margin-left: 0;
+         margin-right: 0;
+    }
+}
+
+.btn-serbis-primary {
+    background-color: var(--serbis-primary);
+    border-color: var(--serbis-primary);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
+    border-radius: 0.3rem;
+}
+.btn-serbis-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.app-badges-container {
+    margin-top: 2rem;
+}
+.app-badge {
+    height: 48px;
+    margin: 0 0.4rem;
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+}
+.app-badge img {
+    height: 100%;
+    width: auto;
+}
+.app-badge:hover {
+    transform: scale(1.05);
+}
+
+/* === ENHANCED NAVBAR STYLES - START === */
+.navbar-custom {
+    background-color: #fff;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Styles for when navbar is scrolled */
+.navbar-custom.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-custom .navbar-brand img {
+    height: 40px;
+    transition: height 0.3s ease-in-out;
+}
+
+.navbar-custom.scrolled .navbar-brand img {
+    height: 34px; /* Smaller logo when scrolled */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.1px;
+    color: var(--serbis-muted-text);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+    margin: 0 0.15rem;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: var(--serbis-primary);
+    background-color: rgba(var(--serbis-primary-rgb), 0.07);
+}
+
+.navbar-custom .navbar-nav .nav-link.active {
+    color: var(--serbis-primary);
+    font-weight: 600;
+    background-color: rgba(var(--serbis-primary-rgb), 0.05);
+}
+
+.navbar-custom .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: var(--serbis-primary);
+    border-radius: 1px;
+}
+
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+    color: var(--serbis-primary);
+    border: 1.5px solid var(--serbis-primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.3rem;
+    margin-left: 0.75rem;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link:hover {
+    background-color: var(--serbis-primary);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(var(--serbis-primary-rgb), 0.3);
+}
+
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active::after {
+    display: none;
+}
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active {
+    background-color: var(--serbis-primary);
+    color: #fff;
+}
+
+.navbar-custom .navbar-toggler {
+    border: 1px solid transparent;
+    padding: 0.25rem 0.5rem;
+}
+.navbar-custom .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--serbis-primary-rgb), 0.25);
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--serbis-primary-rgb), 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* === END ENHANCED NAVBAR STYLES === */
+
+
+.section-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 3.5rem;
+    color: var(--serbis-dark-text);
+}
+
+.content-section {
+    padding-top: var(--serbis-section-padding-y);
+    padding-bottom: var(--serbis-section-padding-y);
+}
+#how-it-works {
+    background-color: #ffffff;
+}
+.how-it-works-step {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.how-it-works-step .bi {
+    font-size: 2.8rem;
+    color: var(--serbis-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+.how-it-works-step h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--serbis-dark-text);
+}
+.how-it-works-step p {
+    color: var(--serbis-muted-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#why-serbis {
+    background-color: #ffffff;
+}
+.feature-item {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+.feature-item .bi {
+    font-size: 2.8rem;
+    color: var(--serbis-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+.feature-item h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--serbis-dark-text);
+}
+.feature-item p {
+    color: var(--serbis-muted-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.footer {
+    background-color: #2c3e50;
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- Styles for ENHANCED 3D iPhone Mockup --- */
+.hero-app-mockup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 520px;
+    perspective: 1800px;
+    padding: 3rem 0;
+    position: relative;
+    background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.05) 0%, transparent 60%);
+}
+
+.hero-app-mockup-container::before,
+.hero-app-mockup-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-app-mockup-container::before {
+    width: 450px;
+    height: 450px;
+    background: hsla(var(--serbis-primary-rgb), 0.18);
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -60%);
+    animation: pulse-glow-1 10s infinite alternate ease-in-out;
+}
+
+.hero-app-mockup-container::after {
+    width: 350px;
+    height: 350px;
+    background: hsla(210, 80%, 70%, 0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(40%, 30%);
+    animation: pulse-glow-2 12s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-glow-1 {
+    0% { opacity: 0.18; transform: translate(-60%, -60%) scale(1); }
+    100% { opacity: 0.25; transform: translate(-55%, -55%) scale(1.1); }
+}
+@keyframes pulse-glow-2 {
+    0% { opacity: 0.15; transform: translate(40%, 30%) scale(1); }
+    100% { opacity: 0.22; transform: translate(45%, 35%) scale(1.05); }
+}
+
+
+.iphone-mockup {
+    --iphone-thickness: 11px;
+    --iphone-width: 270px;
+    --iphone-aspect-ratio: 2.0517;
+    --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
+    --iphone-border-radius: calc(var(--iphone-width) * 0.17);
+    --iphone-bezel-padding: calc(var(--iphone-width) * 0.044);
+    --screen-border-radius: calc(var(--iphone-width) * 0.13);
+    --notch-width: calc(var(--iphone-width) * 0.37);
+    --notch-height: calc(var(--iphone-width) * 0.103);
+    --button-thickness: calc(var(--iphone-width) * 0.013);
+    --button-v-height: calc(var(--iphone-width) * 0.111);
+    --button-p-height: calc(var(--iphone-width) * 0.203);
+    --button-vol-up-top: calc(var(--iphone-height) * 0.177);
+    --button-vol-down-top: calc(var(--iphone-height) * 0.252);
+    --button-power-top: calc(var(--iphone-height) * 0.215);
+
+    width: var(--iphone-width);
+    height: var(--iphone-height);
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transform: rotateY(-28deg) rotateX(18deg) translateZ(60px);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+                box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    background: linear-gradient(145deg, #3a3a3f, #202023);
+    border-radius: var(--iphone-border-radius);
+    padding: var(--iphone-bezel-padding);
+    box-shadow:
+        -15px 20px 50px rgba(0, 0, 0, 0.28),
+        8px -8px 25px rgba(0,0,0,0.12),
+        inset 0px 1px 2px rgba(255, 255, 255, 0.1),
+        inset 0px -1px 2px rgba(0, 0, 0, 0.3),
+        inset 1px 0px 2px rgba(255,255,255,0.07),
+        inset -1px 0px 2px rgba(0,0,0,0.2),
+        0 0 0 1px rgba(0,0,0,0.25);
+}
+
+.iphone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #303035, #18181b);
+    border-radius: var(--iphone-border-radius);
+    transform: translateZ(calc(-1 * var(--iphone-thickness)));
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+}
+
+
+.iphone-mockup:hover {
+    transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04);
+    box-shadow:
+        -20px 28px 65px rgba(0, 0, 0, 0.35),
+        10px -10px 30px rgba(0,0,0,0.18),
+        inset 0px 1px 3px rgba(255, 255, 255, 0.15),
+        inset 0px -1px 3px rgba(0, 0, 0, 0.35),
+        inset 1px 0px 3px rgba(255,255,255,0.1),
+        inset -1px 0px 3px rgba(0,0,0,0.25),
+        0 0 0 1px rgba(0,0,0,0.3);
+}
+
+.iphone-mockup::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--iphone-bezel-padding) - 30px);
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    filter: blur(25px);
+    transform: scaleY(0.7) translateZ(calc(-80px - var(--iphone-thickness)));
+    z-index: -1;
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
+    opacity: 0.7;
+}
+.iphone-mockup:hover::after {
+    opacity: 0.9;
+    filter: blur(30px);
+    transform: scaleY(0.75) translateZ(calc(-70px - var(--iphone-thickness))) translateY(10px);
+}
+
+
+.iphone-screen-area {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: var(--screen-border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.iphone-screen-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(
+        165deg,
+        rgba(255,255,255,0.15) 0%,
+        rgba(255,255,255,0.08) 30%,
+        rgba(255,255,255,0) 50%
+    );
+    transform: translateX(-20%) translateY(-20%) rotate(-25deg);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+
+.iphone-app-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.iphone-notch {
+    position: absolute;
+    top: var(--iphone-bezel-padding);
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--notch-width);
+    height: var(--notch-height);
+    background: #202023;
+    border-bottom-left-radius: calc(var(--notch-height) * 0.45);
+    border-bottom-right-radius: calc(var(--notch-height) * 0.45);
+    z-index: 10;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+}
+
+.iphone-side-button {
+    position: absolute;
+    background: linear-gradient(145deg, #525257, #404043);
+    border-radius: calc(var(--button-thickness) * 0.5);
+    box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset,
+                -0.5px -0.5px 1px rgba(255,255,255,0.08) inset,
+                0 0 1px rgba(0,0,0,0.2);
+    transform: translateZ(calc(-0.5 * var(--iphone-thickness)));
+}
+
+.iphone-volume-up {
+    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
+    width: var(--button-thickness); height: var(--button-v-height);
+    border-top-right-radius: 0; border-bottom-right-radius: 0;
+}
+.iphone-volume-down {
+    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-down-top);
+    width: var(--button-thickness); height: var(--button-v-height);
+    border-top-right-radius: 0; border-bottom-right-radius: 0;
+}
+.iphone-power-button {
+    right: calc(-1 * var(--button-thickness)); top: var(--button-power-top);
+    width: var(--button-thickness); height: var(--button-p-height);
+    border-top-left-radius: 0; border-bottom-left-radius: 0;
+}
+/* --- End ENHANCED 3D iPhone Mockup Styles --- */
+
+
+/* --- Styles for New App Feature Sections --- */
+.app-feature-section {
+    padding-top: var(--serbis-section-padding-y);
+    padding-bottom: var(--serbis-section-padding-y);
+}
+.app-feature-section:nth-of-type(even) {
+    background-color: var(--serbis-light-bg);
+}
+.app-feature-section:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
+.app-feature-text .feature-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--serbis-dark-text);
+    margin-bottom: 1rem;
+}
+.app-feature-text .feature-title strong {
+    color: var(--serbis-primary);
+}
+.app-feature-text .lead {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--serbis-muted-text);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+.app-feature-list {
+    list-style: none;
+    padding-left: 0;
+}
+.app-feature-list li {
+    font-size: 1rem;
+    color: var(--serbis-dark-text);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+}
+.app-feature-list li .bi {
+    color: var(--serbis-primary);
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+    margin-top: 0.1em;
+}
+
+.app-screenshot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.app-feature-image {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.app-feature-image:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.16),
+                0 22px 50px rgba(0,0,0,0.13);
+}
+/* --- End Styles for New App Feature Sections --- */
+
+
+@media (max-width: 991.98px) { /* md */
+    .navbar-brand-centered {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-left: 0;
+    }
+    .navbar-custom .navbar-nav {
+        margin-top: 0.75rem;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+    }
+    .navbar-custom .navbar-nav .nav-link.active::after {
+        bottom: 0.5rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+    .navbar-custom .navbar-collapse {
+        border-top: 1px solid #eee;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .masthead {
+        padding-top: 7rem; /* Adjusted for potentially larger initial navbar on mobile */
+        padding-bottom: 4rem;
+        text-align: center;
+    }
+    .masthead .masthead-pre-title {
+        font-size: 3rem;
+    }
+    .masthead h1 {
+        font-size: 2.2rem;
+    }
+    .masthead .lead {
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .masthead .text-lg-start {
+        text-align: center !important;
+    }
+
+    .hero-app-mockup-container {
+        margin-top: 3rem;
+        min-height: 480px;
+    }
+    .iphone-mockup {
+        --iphone-width: 250px;
+        transform: rotateY(-22deg) rotateX(15deg) translateZ(50px);
+    }
+    .hero-app-mockup-container::before { width: 400px; height: 400px; filter: blur(100px);}
+    .hero-app-mockup-container::after { width: 300px; height: 300px; filter: blur(100px);}
+
+
+    .app-feature-text {
+        text-align: center;
+    }
+    .app-feature-text .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .app-feature-list {
+        display: inline-block;
+        text-align: left;
+    }
+    .app-screenshot-container {
+        margin-top: 2rem;
+    }
+    .app-feature-text .feature-title {
+        font-size: 2.1rem;
+    }
+}
+@media (max-width: 767.98px) { /* sm */
+    :root {
+        --serbis-section-padding-y: 3.5rem;
+    }
+
+    .masthead .masthead-pre-title {
+        font-size: 2.6rem;
+    }
+    .masthead h1 {
+        font-size: 2rem;
+    }
+    .app-badge {
+        height: 42px;
+    }
+    .section-title {
+        font-size: 1.9rem;
+    }
+    .how-it-works-step h3, .feature-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .hero-app-mockup-container {
+        min-height: 440px;
+    }
+    .iphone-mockup {
+        --iphone-width: 230px;
+        transform: rotateY(-18deg) rotateX(12deg) translateZ(40px);
+    }
+     .iphone-mockup:hover {
+        transform: rotateY(-12deg) rotateX(10deg) translateZ(50px) scale(1.03);
+    }
+    .hero-app-mockup-container::before { width: 350px; height: 350px; filter: blur(90px);}
+    .hero-app-mockup-container::after { width: 250px; height: 250px; filter: blur(90px);}
+
+
+    .app-feature-text .feature-title {
+        font-size: 1.9rem;
+    }
+    .app-feature-image {
+        max-width: 240px;
+    }
+}
+ @media (max-width: 575.98px) { /* xs */
+    :root {
+        --serbis-section-padding-y: 2.5rem;
+    }
+
+    .masthead .masthead-pre-title {
+        font-size: 2.2rem;
+    }
+    .masthead h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-serbis-primary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .masthead .btn-serbis-primary.btn-lg {
+        padding: 0.75rem 1.6rem;
+        font-size: 0.95rem;
+    }
+
+
+    .hero-app-mockup-container {
+        min-height: 380px;
+    }
+    .iphone-mockup {
+        --iphone-width: 210px;
+        transform: rotateY(-12deg) rotateX(8deg) translateZ(30px);
+    }
+     .iphone-mockup:hover {
+        transform: rotateY(-8deg) rotateX(5deg) translateZ(40px) scale(1.02);
+    }
+    .hero-app-mockup-container::before { width: 300px; height: 300px; filter: blur(80px);}
+    .hero-app-mockup-container::after { width: 200px; height: 200px; filter: blur(80px);}
+}
+</style>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"name": "Serbis",
+"url": "https://serbis.app",
+"logo": "https://serbis.app/assets/img/app_logo_nobg.png",
+"description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
+"address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Buenos Aires",
+    "addressCountry": "AR"
+},
+"sameAs": []
+}
+</script>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="container navbar-container">
-            <a href="#" class="navbar-brand">
-                <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo">
-                <span>Serbis</span>
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand fw-bold" href="#page-top">
+                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis"> <!-- CSS will control height -->
             </a>
-            
-            <button class="mobile-menu-btn" id="mobile-menu-btn">
-                <i class="ti ti-menu-2"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span> <!-- Using standard Bootstrap toggler icon class for custom SVG styling -->
             </button>
-            
-            <div class="navbar-menu" id="navbar-menu">
-                <a href="#how-it-works" class="navbar-link">Cómo funciona</a>
-                <a href="#features" class="navbar-link">Características</a>
-                <a href="#why-choose" class="navbar-link">Por qué Serbis</a>
-                <a href="#!" class="navbar-link">Soy Proveedor</a>
-                <a href="#!" class="btn btn-outline navbar-cta">Descargar</a>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">Cómo Funciona</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us-footer">Nosotros</a></li>
+                </ul>
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <section class="hero section">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Encontrá al profesional ideal <span class="text-gradient">en 5 segundos</span></h1>
-                <p class="hero-description">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
-                <div class="hero-cta">
-                    <a href="#!" class="btn btn-primary btn-lg">Publicá tu Pedido</a>
-                    <a href="#!" class="btn btn-outline btn-lg">Ver Demo</a>
-                </div>
-                <div class="app-badges">
-                    <a href="#!" class="app-badge">
-                        <img src="assets/img/app-store-badge.svg" alt="Download on the App Store">
-                    </a>
-                    <a href="#!" class="app-badge">
-                        <img src="assets/img/google-play-badge.svg" alt="Get it on Google Play">
-                    </a>
+<header class="masthead">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="masthead-pre-title">Basta de listas.</h2>
+                    <h1 class="mb-3">Encontrá al profesional ideal.<br><strong>En 5 segundos.</strong></h1>
+                    <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
+                    <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
+                    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
+                        <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
+                        <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="floating-shape shape-1"></div>
-                <div class="floating-shape shape-2"></div>
-                <img src="assets/img/iphone-mockup.png" alt="Serbis App" class="phone-mockup">
+            <div class="col-lg-5">
+                <div class="hero-app-mockup-container">
+                    <div class="iphone-mockup">
+                        <div class="iphone-screen-area">
+                            <img src="assets/img/sim2.png" alt="Serbis App en iPhone" class="iphone-app-content">
+                        </div>
+                        <div class="iphone-side-button iphone-volume-up"></div>
+                        <div class="iphone-side-button iphone-volume-down"></div>
+                        <div class="iphone-side-button iphone-power-button"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="how-it-works section" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Así de fácil es con Serbis</h2>
-                <p>Encontrá el servicio que necesitás en solo tres simples pasos</p>
-            </div>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="ti ti-pencil"></i>
-                    </div>
-                    <h3 class="step-title">Describí tu Necesidad</h3>
+    </div>
+</header>
+<section id="how-it-works" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-pencil-square"></i>
+                    <h3>1. Describí tu Necesidad</h3>
                     <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="ti ti-bolt"></i>
-                    </div>
-                    <h3 class="step-title">Conectá al Instante</h3>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <h3>2. Conectá al Instante</h3>
                     <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-icon">
-                        <i class="ti ti-check"></i>
-                    </div>
-                    <h3 class="step-title">Resolvé y Calificá</h3>
-                    <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-check2-circle"></i>
+                    <h3>3. Resolvé y Calificá</h3>
+                    <p>Coordiná el servicio y ayudá a la comunidad con tu reseña. Todo dentro de nuestra app.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="feature">
-                <div class="feature-content">
-                    <h2 class="feature-title">Explorá el <span class="text-primary">Home</span></h2>
-                    <p class="feature-description">Describí el servicio que necesitas, nostros te emparejamos con una persona capaz en tu area. No clasificamos, entendemos que se necesita para solucionar tu problema y quien puede hacerlo en tu area.</p>
-                    <ul class="feature-list">
-                        <li class="feature-item">
-                            <i class="ti ti-compass"></i>
-                            <span>Navegación intuitiva para encontrar lo que necesitás al instante.</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="ti ti-star"></i>
-                            <span>Ratings y reviews de cada trabajador, por las personas de tu comunidad.</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="ti ti-bell"></i>
-                            <span>Acceso rápido a tus pedidos y chats recientes.</span>
-                        </li>
+    </div>
+</section>
+<section id="app-home" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Explorá el <strong>Home</strong></h2>
+                    <p class="lead fw-normal mb-4">Describí el servicio que necesitas, nostros te emparejamos con una persona capaz en tu area. No clasificamos, entendemos que se necesita para solucionar tu problema y quien puede hacerlo en tu area. Todo en menos de 5 segundos.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-compass-fill"></i>Navegación intuitiva para encontrar lo que necesitás al instante.</li>
+                        <li><i class="bi bi-star-fill"></i>Ratings y reviews de cada trabajador, por las personas de tu comunidad.</li>
+                        <li><i class="bi bi-bell-fill"></i>Acceso rápido a tus pedidos y chats recientes.</li>
                     </ul>
-                </div>
-                <div class="feature-image">
-                    <img src="assets/img/home.png" alt="Serbis Home Screen">
                 </div>
             </div>
-            
-            <div class="feature feature-reverse">
-                <div class="feature-content">
-                    <h2 class="feature-title">Comunicación segura con el <span class="text-primary">Chat</span></h2>
-                    <p class="feature-description">Coordiná detalles, compartí imágenes y negociá el precio directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
-                    <ul class="feature-list">
-                        <li class="feature-item">
-                            <i class="ti ti-send"></i>
-                            <span>Mensajería instantánea para respuestas rápidas.</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="ti ti-paperclip"></i>
-                            <span>Compartí archivos y fotos relevantes para el servicio.</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="ti ti-shield-check"></i>
-                            <span>Conversaciones seguras y privadas dentro de la app.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="feature-image">
-                    <img src="assets/img/chat.png" alt="Serbis Chat Screen">
-                </div>
-            </div>
-            
-            <div class="feature">
-                <div class="feature-content">
-                    <h2 class="feature-title">Seguí el <span class="text-primary">Estado</span> de tus Pedidos</h2>
-                    <p class="feature-description">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
-                    <ul class="feature-list">
-                        <li class="feature-item">
-                            <i class="ti ti-clock"></i>
-                            <span>Historial completo de todos tus pedidos y servicios.</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="ti ti-bell-ringing"></i>
-                            <span>Notificaciones instantáneas sobre actualizaciones importantes.</span>
-                        </li>
-                        <li class="feature-item">
-                            <i class="ti ti-checklist"></i>
-                            <span>Visualizá claramente cada etapa del proceso.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="feature-image">
-                    <img src="assets/img/status.png" alt="Serbis Status Screen">
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/home.png" alt="Screenshot de la pantalla Home de Serbis" class="app-feature-image">
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Why Choose Section -->
-    <section class="why-choose section" id="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">¿Por qué elegir Serbis?</h2>
-                <p>La mejor manera de encontrar servicios de confianza en tu comunidad</p>
+    </div>
+</section>
+<section id="app-chat" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6 order-lg-last">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Comunicación segura con el <strong>Chat</strong></h2>
+                    <p class="lead fw-normal mb-4">Coordiná detalles, compartí imágenes y <strong>negocia el precio</strong> directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-send-fill"></i>Mensajería instantánea para respuestas rápidas.</li>
+                        <li><i class="bi bi-paperclip"></i>Compartí archivos y fotos relevantes para el servicio.</li>
+                        <li><i class="bi bi-shield-check"></i>Conversaciones seguras y privadas dentro de la app.</li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="benefits">
-                <div class="benefit">
-                    <div class="benefit-icon">
-                        <i class="ti ti-users"></i>
-                    </div>
-                    <h3 class="benefit-title">Ayuda de tu Comunidad</h3>
+            <div class="col-lg-6 order-lg-first">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/chat.png" alt="Screenshot de la pantalla Chat de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="app-status" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
+                    <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-clock-history"></i>Historial completo de todos tus pedidos y servicios.</li>
+                        <li><i class="bi bi-bell-fill"></i>Notificaciones instantáneas sobre actualizaciones importantes.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Visualizá claramente cada etapa del proceso.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="why-serbis" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-people-fill"></i>
+                    <h3>Ayuda de tu Comunidad</h3>
                     <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
                 </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon">
-                        <i class="ti ti-thumb-up"></i>
-                    </div>
-                    <h3 class="benefit-title">Calificaciones Reales</h3>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <h3>Calificaciones Reales</h3>
                     <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
                 </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon">
-                        <i class="ti ti-message-circle"></i>
-                    </div>
-                    <h3 class="benefit-title">Comunicación Directa</h3>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <h3>Comunicación Directa</h3>
                     <p>Chat seguro para coordinar todos los detalles del servicio.</p>
                 </div>
-                
-                <div class="benefit">
-                    <div class="benefit-icon">
-                        <i class="ti ti-zap"></i>
-                    </div>
-                    <h3 class="benefit-title">Rápido y Eficaz</h3>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <h3>Rápido y Eficaz</h3>
                     <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta section">
-        <div class="container">
-            <h2 class="cta-title">¿Listo para simplificar tu vida?</h2>
-            <p class="cta-description">Descargá Serbis hoy mismo y descubrí la forma más rápida y confiable de encontrar servicios en tu comunidad.</p>
-            <a href="#!" class="btn btn-primary btn-lg">Descargar la App</a>
+         <div class="text-center mt-5">
+            <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo">
-                        <span>Serbis</span>
-                    </div>
-                    <p class="footer-description">La forma más rápida y confiable de encontrar servicios en tu comunidad.</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Producto</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#how-it-works">Cómo funciona</a></li>
-                        <li class="footer-link"><a href="#features">Características</a></li>
-                        <li class="footer-link"><a href="#why-choose">Por qué Serbis</a></li>
-                        <li class="footer-link"><a href="#!">Precios</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Compañía</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#!">Nosotros</a></li>
-                        <li class="footer-link"><a href="#!">Blog</a></li>
-                        <li class="footer-link"><a href="#!">Carreras</a></li>
-                        <li class="footer-link"><a href="#!">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3 class="footer-title">Legal</h3>
-                    <ul class="footer-links">
-                        <li class="footer-link"><a href="#!">Términos</a></li>
-                        <li class="footer-link"><a href="#!">Privacidad</a></li>
-                        <li class="footer-link"><a href="#!">Cookies</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Serbis. Todos los derechos reservados.</p>
-            </div>
+    </div>
+</section>
+<footer class="footer" id="about-us-footer">
+    <div class="container px-4 px-lg-5">
+        <div class="text-center small">
+            <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
+            <div class="mb-2">Buenos Aires, Argentina</div>
+            <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
         </div>
-    </footer>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- CONFIGURATION: REPLACE THESE URLs ---
+        const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL";
+        const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL";
+        const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL";
+        const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL";
+        // --- END CONFIGURATION ---
 
-    <!-- Scripts -->
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const navbarMenu = document.getElementById('navbar-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navbarMenu.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navbarMenu.classList.contains('active') 
-                ? '<i class="ti ti-x"></i>' 
-                : '<i class="ti ti-menu-2"></i>';
-        });
-        
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        function getOS() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                return "Android";
             }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#!') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (navbarMenu.classList.contains('active')) {
-                        navbarMenu.classList.remove('active');
-                        mobileMenuBtn.innerHTML = '<i class="ti ti-menu-2"></i>';
-                    }
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+            return "Desktop";
+        }
+
+        const os = getOS();
+
+        const mainCtaButton = document.getElementById('main-cta-button');
+        if (mainCtaButton) {
+            mainCtaButton.addEventListener('click', function () {
+                if (os === "iOS") {
+                    window.location.href = APPLE_APP_STORE_URL;
+                } else if (os === "Android") {
+                    window.location.href = GOOGLE_PLAY_STORE_URL;
+                } else {
+                    window.location.href = DESKTOP_WEB_FORM_URL;
                 }
             });
-        });
-        
-        // Animation on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.step, .benefit, .feature-image');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+        }
+
+        const secondaryCtaButton = document.getElementById('secondary-cta-button');
+        if (secondaryCtaButton) {
+            secondaryCtaButton.addEventListener('click', function () {
+                if (os === "iOS") {
+                    window.location.href = APPLE_APP_STORE_URL;
+                } else if (os === "Android") {
+                    window.location.href = GOOGLE_PLAY_STORE_URL;
+                } else {
+                    window.location.href = DESKTOP_WEB_FORM_URL;
                 }
             });
-        };
-        
-        // Set initial state for animated elements
-        document.querySelectorAll('.step, .benefit, .feature-image').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
+        }
+
+        const googlePlayLink = document.getElementById('google-play-link');
+        if (googlePlayLink) {
+            googlePlayLink.href = GOOGLE_PLAY_STORE_URL;
+        }
+
+        const appStoreLink = document.getElementById('app-store-link');
+        if (appStoreLink) {
+            appStoreLink.href = APPLE_APP_STORE_URL;
+        }
+
+        const soyProveedorLink = document.getElementById('soy-proveedor-link');
+        if (soyProveedorLink) {
+            soyProveedorLink.href = SOY_PROVEEDOR_URL;
+        }
+
+        // Navbar shrink on scroll
+        const mainNav = document.getElementById('mainNav');
+        if (mainNav) {
+            // Function to handle scroll event
+            const handleScroll = () => {
+                // Check if window.scrollY is defined and is a number
+                if (typeof window.scrollY === 'number' && window.scrollY > 50) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            };
+
+            // Add scroll event listener
+            window.addEventListener('scroll', handleScroll);
+
+            // Call handleScroll once on load in case the page is already scrolled
+            handleScroll();
+        }
+    });
+
+</script>
 </body>
 </html>
+
+
