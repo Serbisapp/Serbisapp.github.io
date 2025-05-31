@@ -18,426 +18,408 @@
     <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
     <link rel="canonical" href="https://serbis.app" />
     <link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <!-- Styles -->
     <style>
         :root {
-            --serbis-primary: #0066ff;
-            --serbis-primary-light: #3385ff;
-            --serbis-primary-dark: #0052cc;
-            --serbis-surface: #ffffff;
-            --serbis-surface-alt: #f8fafc;
-            --serbis-text-primary: #0f172a;
-            --serbis-text-secondary: #475569;
-            --serbis-text-tertiary: #94a3b8;
-            --serbis-border: #e2e8f0;
-            --serbis-success: #10b981;
-            --serbis-section-padding-y: 6rem;
-            --serbis-border-radius: 12px;
-            --serbis-shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -2px rgba(0, 0, 0, 0.02);
-            --serbis-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-            --serbis-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-            --serbis-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --black: #0f172a;
+            --gray-dark: #334155;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --white: #ffffff;
+            --bg: #f8fafc;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --rounded-sm: 0.25rem;
+            --rounded: 0.5rem;
+            --rounded-lg: 1rem;
+            --rounded-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --section-padding: 8rem;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            color: var(--serbis-text-primary);
-            background-color: var(--serbis-surface);
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
         }
-        
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4, h5, h6 {
+
+        /* Typography */
+        h1, h2, h3, h4 {
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.2;
             letter-spacing: -0.025em;
         }
-        
+
         h1 {
             font-size: 3.5rem;
-            letter-spacing: -0.03em;
         }
-        
+
         h2 {
-            font-size: 2.75rem;
+            font-size: 2.5rem;
         }
-        
+
         h3 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
         }
-        
+
         p {
-            color: var(--serbis-text-secondary);
+            color: var(--gray-dark);
             font-size: 1.125rem;
-            line-height: 1.7;
         }
-        
-        .text-lead {
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--serbis-text-secondary);
-        }
-        
-        .text-sm {
-            font-size: 0.875rem;
-        }
-        
+
         .text-primary {
-            color: var(--serbis-primary) !important;
+            color: var(--primary);
         }
-        
-        /* ===== BUTTONS ===== */
+
+        .text-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: var(--section-padding) 0;
+            position: relative;
+        }
+
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--rounded);
             font-weight: 600;
-            border-radius: 8px;
-            padding: 0.875rem 1.75rem;
-            font-size: 1rem;
-            transition: var(--serbis-transition);
-            border: none;
-            cursor: pointer;
             text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            line-height: 1.5;
         }
-        
+
         .btn-primary {
-            background-color: var(--serbis-primary);
-            color: white;
-            box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: var(--shadow);
         }
-        
+
         .btn-primary:hover {
-            background-color: var(--serbis-primary-dark);
-            box-shadow: 0 6px 18px rgba(0, 102, 255, 0.35);
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(37, 99, 235, 0.1);
             transform: translateY(-2px);
         }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--serbis-primary);
-            border: 1px solid var(--serbis-border);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--serbis-surface-alt);
-            border-color: var(--serbis-primary-light);
-        }
-        
+
         .btn-lg {
-            padding: 1rem 2.25rem;
+            padding: 1rem 2rem;
             font-size: 1.125rem;
         }
-        
-        /* ===== NAVBAR ===== */
+
+        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 1000;
-            padding: 1.25rem 0;
-            background-color: rgba(255, 255, 255, 0.8);
+            z-index: 50;
+            padding: 1.5rem 0;
+            transition: var(--transition);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            transition: var(--serbis-transition);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
         }
-        
+
         .navbar.scrolled {
-            padding: 0.75rem 0;
-            box-shadow: var(--serbis-shadow-sm);
+            padding: 1rem 0;
             background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-sm);
         }
-        
+
         .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
-        
+
         .navbar-brand {
             display: flex;
             align-items: center;
-            text-decoration: none;
             font-weight: 700;
             font-size: 1.25rem;
-            color: var(--serbis-text-primary);
+            color: var(--black);
+            text-decoration: none;
         }
-        
+
         .navbar-brand img {
-            height: 36px;
+            height: 2.5rem;
             margin-right: 0.75rem;
         }
-        
-        .nav-links {
+
+        .navbar-menu {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
-            list-style: none;
+            gap: 2rem;
         }
-        
-        .nav-link {
-            text-decoration: none;
-            color: var(--serbis-text-secondary);
+
+        .navbar-link {
             font-weight: 500;
-            transition: var(--serbis-transition);
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
+            color: var(--gray-dark);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
         }
-        
-        .nav-link:hover {
-            color: var(--serbis-primary);
+
+        .navbar-link:hover {
+            color: var(--primary);
         }
-        
-        .nav-link.active {
-            color: var(--serbis-primary);
-            background-color: rgba(0, 102, 255, 0.08);
+
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
         }
-        
-        .nav-link.btn {
-            padding: 0.5rem 1.25rem;
+
+        .navbar-link:hover::after {
+            width: 100%;
         }
-        
+
+        .navbar-cta {
+            margin-left: 1rem;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
+            color: var(--black);
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--serbis-text-primary);
         }
-        
-        /* ===== HERO SECTION ===== */
+
+        /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 6rem 0;
+            padding-top: 10rem;
+            padding-bottom: 6rem;
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
-            content: "";
+            content: '';
             position: absolute;
             top: -20%;
             left: -10%;
-            width: 70%;
-            height: 70%;
-            background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, rgba(0, 102, 255, 0) 70%);
-            border-radius: 50%;
+            width: 120%;
+            height: 120%;
+            background: radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.1) 0%, transparent 50%);
             z-index: -1;
         }
-        
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: -20%;
-            right: -10%;
-            width: 60%;
-            height: 60%;
-            background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, rgba(0, 102, 255, 0) 70%);
-            border-radius: 50%;
-            z-index: -1;
-        }
-        
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+
+        .hero-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
         }
-        
-        .hero-text {
-            max-width: 560px;
+
+        .hero-content {
+            max-width: 600px;
         }
-        
-        .hero-text h1 {
+
+        .hero-title {
             margin-bottom: 1.5rem;
         }
-        
-        .hero-text .text-lead {
-            margin-bottom: 2rem;
+
+        .hero-description {
+            margin-bottom: 2.5rem;
+            font-size: 1.25rem;
+            max-width: 500px;
         }
-        
-        .hero-actions {
+
+        .hero-cta {
             display: flex;
             gap: 1rem;
             margin-bottom: 3rem;
         }
-        
+
         .app-badges {
             display: flex;
             gap: 1rem;
         }
-        
+
         .app-badge {
-            height: 48px;
-            transition: transform 0.3s ease;
+            height: 3.5rem;
+            transition: var(--transition);
         }
-        
+
         .app-badge:hover {
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
-        
-        .app-badge img {
-            height: 100%;
-            width: auto;
-        }
-        
-        .hero-visual {
+
+        .hero-image {
             position: relative;
-            perspective: 2000px;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
-        
+
         .phone-mockup {
-            width: 280px;
+            width: 320px;
             height: auto;
-            border-radius: 36px;
-            border: 8px solid #0f172a;
-            box-shadow: var(--serbis-shadow-lg);
-            transform: rotateY(-20deg) rotateX(10deg);
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        .hero-visual:hover .phone-mockup {
-            transform: rotateY(-10deg) rotateX(5deg);
-        }
-        
-        .floating-element {
-            position: absolute;
-            border-radius: 24px;
-            box-shadow: var(--serbis-shadow-md);
-            background: white;
-            padding: 1.25rem;
-            width: 200px;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .floating-element-1 {
-            top: 20%;
-            right: -30px;
-            animation-delay: 0s;
-        }
-        
-        .floating-element-2 {
-            bottom: 15%;
-            left: -40px;
-            animation-delay: 2s;
-        }
-        
-        .floating-element-3 {
-            top: 40%;
-            left: -60px;
-            animation-delay: 4s;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
-            100% { transform: translateY(0) rotate(0deg); }
-        }
-        
-        /* ===== SECTIONS ===== */
-        section {
-            padding: var(--serbis-section-padding-y) 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-        
-        .section-header h2 {
-            margin-bottom: 1.25rem;
-        }
-        
-        .section-header p {
-            font-size: 1.125rem;
-        }
-        
-        .section-alt {
-            background-color: var(--serbis-surface-alt);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* ===== HOW IT WORKS ===== */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-        
-        .step-card {
-            background: white;
-            border-radius: var(--serbis-border-radius);
-            padding: 2.5rem 2rem;
-            box-shadow: var(--serbis-shadow-sm);
-            transition: var(--serbis-transition);
-            text-align: center;
+            border-radius: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-15deg) rotateX(10deg);
+            transition: var(--transition);
             position: relative;
-            overflow: hidden;
+            z-index: 1;
         }
-        
-        .step-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--serbis-shadow-md);
+
+        .phone-mockup:hover {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg) scale(1.03);
         }
-        
-        .step-number {
+
+        .phone-mockup::before {
+            content: '';
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: rgba(0, 102, 255, 0.05);
-            line-height: 1;
+            inset: 0;
+            border-radius: 2.5rem;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: var(--rounded-full);
+            filter: blur(60px);
+            opacity: 0.6;
             z-index: 0;
         }
-        
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary-light), transparent 70%);
+            top: -50px;
+            right: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #818cf8, transparent 70%);
+            bottom: -50px;
+            left: -50px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: var(--bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            margin-bottom: 1.5rem;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .step {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .step:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
         .step-icon {
             width: 64px;
             height: 64px;
-            background: rgba(0, 102, 255, 0.1);
-            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            border-radius: var(--rounded-full);
             margin: 0 auto 1.5rem;
             font-size: 1.75rem;
-            color: var(--serbis-primary);
         }
-        
-        .step-card h3 {
+
+        .step-title {
             margin-bottom: 1rem;
         }
-        
-        /* ===== APP FEATURES ===== */
+
+        /* Features Section */
         .feature {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -445,312 +427,342 @@
             align-items: center;
             margin-bottom: 6rem;
         }
-        
+
         .feature:last-child {
             margin-bottom: 0;
         }
-        
-        .feature-alt {
-            grid-template-columns: 1fr 1fr;
+
+        .feature-content {
+            max-width: 500px;
         }
-        
-        .feature-alt .feature-visual {
-            order: -1;
-        }
-        
-        .feature-text h3 {
+
+        .feature-title {
             margin-bottom: 1.5rem;
         }
-        
-        .feature-text ul {
-            list-style: none;
-            margin: 2rem 0;
+
+        .feature-description {
+            margin-bottom: 2rem;
         }
-        
-        .feature-text li {
-            margin-bottom: 1rem;
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
             display: flex;
             align-items: flex-start;
+            margin-bottom: 1rem;
         }
-        
-        .feature-text li .bi {
-            color: var(--serbis-primary);
+
+        .feature-item i {
+            color: var(--primary);
             margin-right: 0.75rem;
             font-size: 1.25rem;
-            flex-shrink: 0;
             margin-top: 0.25rem;
         }
-        
-        .feature-visual {
+
+        .feature-image {
             position: relative;
-            display: flex;
-            justify-content: center;
+            border-radius: var(--rounded-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
         }
-        
-        .feature-visual img {
-            max-width: 100%;
+
+        .feature-image img {
+            width: 100%;
             height: auto;
-            border-radius: var(--serbis-border-radius);
-            box-shadow: var(--serbis-shadow-lg);
-            transition: transform 0.4s ease;
+            display: block;
         }
-        
-        .feature-visual:hover img {
-            transform: scale(1.03);
+
+        .feature-image:hover {
+            transform: scale(1.02);
         }
-        
-        /* ===== BENEFITS ===== */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
+
+        .feature-reverse .feature-content {
+            order: 2;
         }
-        
-        .benefit-card {
+
+        .feature-reverse .feature-image {
+            order: 1;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background-color: var(--bg);
             text-align: center;
-            padding: 2rem;
         }
-        
+
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .benefit {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .benefit:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
         .benefit-icon {
-            width: 64px;
-            height: 64px;
-            background: rgba(0, 102, 255, 0.1);
-            border-radius: 50%;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: var(--rounded-full);
             margin: 0 auto 1.5rem;
-            font-size: 1.75rem;
-            color: var(--serbis-primary);
+            font-size: 1.5rem;
         }
-        
-        .benefit-card h4 {
+
+        .benefit-title {
             margin-bottom: 1rem;
         }
-        
-        /* ===== CTA SECTION ===== */
-        .cta-section {
-            background: linear-gradient(135deg, var(--serbis-primary), var(--serbis-primary-dark));
-            color: white;
-            border-radius: var(--serbis-border-radius);
-            padding: 4rem;
+
+        /* CTA Section */
+        .cta {
             text-align: center;
-            margin: 6rem auto;
-            max-width: 900px;
+            padding: 6rem 0;
             position: relative;
             overflow: hidden;
         }
-        
-        .cta-section::before {
-            content: "";
+
+        .cta::before {
+            content: '';
             position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(37, 99, 235, 0.1));
+            z-index: -1;
         }
-        
-        .cta-section::after {
-            content: "";
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
-        }
-        
-        .cta-section h2 {
-            color: white;
+
+        .cta-title {
             margin-bottom: 1.5rem;
         }
-        
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.9);
+
+        .cta-description {
+            margin-bottom: 2.5rem;
             max-width: 600px;
-            margin: 0 auto 2rem;
+            margin-left: auto;
+            margin-right: auto;
         }
-        
-        .cta-actions {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .btn-light {
-            background-color: white;
-            color: var(--serbis-primary);
-            font-weight: 600;
-        }
-        
-        .btn-light:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            transform: translateY(-2px);
-        }
-        
-        /* ===== FOOTER ===== */
+
+        /* Footer */
         .footer {
-            background-color: var(--serbis-surface-alt);
+            background-color: var(--black);
+            color: var(--gray-light);
             padding: 4rem 0 2rem;
-            border-top: 1px solid var(--serbis-border);
         }
-        
-        .footer-grid {
+
+        .footer-container {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
         }
-        
-        .footer-brand {
+
+        .footer-logo {
             display: flex;
-            flex-direction: column;
-        }
-        
-        .footer-brand img {
-            height: 40px;
+            align-items: center;
             margin-bottom: 1.5rem;
         }
-        
-        .footer-brand p {
-            margin-bottom: 1.5rem;
-            max-width: 320px;
+
+        .footer-logo img {
+            height: 2rem;
+            margin-right: 0.75rem;
         }
-        
-        .footer-heading {
+
+        .footer-logo span {
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .footer-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            color: var(--white);
             font-size: 1.125rem;
-            font-weight: 600;
             margin-bottom: 1.5rem;
-            color: var(--serbis-text-primary);
         }
-        
+
         .footer-links {
             list-style: none;
         }
-        
-        .footer-links li {
+
+        .footer-link {
             margin-bottom: 0.75rem;
         }
-        
-        .footer-links a {
-            color: var(--serbis-text-secondary);
+
+        .footer-link a {
+            color: var(--gray-light);
             text-decoration: none;
-            transition: var(--serbis-transition);
+            transition: var(--transition);
         }
-        
-        .footer-links a:hover {
-            color: var(--serbis-primary);
+
+        .footer-link a:hover {
+            color: var(--white);
         }
-        
+
         .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid var(--serbis-border);
             text-align: center;
-            color: var(--serbis-text-tertiary);
-            font-size: 0.875rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(226, 232, 240, 0.1);
         }
-        
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.75rem;
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
             }
-            
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 6rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
             h2 {
                 font-size: 2.25rem;
             }
-            
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+
+            .hero-container {
+                gap: 2rem;
             }
-            
-            .hero-text {
-                text-align: center;
-                margin: 0 auto;
-            }
-            
-            .hero-actions {
-                justify-content: center;
-            }
-            
-            .steps {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-            
+
             .feature {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .feature-alt .feature-visual {
-                order: 0;
-            }
-            
-            .benefits-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
             }
         }
-        
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            :root {
+                --section-padding: 4rem;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
+            .navbar-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-md);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: var(--transition);
+                border-radius: 0 0 var(--rounded) var(--rounded);
+            }
+
+            .navbar-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .navbar-cta {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
             .hero {
-                padding: 4rem 0;
+                padding-top: 8rem;
+                padding-bottom: 4rem;
             }
-            
-            .floating-element {
-                display: none;
-            }
-            
-            .benefits-grid {
+
+            .hero-container {
                 grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .app-badges {
+                justify-content: center;
+            }
+
+            .hero-image {
+                margin-top: 3rem;
+            }
+
+            .feature {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .feature-content {
+                order: 2;
+                margin: 0 auto;
+            }
+
+            .feature-image {
+                order: 1;
                 max-width: 500px;
                 margin: 0 auto;
             }
-            
-            .cta-section {
-                padding: 3rem 2rem;
+
+            .feature-reverse .feature-content {
+                order: 2;
             }
-            
-            .cta-actions {
-                flex-direction: column;
-                align-items: center;
+
+            .feature-reverse .feature-image {
+                order: 1;
             }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
+
+            .feature-list {
+                text-align: left;
+                max-width: 400px;
+                margin: 0 auto;
             }
         }
-        
-        @media (max-width: 576px) {
+
+        @media (max-width: 640px) {
             h1 {
-                font-size: 2.25rem;
+                font-size: 2.5rem;
             }
-            
+
             h2 {
-                font-size: 1.75rem;
+                font-size: 2rem;
             }
-            
-            .hero-actions {
+
+            .hero-cta {
                 flex-direction: column;
+                gap: 1rem;
             }
-            
+
             .app-badges {
                 flex-direction: column;
                 align-items: center;
@@ -760,323 +772,285 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
             <a href="#" class="navbar-brand">
                 <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo">
-                Serbis
+                <span>Serbis</span>
             </a>
             
-            <ul class="nav-links">
-                <li><a href="#how-it-works" class="nav-link">Cómo Funciona</a></li>
-                <li><a href="#features" class="nav-link">Funcionalidades</a></li>
-                <li><a href="#benefits" class="nav-link">Beneficios</a></li>
-                <li><a href="#!" class="nav-link btn btn-secondary">Soy Proveedor</a></li>
-            </ul>
-            
-            <button class="mobile-menu-btn">
-                <i class="bi bi-list"></i>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="ti ti-menu-2"></i>
             </button>
+            
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="#how-it-works" class="navbar-link">Cómo funciona</a>
+                <a href="#features" class="navbar-link">Características</a>
+                <a href="#why-choose" class="navbar-link">Por qué Serbis</a>
+                <a href="#!" class="navbar-link">Soy Proveedor</a>
+                <a href="#!" class="btn btn-outline navbar-cta">Descargar</a>
+            </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Encontrá al profesional ideal <span class="text-primary">en 5 segundos</span></h1>
-                <p class="text-lead">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta con los mejores profesionales cerca tuyo.</p>
-                
-                <div class="hero-actions">
-                    <a href="#" class="btn btn-primary btn-lg">Publicar pedido</a>
-                    <a href="#" class="btn btn-secondary btn-lg">Ver más</a>
+    <section class="hero section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Encontrá al profesional ideal <span class="text-gradient">en 5 segundos</span></h1>
+                <p class="hero-description">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
+                <div class="hero-cta">
+                    <a href="#!" class="btn btn-primary btn-lg">Publicá tu Pedido</a>
+                    <a href="#!" class="btn btn-outline btn-lg">Ver Demo</a>
                 </div>
-                
                 <div class="app-badges">
-                    <a href="#" class="app-badge">
-                        <img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play">
+                    <a href="#!" class="app-badge">
+                        <img src="assets/img/app-store-badge.svg" alt="Download on the App Store">
                     </a>
-                    <a href="#" class="app-badge">
-                        <img src="assets/img/app-store-badge.svg" alt="Descargar en App Store">
+                    <a href="#!" class="app-badge">
+                        <img src="assets/img/google-play-badge.svg" alt="Get it on Google Play">
                     </a>
                 </div>
             </div>
-            
-            <div class="hero-visual">
-                <img src="assets/img/sim2.png" alt="Serbis App" class="phone-mockup">
-                
-                <div class="floating-element floating-element-1">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="bg-success rounded-circle p-2 me-2">
-                            <i class="bi bi-check-lg text-white"></i>
-                        </div>
-                        <strong>Plomero confirmado</strong>
-                    </div>
-                    <p class="text-sm mb-0">Juan Pérez · ⭐ 4.8 (42)</p>
-                </div>
-                
-                <div class="floating-element floating-element-2">
-                    <div class="d-flex align-items-center mb-2">
-                        <div class="bg-primary rounded-circle p-2 me-2">
-                            <i class="bi bi-lightning text-white"></i>
-                        </div>
-                        <strong>Respuesta rápida</strong>
-                    </div>
-                    <p class="text-sm mb-0">Respondió en 38 segundos</p>
-                </div>
+            <div class="hero-image">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <img src="assets/img/iphone-mockup.png" alt="Serbis App" class="phone-mockup">
             </div>
         </div>
     </section>
-    
-    <!-- How It Works -->
-    <section class="section-alt" id="how-it-works">
+
+    <!-- How It Works Section -->
+    <section class="how-it-works section" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <h2>Así de fácil es con Serbis</h2>
-                <p>Simplificamos la búsqueda de servicios para que encuentres al profesional perfecto en tiempo récord</p>
+                <h2 class="section-title">Así de fácil es con Serbis</h2>
+                <p>Encontrá el servicio que necesitás en solo tres simples pasos</p>
             </div>
             
             <div class="steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
+                <div class="step">
                     <div class="step-icon">
-                        <i class="bi bi-pencil-square"></i>
+                        <i class="ti ti-pencil"></i>
                     </div>
-                    <h3>Describí tu Necesidad</h3>
+                    <h3 class="step-title">Describí tu Necesidad</h3>
                     <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
                 </div>
                 
-                <div class="step-card">
-                    <div class="step-number">2</div>
+                <div class="step">
                     <div class="step-icon">
-                        <i class="bi bi-lightning-charge-fill"></i>
+                        <i class="ti ti-bolt"></i>
                     </div>
-                    <h3>Conectá al Instante</h3>
+                    <h3 class="step-title">Conectá al Instante</h3>
                     <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
                 </div>
                 
-                <div class="step-card">
-                    <div class="step-number">3</div>
+                <div class="step">
                     <div class="step-icon">
-                        <i class="bi bi-check2-circle"></i>
+                        <i class="ti ti-check"></i>
                     </div>
-                    <h3>Resolvé y Calificá</h3>
+                    <h3 class="step-title">Resolvé y Calificá</h3>
                     <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- App Features -->
-    <section id="features">
+
+    <!-- Features Section -->
+    <section class="section" id="features">
         <div class="container">
-            <div class="section-header">
-                <h2>Una experiencia diseñada para vos</h2>
-                <p>Descubrí cómo Serbis simplifica la búsqueda de servicios profesionales</p>
-            </div>
-            
             <div class="feature">
-                <div class="feature-text">
-                    <h3>Explorá el <span class="text-primary">Home</span></h3>
-                    <p>Describí el servicio que necesitas, nosotros te emparejamos con una persona capaz en tu área. No clasificamos, entendemos que se necesita para solucionar tu problema.</p>
-                    
-                    <ul>
-                        <li>
-                            <i class="bi bi-compass-fill"></i>
-                            <div>Navegación intuitiva para encontrar lo que necesitás al instante</div>
+                <div class="feature-content">
+                    <h2 class="feature-title">Explorá el <span class="text-primary">Home</span></h2>
+                    <p class="feature-description">Describí el servicio que necesitas, nostros te emparejamos con una persona capaz en tu area. No clasificamos, entendemos que se necesita para solucionar tu problema y quien puede hacerlo en tu area.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="ti ti-compass"></i>
+                            <span>Navegación intuitiva para encontrar lo que necesitás al instante.</span>
                         </li>
-                        <li>
-                            <i class="bi bi-star-fill"></i>
-                            <div>Ratings y reviews de cada trabajador, por las personas de tu comunidad</div>
+                        <li class="feature-item">
+                            <i class="ti ti-star"></i>
+                            <span>Ratings y reviews de cada trabajador, por las personas de tu comunidad.</span>
                         </li>
-                        <li>
-                            <i class="bi bi-bell-fill"></i>
-                            <div>Acceso rápido a tus pedidos y chats recientes</div>
+                        <li class="feature-item">
+                            <i class="ti ti-bell"></i>
+                            <span>Acceso rápido a tus pedidos y chats recientes.</span>
                         </li>
                     </ul>
-                    
-                    <a href="#" class="btn btn-secondary">Ver más</a>
                 </div>
-                
-                <div class="feature-visual">
-                    <img src="assets/img/home.png" alt="Home de Serbis">
+                <div class="feature-image">
+                    <img src="assets/img/home.png" alt="Serbis Home Screen">
                 </div>
             </div>
             
-            <div class="feature feature-alt">
-                <div class="feature-text">
-                    <h3>Comunicación segura con el <span class="text-primary">Chat</span></h3>
-                    <p>Coordiná detalles, compartí imágenes y negociá el precio directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
-                    
-                    <ul>
-                        <li>
-                            <i class="bi bi-send-fill"></i>
-                            <div>Mensajería instantánea para respuestas rápidas</div>
+            <div class="feature feature-reverse">
+                <div class="feature-content">
+                    <h2 class="feature-title">Comunicación segura con el <span class="text-primary">Chat</span></h2>
+                    <p class="feature-description">Coordiná detalles, compartí imágenes y negociá el precio directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="ti ti-send"></i>
+                            <span>Mensajería instantánea para respuestas rápidas.</span>
                         </li>
-                        <li>
-                            <i class="bi bi-paperclip"></i>
-                            <div>Compartí archivos y fotos relevantes para el servicio</div>
+                        <li class="feature-item">
+                            <i class="ti ti-paperclip"></i>
+                            <span>Compartí archivos y fotos relevantes para el servicio.</span>
                         </li>
-                        <li>
-                            <i class="bi bi-shield-check"></i>
-                            <div>Conversaciones seguras y privadas dentro de la app</div>
+                        <li class="feature-item">
+                            <i class="ti ti-shield-check"></i>
+                            <span>Conversaciones seguras y privadas dentro de la app.</span>
                         </li>
                     </ul>
-                    
-                    <a href="#" class="btn btn-secondary">Ver más</a>
                 </div>
-                
-                <div class="feature-visual">
-                    <img src="assets/img/chat.png" alt="Chat de Serbis">
+                <div class="feature-image">
+                    <img src="assets/img/chat.png" alt="Serbis Chat Screen">
                 </div>
             </div>
             
             <div class="feature">
-                <div class="feature-text">
-                    <h3>Seguí el <span class="text-primary">Estado</span> de tus Pedidos</h3>
-                    <p>Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
-                    
-                    <ul>
-                        <li>
-                            <i class="bi bi-clock-history"></i>
-                            <div>Historial completo de todos tus pedidos y servicios</div>
+                <div class="feature-content">
+                    <h2 class="feature-title">Seguí el <span class="text-primary">Estado</span> de tus Pedidos</h2>
+                    <p class="feature-description">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="ti ti-clock"></i>
+                            <span>Historial completo de todos tus pedidos y servicios.</span>
                         </li>
-                        <li>
-                            <i class="bi bi-bell-fill"></i>
-                            <div>Notificaciones instantáneas sobre actualizaciones importantes</div>
+                        <li class="feature-item">
+                            <i class="ti ti-bell-ringing"></i>
+                            <span>Notificaciones instantáneas sobre actualizaciones importantes.</span>
                         </li>
-                        <li>
-                            <i class="bi bi-check-circle-fill"></i>
-                            <div>Visualizá claramente cada etapa del proceso</div>
+                        <li class="feature-item">
+                            <i class="ti ti-checklist"></i>
+                            <span>Visualizá claramente cada etapa del proceso.</span>
                         </li>
                     </ul>
-                    
-                    <a href="#" class="btn btn-secondary">Ver más</a>
                 </div>
-                
-                <div class="feature-visual">
-                    <img src="assets/img/status.png" alt="Estado de pedidos">
+                <div class="feature-image">
+                    <img src="assets/img/status.png" alt="Serbis Status Screen">
                 </div>
             </div>
         </div>
     </section>
-    
-    <!-- Benefits -->
-    <section class="section-alt" id="benefits">
+
+    <!-- Why Choose Section -->
+    <section class="why-choose section" id="why-choose">
         <div class="container">
             <div class="section-header">
-                <h2>¿Por qué elegir Serbis?</h2>
-                <p>La solución más inteligente para encontrar servicios profesionales cerca tuyo</p>
+                <h2 class="section-title">¿Por qué elegir Serbis?</h2>
+                <p>La mejor manera de encontrar servicios de confianza en tu comunidad</p>
             </div>
             
-            <div class="benefits-grid">
-                <div class="benefit-card">
+            <div class="benefits">
+                <div class="benefit">
                     <div class="benefit-icon">
-                        <i class="bi bi-people-fill"></i>
+                        <i class="ti ti-users"></i>
                     </div>
-                    <h4>Ayuda de tu Comunidad</h4>
+                    <h3 class="benefit-title">Ayuda de tu Comunidad</h3>
                     <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
                 </div>
                 
-                <div class="benefit-card">
+                <div class="benefit">
                     <div class="benefit-icon">
-                        <i class="bi bi-patch-check-fill"></i>
+                        <i class="ti ti-thumb-up"></i>
                     </div>
-                    <h4>Calificaciones Reales</h4>
+                    <h3 class="benefit-title">Calificaciones Reales</h3>
                     <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
                 </div>
                 
-                <div class="benefit-card">
+                <div class="benefit">
                     <div class="benefit-icon">
-                        <i class="bi bi-chat-dots-fill"></i>
+                        <i class="ti ti-message-circle"></i>
                     </div>
-                    <h4>Comunicación Directa</h4>
+                    <h3 class="benefit-title">Comunicación Directa</h3>
                     <p>Chat seguro para coordinar todos los detalles del servicio.</p>
                 </div>
                 
-                <div class="benefit-card">
+                <div class="benefit">
                     <div class="benefit-icon">
-                        <i class="bi bi-speedometer2"></i>
+                        <i class="ti ti-zap"></i>
                     </div>
-                    <h4>Rápido y Eficaz</h4>
+                    <h3 class="benefit-title">Rápido y Eficaz</h3>
                     <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
                 </div>
             </div>
         </div>
     </section>
-    
+
     <!-- CTA Section -->
-    <section>
+    <section class="cta section">
         <div class="container">
-            <div class="cta-section">
-                <h2>Empeza a resolver tus necesidades hoy</h2>
-                <p>Descargá la app y descubrí la forma más sencilla de encontrar profesionales de confianza cerca tuyo</p>
-                
-                <div class="cta-actions">
-                    <a href="#" class="btn btn-light btn-lg">Descargar ahora</a>
-                    <a href="#" class="btn btn-secondary btn-lg">Ver demo</a>
-                </div>
-            </div>
+            <h2 class="cta-title">¿Listo para simplificar tu vida?</h2>
+            <p class="cta-description">Descargá Serbis hoy mismo y descubrí la forma más rápida y confiable de encontrar servicios en tu comunidad.</p>
+            <a href="#!" class="btn btn-primary btn-lg">Descargar la App</a>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo">
-                    <p>Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.</p>
-                    <div class="app-badges">
-                        <a href="#" class="app-badge">
-                            <img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play">
-                        </a>
-                        <a href="#" class="app-badge">
-                            <img src="assets/img/app-store-badge.svg" alt="Descargar en App Store">
-                        </a>
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo">
+                        <span>Serbis</span>
                     </div>
+                    <p class="footer-description">La forma más rápida y confiable de encontrar servicios en tu comunidad.</p>
                 </div>
                 
-                <div>
-                    <h4 class="footer-heading">Empresa</h4>
+                <div class="footer-col">
+                    <h3 class="footer-title">Producto</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Equipo</a></li>
-                        <li><a href="#">Trabajá con nosotros</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#how-it-works">Cómo funciona</a></li>
+                        <li class="footer-link"><a href="#features">Características</a></li>
+                        <li class="footer-link"><a href="#why-choose">Por qué Serbis</a></li>
+                        <li class="footer-link"><a href="#!">Precios</a></li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h4 class="footer-heading">Recursos</h4>
+                <div class="footer-col">
+                    <h3 class="footer-title">Compañía</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Centro de ayuda</a></li>
-                        <li><a href="#">Para profesionales</a></li>
-                        <li><a href="#">Preguntas frecuentes</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li class="footer-link"><a href="#!">Nosotros</a></li>
+                        <li class="footer-link"><a href="#!">Blog</a></li>
+                        <li class="footer-link"><a href="#!">Carreras</a></li>
+                        <li class="footer-link"><a href="#!">Contacto</a></li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h4 class="footer-heading">Legal</h4>
+                <div class="footer-col">
+                    <h3 class="footer-title">Legal</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Política de cookies</a></li>
+                        <li class="footer-link"><a href="#!">Términos</a></li>
+                        <li class="footer-link"><a href="#!">Privacidad</a></li>
+                        <li class="footer-link"><a href="#!">Cookies</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>© 2024 Serbis. Todos los derechos reservados. Buenos Aires, Argentina</p>
+                <p>&copy; 2024 Serbis. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-    
+
+    <!-- Scripts -->
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navbarMenu = document.getElementById('navbar-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navbarMenu.classList.contains('active') 
+                ? '<i class="ti ti-x"></i>' 
+                : '<i class="ti ti-menu-2"></i>';
+        });
+        
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
@@ -1089,15 +1063,49 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#!') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // Close mobile menu if open
+                    if (navbarMenu.classList.contains('active')) {
+                        navbarMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="ti ti-menu-2"></i>';
+                    }
                 }
             });
         });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.step, .benefit, .feature-image');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.step, .benefit, .feature-image').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
