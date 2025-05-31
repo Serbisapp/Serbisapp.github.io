@@ -1,961 +1,853 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
     <meta name="author" content="Serbis" />
-    <title>Serbis | Tu Solución de Servicios Locales en Segundos</title>
+    <title>Serbis | Tu Solución de Servicios Locales en 5 Segundos</title>
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
     <meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://serbis.app" />
-    <!-- Consider creating a high-quality, minimal OG image in the new style -->
     <meta property="og:image" content="assets/img/og-image.jpg" />
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
     <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
-    <meta name="twitter:image" content="assets/img/og-image.jpg" />
     <link rel="canonical" href="https://serbis.app" />
-    <!-- Replace with a refined, minimalist icon if possible -->
     <link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
-
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-
-    <!-- Google Fonts (Switched to Inter - a clean, modern Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <!-- ADDING A MODERN FONT FOR THE INTRO - INTER -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Serbis Custom Styles -->
-    <!-- Note: In a real project, move this <style> block to a separate CSS file -->
-    <style>
-        :root {
-            --serbis-primary: #007AFF; /* Cleaner, modern tech blue */
-            --serbis-primary-rgb: 0, 122, 255; /* For use in rgba */
-            --serbis-secondary-blue: #5AC8FA; /* Secondary accent? Not used heavily yet */
-            --serbis-dark-text: #1D1D1F; /* Deeper black, closer to Apple */
-            --serbis-muted-text: #6A6A6A; /* Slightly lighter grey */
-            --serbis-light-bg: #F5F5F7; /* Subtle off-white/grey background */
-            --serbis-white-bg: #FFFFFF; /* Pure white background */
-            --serbis-border-color: rgba(0,0,0,0.08); /* Light border for separation */
-            --serbis-section-padding-y: 6rem; /* Increased section padding */
-            --serbis-content-width: 1200px; /* Optional: Constrain content width for larger screens */
+    <link href="css/styles.css" rel="stylesheet" />
+<style>
+    /* --- MODERN INTRO STYLES --- */
+    #modern-intro-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        /* Consider a very dark gray or a subtle dark gradient instead of pure black for more sophistication */
+        background-color: #111113; /* Slightly off-black */
+        /* Example gradient: background: linear-gradient(135deg, #1a1a1d 0%, #111113 100%); */
+        z-index: 99999; /* Ensure it's on top */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #f0f0f0; /* Light text color for dark background */
+        font-family: 'Inter', 'Mulish', sans-serif; /* Using Inter as primary for intro */
+    }
+
+    #modern-intro-overlay.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none; /* Important to allow interaction with content below after hiding */
+    }
+
+    .intro-content-wrapper {
+        text-align: center;
+        opacity: 0; /* Start hidden for fade-in animation */
+        transform: translateY(20px); /* Start slightly lower for upward animation */
+        animation: fadeInContent 1.2s 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes fadeInContent {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--serbis-dark-text);
-            line-height: 1.7; /* Increased line height for readability */
-            background-color: var(--serbis-white-bg); /* Default background */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+    .intro-logo {
+        width: 90px; /* Adjust as needed */
+        height: auto;
+        margin-bottom: 25px;
+        /* Optional: subtle animation for the logo */
+        animation: pulseLogo 3s infinite alternate ease-in-out;
+    }
+    
+    @keyframes pulseLogo {
+        from { transform: scale(1); opacity: 0.9; }
+        to { transform: scale(1.03); opacity: 1; }
+    }
+
+
+    .intro-main-text {
+        font-size: 3.5rem; /* Large, impactful */
+        font-weight: 700; /* Bold for impact */
+        letter-spacing: -0.02em; /* Common in modern design */
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+        line-height: 1.2;
+    }
+
+    .intro-tagline {
+        font-size: 1.25rem;
+        font-weight: 300; /* Lighter weight for tagline */
+        color: #a0a0a0; /* Slightly muted color */
+        letter-spacing: 0.01em;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* Optional: subtle animated background elements (more advanced) */
+    /* For example, very slow moving abstract shapes or particles */
+    /* This part is kept simple here to focus on the core request */
+
+
+    /* Ensure main content starts hidden or with appropriate z-index if needed */
+    /* Usually, the overlay with high z-index is enough */
+    body {
+        /* To prevent scrollbars from appearing due to the intro if it overflows slightly */
+        /* overflow: hidden;  -- Be careful, will be re-enabled by JS later */
+    }
+
+    /* Small adjustments for smaller screens for the intro */
+    @media (max-width: 768px) {
+        .intro-logo {
+            width: 70px;
+            margin-bottom: 20px;
         }
-
-        .container {
-            max-width: var(--serbis-content-width, 100%); /* Apply max-width if variable is set */
+        .intro-main-text {
+            font-size: 2.5rem;
         }
-
-        /* === Refined NAVBAR STYLES === */
-        .navbar-custom {
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-            backdrop-filter: blur(10px); /* Apple-like blur effect */
-            -webkit-backdrop-filter: blur(10px); /* For Safari */
-            padding-top: 0.85rem;
-            padding-bottom: 0.85rem;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-            transition: all 0.3s ease-in-out;
-            border-bottom: 1px solid var(--serbis-border-color); /* Subtle bottom border */
-        }
-
-        .navbar-custom.scrolled {
-             padding-top: 0.6rem;
-             padding-bottom: 0.6rem;
-             box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
-             border-bottom-color: transparent; /* Remove border when scrolled */
-        }
-
-        .navbar-custom .navbar-brand img {
-            height: 40px;
-            transition: height 0.3s ease-in-out;
-        }
-
-        .navbar-custom.scrolled .navbar-brand img {
-            height: 34px;
-        }
-
-        .navbar-custom .navbar-nav .nav-link {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--serbis-muted-text);
-            padding: 0.5rem 0.9rem;
-            margin: 0 0.25rem;
-            border-radius: 8px; /* Slightly rounded corners */
-            transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-            position: relative;
-        }
-
-        .navbar-custom .navbar-nav .nav-link:hover {
-            color: var(--serbis-dark-text); /* Darker text on hover */
-            background-color: rgba(var(--serbis-primary-rgb), 0.04); /* Very subtle background */
-        }
-
-         .navbar-custom .navbar-nav .nav-link.active {
-            color: var(--serbis-primary);
-            font-weight: 600;
-             background-color: rgba(var(--serbis-primary-rgb), 0.03);
-         }
-
-         .navbar-custom .navbar-nav .nav-link.active::after {
-             content: ''; /* Remove underline indicator */
-             display: none;
-         }
-
-
-        .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
-            color: var(--serbis-primary);
-            border: 1px solid var(--serbis-primary);
-            padding: 0.45rem 1.2rem; /* Adjusted padding */
-            border-radius: 20px; /* Pill shape button */
-            margin-left: 0.75rem;
-            font-weight: 600;
-            background-color: transparent;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-custom .navbar-nav .nav-link#soy-proveedor-link:hover {
-            background-color: var(--serbis-primary);
-            color: var(--serbis-white-bg);
-            border-color: var(--serbis-primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(var(--serbis-primary-rgb), 0.2); /* More pronounced shadow on hover */
-        }
-
-        .navbar-custom .navbar-toggler {
-            border: none; /* No border on toggler */
-            padding: 0.25rem 0.5rem;
-        }
-        .navbar-custom .navbar-toggler:focus {
-             box-shadow: none; /* Remove focus box shadow */
-             outline: 1px solid rgba(var(--serbis-primary-rgb), 0.3); /* Custom outline on focus */
-        }
-
-        .navbar-custom .navbar-toggler-icon {
-            /* Using base64 SVG for the primary color */
-             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 122, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        /* Adjust positioning if needed for a completely centered brand */
-         .navbar-brand-centered {
-             position: absolute;
-             left: 50%;
-             transform: translateX(-50%);
-         }
-
-        /* === END NAVBAR STYLES === */
-
-
-        .masthead {
-            padding-top: 9rem; /* Increased padding */
-            padding-bottom: 7rem;
-            background: linear-gradient(to bottom, var(--serbis-white-bg), var(--serbis-light-bg)); /* Subtle gradient background */
-            overflow: hidden;
-            position: relative; /* Needed for pseudo-elements */
-            border-bottom: 1px solid var(--serbis-border-color);
-        }
-
-        .masthead .masthead-pre-title {
-            font-size: 3rem; /* Adjust size */
-            font-weight: 500; /* Slightly less heavy */
-            color: var(--serbis-muted-text); /* Muted color */
-            margin-bottom: 0.8rem; /* Increased margin */
-            letter-spacing: 0.5px;
-        }
-
-        .masthead h1 {
-            font-family: 'Inter', sans-serif; /* Use Inter for headings */
-            font-weight: 700;
-            font-size: 3.5rem; /* Larger main heading */
-            line-height: 1.1; /* Tighter line height for large headings */
-            color: var(--serbis-dark-text);
-            margin-bottom: 1.5rem; /* Increased margin */
-             letter-spacing: -0.5px; /* Subtle negative letter spacing for headings */
-        }
-        .masthead h1 strong {
-            color: var(--serbis-primary);
-        }
-
-        .masthead .lead {
-            font-size: 1.15rem;
-            font-weight: 400;
-            color: var(--serbis-muted-text);
-            margin-bottom: 3rem; /* Increased margin */
-            max-width: 600px; /* Increased max-width */
-            line-height: 1.8;
-        }
-
-        /* Align lead paragraph text to the left for lg screens */
-         @media (min-width: 992px) {
-             .masthead .lead.text-lg-start {
-                 margin-left: 0;
-                 margin-right: auto;
-             }
-         }
-
-
-        .btn-serbis-primary {
-            background-color: var(--serbis-primary);
-            border-color: var(--serbis-primary);
-            color: #fff;
-            font-weight: 600;
-            padding: 0.9rem 2.2rem; /* Larger padding */
+        .intro-tagline {
             font-size: 1rem;
-            transition: all 0.3s ease; /* Smoother transition */
-            border-radius: 25px; /* Pill shape button */
-            box-shadow: 0 4px 15px rgba(var(--serbis-primary-rgb), 0.2); /* Subtle initial shadow */
         }
-        .btn-serbis-primary:hover {
-            background-color: #0060CC; /* Slightly darker blue */
-            border-color: #0060CC;
-            color: #fff;
-            transform: translateY(-3px); /* More pronounced lift on hover */
-            box-shadow: 0 8px 20px rgba(var(--serbis-primary-rgb), 0.3); /* More shadow on hover */
-        }
-        .btn-serbis-primary:active {
-             transform: translateY(0);
-             box-shadow: 0 2px 10px rgba(var(--serbis-primary-rgb), 0.1);
-             background-color: #005ac7;
-             border-color: #005ac7;
-        }
-
-
-        .app-badges-container {
-            margin-top: 2.5rem; /* Increased margin */
-            display: flex; /* Use flexbox for alignment */
-            gap: 1.2rem; /* Gap between badges */
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-            justify-content: center; /* Center badges on small screens */
-            align-items: center;
-        }
-         @media (min-width: 992px) {
-             .app-badges-container {
-                 justify-content: flex-start; /* Align left on larger screens */
-             }
-         }
-
-        .app-badge {
-            height: 44px; /* Slightly reduced size */
-            transition: transform 0.3s ease;
-             display: inline-block; /* Ensure they are inline blocks */
-        }
-         .app-badge:first-child {
-             margin-left: 0; /* Remove left margin for the first badge if using gap */
-             margin-right: 0; /* Remove right margin if using gap */
-         }
-         .app-badge:last-child {
-             margin-right: 0; /* Remove right margin for the last badge if using gap */
-             margin-left: 0; /* Remove left margin if using gap */
-         }
-        .app-badge img {
-            height: 100%;
-            width: auto;
-            border-radius: 8px; /* Subtle rounded corners on badges */
-             overflow: hidden; /* Hide sharp corners from image */
-             box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Subtle shadow */
-        }
-        .app-badge:hover img {
-             transform: translateY(-2px) scale(1.03);
-             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
-
-
-        /* === ENHANCED 3D iPhone Mockup --- Refined */
-        .hero-app-mockup-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            min-height: 500px; /* Ensure minimum height */
-            perspective: 2000px; /* Increased perspective */
-            padding: 4rem 0; /* Increased padding */
-            position: relative;
-            background: none; /* Remove background here, use pseudo elements */
-        }
-
-        .hero-app-mockup-container::before,
-        .hero-app-mockup-container::after {
-            content: '';
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px); /* Less blur, more defined glow */
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0.4; /* Increased opacity */
-        }
-
-        .hero-app-mockup-container::before {
-            width: 500px; height: 500px;
-            background: hsla(var(--serbis-primary-rgb), 0.2); /* Using rgba var */
-            top: 45%; left: 55%;
-            transform: translate(-70%, -50%);
-            animation: pulse-glow-1 10s infinite alternate ease-in-out;
-        }
-
-        .hero-app-mockup-container::after {
-            width: 400px; height: 400px;
-            background: hsla(var(--serbis-primary-rgb), 0.15);
-            top: 55%; left: 40%;
-            transform: translate(10%, 40%);
-            animation: pulse-glow-2 12s infinite alternate ease-in-out;
-        }
-
-        @keyframes pulse-glow-1 {
-            0% { opacity: 0.4; transform: translate(-70%, -50%) scale(1); }
-            100% { opacity: 0.5; transform: translate(-65%, -45%) scale(1.05); }
-        }
-        @keyframes pulse-glow-2 {
-            0% { opacity: 0.35; transform: translate(10%, 40%) scale(1); }
-            100% { opacity: 0.45; transform: translate(15%, 45%) scale(1.03); }
-        }
-
-        .iphone-mockup {
-            /* Keeping approximate dimensions relative to width */
-             --iphone-width: 290px; /* Increased default size */
-             --iphone-aspect-ratio: 2.0517;
-             --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
-             --iphone-border-radius: calc(var(--iphone-width) * 0.17);
-             --iphone-bezel-padding: calc(var(--iphone-width) * 0.044);
-             --screen-border-radius: calc(var(--iphone-width) * 0.13);
-             --notch-width: calc(var(--iphone-width) * 0.37);
-             --notch-height: calc(var(--iphone-width) * 0.103);
-             --button-thickness: calc(var(--iphone-width) * 0.013);
-             --button-v-height: calc(var(--iphone-width) * 0.111);
-             --button-p-height: calc(var(--iphone-width) * 0.203);
-             --button-vol-up-top: calc(var(--iphone-height) * 0.177);
-             --button-vol-down-top: calc(var(--iphone-height) * 0.252);
-             --button-power-top: calc(var(--iphone-height) * 0.215);
-             --iphone-thickness: calc(var(--iphone-width) * 0.035); /* Slightly thinner profile */
-
-
-            width: var(--iphone-width);
-            height: var(--iphone-height);
-            position: relative;
-            z-index: 10; /* Ensure it's above glows */
-            transform-style: preserve-3d;
-            /* Adjusted initial transform for a more dramatic, slightly tilted look */
-            transform: rotateY(-25deg) rotateX(15deg) translateZ(80px);
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
-                        box-shadow 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            /* Lighter, more metallic body color */
-            background: linear-gradient(145deg, #DEDEDE, #BBBBBB);
-            border-radius: var(--iphone-border-radius);
-            padding: var(--iphone-bezel-padding);
-             /* Softer, more complex shadows */
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.18), /* Main shadow */
-                0 8px 20px rgba(0,0,0,0.1), /* Closer shadow */
-                inset 0px 2px 5px rgba(255, 255, 255, 0.4), /* Light reflection on top */
-                inset 0px -2px 5px rgba(0, 0, 0, 0.15); /* Dark shading on bottom */
-             overflow: visible; /* Allow shadows to cast freely */
-        }
-
-        .iphone-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-             /* Slightly darker back surface */
-            background: linear-gradient(145deg, #AFAFAF, #808080);
-            border-radius: var(--iphone-border-radius);
-            transform: translateZ(calc(-1 * var(--iphone-thickness)));
-            box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
-        }
-
-        .iphone-mockup:hover {
-            transform: rotateY(-15deg) rotateX(10deg) translateZ(100px) scale(1.06); /* More prominent lift and tilt */
-             box-shadow:
-                 0 25px 55px rgba(0, 0, 0, 0.22),
-                 0 12px 28px rgba(0,0,0,0.15),
-                 inset 0px 3px 7px rgba(255, 255, 255, 0.5),
-                 inset 0px -3px 7px rgba(0, 0, 0, 0.2);
-        }
-
-        .iphone-mockup::after {
-            /* Shadow projection below the phone */
-            content: '';
-            position: absolute;
-            bottom: calc(-1 * var(--iphone-bezel-padding) - 60px); /* Moved down */
-            left: 5%;
-            width: 90%;
-            height: 60px; /* Taller shadow */
-            background: rgba(0,0,0,0.1); /* Lighter shadow color */
-            border-radius: 50%;
-            filter: blur(30px); /* Increased blur */
-            transform: scaleY(0.6) translateZ(calc(-120px - var(--iphone-thickness))); /* Pushed back further */
-            z-index: -1;
-            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            opacity: 0.6;
-        }
-        .iphone-mockup:hover::after {
-            opacity: 0.8;
-            filter: blur(40px); /* More blur on hover */
-            transform: scaleY(0.65) translateZ(calc(-100px - var(--iphone-thickness))) translateY(15px); /* Lifted and slightly enlarged */
-        }
-
-
-        .iphone-screen-area {
-            width: 100%;
-            height: 100%;
-            background: #000; /* Black screen background */
-            border-radius: var(--screen-border-radius);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .iphone-screen-area::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 150%; height: 150%;
-            background: linear-gradient(
-                165deg,
-                rgba(255,255,255,0.1) 0%, /* More subtle screen glare */
-                rgba(255,255,255,0.05) 30%,
-                rgba(255,255,255,0) 50%
-            );
-            transform: translateX(-20%) translateY(-20%) rotate(-25deg);
-            z-index: 5;
-            pointer-events: none;
-            opacity: 0.6; /* Less opacity */
-        }
-
-
-        .iphone-app-content {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            /* Ensure screenshots match desired UI style (light mode, clean, simple) */
-        }
-
-        .iphone-notch {
-            position: absolute;
-            top: var(--iphone-bezel-padding);
-            left: 50%;
-            transform: translateX(-50%);
-            width: var(--notch-width);
-            height: var(--notch-height);
-            background: #1A1A1A; /* Darker notch color */
-            border-bottom-left-radius: calc(var(--notch-height) * 0.5); /* Fully rounded corners */
-            border-bottom-right-radius: calc(var(--notch-height) * 0.5);
-            z-index: 10;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.3) inset; /* Deeper inset shadow */
-        }
-
-        .iphone-side-button {
-            position: absolute;
-            background: linear-gradient(90deg, #C0C0C0, #A0A0A0); /* Lighter gradient */
-            border-radius: calc(var(--button-thickness) * 0.5);
-            box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.2) inset, /* Softer inset shadow */
-                        -0.5px -0.5px 1px rgba(255,255,255,0.2) inset; /* More prominent light inset */
-             z-index: 5; /* Ensure buttons are slightly in front of back surface */
-            transform: translateZ(calc(-0.4 * var(--iphone-thickness))); /* Slightly lifted from back */
-        }
-         .iphone-volume-up { left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top); width: var(--button-thickness); height: var(--button-v-height); border-top-right-radius: 0; border-bottom-right-radius: 0;}
-         .iphone-volume-down { left: calc(-1 * var(--button-thickness)); top: var(--button-vol-down-top); width: var(--button-thickness); height: var(--button-v-height); border-top-right-radius: 0; border-bottom-right-radius: 0;}
-         .iphone-power-button { right: calc(-1 * var(--button-thickness)); top: var(--button-power-top); width: var(--button-thickness); height: var(--button-p-height); border-top-left-radius: 0; border-bottom-left-radius: 0;}
-        /* --- End ENHANCED 3D iPhone Mockup Styles --- */
-
-
-        /* === Section Styles === */
-        .section-title {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 2.5rem; /* Slightly larger */
-            margin-bottom: 4rem; /* More space below title */
-            color: var(--serbis-dark-text);
-            letter-spacing: -0.4px;
-        }
-         .text-center.section-title {
-             /* Add a separator below centered titles for cleaner look */
-             position: relative;
-             display: inline-block; /* Needed for underline width */
-         }
-        /* .text-center.section-title::after { */
-            /* Add a subtle underscore */
-            /* content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -15px; Remove line: border-bottom adds enough space*/
-            /* transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--serbis-primary);
-            border-radius: 2px; */
-        /* } */
-
-
-        .content-section {
-            padding-top: var(--serbis-section-padding-y);
-            padding-bottom: var(--serbis-section-padding-y);
-             border-bottom: 1px solid var(--serbis-border-color); /* Subtle separation */
-        }
-        #how-it-works, #why-serbis {
-            background-color: var(--serbis-white-bg);
-        }
-
-
-        /* === How it Works Section === */
-        .how-it-works-step {
-            text-align: center;
-            margin-bottom: 3.5rem; /* Increased margin */
-            padding: 0 1.5rem; /* Added internal padding */
-        }
-        .how-it-works-step .bi {
-            font-size: 3.5rem; /* Larger icons */
-            color: var(--serbis-primary);
-            margin-bottom: 1.2rem; /* More space below icon */
-            display: inline-block;
-            background-color: rgba(var(--serbis-primary-rgb), 0.06); /* Light background circle */
-            padding: 0.8rem;
-            border-radius: 50%;
-             box-shadow: 0 2px 8px rgba(var(--serbis-primary-rgb), 0.1); /* Subtle shadow */
-        }
-        .how-it-works-step h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.6rem; /* Larger heading */
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: var(--serbis-dark-text);
-        }
-        .how-it-works-step p {
-            color: var(--serbis-muted-text);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-         /* === App Feature Sections === */
-        .app-feature-section {
-            padding-top: var(--serbis-section-padding-y);
-            padding-bottom: var(--serbis-section-padding-y);
-             border-bottom: 1px solid var(--serbis-border-color);
-        }
-        .app-feature-section:nth-of-type(odd) {
-            background-color: var(--serbis-light-bg); /* Subtle background color */
-        }
-        .app-feature-section:nth-of-type(even) {
-            background-color: var(--serbis-white-bg);
-        }
-
-
-        .app-feature-text {
-             padding-right: 3rem; /* Add some padding on the side opposite the image */
-        }
-         .app-feature-section:nth-of-type(even) .app-feature-text {
-             padding-right: 0;
-             padding-left: 3rem; /* Padding on the other side for alternating layout */
-         }
-
-        .app-feature-text .feature-title {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 3rem; /* Larger title */
-            line-height: 1.1;
-            color: var(--serbis-dark-text);
-            margin-bottom: 1.2rem;
-             letter-spacing: -0.5px;
-        }
-        .app-feature-text .feature-title strong {
-            color: var(--serbis-primary);
-        }
-        .app-feature-text .lead {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--serbis-muted-text);
-            margin-bottom: 2.5rem;
-            max-width: 550px; /* Ensure lead text is contained */
-            line-height: 1.7;
-        }
-        .app-feature-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .app-feature-list li {
-            font-size: 1.05rem; /* Slightly larger text */
-            color: var(--serbis-dark-text);
-            margin-bottom: 1rem; /* More space between list items */
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.5;
-        }
-        .app-feature-list li .bi {
-            color: var(--serbis-primary);
-            margin-right: 0.8rem;
-            font-size: 1.3rem; /* Larger icon */
-            margin-top: 0.1em; /* Align icon slightly better with text */
-             min-width: 1.3rem; /* Prevent icon collapse if content is wide */
-        }
-
-        .app-screenshot-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-        }
-        .app-feature-image {
-            max-width: 320px; /* Larger default screenshot size */
-            width: 100%;
-            height: auto;
-            border-radius: 20px; /* Slightly less aggressive rounding */
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1), 0 18px 45px rgba(0,0,0,0.08); /* Refined shadows */
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27); /* Bounce transition on transform */
-            object-fit: cover;
-             border: 1px solid rgba(0,0,0,0.05); /* Very subtle border */
-        }
-        .app-feature-image:hover {
-            transform: scale(1.06) translateY(-12px); /* Larger lift and scale */
-            box-shadow: 0 25px 55px rgba(0,0,0,0.15),
-                        0 30px 70px rgba(0,0,0,0.12);
-        }
-
-
-        /* === Why Serbis Section === */
-        .feature-item {
-            text-align: center;
-            margin-bottom: 3.5rem; /* Increased margin */
-             padding: 0 1rem; /* Added internal padding */
-        }
-        .feature-item .bi {
-            font-size: 3rem; /* Larger icons */
-            color: var(--serbis-primary);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-        .feature-item h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem; /* Larger heading */
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-            color: var(--serbis-dark-text);
-        }
-        .feature-item p {
-            color: var(--serbis-muted-text);
-            font-size: 0.98rem; /* Slightly adjusted size */
-            line-height: 1.6;
-        }
-         #why-serbis .mt-5 .btn { /* Style for the secondary CTA button */
-            margin-top: 3rem !important; /* Add more space above the button */
-         }
-
-        /* === Footer Styles === */
-        .footer {
-            background-color: #121212; /* Darker, minimal background */
-            color: rgba(255, 255, 255, 0.7); /* Lighter text for contrast */
-            padding-top: 4rem; /* Increased padding */
-            padding-bottom: 4rem;
-             border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        .footer a {
-            color: rgba(255, 255, 255, 0.9); /* Lighter link color */
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .footer a:hover {
-            color: var(--serbis-primary); /* Highlight links with primary color */
-            text-decoration: none; /* Keep no underline */
-        }
-         .footer .small {
-             font-size: 0.9rem;
-             line-height: 1.8;
-         }
-
-        /* === Responsive Adjustments === */
-        @media (max-width: 991.98px) { /* md */
-            :root {
-                --serbis-section-padding-y: 5rem;
-            }
-
-            .navbar-brand-centered { /* Remove absolute positioning on mobile */
-                position: relative;
-                left: 0;
-                transform: none;
-                margin-left: 0;
-                width: fit-content; /* Allow brand to size naturally */
-            }
-             .navbar .container.px-4.px-lg-5 { /* Add flex align to center brand and toggler vertically */
-                 display: flex;
-                 align-items: center;
-                 justify-content: space-between;
-             }
-             .navbar-toggler { /* Push toggler to the right */
-                  margin-left: auto;
-             }
-
-            .navbar-custom .navbar-nav {
-                margin-top: 1rem;
-                padding-bottom: 0.5rem; /* Space at bottom of collapsed nav */
-            }
-            .navbar-custom .navbar-nav .nav-link {
-                padding: 0.8rem 1rem; /* Larger touch targets */
-                margin: 0.2rem 0; /* Space between vertical links */
-                 text-align: center; /* Center links in collapsed nav */
-            }
-
-            .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
-                margin-left: 0;
-                margin-top: 1rem;
-                padding: 0.6rem 1.5rem; /* Adjusted padding for mobile button */
-                width: fit-content; /* Allow button to size naturally */
-                 margin-left: auto;
-                 margin-right: auto; /* Center the button */
-            }
-
-            .navbar-custom .navbar-collapse {
-                border-top: 1px solid var(--serbis-border-color); /* Softer border */
-                margin-top: 0.75rem;
-                padding-top: 0.75rem;
-            }
-
-            .masthead {
-                padding-top: 8rem;
-                padding-bottom: 5rem;
-                text-align: center; /* Center align masthead content on mobile */
-            }
-             .masthead .masthead-pre-title {
-                 font-size: 2.6rem;
-             }
-            .masthead h1 {
-                font-size: 2.8rem;
-            }
-            .masthead .lead {
-                font-size: 1.1rem;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            /* Ensure Bootstrap's text-lg-start doesn't interfere on mobile */
-            .masthead .col-lg-7 > div {
-                 text-align: center !important;
-            }
-             .masthead .col-lg-7 .app-badges-container {
-                 justify-content: center;
-             }
-
-
-            .hero-app-mockup-container {
-                margin-top: 4rem;
-                min-height: 450px;
-            }
-            .iphone-mockup {
-                --iphone-width: 250px;
-                transform: rotateY(-20deg) rotateX(12deg) translateZ(50px);
-                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 6px 15px rgba(0,0,0,0.08); /* Smaller shadows */
-            }
-            .iphone-mockup:hover {
-                 transform: rotateY(-15deg) rotateX(8deg) translateZ(60px) scale(1.05);
-                 box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2), 0 9px 22px rgba(0,0,0,0.12);
-            }
-            .iphone-mockup::after { bottom: calc(-1 * var(--iphone-bezel-padding) - 40px); height: 50px; transform: scaleY(0.65) translateZ(calc(-90px - var(--iphone-thickness))); filter: blur(25px); }
-            .iphone-mockup:hover::after { transform: scaleY(0.7) translateZ(calc(-80px - var(--iphone-thickness))) translateY(10px); filter: blur(30px); }
-
-
-            .section-title {
-                font-size: 2.1rem;
-                margin-bottom: 3rem;
-            }
-             /* Remove separator line on mobile */
-             .text-center.section-title::after { display: none; }
-
-            .how-it-works-step, .feature-item {
-                margin-bottom: 3rem;
-            }
-            .how-it-works-step:last-child, .feature-item:last-child {
-                 margin-bottom: 0; /* Remove bottom margin on the last item in a row before new row starts */
-            }
-
-             .app-feature-text {
-                text-align: center;
-                padding-right: 0; /* Remove specific padding */
-                padding-left: 0; /* Remove specific padding */
-                margin-bottom: 3rem; /* Add margin below text block before image */
-            }
-            .app-feature-section:nth-of-type(even) .app-feature-text {
-                 padding-right: 0;
-                 padding-left: 0;
-             }
-
-            .app-feature-text .feature-title {
-                font-size: 2.3rem;
-            }
-            .app-feature-text .lead {
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 80%; /* Limit lead width on mobile */
-            }
-            .app-feature-list {
-                /* Keep list items left-aligned even if container is centered */
-                 width: fit-content;
-                 margin-left: auto;
-                 margin-right: auto;
-            }
-
-            .app-screenshot-container {
-                margin-top: 2rem; /* Add space above image if text comes first */
-                 padding: 0; /* Remove padding if full width is needed */
-            }
-             .app-feature-image {
-                 max-width: 300px; /* Slightly larger size allowed on tablets */
-                 border-radius: 16px; /* Smaller radius */
-             }
-
-        }
-        @media (max-width: 767.98px) { /* sm */
-            :root {
-                --serbis-section-padding-y: 4rem;
-            }
-            .masthead {
-                 padding-top: 7rem;
-                 padding-bottom: 4rem;
-            }
-             .masthead .masthead-pre-title { font-size: 2.2rem; }
-            .masthead h1 { font-size: 2.4rem; }
-             .masthead .lead { font-size: 1rem; max-width: 90%; }
-             .btn-serbis-primary.btn-lg { padding: 0.8rem 1.8rem; font-size: 0.95rem; }
-
-             .app-badges-container {
-                 flex-direction: column; /* Stack badges vertically */
-                 gap: 0.8rem; /* Smaller gap */
-                 align-items: center;
-             }
-             .app-badge { height: 40px; }
-             .app-badge img { border-radius: 6px; }
-             .app-badge:first-child { margin-right: 0 !important; }
-
-
-            .hero-app-mockup-container {
-                 margin-top: 3rem;
-                 min-height: 400px;
-             }
-             .iphone-mockup {
-                 --iphone-width: 230px;
-                 transform: rotateY(-15deg) rotateX(10deg) translateZ(40px);
-             }
-             .iphone-mockup:hover {
-                  transform: rotateY(-10deg) rotateX(6deg) translateZ(50px) scale(1.04);
-             }
-              .iphone-mockup::after { bottom: calc(-1 * var(--iphone-bezel-padding) - 30px); height: 40px; filter: blur(20px); transform: scaleY(0.7) translateZ(calc(-70px - var(--iphone-thickness))); }
-             .iphone-mockup:hover::after { filter: blur(25px); transform: scaleY(0.75) translateZ(calc(-60px - var(--iphone-thickness))) translateY(8px); }
-
-
-             .section-title { font-size: 1.8rem; margin-bottom: 2.5rem; }
-             .how-it-works-step, .feature-item { margin-bottom: 2.5rem; }
-             .how-it-works-step .bi { font-size: 3rem; padding: 0.7rem; margin-bottom: 1rem;}
-             .how-it-works-step h3, .feature-item h3 { font-size: 1.4rem; }
-             .how-it-works-step p, .feature-item p { font-size: 0.9rem; }
-
-
-            .app-feature-text { margin-bottom: 2.5rem; }
-            .app-feature-text .feature-title { font-size: 2rem; }
-            .app-feature-list li { font-size: 1rem; margin-bottom: 0.8rem; }
-             .app-feature-list li .bi { font-size: 1.2rem; }
-
-             .app-feature-image { max-width: 260px; border-radius: 12px;}
-             .app-feature-image:hover { transform: scale(1.05) translateY(-10px); }
-        }
-         @media (max-width: 575.98px) { /* xs */
-            :root {
-                --serbis-section-padding-y: 3rem;
-            }
-             .masthead {
-                  padding-top: 6rem;
-                  padding-bottom: 3rem;
-             }
-            .masthead h1 { font-size: 2rem; }
-
-             .btn-serbis-primary.btn-lg {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-                 border-radius: 20px;
-                 box-shadow: 0 3px 10px rgba(var(--serbis-primary-rgb), 0.15);
-             }
-             .btn-serbis-primary.btn-lg:hover {
-                  box-shadow: 0 6px 15px rgba(var(--serbis-primary-rgb), 0.25);
-             }
-
-              .hero-app-mockup-container {
-                  margin-top: 2rem;
-                  min-height: 360px;
-              }
-             .iphone-mockup {
-                 --iphone-width: 210px;
-                  transform: rotateY(-10deg) rotateX(6deg) translateZ(30px);
-             }
-             .iphone-mockup:hover {
-                  transform: rotateY(-6deg) rotateX(4deg) translateZ(40px) scale(1.03);
-             }
-             .iphone-mockup::after { bottom: calc(-1 * var(--iphone-bezel-padding) - 20px); height: 30px; filter: blur(15px); transform: scaleY(0.75) translateZ(calc(-60px - var(--iphone-thickness))); }
-             .iphone-mockup:hover::after { filter: blur(20px); transform: scaleY(0.8) translateZ(calc(-50px - var(--iphone-thickness))) translateY(6px); }
-
-
-             .section-title { font-size: 1.6rem; margin-bottom: 2rem;}
-             .how-it-works-step, .feature-item { margin-bottom: 2rem; }
-             .how-it-works-step h3, .feature-item h3 { font-size: 1.3rem; }
-
-             .app-feature-text .feature-title { font-size: 1.8rem; }
-             .app-feature-image { max-width: 220px; border-radius: 10px;}
-             .app-feature-image:hover { transform: scale(1.04) translateY(-8px); }
-        }
-
-         /* Custom class to center content in the right column when not using lg-start */
-        .text-lg-center-if-small-enough {
-             text-align: center !important; /* Apply text-align: center universally */
-        }
-        /* On large screens and up, revert the specific container back to left */
-         @media (min-width: 992px) {
-            .text-lg-start .text-lg-center-if-small-enough {
-                 text-align: left !important;
-                 margin-left: 0;
-                 margin-right: auto;
-             }
-         }
-         /* Adjust image container centering */
-         @media (max-width: 991.98px) {
-            .app-screenshot-container {
-                justify-content: center;
-            }
-         }
-
-
-    </style>
-    <!-- Your other meta tags, icon, and Schema.org remain -->
-    <script type="application/ld+json">
-        {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Serbis",
-        "url": "https://serbis.app",
-        "logo": "https://serbis.app/assets/img/app_logo_nobg.png",
-        "description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Buenos Aires",
-            "addressCountry": "AR"
-        },
-        "sameAs": []
-        }
-        </script>
+    }
+    /* --- END MODERN INTRO STYLES --- */
+
+
+    :root {
+        --serbis-primary: #0d6efd;
+        --serbis-primary-rgb: 13, 110, 253; /* For use in rgba */
+        --serbis-light-bg: #f8f9fa;
+        --serbis-dark-text: #212529;
+        --serbis-muted-text: #495057;
+        --serbis-section-padding-y: 5rem;
+    }
+    body { /* Body styles from original */
+        font-family: 'Mulish', sans-serif;
+        color: var(--serbis-dark-text);
+        line-height: 1.6;
+        /* Initially, hide main content or set its opacity to 0 for fade-in */
+        /* This will be controlled by JS */
+        opacity: 0;
+        transition: opacity 0.6s ease-in-out;
+    }
+    body.content-visible {
+        opacity: 1;
+    }
+    .masthead {
+    padding-top: 8rem; /* Adjusted to account for potentially larger initial navbar */
+    padding-bottom: 6rem;
+    background-color: var(--serbis-light-bg);
+    overflow: hidden;
+    }
+    .masthead .masthead-pre-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+    line-height: 1.15;
+    color: var(--serbis-dark-text);
+    margin-bottom: 0.5rem;
+    }
+    .masthead h1 { /* This is the "Encontrá al profesional ideal..." part /
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    line-height: 1.2; / Ensured this is active by removing lh-1 from HTML /
+    color: var(--serbis-dark-text);
+    margin-bottom: 1rem;
+    }
+    .masthead h1 strong { / This is the "En 5 segundos." part */
+    color: var(--serbis-primary);
+    }
+    .masthead .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--serbis-muted-text);
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+    }
+    .text-lg-start .lead {
+    margin-left: auto;
+    margin-right: auto;
+    }
+    @media (min-width: 992px) {
+    .text-lg-start .lead {
+    margin-left: 0;
+    margin-right: 0;
+    }
+    }
+    .btn-serbis-primary {
+    background-color: var(--serbis-primary);
+    border-color: var(--serbis-primary);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
+    border-radius: 0.3rem;
+    }
+    .btn-serbis-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    color: #fff;
+    transform: translateY(-2px);
+    }
+    .app-badges-container {
+    margin-top: 2rem;
+    }
+    .app-badge {
+    height: 48px;
+    margin: 0 0.4rem;
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+    }
+    .app-badge img {
+    height: 100%;
+    width: auto;
+    }
+    .app-badge:hover {
+    transform: scale(1.05);
+    }
+    /* === ENHANCED NAVBAR STYLES - START === */
+    .navbar-custom {
+    background-color: #fff;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 0; /* Start navbar hidden, will be shown with body */
+    }
+    body.content-visible .navbar-custom {
+        opacity: 1;
+    }
+    /* Styles for when navbar is scrolled */
+    .navbar-custom.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+    .navbar-custom .navbar-brand img {
+    height: 40px;
+    transition: height 0.3s ease-in-out;
+    }
+    .navbar-custom.scrolled .navbar-brand img {
+    height: 34px; /* Smaller logo when scrolled */
+    }
+    .navbar-custom .navbar-nav .nav-link {
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.1px;
+    color: var(--serbis-muted-text);
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+    margin: 0 0.15rem;
+    }
+    .navbar-custom .navbar-nav .nav-link:hover {
+    color: var(--serbis-primary);
+    background-color: rgba(var(--serbis-primary-rgb), 0.07);
+    }
+    .navbar-custom .navbar-nav .nav-link.active {
+    color: var(--serbis-primary);
+    font-weight: 600;
+    background-color: rgba(var(--serbis-primary-rgb), 0.05);
+    }
+    .navbar-custom .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 6px;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: var(--serbis-primary);
+    border-radius: 1px;
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+    color: var(--serbis-primary);
+    border: 1.5px solid var(--serbis-primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.3rem;
+    margin-left: 0.75rem;
+    font-weight: 600;
+    background-color: transparent;
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link:hover {
+    background-color: var(--serbis-primary);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(var(--serbis-primary-rgb), 0.3);
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active::after {
+    display: none;
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active {
+    background-color: var(--serbis-primary);
+    color: #fff;
+    }
+    .navbar-custom .navbar-toggler {
+    border: 1px solid transparent;
+    padding: 0.25rem 0.5rem;
+    }
+    .navbar-custom .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--serbis-primary-rgb), 0.25);
+    }
+    .navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--serbis-primary-rgb), 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    }
+    /* === END ENHANCED NAVBAR STYLES === */
+    .section-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 3.5rem;
+    color: var(--serbis-dark-text);
+    }
+    .content-section {
+    padding-top: var(--serbis-section-padding-y);
+    padding-bottom: var(--serbis-section-padding-y);
+    }
+    #how-it-works {
+    background-color: #ffffff;
+    }
+    .how-it-works-step {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    }
+    .how-it-works-step .bi {
+    font-size: 2.8rem;
+    color: var(--serbis-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+    }
+    .how-it-works-step h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--serbis-dark-text);
+    }
+    .how-it-works-step p {
+    color: var(--serbis-muted-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    }
+    #why-serbis {
+    background-color: #ffffff;
+    }
+    .feature-item {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    }
+    .feature-item .bi {
+    font-size: 2.8rem;
+    color: var(--serbis-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+    }
+    .feature-item h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--serbis-dark-text);
+    }
+    .feature-item p {
+    color: var(--serbis-muted-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    }
+    .footer {
+    background-color: #2c3e50;
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    }
+    .footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    }
+    .footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+    }
+    /* --- Styles for ENHANCED 3D iPhone Mockup --- */
+    .hero-app-mockup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 520px;
+    perspective: 1800px;
+    padding: 3rem 0;
+    position: relative;
+    background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.05) 0%, transparent 60%);
+    }
+    .hero-app-mockup-container::before,
+    .hero-app-mockup-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    z-index: 0;
+    pointer-events: none;
+    }
+    .hero-app-mockup-container::before {
+    width: 450px;
+    height: 450px;
+    background: hsla(var(--serbis-primary-rgb), 0.18);
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -60%);
+    animation: pulse-glow-1 10s infinite alternate ease-in-out;
+    }
+    .hero-app-mockup-container::after {
+    width: 350px;
+    height: 350px;
+    background: hsla(210, 80%, 70%, 0.15);
+    top: 50%;
+    left: 50%;
+    transform: translate(40%, 30%);
+    animation: pulse-glow-2 12s infinite alternate ease-in-out;
+    }
+    @keyframes pulse-glow-1 {
+    0% { opacity: 0.18; transform: translate(-60%, -60%) scale(1); }
+    100% { opacity: 0.25; transform: translate(-55%, -55%) scale(1.1); }
+    }
+    @keyframes pulse-glow-2 {
+    0% { opacity: 0.15; transform: translate(40%, 30%) scale(1); }
+    100% { opacity: 0.22; transform: translate(45%, 35%) scale(1.05); }
+    }
+    .iphone-mockup {
+    --iphone-thickness: 11px;
+    --iphone-width: 270px;
+    --iphone-aspect-ratio: 2.0517;
+    --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
+    --iphone-border-radius: calc(var(--iphone-width) * 0.17);
+    --iphone-bezel-padding: calc(var(--iphone-width) * 0.044);
+    --screen-border-radius: calc(var(--iphone-width) * 0.13);
+    --notch-width: calc(var(--iphone-width) * 0.37);
+    --notch-height: calc(var(--iphone-width) * 0.103);
+    --button-thickness: calc(var(--iphone-width) * 0.013);
+    --button-v-height: calc(var(--iphone-width) * 0.111);
+    --button-p-height: calc(var(--iphone-width) * 0.203);
+    --button-vol-up-top: calc(var(--iphone-height) * 0.177);
+    --button-vol-down-top: calc(var(--iphone-height) * 0.252);
+    --button-power-top: calc(var(--iphone-height) * 0.215);
+    width: var(--iphone-width);
+    height: var(--iphone-height);
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transform: rotateY(-28deg) rotateX(18deg) translateZ(60px);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+                box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    background: linear-gradient(145deg, #3a3a3f, #202023);
+    border-radius: var(--iphone-border-radius);
+    padding: var(--iphone-bezel-padding);
+    box-shadow:
+        -15px 20px 50px rgba(0, 0, 0, 0.28),
+        8px -8px 25px rgba(0,0,0,0.12),
+        inset 0px 1px 2px rgba(255, 255, 255, 0.1),
+        inset 0px -1px 2px rgba(0, 0, 0, 0.3),
+        inset 1px 0px 2px rgba(255,255,255,0.07),
+        inset -1px 0px 2px rgba(0,0,0,0.2),
+        0 0 0 1px rgba(0,0,0,0.25);
+    }
+    .iphone-mockup::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #303035, #18181b);
+    border-radius: var(--iphone-border-radius);
+    transform: translateZ(calc(-1 * var(--iphone-thickness)));
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+    }
+    .iphone-mockup:hover {
+    transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04);
+    box-shadow:
+    -20px 28px 65px rgba(0, 0, 0, 0.35),
+    10px -10px 30px rgba(0,0,0,0.18),
+    inset 0px 1px 3px rgba(255, 255, 255, 0.15),
+    inset 0px -1px 3px rgba(0, 0, 0, 0.35),
+    inset 1px 0px 3px rgba(255,255,255,0.1),
+    inset -1px 0px 3px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(0,0,0,0.3);
+    }
+    .iphone-mockup::after {
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--iphone-bezel-padding) - 30px);
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    filter: blur(25px);
+    transform: scaleY(0.7) translateZ(calc(-80px - var(--iphone-thickness)));
+    z-index: -1;
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
+    opacity: 0.7;
+    }
+    .iphone-mockup:hover::after {
+    opacity: 0.9;
+    filter: blur(30px);
+    transform: scaleY(0.75) translateZ(calc(-70px - var(--iphone-thickness))) translateY(10px);
+    }
+    .iphone-screen-area {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: var(--screen-border-radius);
+    overflow: hidden;
+    position: relative;
+    }
+    .iphone-screen-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(
+    165deg,
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,255,255,0.08) 30%,
+    rgba(255,255,255,0) 50%
+    );
+    transform: translateX(-20%) translateY(-20%) rotate(-25deg);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.7;
+    }
+    .iphone-app-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    }
+    .iphone-notch {
+    position: absolute;
+    top: var(--iphone-bezel-padding);
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--notch-width);
+    height: var(--notch-height);
+    background: #202023;
+    border-bottom-left-radius: calc(var(--notch-height) * 0.45);
+    border-bottom-right-radius: calc(var(--notch-height) * 0.45);
+    z-index: 10;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
+    }
+    .iphone-side-button {
+    position: absolute;
+    background: linear-gradient(145deg, #525257, #404043);
+    border-radius: calc(var(--button-thickness) * 0.5);
+    box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset,
+    -0.5px -0.5px 1px rgba(255,255,255,0.08) inset,
+    0 0 1px rgba(0,0,0,0.2);
+    transform: translateZ(calc(-0.5 * var(--iphone-thickness)));
+    }
+    .iphone-volume-up {
+    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
+    width: var(--button-thickness); height: var(--button-v-height);
+    border-top-right-radius: 0; border-bottom-right-radius: 0;
+    }
+    .iphone-volume-down {
+    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-down-top);
+    width: var(--button-thickness); height: var(--button-v-height);
+    border-top-right-radius: 0; border-bottom-right-radius: 0;
+    }
+    .iphone-power-button {
+    right: calc(-1 * var(--button-thickness)); top: var(--button-power-top);
+    width: var(--button-thickness); height: var(--button-p-height);
+    border-top-left-radius: 0; border-bottom-left-radius: 0;
+    }
+    /* --- End ENHANCED 3D iPhone Mockup Styles --- */
+    /* --- Styles for New App Feature Sections --- */
+    .app-feature-section {
+    padding-top: var(--serbis-section-padding-y);
+    padding-bottom: var(--serbis-section-padding-y);
+    }
+    .app-feature-section:nth-of-type(even) {
+    background-color: var(--serbis-light-bg);
+    }
+    .app-feature-section:nth-of-type(odd) {
+    background-color: #ffffff;
+    }
+    .app-feature-text .feature-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--serbis-dark-text);
+    margin-bottom: 1rem;
+    }
+    .app-feature-text .feature-title strong {
+    color: var(--serbis-primary);
+    }
+    .app-feature-text .lead {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--serbis-muted-text);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    }
+    .app-feature-list {
+    list-style: none;
+    padding-left: 0;
+    }
+    .app-feature-list li {
+    font-size: 1rem;
+    color: var(--serbis-dark-text);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    }
+    .app-feature-list li .bi {
+    color: var(--serbis-primary);
+    margin-right: 0.75rem;
+    font-size: 1.2rem;
+    margin-top: 0.1em;
+    }
+    .app-screenshot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    }
+    .app-feature-image {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    }
+    .app-feature-image:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.16),
+    0 22px 50px rgba(0,0,0,0.13);
+    }
+    /* --- End Styles for New App Feature Sections --- */
+    @media (max-width: 991.98px) { /* md */
+    .navbar-brand-centered {
+    position: relative;
+    left: 0;
+    transform: none;
+    margin-left: 0;
+    }
+    .navbar-custom .navbar-nav {
+    margin-top: 0.75rem;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0;
+    }
+    .navbar-custom .navbar-nav .nav-link.active::after {
+    bottom: 0.5rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+    margin-left: 0;
+    margin-top: 0.5rem;
+    text-align: center;
+    }
+    .navbar-custom .navbar-collapse {
+    border-top: 1px solid #eee;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    }
+    .masthead {
+        padding-top: 7rem; /* Adjusted for potentially larger initial navbar on mobile */
+        padding-bottom: 4rem;
+        text-align: center;
+    }
+    .masthead .masthead-pre-title {
+        font-size: 3rem;
+    }
+    .masthead h1 {
+        font-size: 2.2rem;
+    }
+    .masthead .lead {
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .masthead .text-lg-start {
+        text-align: center !important;
+    }
+
+    .hero-app-mockup-container {
+        margin-top: 3rem;
+        min-height: 480px;
+    }
+    .iphone-mockup {
+        --iphone-width: 250px;
+        transform: rotateY(-22deg) rotateX(15deg) translateZ(50px);
+    }
+    .hero-app-mockup-container::before { width: 400px; height: 400px; filter: blur(100px);}
+    .hero-app-mockup-container::after { width: 300px; height: 300px; filter: blur(100px);}
+
+
+    .app-feature-text {
+        text-align: center;
+    }
+    .app-feature-text .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .app-feature-list {
+        display: inline-block;
+        text-align: left;
+    }
+    .app-screenshot-container {
+        margin-top: 2rem;
+    }
+    .app-feature-text .feature-title {
+        font-size: 2.1rem;
+    }
+    }
+    @media (max-width: 767.98px) { /* sm */
+    :root {
+    --serbis-section-padding-y: 3.5rem;
+    }
+    .masthead .masthead-pre-title {
+        font-size: 2.6rem;
+    }
+    .masthead h1 {
+        font-size: 2rem;
+    }
+    .app-badge {
+        height: 42px;
+    }
+    .section-title {
+        font-size: 1.9rem;
+    }
+    .how-it-works-step h3, .feature-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .hero-app-mockup-container {
+        min-height: 440px;
+    }
+    .iphone-mockup {
+        --iphone-width: 230px;
+        transform: rotateY(-18deg) rotateX(12deg) translateZ(40px);
+    }
+    .iphone-mockup:hover {
+        transform: rotateY(-12deg) rotateX(10deg) translateZ(50px) scale(1.03);
+    }
+    .hero-app-mockup-container::before { width: 350px; height: 350px; filter: blur(90px);}
+    .hero-app-mockup-container::after { width: 250px; height: 250px; filter: blur(90px);}
+
+
+    .app-feature-text .feature-title {
+        font-size: 1.9rem;
+    }
+    .app-feature-image {
+        max-width: 240px;
+    }
+    }
+    @media (max-width: 575.98px) { /* xs */
+    :root {
+    --serbis-section-padding-y: 2.5rem;
+    }
+    .masthead .masthead-pre-title {
+        font-size: 2.2rem;
+    }
+    .masthead h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-serbis-primary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .masthead .btn-serbis-primary.btn-lg {
+        padding: 0.75rem 1.6rem;
+        font-size: 0.95rem;
+    }
+
+
+    .hero-app-mockup-container {
+        min-height: 380px;
+    }
+    .iphone-mockup {
+        --iphone-width: 210px;
+        transform: rotateY(-12deg) rotateX(8deg) translateZ(30px);
+    }
+    .iphone-mockup:hover {
+        transform: rotateY(-8deg) rotateX(5deg) translateZ(40px) scale(1.02);
+    }
+    .hero-app-mockup-container::before { width: 300px; height: 300px; filter: blur(80px);}
+    .hero-app-mockup-container::after { width: 200px; height: 200px; filter: blur(80px);}
+    }
+</style>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"name": "Serbis",
+"url": "https://serbis.app",
+"logo": "https://serbis.app/assets/img/app_logo_nobg.png",
+"description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
+"address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Buenos Aires",
+    "addressCountry": "AR"
+},
+"sameAs": []
+}
+</script>
 </head>
-<body id="page-top">
-    <!-- Navigation-->
+<body id="page-top"> <!-- Body opacity will be controlled by JS -->
+
+    <!-- MODERN INTRO OVERLAY -->
+    <div id="modern-intro-overlay">
+        <div class="intro-content-wrapper">
+            <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo" class="intro-logo">
+            <h1 class="intro-main-text">Serbis</h1>
+            <p class="intro-tagline">Tu solución de servicios, al instante.</p>
+            <!-- You could have a subtle "Loading..." or progress indicator if desired -->
+        </div>
+    </div>
+
+    <!-- Your Existing Page Content Starts Here -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
         <div class="container px-4 px-lg-5">
-             <!-- Using ml-auto on the toggler on md and down helps center the brand better -->
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-            </button>
-             <a class="navbar-brand fw-bold" href="#page-top">
-                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis">
+            <a class="navbar-brand fw-bold" href="#page-top">
+                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis"> <!-- CSS will control height -->
             </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span> <!-- Using standard Bootstrap toggler icon class for custom SVG styling -->
+            </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto my-2 my-lg-0">
                     <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
@@ -965,340 +857,292 @@
             </div>
         </div>
     </nav>
-
-    <!-- Header/Masthead -->
-    <header class="masthead">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-5 align-items-center">
-                 <!-- gx-5 provides larger gap between columns -->
-                <div class="col-lg-7">
-                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                         <!-- Removed redundant Bootstrap lh-1 as line-height is controlled by CSS -->
-                        <h2 class="masthead-pre-title">Basta de listas.</h2>
-                        <h1 class="mb-3">Encontrá al profesional ideal.<br><strong>En 5 segundos.</strong></h1>
-                        <!-- Using text-lg-start lead with a class that centers below lg -->
-                        <p class="lead fw-normal mb-5 text-lg-center-if-small-enough">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
-                        <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start mb-5" id="masthead-cta-buttons">
-                           <button class="btn btn-serbis-primary btn-lg me-sm-4 mb-4 mb-sm-0" id="main-cta-button">Publicá tu Pedido Ahora</button>
+<header class="masthead">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="masthead-pre-title">Basta de listas.</h2>
+                    <h1 class="mb-3">Encontrá al profesional ideal.<br><strong>En 5 segundos.</strong></h1>
+                    <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
+                    <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
+                    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
+                        <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
+                        <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-app-mockup-container">
+                    <div class="iphone-mockup">
+                        <div class="iphone-screen-area">
+                            <img src="assets/img/sim2.png" alt="Serbis App en iPhone" class="iphone-app-content">
                         </div>
-                         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
-                            <!-- Use a div for the badges and let gap/flexbox handle spacing -->
-                            <a class="app-badge" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
-                            <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <!-- Phone mockup container is self-centering via flex -->
-                    <div class="hero-app-mockup-container">
-                         <!-- iphone-mockup handles 3D transform -->
-                        <div class="iphone-mockup">
-                             <div class="iphone-screen-area">
-                                 <!-- Use high-quality, modern screenshots -->
-                                 <img src="assets/img/sim2.png" alt="Serbis App en iPhone" class="iphone-app-content">
-                            </div>
-                            <!-- These are decorative phone details -->
-                            <div class="iphone-notch"></div>
-                            <div class="iphone-side-button iphone-volume-up"></div>
-                            <div class="iphone-side-button iphone-volume-down"></div>
-                            <div class="iphone-side-button iphone-power-button"></div>
-                        </div>
+                        <div class="iphone-side-button iphone-volume-up"></div>
+                        <div class="iphone-side-button iphone-volume-down"></div>
+                        <div class="iphone-side-button iphone-power-button"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <!-- How it Works Section -->
-    <section id="how-it-works" class="content-section">
-        <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
-            <div class="row gx-4 gx-lg-5 justify-content-center"> <!-- Center columns if less than 3 -->
-                 <div class="col-md-4">
-                    <div class="how-it-works-step">
-                         <i class="bi bi-pencil-square"></i>
-                        <h3>1. Describí tu Necesidad</h3>
-                        <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
-                    </div>
+    </div>
+</header>
+<section id="how-it-works" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-pencil-square"></i>
+                    <h3>1. Describí tu Necesidad</h3>
+                    <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-lightning-charge-fill"></i>
-                        <h3>2. Conectá al Instante</h3>
-                        <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <h3>2. Conectá al Instante</h3>
+                    <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
                 </div>
-                <div class="col-md-4">
-                    <div class="how-it-works-step">
-                        <i class="bi bi-check2-circle"></i>
-                        <h3>3. Resolvé y Calificá</h3>
-                        <p>Coordiná el servicio y ayudá a la comunidad con tu reseña. Todo dentro de nuestra app.</p>
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-check2-circle"></i>
+                    <h3>3. Resolvé y Calificá</h3>
+                    <p>Coordiná el servicio y ayudá a la comunidad con tu reseña. Todo dentro de nuestra app.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- App Feature Section: Home -->
-    <section id="app-home" class="app-feature-section">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6">
-                     <!-- Text container for left alignment on large, centered otherwise -->
-                    <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
-                        <h2 class="feature-title">Explorá el <strong>Home</strong></h2>
-                         <p class="lead fw-normal mb-4 text-lg-center-if-small-enough">Describí el servicio que necesitas, nosotros te emparejamos con una persona capaz en tu area. No clasificamos, entendemos que se necesita para solucionar tu problema y quien puede hacerlo en tu area. Todo en menos de 5 segundos.</p>
-                        <ul class="app-feature-list">
-                            <li><i class="bi bi-compass-fill"></i>Navegación intuitiva para encontrar lo que necesitás al instante.</li>
-                             <!-- Bi icons for lists -->
-                            <li><i class="bi bi-star-fill"></i>Ratings y reviews de cada trabajador, por las personas de tu comunidad.</li>
-                            <li><i class="bi bi-bell-fill"></i>Acceso rápido a tus pedidos y chats recientes.</li>
-                        </ul>
-                    </div>
+    </div>
+</section>
+<section id="app-home" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Explorá el <strong>Home</strong></h2>
+                    <p class="lead fw-normal mb-4">Describí el servicio que necesitas, nostros te emparejamos con una persona capaz en tu area. No clasificamos, entendemos que se necesita para solucionar tu problema y quien puede hacerlo en tu area. Todo en menos de 5 segundos.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-compass-fill"></i>Navegación intuitiva para encontrar lo que necesitás al instante.</li>
+                        <li><i class="bi bi-star-fill"></i>Ratings y reviews de cada trabajador, por las personas de tu comunidad.</li>
+                        <li><i class="bi bi-bell-fill"></i>Acceso rápido a tus pedidos y chats recientes.</li>
+                    </ul>
                 </div>
-                <div class="col-lg-6">
-                     <!-- Image container centers screenshot -->
-                    <div class="app-screenshot-container">
-                        <img src="assets/img/home.png" alt="Screenshot de la pantalla Home de Serbis" class="app-feature-image">
-                    </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/home.png" alt="Screenshot de la pantalla Home de Serbis" class="app-feature-image">
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- App Feature Section: Chat -->
-    <section id="app-chat" class="app-feature-section">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-5 align-items-center">
-                 <!-- Order changed for alternating layout -->
-                <div class="col-lg-6 order-lg-last">
-                    <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
-                        <h2 class="feature-title">Comunicación segura con el <strong>Chat</strong></h2>
-                        <p class="lead fw-normal mb-4 text-lg-center-if-small-enough">Coordiná detalles, compartí imágenes y <strong>negocia el precio</strong> directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
-                        <ul class="app-feature-list">
-                            <li><i class="bi bi-send-fill"></i>Mensajería instantánea para respuestas rápidas.</li>
-                            <li><i class="bi bi-paperclip"></i>Compartí archivos y fotos relevantes para el servicio.</li>
-                            <li><i class="bi bi-shield-check"></i>Conversaciones seguras y privadas dentro de la app.</li>
-                        </ul>
-                    </div>
+    </div>
+</section>
+<section id="app-chat" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6 order-lg-last">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Comunicación segura con el <strong>Chat</strong></h2>
+                    <p class="lead fw-normal mb-4">Coordiná detalles, compartí imágenes y <strong>negocia el precio</strong> directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-send-fill"></i>Mensajería instantánea para respuestas rápidas.</li>
+                        <li><i class="bi bi-paperclip"></i>Compartí archivos y fotos relevantes para el servicio.</li>
+                        <li><i class="bi bi-shield-check"></i>Conversaciones seguras y privadas dentro de la app.</li>
+                    </ul>
                 </div>
-                <div class="col-lg-6 order-lg-first">
-                    <div class="app-screenshot-container">
-                        <img src="assets/img/chat.png" alt="Screenshot de la pantalla Chat de Serbis" class="app-feature-image">
-                    </div>
+            </div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/chat.png" alt="Screenshot de la pantalla Chat de Serbis" class="app-feature-image">
                 </div>
             </div>
         </div>
-    </section>
-
-     <!-- App Feature Section: Status -->
-    <section id="app-status" class="app-feature-section">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-5 align-items-center">
-                 <!-- Order returned to default -->
-                <div class="col-lg-6">
-                    <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
-                        <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
-                        <p class="lead fw-normal mb-4 text-lg-center-if-small-enough">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
-                        <ul class="app-feature-list">
-                            <li><i class="bi bi-clock-history"></i>Historial completo de todos tus pedidos y servicios.</li>
-                            <li><i class="bi bi-bell-fill"></i>Notificaciones instantáneas sobre actualizaciones importantes.</li>
-                            <li><i class="bi bi-check-circle-fill"></i>Visualizá claramente cada etapa del proceso.</li>
-                        </ul>
-                    </div>
+    </div>
+</section>
+<section id="app-status" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
+                    <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-clock-history"></i>Historial completo de todos tus pedidos y servicios.</li>
+                        <li><i class="bi bi-bell-fill"></i>Notificaciones instantáneas sobre actualizaciones importantes.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Visualizá claramente cada etapa del proceso.</li>
+                    </ul>
                 </div>
-                <div class="col-lg-6">
-                    <div class="app-screenshot-container">
-                        <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
-                    </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Why Serbis Section -->
-    <section id="why-serbis" class="content-section">
-        <div class="container px-4 px-lg-5">
-            <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
-             <div class="row gx-4 gx-lg-5 justify-content-center"> <!-- Center columns -->
-                 <div class="col-lg-3 col-md-6">
-                     <div class="feature-item">
-                         <i class="bi bi-people-fill"></i>
-                         <h3>Ayuda de tu Comunidad</h3>
-                         <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
-                     </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6">
-                     <div class="feature-item">
-                         <i class="bi bi-patch-check-fill"></i>
-                         <h3>Calificaciones Reales</h3>
-                         <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
-                     </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6">
-                     <div class="feature-item">
-                         <i class="bi bi-chat-dots-fill"></i>
-                         <h3>Comunicación Directa</h3>
-                         <p>Chat seguro para coordinar todos los detalles del servicio.</p>
-                     </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6">
-                     <div class="feature-item">
-                         <i class="bi bi-speedometer2"></i>
-                         <h3>Rápido y Eficaz</h3>
-                         <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
-                     </div>
-                 </div>
-             </div>
-             <div class="text-center mt-5">
-                <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
-             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="about-us-footer">
-        <div class="container px-4 px-lg-5">
-            <div class="text-center small">
-                <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
-                 <!-- mb-2 needed here for spacing -->
-                <div>Buenos Aires, Argentina</div>
-                <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
+    </div>
+</section>
+<section id="why-serbis" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-people-fill"></i>
+                    <h3>Ayuda de tu Comunidad</h3>
+                    <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <h3>Calificaciones Reales</h3>
+                    <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-chat-dots-fill"></i>
+                    <h3>Comunicación Directa</h3>
+                    <p>Chat seguro para coordinar todos los detalles del servicio.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-speedometer2"></i>
+                    <h3>Rápido y Eficaz</h3>
+                    <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
+                </div>
             </div>
         </div>
-    </footer>
+         <div class="text-center mt-5">
+            <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
+        </div>
+    </div>
+</section>
+<footer class="footer" id="about-us-footer">
+    <div class="container px-4 px-lg-5">
+        <div class="text-center small">
+            <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
+            <div class="mb-2">Buenos Aires, Argentina</div>
+            <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // --- MODERN INTRO SCRIPT ---
+    const introOverlay = document.getElementById('modern-intro-overlay');
+    const bodyElement = document.body;
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    // To prevent scrollbars from body content while intro is visible
+    bodyElement.style.overflow = 'hidden';
 
-    <!-- Custom Scripts (Keeping your existing functionality)-->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // --- CONFIGURATION: REPLACE THESE URLs ---
-            // !!! IMPORTANT !!! Replace these placeholder URLs with your actual ones.
-            const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL"; // Example: "https://apps.apple.com/app/YOUR_APP_ID"
-            const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL"; // Example: "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME"
-            const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL"; // URL for users not on mobile (if any)
-            const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL"; // URL for the "Soy Proveedor" page/section
-            // --- END CONFIGURATION ---
+    // Set a timeout to hide the intro and show the main content
+    setTimeout(() => {
+        if (introOverlay) {
+            introOverlay.classList.add('hidden');
+        }
+        // Make body content visible
+        bodyElement.classList.add('content-visible');
+        bodyElement.style.overflow = ''; // Restore original overflow
 
-            function getOS() {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                if (/android/i.test(userAgent)) {
-                    return "Android";
+        // If the intro is hidden, it's good to remove it from DOM or set display:none
+        // after transition, for performance, though pointer-events:none helps a lot.
+        if (introOverlay) {
+            introOverlay.addEventListener('transitionend', () => {
+                if (introOverlay.classList.contains('hidden')) {
+                    // introOverlay.style.display = 'none'; // Optional: completely remove
                 }
-                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    return "iOS";
-                }
-                return "Desktop";
-            }
+            }, { once: true });
+        }
 
-            const os = getOS();
-
-            const mainCtaButton = document.getElementById('main-cta-button');
-            if (mainCtaButton) {
-                mainCtaButton.addEventListener('click', function () {
-                    if (os === "iOS") {
-                        window.location.href = APPLE_APP_STORE_URL;
-                    } else if (os === "Android") {
-                        window.location.href = GOOGLE_PLAY_STORE_URL;
-                    } else {
-                        // Consider if Desktop users should be directed to a web form,
-                        // the provider page, or perhaps shown QR codes / instructed to grab phone
-                        window.location.href = DESKTOP_WEB_FORM_URL;
-                    }
-                });
-            }
-
-            const secondaryCtaButton = document.getElementById('secondary-cta-button');
-            if (secondaryCtaButton) {
-                secondaryCtaButton.addEventListener('click', function () {
-                     if (os === "iOS") {
-                         window.location.href = APPLE_APP_STORE_URL;
-                     } else if (os === "Android") {
-                         window.location.href = GOOGLE_PLAY_STORE_URL;
-                     } else {
-                          window.location.href = DESKTOP_WEB_FORM_URL;
-                     }
-                });
-            }
-
-            const googlePlayLink = document.getElementById('google-play-link');
-            if (googlePlayLink) {
-                googlePlayLink.href = GOOGLE_PLAY_STORE_URL;
-            }
-
-            const appStoreLink = document.getElementById('app-store-link');
-            if (appStoreLink) {
-                appStoreLink.href = APPLE_APP_STORE_URL;
-            }
-
-            const soyProveedorLink = document.getElementById('soy-proveedor-link');
-            if (soyProveedorLink) {
-                soyProveedorLink.href = SOY_PROVEEDOR_URL;
-            }
-
-            // Navbar shrink on scroll (Adjusted logic slightly for better feel)
-            const mainNav = document.getElementById('mainNav');
-            const navbarCollapse = document.getElementById('navbarResponsive'); // Get collapse element
-            if (mainNav) {
-                 let isScrolled = false; // State variable
-
-                const handleScroll = () => {
-                    const scrollTop = window.scrollY || document.documentElement.scrollTop; // Use consistent scroll top
-
-                    if (scrollTop > 60) { // Adjust threshold if needed
-                        if (!isScrolled) {
-                             mainNav.classList.add('scrolled');
-                             isScrolled = true;
-                        }
-                    } else {
-                        if (isScrolled) {
-                            mainNav.classList.remove('scrolled');
-                            isScrolled = false;
-                        }
-                    }
-                };
-
-                // Add scroll event listener
-                window.addEventListener('scroll', handleScroll);
-
-                 // Also adjust header padding if nav collapse is expanded and causes overlap
-                 const adjustMastheadPadding = () => {
-                     const masthead = document.querySelector('.masthead');
-                     if (!masthead) return;
-
-                     // Small delay to allow collapse transition
-                     setTimeout(() => {
-                        const navbarHeight = mainNav.offsetHeight;
-                         // Adjust masthead padding-top to be at least the height of the navbar
-                         // + some base value when navbar is expanded (or always if it covers content)
-                         if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-                             // Calculate the padding needed *after* the collapse happens
-                             const extraPadding = navbarHeight - mainNav.getBoundingClientRect().height; // Difference from min height to expanded height
-                            masthead.style.paddingTop = `${Math.max(9, extraPadding / 16 + 6)}rem`; // 9rem is base masthead-top, 6 is buffer. Divide extra by 16 for rem. Ensure min value.
-                         } else {
-                              // Reset to default when collapsed
-                              masthead.style.paddingTop = ''; // Let CSS handle the default padding
-                              handleScroll(); // Re-evaluate scrolled state
-                         }
-                     }, 10); // Small delay
-                 };
-
-                 // Listen for bootstrap collapse events
-                 if (navbarCollapse) {
-                     navbarCollapse.addEventListener('show.bs.collapse', adjustMastheadPadding);
-                     navbarCollapse.addEventListener('hide.bs.collapse', adjustMastheadPadding);
-                 }
+    }, 3000); // Adjust time as desired (3000ms = 3 seconds)
+    // --- END MODERN INTRO SCRIPT ---
 
 
-                // Call handleScroll once on load in case the page is already scrolled
-                handleScroll();
-                // Adjust padding initially just in case (though CSS handles the base)
-                 adjustMastheadPadding();
+    // --- Your Existing Script ---
+    // --- CONFIGURATION: REPLACE THESE URLs ---
+    const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL";
+    const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL";
+    const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL";
+    const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL";
+    // --- END CONFIGURATION ---
 
+    function getOS() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/android/i.test(userAgent)) {
+            return "Android";
+        }
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            return "iOS";
+        }
+        return "Desktop";
+    }
+
+    const os = getOS();
+
+    const mainCtaButton = document.getElementById('main-cta-button');
+    if (mainCtaButton) {
+        mainCtaButton.addEventListener('click', function () {
+            if (os === "iOS") {
+                window.location.href = APPLE_APP_STORE_URL;
+            } else if (os === "Android") {
+                window.location.href = GOOGLE_PLAY_STORE_URL;
+            } else {
+                window.location.href = DESKTOP_WEB_FORM_URL;
             }
         });
-    </script>
+    }
+
+    const secondaryCtaButton = document.getElementById('secondary-cta-button');
+    if (secondaryCtaButton) {
+        secondaryCtaButton.addEventListener('click', function () {
+            if (os === "iOS") {
+                window.location.href = APPLE_APP_STORE_URL;
+            } else if (os === "Android") {
+                window.location.href = GOOGLE_PLAY_STORE_URL;
+            } else {
+                window.location.href = DESKTOP_WEB_FORM_URL;
+            }
+        });
+    }
+
+    const googlePlayLink = document.getElementById('google-play-link');
+    if (googlePlayLink) {
+        googlePlayLink.href = GOOGLE_PLAY_STORE_URL;
+    }
+
+    const appStoreLink = document.getElementById('app-store-link');
+    if (appStoreLink) {
+        appStoreLink.href = APPLE_APP_STORE_URL;
+    }
+
+    const soyProveedorLink = document.getElementById('soy-proveedor-link');
+    if (soyProveedorLink) {
+        soyProveedorLink.href = SOY_PROVEEDOR_URL;
+    }
+
+    // Navbar shrink on scroll
+    const mainNav = document.getElementById('mainNav');
+    if (mainNav) {
+        // Function to handle scroll event
+        const handleScroll = () => {
+            // Check if window.scrollY is defined and is a number
+            if (typeof window.scrollY === 'number' && window.scrollY > 50) {
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        };
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Call handleScroll once on load in case the page is already scrolled
+        handleScroll();
+    }
+});
+</script>
 </body>
 </html>
