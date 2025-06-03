@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -6,1234 +5,1125 @@
     <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
     <meta name="author" content="Serbis" />
     <title>Serbis | Tu Solución de Servicios Locales en 5 Segundos</title>
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
-    <meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://serbis.app" />
-    <meta property="og:image" content="assets/img/og-image.jpg" />
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
-    <meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
-    <link rel="canonical" href="https://serbis.app" />
-    <link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --serbis-primary: #2563eb;
-            --serbis-primary-light: #3b82f6;
-            --serbis-primary-dark: #1d4ed8;
-            --serbis-secondary: #10b981;
-            --serbis-light-bg: #f8fafc;
-            --serbis-dark-text: #1e293b;
-            --serbis-muted-text: #64748b;
-            --serbis-border: #e2e8f0;
-            --serbis-section-padding-y: 6rem;
-            --serbis-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --serbis-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --serbis-card-radius: 16px;
-            --serbis-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--serbis-dark-text);
-            line-height: 1.6;
-            background-color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Newsreader', serif;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--serbis-dark-text);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            font-weight: 600;
-            text-align: center;
-            white-space: nowrap;
-            vertical-align: middle;
-            user-select: none;
-            border: 1px solid transparent;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            border-radius: 0.5rem;
-            transition: var(--serbis-transition);
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: var(--serbis-primary);
-            border-color: var(--serbis-primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--serbis-primary-dark);
-            border-color: var(--serbis-primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
-        }
-
-        .btn-lg {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--serbis-primary);
-            color: var(--serbis-primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--serbis-primary);
-            color: white;
-        }
-
-        .section {
-            padding: var(--serbis-section-padding-y) 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-title .divider {
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--serbis-primary), var(--serbis-secondary));
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-primary {
-            color: var(--serbis-primary) !important;
-        }
-
-        .mb-0 {
-            margin-bottom: 0 !important;
-        }
-
-        .mt-5 {
-            margin-top: 3rem;
-        }
-
-        .py-5 {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            padding: 0.8rem 0;
-        }
-
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--serbis-dark-text);
-            text-decoration: none;
-        }
-
-        .navbar-brand img {
-            height: 40px;
-            margin-right: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled .navbar-brand img {
-            height: 36px;
-        }
-
-        .navbar-nav {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-item {
-            margin-left: 1.5rem;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            color: var(--serbis-muted-text);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--serbis-primary);
-        }
-
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--serbis-primary);
-            transition: all 0.3s ease;
-        }
-
-        .nav-link:hover:after, .nav-link.active:after {
-            width: 100%;
-        }
-
-        .nav-cta {
-            background: var(--serbis-primary);
-            color: white !important;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background: var(--serbis-primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
-        }
-
-        .nav-cta:after {
-            display: none;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--serbis-dark-text);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 12rem 0 6rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -200px;
-            left: -100px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0) 70%);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .hero-text h1 span {
-            color: var(--serbis-primary);
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero-text h1 span:after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            height: 15px;
-            background: rgba(37, 99, 235, 0.2);
-            z-index: -1;
-            border-radius: 4px;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--serbis-muted-text);
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .app-badges {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .app-badge {
-            height: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .app-badge:hover {
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            perspective: 1000px;
-        }
-
-        .phone-mockup {
-            width: 300px;
-            height: auto;
-            border-radius: 40px;
-            box-shadow: var(--serbis-shadow-lg);
-            transform: rotateY(-20deg) rotateX(10deg);
-            transition: transform 0.5s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .phone-mockup:hover {
-            transform: rotateY(-10deg) rotateX(5deg);
-        }
-
-        .blob {
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            background: linear-gradient(135deg, var(--serbis-primary), var(--serbis-secondary));
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            filter: blur(50px);
-            opacity: 0.15;
-            z-index: 1;
-            animation: blob-animation 15s infinite linear;
-        }
-
-        .blob:nth-child(1) {
-            top: -50px;
-            right: -50px;
-        }
-
-        .blob:nth-child(2) {
-            bottom: -50px;
-            left: -50px;
-            animation-delay: 5s;
-        }
-
-        @keyframes blob-animation {
-            0% {
-                transform: translate(0px, 0px) scale(1);
-                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            }
-            25% {
-                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-            }
-            50% {
-                transform: translate(20px, 20px) scale(1.1);
-                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-            }
-            75% {
-                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
-            }
-            100% {
-                transform: translate(0px, 0px) scale(1);
-                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            }
-        }
-
-        /* How it works */
-        .how-it-works {
-            background-color: var(--serbis-light-bg);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .step-card {
-            background: white;
-            border-radius: var(--serbis-card-radius);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--serbis-shadow);
-            transition: var(--serbis-transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .step-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--serbis-shadow-lg);
-        }
-
-        .step-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--serbis-primary), var(--serbis-secondary));
-            z-index: 2;
-        }
-
-        .step-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: var(--serbis-primary);
-        }
-
-        .step-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .step-card p {
-            color: var(--serbis-muted-text);
-        }
-
-        .step-number {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 3rem;
-            font-weight: 700;
-            color: rgba(37, 99, 235, 0.05);
-            z-index: -1;
-        }
-
-        /* Features */
-        .feature {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 6rem;
-        }
-
-        .feature:last-child {
-            margin-bottom: 0;
-        }
-
-        .feature-image {
-            border-radius: var(--serbis-card-radius);
-            overflow: hidden;
-            box-shadow: var(--serbis-shadow-lg);
-            position: relative;
-            transition: var(--serbis-transition);
-        }
-
-        .feature-image:hover {
-            transform: scale(1.02);
-        }
-
-        .feature-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .feature-content h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-content h2 span {
-            color: var(--serbis-primary);
-            position: relative;
-        }
-
-        .feature-content h2 span:after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: rgba(37, 99, 235, 0.2);
-            z-index: -1;
-            border-radius: 4px;
-        }
-
-        .feature-content p {
-            color: var(--serbis-muted-text);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .feature-list li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .feature-list li i {
-            color: var(--serbis-primary);
-            margin-right: 0.8rem;
-            margin-top: 0.2rem;
-            font-size: 1.2rem;
-        }
-
-        /* Why Choose */
-        .why-choose {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7ff 100%);
-        }
-
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .benefit-card {
-            background: white;
-            border-radius: var(--serbis-card-radius);
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: var(--serbis-shadow);
-            transition: var(--serbis-transition);
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--serbis-shadow-lg);
-        }
-
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
-            color: var(--serbis-primary);
-        }
-
-        .benefit-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card p {
-            color: var(--serbis-muted-text);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--serbis-primary), var(--serbis-primary-dark));
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-        }
-
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .cta-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .btn-light {
-            background: white;
-            color: var(--serbis-primary);
-            border: none;
-        }
-
-        .btn-light:hover {
-            background: #f0f9ff;
-            color: var(--serbis-primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--serbis-dark-text);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-brand img {
-            height: 50px;
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            margin-bottom: 1.5rem;
-            max-width: 300px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--serbis-primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-title {
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .footer-title:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--serbis-primary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-links a i {
-            margin-right: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-text p {
-                margin: 0 auto 2rem;
-            }
-            
-            .hero-actions {
-                justify-content: center;
-            }
-            
-            .app-badges {
-                justify-content: center;
-            }
-            
-            .feature {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .feature-content .btn {
-                margin: 0 auto;
-            }
-            
-            .feature-list {
-                text-align: left;
-                max-width: 500px;
-                margin: 0 auto 2rem;
-            }
-            
-            .feature:nth-child(even) .feature-image {
-                order: -1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar-nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 1.5rem;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-            
-            .navbar-nav.active {
-                display: flex;
-            }
-            
-            .nav-item {
-                margin: 0 0 1rem 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .cta-content h2 {
-                font-size: 2rem;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .footer-brand p {
-                margin: 0 auto 1.5rem;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            .footer-title:after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 8rem 0 4rem;
-            }
-            
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .section {
-                padding: 4rem 0;
-            }
-            
-            .step-card {
-                padding: 2rem 1.5rem;
-            }
-            
-            .benefit-card {
-                padding: 2rem 1.5rem;
-            }
-        }
-    </style>
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
+<meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://serbis.app" />
+<meta property="og:image" content="assets/img/og-image.jpg" />
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
+<meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
+<link rel="canonical" href="https://serbis.app" />
+<link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+    :root {
+        --serbis-primary: #0d6efd;
+        --serbis-primary-rgb: 13, 110, 253; /* For use in rgba */
+        --serbis-light-bg: #f8f9fa;
+        --serbis-dark-text: #212529;
+        --serbis-muted-text: #495057;
+        --serbis-section-padding-y: 5rem;
+        --serbis-border-radius: 6px; /* Added for consistency */
+    }
+body {
+    font-family: 'Mulish', sans-serif;
+    color: var(--serbis-dark-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale; /* Smoother fonts */
+}
+
+.masthead {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    background-color: var(--serbis-light-bg);
+    overflow: hidden; /* Keep this to contain glows if they expand */
+}
+
+.masthead .masthead-pre-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 3.8rem;
+    line-height: 1.15;
+    color: var(--serbis-dark-text);
+    margin-bottom: 0.5rem;
+}
+
+.masthead h1 {
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    line-height: 1.2;
+    color: var(--serbis-dark-text);
+    margin-bottom: 1rem;
+}
+.masthead h1 strong {
+    color: var(--serbis-primary);
+}
+
+.masthead .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--serbis-muted-text);
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+}
+.text-lg-start .lead {
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 992px) {
+    .text-lg-start .lead {
+         margin-left: 0;
+         margin-right: 0;
+    }
+}
+
+.btn-serbis-primary {
+    background-color: var(--serbis-primary);
+    border-color: var(--serbis-primary);
+    color: #fff;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: var(--serbis-border-radius); /* Updated */
+}
+.btn-serbis-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--serbis-primary-rgb), 0.2); /* Added subtle shadow on hover */
+}
+
+.app-badges-container {
+    margin-top: 2.5rem; /* Slightly increased margin */
+}
+.app-badge {
+    height: 48px;
+    margin: 0 0.5rem; /* Adjusted margin for a bit more space */
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    display: inline-block;
+    opacity: 0.9;
+}
+.app-badge img {
+    height: 100%;
+    width: auto;
+}
+.app-badge:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* === ENHANCED NAVBAR STYLES - START === */
+.navbar-custom {
+    background-color: #fff;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); /* Softened shadow */
+    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navbar-custom.scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1); /* Softened shadow for scrolled state */
+}
+
+.navbar-custom .navbar-brand img {
+    height: 40px;
+    transition: height 0.3s ease-in-out;
+}
+
+.navbar-custom.scrolled .navbar-brand img {
+    height: 34px;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.1px;
+    color: var(--serbis-muted-text);
+    padding: 0.6rem 1rem;
+    border-radius: var(--serbis-border-radius); /* Consistent border radius */
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+    margin: 0 0.15rem;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: var(--serbis-primary);
+    background-color: rgba(var(--serbis-primary-rgb), 0.07);
+}
+
+.navbar-custom .navbar-nav .nav-link.active {
+    color: var(--serbis-primary);
+    font-weight: 600;
+    background-color: rgba(var(--serbis-primary-rgb), 0.08); /* Slightly more pronounced active bg */
+}
+
+.navbar-custom .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 6px; /* Adjusted if needed with new bg */
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background-color: var(--serbis-primary);
+    border-radius: 1px;
+}
+
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+    color: var(--serbis-primary);
+    border: 1.5px solid var(--serbis-primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--serbis-border-radius); /* Consistent border radius */
+    margin-left: 0.75rem;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link:hover {
+    background-color: var(--serbis-primary);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(var(--serbis-primary-rgb), 0.3); /* Slightly enhanced shadow */
+}
+
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active::after {
+    display: none;
+}
+.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active {
+    background-color: var(--serbis-primary);
+    color: #fff;
+}
+
+.navbar-custom .navbar-toggler {
+    border: 1px solid transparent;
+    padding: 0.25rem 0.5rem;
+}
+.navbar-custom .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--serbis-primary-rgb), 0.25);
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--serbis-primary-rgb), 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Slightly darker toggler lines */
+}
+/* === END ENHANCED NAVBAR STYLES === */
+
+
+.section-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 600;
+    font-size: 2.2rem;
+    margin-bottom: 3.5rem;
+    color: var(--serbis-dark-text);
+}
+
+.content-section {
+    padding-top: var(--serbis-section-padding-y);
+    padding-bottom: var(--serbis-section-padding-y);
+}
+#how-it-works {
+    background-color: #ffffff;
+}
+.how-it-works-step {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem; /* Added padding for better visual grouping */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.how-it-works-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    border-radius: var(--serbis-border-radius); /* Add radius on hover for card effect */
+}
+
+.how-it-works-step .bi {
+    font-size: 2.8rem;
+    color: var(--serbis-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+.how-it-works-step:hover .bi {
+    transform: scale(1.1);
+}
+.how-it-works-step h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--serbis-dark-text);
+}
+.how-it-works-step p {
+    color: var(--serbis-muted-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+#why-serbis {
+    background-color: #ffffff; /* Changed to white for consistency if prior section is light */
+}
+.feature-item {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem; /* Added padding for better visual grouping */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    border-radius: var(--serbis-border-radius); /* Add radius on hover for card effect */
+}
+.feature-item .bi {
+    font-size: 2.8rem;
+    color: var(--serbis-primary);
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+.feature-item:hover .bi {
+    transform: scale(1.1);
+}
+.feature-item h3 {
+    font-family: 'Newsreader', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--serbis-dark-text);
+}
+.feature-item p {
+    color: var(--serbis-muted-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.footer {
+    background-color: #2c3e50; /* Kept original dark footer */
+    color: rgba(255, 255, 255, 0.7); /* Slightly increased base opacity */
+    padding-top: 3.5rem; /* Increased padding */
+    padding-bottom: 3.5rem; /* Increased padding */
+}
+.footer a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- Styles for ENHANCED 3D iPhone Mockup --- */
+.hero-app-mockup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 520px;
+    perspective: 1800px;
+    padding: 3rem 0;
+    position: relative;
+    background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.06) 0%, transparent 65%); /* Adjusted gradient */
+}
+
+.hero-app-mockup-container::before,
+.hero-app-mockup-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px); /* Slightly more blur */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-app-mockup-container::before {
+    width: 450px;
+    height: 450px;
+    background: hsla(var(--serbis-primary-rgb), 0.16); /* Adjusted opacity */
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -60%);
+    animation: pulse-glow-1 10s infinite alternate ease-in-out;
+}
+
+.hero-app-mockup-container::after {
+    width: 350px;
+    height: 350px;
+    background: hsla(210, 80%, 70%, 0.13); /* Adjusted opacity */
+    top: 50%;
+    left: 50%;
+    transform: translate(40%, 30%);
+    animation: pulse-glow-2 12s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-glow-1 {
+    0% { opacity: 0.16; transform: translate(-60%, -60%) scale(1); }
+    100% { opacity: 0.22; transform: translate(-55%, -55%) scale(1.1); }
+}
+@keyframes pulse-glow-2 {
+    0% { opacity: 0.13; transform: translate(40%, 30%) scale(1); }
+    100% { opacity: 0.20; transform: translate(45%, 35%) scale(1.05); }
+}
+
+
+.iphone-mockup {
+    --iphone-thickness: 11px;
+    --iphone-width: 270px;
+    --iphone-aspect-ratio: 2.0517;
+    --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
+    --iphone-border-radius: calc(var(--iphone-width) * 0.17);
+    --iphone-bezel-padding: calc(var(--iphone-width) * 0.044);
+    --screen-border-radius: calc(var(--iphone-width) * 0.13);
+    --notch-width: calc(var(--iphone-width) * 0.37);
+    --notch-height: calc(var(--iphone-width) * 0.103);
+    --button-thickness: calc(var(--iphone-width) * 0.013);
+    --button-v-height: calc(var(--iphone-width) * 0.111);
+    --button-p-height: calc(var(--iphone-width) * 0.203);
+    --button-vol-up-top: calc(var(--iphone-height) * 0.177);
+    --button-vol-down-top: calc(var(--iphone-height) * 0.252);
+    --button-power-top: calc(var(--iphone-height) * 0.215);
+
+    width: var(--iphone-width);
+    height: var(--iphone-height);
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d;
+    transform: rotateY(-28deg) rotateX(18deg) translateZ(60px);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
+                box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    /* Refined background gradient for phone body */
+    background: linear-gradient(145deg, #4e4e54, #2c2c2f); /* Slightly lighter, more metallic */
+    border-radius: var(--iphone-border-radius);
+    padding: var(--iphone-bezel-padding);
+    /* Refined box shadow for a softer, more realistic 3D effect */
+    box-shadow:
+        -12px 18px 45px rgba(0, 0, 0, 0.2),   /* Softer main shadow */
+        6px -6px 20px rgba(0,0,0,0.08),    /* Softer secondary shadow */
+        inset 0px 1px 1.5px rgba(255, 255, 255, 0.15), /* Enhanced top inset highlight */
+        inset 0px -1px 1px rgba(0, 0, 0, 0.3),
+        inset 1px 0px 1px rgba(255,255,255,0.1),
+        inset -1px 0px 1px rgba(0,0,0,0.22),
+        0 0 0 0.5px rgba(0,0,0,0.25);        /* Slightly more defined outline */
+}
+
+.iphone-mockup::before { /* Back of the phone */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Refined background for phone back */
+    background: linear-gradient(145deg, #424247, #252528);
+    border-radius: var(--iphone-border-radius);
+    transform: translateZ(calc(-1 * var(--iphone-thickness)));
+    box-shadow: 0 0 0 0.5px rgba(0,0,0,0.45); /* Slightly more defined back outline */
+}
+
+
+.iphone-mockup:hover {
+    transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04);
+    /* Refined hover box shadow */
+    box-shadow:
+        -18px 25px 60px rgba(0, 0, 0, 0.25),
+        8px -8px 28px rgba(0,0,0,0.12),
+        inset 0px 1px 2.5px rgba(255, 255, 255, 0.18),
+        inset 0px -1px 2px rgba(0, 0, 0, 0.35),
+        inset 1px 0px 2px rgba(255,255,255,0.12),
+        inset -1px 0px 2px rgba(0,0,0,0.28),
+        0 0 0 0.5px rgba(0,0,0,0.3);
+}
+
+.iphone-mockup::after { /* Floating shadow under the phone */
+    content: '';
+    position: absolute;
+    bottom: calc(-1 * var(--iphone-bezel-padding) - 30px);
+    left: 10%;
+    width: 80%;
+    height: 40px;
+    background: rgba(0,0,0,0.15); /* Softer shadow color */
+    border-radius: 50%;
+    filter: blur(30px); /* More blur for softness */
+    transform: scaleY(0.7) translateZ(calc(-80px - var(--iphone-thickness)));
+    z-index: -1;
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease, background 0.5s ease;
+    opacity: 0.65; /* Adjusted opacity */
+}
+.iphone-mockup:hover::after {
+    opacity: 0.8;
+    filter: blur(35px);
+    background: rgba(0,0,0,0.18);
+    transform: scaleY(0.75) translateZ(calc(-70px - var(--iphone-thickness))) translateY(10px);
+}
+
+
+.iphone-screen-area {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: var(--screen-border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.iphone-screen-area::before { /* Screen glare */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(
+        165deg,
+        rgba(255,255,255,0.12) 0%, /* Slightly softer glare */
+        rgba(255,255,255,0.06) 30%,
+        rgba(255,255,255,0) 50%
+    );
+    transform: translateX(-20%) translateY(-20%) rotate(-25deg);
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.6; /* Softened opacity */
+}
+
+
+.iphone-app-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.iphone-notch {
+    position: absolute;
+    top: var(--iphone-bezel-padding);
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--notch-width);
+    height: var(--notch-height);
+    background: #222; /* Slightly darker notch for contrast with potentially lighter screen */
+    border-bottom-left-radius: calc(var(--notch-height) * 0.45);
+    border-bottom-right-radius: calc(var(--notch-height) * 0.45);
+    z-index: 10;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.25) inset;
+}
+
+.iphone-side-button {
+    position: absolute;
+    /* Refined button material */
+    background: linear-gradient(145deg, #5a5a5f, #454548);
+    border-radius: calc(var(--button-thickness) * 0.5);
+    box-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.3) inset,
+                -0.5px -0.5px 0.5px rgba(255,255,255,0.1) inset, /* More visible highlight */
+                0 0 0.5px rgba(0,0,0,0.25);
+    transform: translateZ(calc(-0.5 * var(--iphone-thickness)));
+}
+
+.iphone-volume-up {
+    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
+    width: var(--button-thickness); height: var(--button-v-height);
+    border-top-right-radius: 0; border-bottom-right-radius: 0;
+}
+.iphone-volume-down {
+    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-down-top);
+    width: var(--button-thickness); height: var(--button-v-height);
+    border-top-right-radius: 0; border-bottom-right-radius: 0;
+}
+.iphone-power-button {
+    right: calc(-1 * var(--button-thickness)); top: var(--button-power-top);
+    width: var(--button-thickness); height: var(--button-p-height);
+    border-top-left-radius: 0; border-bottom-left-radius: 0;
+}
+/* --- End ENHANCED 3D iPhone Mockup Styles --- */
+
+
+/* --- Styles for New App Feature Sections --- */
+.app-feature-section {
+    padding-top: var(--serbis-section-padding-y);
+    padding-bottom: var(--serbis-section-padding-y);
+}
+.app-feature-section:nth-of-type(even) {
+    background-color: var(--serbis-light-bg);
+}
+.app-feature-section:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
+.app-feature-text .feature-title {
+    font-family: 'Newsreader', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--serbis-dark-text);
+    margin-bottom: 1rem;
+}
+.app-feature-text .feature-title strong {
+    color: var(--serbis-primary);
+}
+.app-feature-text .lead {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--serbis-muted-text);
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+.app-feature-list {
+    list-style: none;
+    padding-left: 0;
+}
+.app-feature-list li {
+    font-size: 1rem;
+    color: var(--serbis-dark-text);
+    margin-bottom: 0.85rem; /* Slightly increased spacing */
+    display: flex;
+    align-items: flex-start;
+}
+.app-feature-list li .bi {
+    color: var(--serbis-primary);
+    margin-right: 0.85rem; /* Slightly increased spacing */
+    font-size: 1.2rem;
+    margin-top: 0.1em;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.app-screenshot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.app-feature-image {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    border-radius: 24px; /* This is a good large radius */
+    /* Softer, more modern shadow */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08),
+                0 6px 12px rgba(0,0,0,0.05);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(0,0,0,0.05); /* Subtle border for definition */
+}
+.app-feature-image:hover {
+    transform: scale(1.05) translateY(-10px); /* Enhanced hover effect */
+    /* Slightly more pronounced shadow on hover */
+    box-shadow: 0 16px 35px rgba(0,0,0,0.1),
+                0 10px 20px rgba(0,0,0,0.07);
+}
+/* --- End Styles for New App Feature Sections --- */
+
+/* Responsive Adjustments - Mostly Inherited, checking key areas */
+@media (max-width: 991.98px) { /* md */
+    .navbar-brand-centered { /* This class is defined but not used. Keep as is. */
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-left: 0;
+    }
+    .navbar-custom .navbar-nav {
+        margin-top: 0.75rem;
+    }
+    .navbar-custom .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        margin: 0.25rem 0;
+    }
+    .navbar-custom .navbar-nav .nav-link.active::after {
+        bottom: 0.5rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+    }
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+    .navbar-custom .navbar-collapse {
+        border-top: 1px solid #e9ecef; /* Slightly lighter border */
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .masthead {
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+        text-align: center;
+    }
+    .masthead .masthead-pre-title {
+        font-size: 3rem;
+    }
+    .masthead h1 {
+        font-size: 2.2rem;
+    }
+    .masthead .lead {
+        font-size: 1.1rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .masthead .text-lg-start {
+        text-align: center !important;
+    }
+
+    .hero-app-mockup-container {
+        margin-top: 3rem;
+        min-height: 480px;
+    }
+    .iphone-mockup {
+        --iphone-width: 250px; /* Responsive scaling via CSS var */
+        transform: rotateY(-22deg) rotateX(15deg) translateZ(50px);
+    }
+    .hero-app-mockup-container::before { width: 400px; height: 400px; filter: blur(110px);} /* Adjusted blur */
+    .hero-app-mockup-container::after { width: 300px; height: 300px; filter: blur(110px);} /* Adjusted blur */
+
+
+    .app-feature-text {
+        text-align: center;
+    }
+    .app-feature-text .lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .app-feature-list {
+        display: inline-block;
+        text-align: left;
+    }
+    .app-screenshot-container {
+        margin-top: 2.5rem; /* Consistent spacing */
+    }
+    .app-feature-text .feature-title {
+        font-size: 2.1rem;
+    }
+}
+@media (max-width: 767.98px) { /* sm */
+    :root {
+        --serbis-section-padding-y: 3.5rem;
+    }
+
+    .masthead .masthead-pre-title {
+        font-size: 2.6rem;
+    }
+    .masthead h1 {
+        font-size: 2rem;
+    }
+    .app-badge {
+        height: 42px;
+        margin: 0 0.3rem; /* Adjust badge margin for smaller screens */
+    }
+    .app-badges-container {
+        flex-direction: column; /* Stack badges on smaller screens if needed - current HTML structure supports row */
+    }
+    .section-title {
+        font-size: 1.9rem;
+    }
+    .how-it-works-step h3, .feature-item h3 {
+        font-size: 1.2rem;
+    }
+     .how-it-works-step, .feature-item {
+        padding: 1rem; /* Adjust padding for smaller cards */
+    }
+
+    .hero-app-mockup-container {
+        min-height: 440px;
+    }
+    .iphone-mockup {
+        --iphone-width: 230px;
+        transform: rotateY(-18deg) rotateX(12deg) translateZ(40px);
+    }
+     .iphone-mockup:hover {
+        transform: rotateY(-12deg) rotateX(10deg) translateZ(50px) scale(1.03);
+    }
+    .hero-app-mockup-container::before { width: 350px; height: 350px; filter: blur(100px);}
+    .hero-app-mockup-container::after { width: 250px; height: 250px; filter: blur(100px);}
+
+
+    .app-feature-text .feature-title {
+        font-size: 1.9rem;
+    }
+    .app-feature-image {
+        max-width: 240px;
+    }
+}
+ @media (max-width: 575.98px) { /* xs */
+    :root {
+        --serbis-section-padding-y: 2.5rem;
+    }
+    .masthead .masthead-pre-title {
+        font-size: 2.2rem;
+    }
+    .masthead h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-serbis-primary {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .masthead .btn-serbis-primary.btn-lg { /* Bootstrap specific class for sizing */
+        padding: 0.8rem 1.8rem; /* Ensure it's sufficiently large */
+        font-size: 1rem;
+    }
+    .app-badges-container {
+        margin-top: 2rem;
+    }
+    .app-badge {
+        height: 40px; /* Slightly smaller badges for xs */
+        margin-bottom: 0.75rem !important; /* Ensure spacing when stacked by Bootstrap if .flex-column is used */
+    }
+    .app-badge:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .hero-app-mockup-container {
+        min-height: 380px;
+        padding: 2rem 0; /* Reduce padding */
+    }
+    .iphone-mockup {
+        --iphone-width: 200px; /* Further reduce size */
+        transform: rotateY(-12deg) rotateX(8deg) translateZ(30px);
+    }
+     .iphone-mockup:hover {
+        transform: rotateY(-8deg) rotateX(5deg) translateZ(40px) scale(1.02);
+    }
+    .hero-app-mockup-container::before { width: 280px; height: 280px; filter: blur(90px);}
+    .hero-app-mockup-container::after { width: 180px; height: 180px; filter: blur(90px);}
+}
+</style>
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "Organization",
+"name": "Serbis",
+"url": "https://serbis.app",
+"logo": "https://serbis.app/assets/img/app_logo_nobg.png",
+"description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
+"address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Buenos Aires",
+    "addressCountry": "AR"
+},
+"sameAs": []
+}
+</script>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="navbar-brand">
-                <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo">
-                Serbis
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand fw-bold" href="#page-top">
+                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis">
             </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="bi bi-list"></i>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="navbar-nav" id="navbarNav">
-                <li class="nav-item"><a href="#how-it-works" class="nav-link">Cómo Funciona</a></li>
-                <li class="nav-item"><a href="#features" class="nav-link">Características</a></li>
-                <li class="nav-item"><a href="#why-choose" class="nav-link">Beneficios</a></li>
-                <li class="nav-item"><a href="#" class="nav-link nav-cta">Soy Proveedor</a></li>
-            </ul>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">Cómo Funciona</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-us-footer">Nosotros</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Encontrá al profesional ideal <span>en 5 segundos</span></h1>
-                <p>Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
-                <div class="hero-actions">
-                    <a href="#" class="btn btn-primary btn-lg">Publicar Pedido</a>
-                    <a href="#" class="btn btn-outline btn-lg">Ver Demo</a>
-                </div>
-                <div class="app-badges">
-                    <a href="#" class="app-badge">
-                        <img src="assets/img/google-play-badge.svg" alt="Google Play">
-                    </a>
-                    <a href="#" class="app-badge">
-                        <img src="assets/img/app-store-badge.svg" alt="App Store">
-                    </a>
+<header class="masthead">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-7">
+                <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="masthead-pre-title">Basta de listas.</h2>
+                    <h1 class="mb-3">Encontrá al profesional ideal.<br><strong>En 5 segundos.</strong></h1>
+                    <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
+                    <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
+                    <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
+                        <a class="app-badge me-lg-3 mb-3 mb-sm-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
+                        <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="blob"></div>
-                <div class="blob"></div>
-                <img src="assets/img/sim2.png" alt="Serbis App" class="phone-mockup">
+            <div class="col-lg-5">
+                <div class="hero-app-mockup-container">
+                    <div class="iphone-mockup">
+                        <div class="iphone-screen-area">
+                            <img src="assets/img/sim2.png" alt="Serbis App en iPhone" class="iphone-app-content">
+                        </div>
+                        <div class="iphone-notch"></div> {/* Notch added for visual completeness if screen content doesn't have it */}
+                        <div class="iphone-side-button iphone-volume-up"></div>
+                        <div class="iphone-side-button iphone-volume-down"></div>
+                        <div class="iphone-side-button iphone-power-button"></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- How it Works -->
-    <section class="section how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-title">
-                <h2>Así de fácil es con Serbis</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="steps">
-                <div class="step-card animate">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <i class="bi bi-pencil-square"></i>
-                    </div>
-                    <h3>Describí tu Necesidad</h3>
+    </div>
+</header>
+<section id="how-it-works" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-pencil-square"></i>
+                    <h3>1. Describí tu Necesidad</h3>
                     <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
                 </div>
-                <div class="step-card animate">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <i class="bi bi-lightning-charge-fill"></i>
-                    </div>
-                    <h3>Conectá al Instante</h3>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <h3>2. Conectá al Instante</h3>
                     <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
                 </div>
-                <div class="step-card animate">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <i class="bi bi-check2-circle"></i>
-                    </div>
-                    <h3>Resolvé y Calificá</h3>
-                    <p>Coordiná el servicio y ayudá a la comunidad con tu reseña.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="how-it-works-step">
+                    <i class="bi bi-check2-circle"></i>
+                    <h3>3. Resolvé y Calificá</h3>
+                    <p>Coordiná el servicio y ayudá a la comunidad con tu reseña. Todo dentro de nuestra app.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Features -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="feature">
-                <div class="feature-image">
-                    <img src="assets/img/home.png" alt="Serbis Home">
-                </div>
-                <div class="feature-content">
-                    <h2>Explorá el <span>Home</span></h2>
-                    <p>Describí el servicio que necesitas, nosotros te emparejamos con una persona capaz en tu área. Todo en menos de 5 segundos.</p>
-                    <ul class="feature-list">
-                        <li><i class="bi bi-compass-fill"></i> Navegación intuitiva para encontrar lo que necesitás al instante</li>
-                        <li><i class="bi bi-star-fill"></i> Ratings y reviews de cada trabajador por tu comunidad</li>
-                        <li><i class="bi bi-bell-fill"></i> Acceso rápido a tus pedidos y chats recientes</li>
+    </div>
+</section>
+<section id="app-home" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Explorá el <strong>Home</strong></h2>
+                    <p class="lead fw-normal mb-4">Describí el servicio que necesitas, nostros te emparejamos con una persona capaz en tu area. No clasificamos, entendemos que se necesita para solucionar tu problema y quien puede hacerlo en tu area. Todo en menos de 5 segundos.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-compass-fill"></i>Navegación intuitiva para encontrar lo que necesitás al instante.</li>
+                        <li><i class="bi bi-star-fill"></i>Ratings y reviews de cada trabajador, por las personas de tu comunidad.</li>
+                        <li><i class="bi bi-bell-fill"></i>Acceso rápido a tus pedidos y chats recientes.</li>
                     </ul>
-                    <a href="#" class="btn btn-outline">Ver Más</a>
                 </div>
             </div>
-            <div class="feature">
-                <div class="feature-content">
-                    <h2>Comunicación segura con el <span>Chat</span></h2>
-                    <p>Coordiná detalles, compartí imágenes y negociá el precio directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
-                    <ul class="feature-list">
-                        <li><i class="bi bi-send-fill"></i> Mensajería instantánea para respuestas rápidas</li>
-                        <li><i class="bi bi-paperclip"></i> Compartí archivos y fotos relevantes para el servicio</li>
-                        <li><i class="bi bi-shield-check"></i> Conversaciones seguras y privadas dentro de la app</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline">Ver Más</a>
-                </div>
-                <div class="feature-image">
-                    <img src="assets/img/chat.png" alt="Serbis Chat">
-                </div>
-            </div>
-            <div class="feature">
-                <div class="feature-image">
-                    <img src="assets/img/status.png" alt="Serbis Status">
-                </div>
-                <div class="feature-content">
-                    <h2>Seguí el <span>Estado</span> de tus Pedidos</h2>
-                    <p>Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
-                    <ul class="feature-list">
-                        <li><i class="bi bi-clock-history"></i> Historial completo de todos tus pedidos y servicios</li>
-                        <li><i class="bi bi-bell-fill"></i> Notificaciones instantáneas sobre actualizaciones importantes</li>
-                        <li><i class="bi bi-check-circle-fill"></i> Visualizá claramente cada etapa del proceso</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline">Ver Más</a>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/home.png" alt="Screenshot de la pantalla Home de Serbis" class="app-feature-image">
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Why Choose -->
-    <section class="section why-choose" id="why-choose">
-        <div class="container">
-            <div class="section-title">
-                <h2>¿Por qué elegir Serbis?</h2>
-                <div class="divider"></div>
+    </div>
+</section>
+<section id="app-chat" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6 order-lg-last">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Comunicación segura con el <strong>Chat</strong></h2>
+                    <p class="lead fw-normal mb-4">Coordiná detalles, compartí imágenes y <strong>negocia el precio</strong> directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-send-fill"></i>Mensajería instantánea para respuestas rápidas.</li>
+                        <li><i class="bi bi-paperclip"></i>Compartí archivos y fotos relevantes para el servicio.</li>
+                        <li><i class="bi bi-shield-check"></i>Conversaciones seguras y privadas dentro de la app.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="benefits">
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="bi bi-people-fill"></i>
-                    </div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/chat.png" alt="Screenshot de la pantalla Chat de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="app-status" class="app-feature-section">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                    <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
+                    <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
+                    <ul class="app-feature-list">
+                        <li><i class="bi bi-clock-history"></i>Historial completo de todos tus pedidos y servicios.</li>
+                        <li><i class="bi bi-bell-fill"></i>Notificaciones instantáneas sobre actualizaciones importantes.</li>
+                        <li><i class="bi bi-check-circle-fill"></i>Visualizá claramente cada etapa del proceso.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="app-screenshot-container">
+                    <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="why-serbis" class="content-section">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-people-fill"></i>
                     <h3>Ayuda de tu Comunidad</h3>
                     <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
                 </div>
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="bi bi-patch-check-fill"></i>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-patch-check-fill"></i>
                     <h3>Calificaciones Reales</h3>
                     <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
                 </div>
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="bi bi-chat-dots-fill"></i>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-chat-dots-fill"></i>
                     <h3>Comunicación Directa</h3>
                     <p>Chat seguro para coordinar todos los detalles del servicio.</p>
                 </div>
-                <div class="benefit-card animate">
-                    <div class="benefit-icon">
-                        <i class="bi bi-speedometer2"></i>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="feature-item">
+                    <i class="bi bi-speedometer2"></i>
                     <h3>Rápido y Eficaz</h3>
                     <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>¡Empezá a usar Serbis hoy!</h2>
-            <p>Descargá la app y resolvé tus necesidades de servicios en minutos, no horas.</p>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-light btn-lg">Descargar App</a>
-                <a href="#" class="btn btn-outline btn-lg">Publicar Pedido</a>
-            </div>
+         <div class="text-center mt-5">
+            <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <div class="footer-brand">
-                        <img src="assets/img/app_logo_nobg.png" alt="Serbis Logo" style="height: 50px;">
-                        <p>Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad.</p>
-                        <div class="social-links">
-                            <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
-                            <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Enlaces Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Inicio</a></li>
-                        <li><a href="#how-it-works"><i class="bi bi-chevron-right"></i> Cómo Funciona</a></li>
-                        <li><a href="#features"><i class="bi bi-chevron-right"></i> Características</a></li>
-                        <li><a href="#why-choose"><i class="bi bi-chevron-right"></i> Beneficios</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Soy Proveedor</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Recursos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Centro de Ayuda</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Preguntas Frecuentes</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Política de Privacidad</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Términos y Condiciones</a></li>
-                        <li><a href="#"><i class="bi bi-chevron-right"></i> Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4 class="footer-title">Contacto</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:inaki.iturriaga@serbis.app"><i class="bi bi-envelope"></i> inaki.iturriaga@serbis.app</a></li>
-                        <li><a href="#"><i class="bi bi-geo-alt"></i> Buenos Aires, Argentina</a></li>
-                        <li><a href="#"><i class="bi bi-clock"></i> Soporte 24/7</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 Serbis. Todos los derechos reservados.</p>
-            </div>
+    </div>
+</section>
+<footer class="footer" id="about-us-footer">
+    <div class="container px-4 px-lg-5">
+        <div class="text-center small">
+            <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
+            <div class="mb-2">Buenos Aires, Argentina</div>
+            <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
         </div>
-    </footer>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- CONFIGURATION: REPLACE THESE URLs ---
+        const APPLE_APP_STORE_URL = "https://apps.apple.com/YOUR_APP_ID"; // Example
+        const GOOGLE_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME"; // Example
+        const DESKTOP_WEB_FORM_URL = "/publicar-pedido"; // Example: relative path to a page on your site
+        const SOY_PROVEEDOR_URL = "/soy-proveedor"; // Example: relative path
+        // --- END CONFIGURATION ---
 
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        function getOS() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                return "Android";
             }
-        });
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return "iOS";
+            }
+            return "Desktop";
+        }
 
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navbarNav = document.getElementById('navbarNav');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navbarNav.classList.toggle('active');
-        });
+        const os = getOS();
 
-        // Close mobile menu when clicking a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navbarNav.classList.remove('active');
-            });
-        });
-
-        // Animation on scroll
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = 1;
+        const mainCtaButton = document.getElementById('main-cta-button');
+        if (mainCtaButton) {
+            mainCtaButton.addEventListener('click', function () {
+                if (os === "iOS") {
+                    window.location.href = APPLE_APP_STORE_URL;
+                } else if (os === "Android") {
+                    window.location.href = GOOGLE_PLAY_STORE_URL;
+                } else {
+                    window.location.href = DESKTOP_WEB_FORM_URL;
                 }
             });
         }
 
-        // Initialize animations
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+        const secondaryCtaButton = document.getElementById('secondary-cta-button');
+        if (secondaryCtaButton) {
+            secondaryCtaButton.addEventListener('click', function () {
+                if (os === "iOS") {
+                    window.location.href = APPLE_APP_STORE_URL;
+                } else if (os === "Android") {
+                    window.location.href = GOOGLE_PLAY_STORE_URL;
+                } else {
+                    // For desktop, secondary CTA could also lead to app stores or a general "learn more"
+                    window.location.href = DESKTOP_WEB_FORM_URL;
                 }
             });
+        }
+
+        const googlePlayLink = document.getElementById('google-play-link');
+        if (googlePlayLink) {
+            googlePlayLink.href = GOOGLE_PLAY_STORE_URL;
+        }
+
+        const appStoreLink = document.getElementById('app-store-link');
+        if (appStoreLink) {
+            appStoreLink.href = APPLE_APP_STORE_URL;
+        }
+
+        const soyProveedorLink = document.getElementById('soy-proveedor-link');
+        if (soyProveedorLink) {
+            soyProveedorLink.href = SOY_PROVEEDOR_URL;
+        }
+
+        // Navbar shrink on scroll
+        const mainNav = document.getElementById('mainNav');
+        if (mainNav) {
+            const handleScroll = () => {
+                if (typeof window.scrollY === 'number' && window.scrollY > 50) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Initial check
+        }
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a.nav-link[href^="#"]').forEach(anchor => {
+            if (anchor.getAttribute('href') !== '#page-top' && anchor.getAttribute('href') !== '#!') { // Exclude brand link and dummy links
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        let offset = 0;
+                        if (mainNav && mainNav.classList.contains('scrolled')) {
+                            offset = mainNav.offsetHeight;
+                        } else if (mainNav) {
+                            // Estimate initial navbar height slightly larger before scroll, or calculate dynamically
+                            // This is a rough estimate, for precise offset you might need more complex logic
+                            // or rely on the scrolled height if page usually starts scrolled.
+                            offset = mainNav.offsetHeight + 20; // A bit more for un-scrolled nav
+                        }
+                        
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+
+                        // If navbar is collapsible, close it after click on mobile
+                        const navbarToggler = document.querySelector('.navbar-toggler');
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarToggler && navbarCollapse.classList.contains('show')) {
+                           if (!navbarToggler.classList.contains('collapsed')) { // Check if it's not already collapsed
+                                navbarToggler.click();
+                           }
+                        }
+                    }
+                });
+            }
         });
-    </script>
+
+    });
+
+</script>
 </body>
 </html>
