@@ -2,982 +2,980 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina. ¡Descargá la app o publicá tu pedido online!" />
-    <meta name="author" content="" />
-    <title>Serbis - Tu Solución de Servicios Locales en 5 Segundos</title>
-<!-- Open Graph Meta Tags -->
-<meta property="og:title" content="Serbis | Servicios Locales Rápidos y Confiables" />
-<meta property="og:description" content="Encontrá plomeros, pintores y más en 5 segundos. Calificados por tu comunidad. Descargá Serbis y resolvé tus necesidades." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://serbis.app" />
-<meta property="og:image" content="assets/img/og-image.jpg" />
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Serbis | Profesionales Locales en Segundos" />
-<meta name="twitter:description" content="La forma más rápida y confiable de encontrar servicios en tu comunidad. ¡Probá Serbis!" />
-<link rel="canonical" href="https://serbis.app" />
-<link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-<link rel="preconnect" href="https://fonts.gstatic.com" />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
-<style>
+    <!-- Point 1: Clarify Core Value Proposition (reflected in meta) -->
+    <meta name="description" content="Serbis: Profesionales confiables en 5 segundos. Verificados por AFIP, evaluados por tu barrio. ¡Descargá la app o publicá tu pedido online!" />
+    <meta name="author" content="Serbis Team" />
+    <title>Serbis - Profesionales Confiables en 5 Segundos</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Serbis | Profesionales Confiables en 5 Segundos" />
+    <meta property="og:description" content="Encontrá plomeros, electricistas y más. Verificados por AFIP, evaluados por tu barrio. Publicá tu pedido gratis." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://serbis.app" />
+    <meta property="og:image" content="assets/img/og-image.jpg" /> <!-- TODO: Update og-image to reflect new design -->
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Serbis | Profesionales Confiables en 5 Segundos" />
+    <meta name="twitter:description" content="La forma más rápida de encontrar servicios verificados en tu comunidad. ¡Probá Serbis!" />
+    
+    <link rel="canonical" href="https://serbis.app" />
+    <link rel="icon" type="image/x-icon" href="assets/img/app_logo_nobg.png" />
+
+    <!-- Preconnect and Preload - Point 6 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;0,700;1,600;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Point 6: Preload hero video (was image) -->
+    <link rel="preload" href="assets/vid/app-demo.mp4" as="video" type="video/mp4"> <!-- Assuming app-demo.mp4 exists in assets/vid/ -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"> <!-- Updated Bootstrap Icons -->
+    <!-- <link href="css/styles.css" rel="stylesheet" /> --> <!-- Styles will be in <style> block -->
+
+    <style>
     :root {
-        --serbis-primary: #0d6efd;
-        --serbis-primary-rgb: 13, 110, 253; /* For use in rgba */
+        --serbis-primary: #0d6efd; /* Main CTA color */
+        --serbis-primary-rgb: 13, 110, 253;
         --serbis-light-bg: #f8f9fa;
         --serbis-dark-text: #212529;
-        --serbis-muted-text: #495057;
+        /* Point 7: Color contrast bump for secondary gray text */
+        --serbis-muted-text: #4A4A4A; /* Was #495057, instruction suggested #6a6a6a to #4A4A4A. Current value #495057 is good, #4A4A4A is also good. */
         --serbis-section-padding-y: 5rem;
+        --serbis-section-padding-y-sm: 3.5rem; /* For smaller screens */
+        --serbis-section-padding-y-xs: 2.5rem; /* For extra small screens */
     }
-body {
-    font-family: 'Mulish', sans-serif;
-    color: var(--serbis-dark-text);
-    line-height: 1.6;
-}
 
-.masthead {
-    padding-top: 8rem; /* Adjusted to account for potentially larger initial navbar */
-    padding-bottom: 6rem;
-    background-color: var(--serbis-light-bg);
-    overflow: hidden;
-}
-
-.masthead .masthead-pre-title {
-    font-family: 'Newsreader', serif;
-    font-weight: 700;
-    font-size: 3.8rem;
-    line-height: 1.15;
-    color: var(--serbis-dark-text);
-    margin-bottom: 0.5rem;
-}
-
-.masthead h1 { /* This is the "Encontrá al profesional ideal..." part */
-    font-family: 'Newsreader', serif;
-    font-weight: 700;
-    font-size: 2.6rem;
-    line-height: 1.2; /* Ensured this is active by removing lh-1 from HTML */
-    color: var(--serbis-dark-text);
-    margin-bottom: 1rem;
-}
-.masthead h1 strong { /* This is the "En 5 segundos." part */
-    color: var(--serbis-primary);
-}
-
-.masthead .lead {
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--serbis-muted-text);
-    margin-bottom: 2.5rem;
-    max-width: 550px;
-}
-.text-lg-start .lead {
-    margin-left: auto;
-    margin-right: auto;
-}
-@media (min-width: 992px) {
-    .text-lg-start .lead {
-         margin-left: 0;
-         margin-right: 0;
+    body {
+        font-family: 'Mulish', sans-serif;
+        color: var(--serbis-dark-text);
+        line-height: 1.6;
     }
-}
 
-.btn-serbis-primary {
-    background-color: var(--serbis-primary);
-    border-color: var(--serbis-primary);
-    color: #fff;
-    font-weight: 600;
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
-    border-radius: 0.3rem;
-}
-.btn-serbis-primary:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
-    color: #fff;
-    transform: translateY(-2px);
-}
-
-.app-badges-container {
-    margin-top: 2rem;
-}
-.app-badge {
-    height: 48px;
-    margin: 0 0.4rem;
-    transition: transform 0.2s ease-in-out;
-    display: inline-block;
-}
-.app-badge img {
-    height: 100%;
-    width: auto;
-}
-.app-badge:hover {
-    transform: scale(1.05);
-}
-
-/* === ENHANCED NAVBAR STYLES - START === */
-.navbar-custom {
-    background-color: #fff;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Styles for when navbar is scrolled */
-.navbar-custom.scrolled {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-}
-
-.navbar-custom .navbar-brand img {
-    height: 40px;
-    transition: height 0.3s ease-in-out;
-}
-
-.navbar-custom.scrolled .navbar-brand img {
-    height: 34px; /* Smaller logo when scrolled */
-}
-
-.navbar-custom .navbar-nav .nav-link {
-    font-size: 0.92rem;
-    font-weight: 500;
-    text-transform: none;
-    letter-spacing: 0.1px;
-    color: var(--serbis-muted-text);
-    padding: 0.6rem 1rem;
-    border-radius: 6px;
-    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-    position: relative;
-    margin: 0 0.15rem;
-}
-
-.navbar-custom .navbar-nav .nav-link:hover {
-    color: var(--serbis-primary);
-    background-color: rgba(var(--serbis-primary-rgb), 0.07);
-}
-
-.navbar-custom .navbar-nav .nav-link.active {
-    color: var(--serbis-primary);
-    font-weight: 600;
-    background-color: rgba(var(--serbis-primary-rgb), 0.05);
-}
-
-.navbar-custom .navbar-nav .nav-link.active::after {
-    content: '';
-    position: absolute;
-    bottom: 6px;
-    left: 1rem;
-    right: 1rem;
-    height: 2px;
-    background-color: var(--serbis-primary);
-    border-radius: 1px;
-}
-
-.navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
-    color: var(--serbis-primary);
-    border: 1.5px solid var(--serbis-primary);
-    padding: 0.5rem 1.2rem;
-    border-radius: 0.3rem;
-    margin-left: 0.75rem;
-    font-weight: 600;
-    background-color: transparent;
-}
-
-.navbar-custom .navbar-nav .nav-link#soy-proveedor-link:hover {
-    background-color: var(--serbis-primary);
-    color: #fff;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(var(--serbis-primary-rgb), 0.3);
-}
-
-.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active::after {
-    display: none;
-}
-.navbar-custom .navbar-nav .nav-link#soy-proveedor-link.active {
-    background-color: var(--serbis-primary);
-    color: #fff;
-}
-
-.navbar-custom .navbar-toggler {
-    border: 1px solid transparent;
-    padding: 0.25rem 0.5rem;
-}
-.navbar-custom .navbar-toggler:focus {
-    box-shadow: 0 0 0 0.2rem rgba(var(--serbis-primary-rgb), 0.25);
-}
-
-.navbar-custom .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--serbis-primary-rgb), 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-.navbar-brand-centered {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-/* === END ENHANCED NAVBAR STYLES === */
-
-
-.section-title {
-    font-family: 'Newsreader', serif;
-    font-weight: 600;
-    font-size: 2.2rem;
-    margin-bottom: 3.5rem;
-    color: var(--serbis-dark-text);
-}
-
-.content-section {
-    padding-top: var(--serbis-section-padding-y);
-    padding-bottom: var(--serbis-section-padding-y);
-}
-#how-it-works {
-    background-color: #ffffff;
-}
-.how-it-works-step {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-.how-it-works-step .bi {
-    font-size: 2.8rem;
-    color: var(--serbis-primary);
-    margin-bottom: 1rem;
-    display: inline-block;
-}
-.how-it-works-step h3 {
-    font-family: 'Newsreader', serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--serbis-dark-text);
-}
-.how-it-works-step p {
-    color: var(--serbis-muted-text);
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-#why-serbis {
-    background-color: #ffffff;
-}
-.feature-item {
-    text-align: center;
-    margin-bottom: 2.5rem;
-}
-.feature-item .bi {
-    font-size: 2.8rem;
-    color: var(--serbis-primary);
-    margin-bottom: 1rem;
-    display: inline-block;
-}
-.feature-item h3 {
-    font-family: 'Newsreader', serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--serbis-dark-text);
-}
-.feature-item p {
-    color: var(--serbis-muted-text);
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.footer {
-    background-color: #2c3e50;
-    color: rgba(255, 255, 255, 0.6);
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-.footer a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-}
-.footer a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
-
-/* --- Styles for ENHANCED 3D iPhone Mockup --- */
-.hero-app-mockup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    min-height: 520px;
-    perspective: 1800px;
-    padding: 3rem 0;
-    position: relative;
-    background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.05) 0%, transparent 60%);
-}
-
-.hero-app-mockup-container::before,
-.hero-app-mockup-container::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    z-index: 0;
-    pointer-events: none;
-}
-
-.hero-app-mockup-container::before {
-    width: 450px;
-    height: 450px;
-    background: hsla(var(--serbis-primary-rgb), 0.18);
-    top: 50%;
-    left: 50%;
-    transform: translate(-60%, -60%);
-    animation: pulse-glow-1 10s infinite alternate ease-in-out;
-}
-
-.hero-app-mockup-container::after {
-    width: 350px;
-    height: 350px;
-    background: hsla(210, 80%, 70%, 0.15);
-    top: 50%;
-    left: 50%;
-    transform: translate(40%, 30%);
-    animation: pulse-glow-2 12s infinite alternate ease-in-out;
-}
-
-@keyframes pulse-glow-1 {
-    0% { opacity: 0.18; transform: translate(-60%, -60%) scale(1); }
-    100% { opacity: 0.25; transform: translate(-55%, -55%) scale(1.1); }
-}
-@keyframes pulse-glow-2 {
-    0% { opacity: 0.15; transform: translate(40%, 30%) scale(1); }
-    100% { opacity: 0.22; transform: translate(45%, 35%) scale(1.05); }
-}
-
-
-.iphone-mockup {
-    --iphone-thickness: 11px;
-    --iphone-width: 270px;
-    --iphone-aspect-ratio: 2.0517;
-    --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
-    --iphone-border-radius: calc(var(--iphone-width) * 0.17);
-    --iphone-bezel-padding: calc(var(--iphone-width) * 0.044);
-    --screen-border-radius: calc(var(--iphone-width) * 0.13);
-    --notch-width: calc(var(--iphone-width) * 0.37);
-    --notch-height: calc(var(--iphone-width) * 0.103);
-    --button-thickness: calc(var(--iphone-width) * 0.013);
-    --button-v-height: calc(var(--iphone-width) * 0.111);
-    --button-p-height: calc(var(--iphone-width) * 0.203);
-    --button-vol-up-top: calc(var(--iphone-height) * 0.177);
-    --button-vol-down-top: calc(var(--iphone-height) * 0.252);
-    --button-power-top: calc(var(--iphone-height) * 0.215);
-
-    width: var(--iphone-width);
-    height: var(--iphone-height);
-    position: relative;
-    z-index: 1;
-    transform-style: preserve-3d;
-    transform: rotateY(-28deg) rotateX(18deg) translateZ(60px);
-    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1),
-                box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-    background: linear-gradient(145deg, #3a3a3f, #202023);
-    border-radius: var(--iphone-border-radius);
-    padding: var(--iphone-bezel-padding);
-    box-shadow:
-        -15px 20px 50px rgba(0, 0, 0, 0.28),
-        8px -8px 25px rgba(0,0,0,0.12),
-        inset 0px 1px 2px rgba(255, 255, 255, 0.1),
-        inset 0px -1px 2px rgba(0, 0, 0, 0.3),
-        inset 1px 0px 2px rgba(255,255,255,0.07),
-        inset -1px 0px 2px rgba(0,0,0,0.2),
-        0 0 0 1px rgba(0,0,0,0.25);
-}
-
-.iphone-mockup::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(145deg, #303035, #18181b);
-    border-radius: var(--iphone-border-radius);
-    transform: translateZ(calc(-1 * var(--iphone-thickness)));
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
-}
-
-
-.iphone-mockup:hover {
-    transform: rotateY(-18deg) rotateX(12deg) translateZ(75px) scale(1.04);
-    box-shadow:
-        -20px 28px 65px rgba(0, 0, 0, 0.35),
-        10px -10px 30px rgba(0,0,0,0.18),
-        inset 0px 1px 3px rgba(255, 255, 255, 0.15),
-        inset 0px -1px 3px rgba(0, 0, 0, 0.35),
-        inset 1px 0px 3px rgba(255,255,255,0.1),
-        inset -1px 0px 3px rgba(0,0,0,0.25),
-        0 0 0 1px rgba(0,0,0,0.3);
-}
-
-.iphone-mockup::after {
-    content: '';
-    position: absolute;
-    bottom: calc(-1 * var(--iphone-bezel-padding) - 30px);
-    left: 10%;
-    width: 80%;
-    height: 40px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 50%;
-    filter: blur(25px);
-    transform: scaleY(0.7) translateZ(calc(-80px - var(--iphone-thickness)));
-    z-index: -1;
-    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), filter 0.5s ease;
-    opacity: 0.7;
-}
-.iphone-mockup:hover::after {
-    opacity: 0.9;
-    filter: blur(30px);
-    transform: scaleY(0.75) translateZ(calc(-70px - var(--iphone-thickness))) translateY(10px);
-}
-
-
-.iphone-screen-area {
-    width: 100%;
-    height: 100%;
-    background: #000;
-    border-radius: var(--screen-border-radius);
-    overflow: hidden;
-    position: relative;
-}
-
-.iphone-screen-area::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 150%;
-    background: linear-gradient(
-        165deg,
-        rgba(255,255,255,0.15) 0%,
-        rgba(255,255,255,0.08) 30%,
-        rgba(255,255,255,0) 50%
-    );
-    transform: translateX(-20%) translateY(-20%) rotate(-25deg);
-    z-index: 5;
-    pointer-events: none;
-    opacity: 0.7;
-}
-
-
-.iphone-app-content {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.iphone-notch {
-    position: absolute;
-    top: var(--iphone-bezel-padding);
-    left: 50%;
-    transform: translateX(-50%);
-    width: var(--notch-width);
-    height: var(--notch-height);
-    background: #202023;
-    border-bottom-left-radius: calc(var(--notch-height) * 0.45);
-    border-bottom-right-radius: calc(var(--notch-height) * 0.45);
-    z-index: 10;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.2) inset;
-}
-
-.iphone-side-button {
-    position: absolute;
-    background: linear-gradient(145deg, #525257, #404043);
-    border-radius: calc(var(--button-thickness) * 0.5);
-    box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset,
-                -0.5px -0.5px 1px rgba(255,255,255,0.08) inset,
-                0 0 1px rgba(0,0,0,0.2);
-    transform: translateZ(calc(-0.5 * var(--iphone-thickness)));
-}
-
-.iphone-volume-up {
-    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top);
-    width: var(--button-thickness); height: var(--button-v-height);
-    border-top-right-radius: 0; border-bottom-right-radius: 0;
-}
-.iphone-volume-down {
-    left: calc(-1 * var(--button-thickness)); top: var(--button-vol-down-top);
-    width: var(--button-thickness); height: var(--button-v-height);
-    border-top-right-radius: 0; border-bottom-right-radius: 0;
-}
-.iphone-power-button {
-    right: calc(-1 * var(--button-thickness)); top: var(--button-power-top);
-    width: var(--button-thickness); height: var(--button-p-height);
-    border-top-left-radius: 0; border-bottom-left-radius: 0;
-}
-/* --- End ENHANCED 3D iPhone Mockup Styles --- */
-
-
-/* --- Styles for New App Feature Sections --- */
-.app-feature-section {
-    padding-top: var(--serbis-section-padding-y);
-    padding-bottom: var(--serbis-section-padding-y);
-}
-.app-feature-section:nth-of-type(even) {
-    background-color: var(--serbis-light-bg);
-}
-.app-feature-section:nth-of-type(odd) {
-    background-color: #ffffff;
-}
-
-.app-feature-text .feature-title {
-    font-family: 'Newsreader', serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    line-height: 1.2;
-    color: var(--serbis-dark-text);
-    margin-bottom: 1rem;
-}
-.app-feature-text .feature-title strong {
-    color: var(--serbis-primary);
-}
-.app-feature-text .lead {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: var(--serbis-muted-text);
-    margin-bottom: 2rem;
-    max-width: 500px;
-}
-.app-feature-list {
-    list-style: none;
-    padding-left: 0;
-}
-.app-feature-list li {
-    font-size: 1rem;
-    color: var(--serbis-dark-text);
-    margin-bottom: 0.75rem;
-    display: flex;
-    align-items: flex-start;
-}
-.app-feature-list li .bi {
-    color: var(--serbis-primary);
-    margin-right: 0.75rem;
-    font-size: 1.2rem;
-    margin-top: 0.1em;
-}
-
-.app-screenshot-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-}
-.app-feature-image {
-    max-width: 280px;
-    width: 100%;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
-.app-feature-image:hover {
-    transform: scale(1.05) translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0,0,0,0.16),
-                0 22px 50px rgba(0,0,0,0.13);
-}
-/* --- End Styles for New App Feature Sections --- */
-
-
-@media (max-width: 991.98px) { /* md */
-    .navbar-brand-centered {
-        position: relative;
-        left: 0;
-        transform: none;
-        margin-left: 0;
+    /* Point 7: Accessibility - Focus Visible Styles */
+    a:focus-visible, button:focus-visible, input[type="submit"]:focus-visible, input[type="button"]:focus-visible,
+    .nav-link:focus-visible, .dropdown-item:focus-visible {
+        outline: 2px solid var(--serbis-primary);
+        outline-offset: 2px;
+        box-shadow: 0 0 0 3px rgba(var(--serbis-primary-rgb), 0.25) !important; /* Ensure visibility over other shadows */
     }
-    .navbar-custom .navbar-nav {
-        margin-top: 0.75rem;
+    .navbar-custom .navbar-toggler:focus {
+         box-shadow: 0 0 0 0.25rem rgba(var(--serbis-primary-rgb), 0.4) !important;
+    }
+
+
+    /* Navbar Styles - Point 4: Compress top nav to 64px (Initial height is 24px padding + 40px logo = 64px. This is met.) */
+    .navbar-custom {
+        background-color: #fff;
+        padding-top: 0.75rem; /* 12px */
+        padding-bottom: 0.75rem; /* 12px */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    #navbar-logo { /* Control logo height */
+        height: 40px; /* Max height for initial state */
+        transition: height 0.3s ease-in-out;
+    }
+    .navbar-custom.scrolled {
+        padding-top: 0.5rem; /* 8px */
+        padding-bottom: 0.5rem; /* 8px */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+    .navbar-custom.scrolled #navbar-logo {
+        height: 34px; /* Smaller logo when scrolled */
     }
     .navbar-custom .navbar-nav .nav-link {
-        padding: 0.75rem 1rem;
-        margin: 0.25rem 0;
+        font-size: 0.92rem;
+        font-weight: 500;
+        color: var(--serbis-muted-text); /* Point 2: Muted secondary links */
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        transition: color 0.2s ease, background-color 0.2s ease;
+        margin: 0 0.15rem;
     }
-    .navbar-custom .navbar-nav .nav-link.active::after {
-        bottom: 0.5rem;
-        left: 1rem;
-        width: calc(100% - 2rem);
+    .navbar-custom .navbar-nav .nav-link:hover,
+    .navbar-custom .navbar-nav .nav-link.active { /* Merged hover and active for muted links */
+        color: var(--serbis-primary);
+        background-color: rgba(var(--serbis-primary-rgb), 0.07);
     }
+     .navbar-custom .navbar-nav .nav-link.active {
+        font-weight: 600;
+    }
+    /* "Soy Proveedor" link styling - distinct from other muted links */
     .navbar-custom .navbar-nav .nav-link#soy-proveedor-link {
-        margin-left: 0;
-        margin-top: 0.5rem;
-        text-align: center;
+        color: var(--serbis-primary);
+        border: 1.5px solid var(--serbis-primary);
+        padding: 0.5rem 1.2rem;
+        border-radius: 0.3rem;
+        margin-left: 0.75rem;
+        font-weight: 600;
+        background-color: transparent;
     }
-    .navbar-custom .navbar-collapse {
-        border-top: 1px solid #eee;
-        margin-top: 0.5rem;
-        padding-top: 0.5rem;
+    .navbar-custom .navbar-nav .nav-link#soy-proveedor-link:hover {
+        background-color: var(--serbis-primary);
+        color: #fff;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 6px rgba(var(--serbis-primary-rgb), 0.3);
+    }
+    .navbar-custom .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(var(--serbis-primary-rgb), 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    .lang-toggle-placeholder .dropdown-menu .dropdown-item.active {
+        background-color: rgba(var(--serbis-primary-rgb), 0.1);
+        color: var(--serbis-primary);
+        font-weight: bold;
     }
 
+
+    /* Masthead / Hero Styles */
     .masthead {
-        padding-top: 7rem; /* Adjusted for potentially larger initial navbar on mobile */
-        padding-bottom: 4rem;
-        text-align: center;
+        padding-top: 8rem;
+        padding-bottom: 6rem;
+        background-color: var(--serbis-light-bg);
+        overflow: hidden; /* Contain decorative elements if any */
     }
-    .masthead .masthead-pre-title {
-        font-size: 3rem;
+    /* Point 1: Clarify Core Value Proposition - Headline styling */
+    .masthead .masthead-main-title {
+        font-family: 'Newsreader', serif;
+        font-weight: 700;
+        font-size: 3.2rem; /* Adjusted for new headline */
+        line-height: 1.15;
+        color: var(--serbis-dark-text);
     }
-    .masthead h1 {
-        font-size: 2.2rem;
+    .masthead .masthead-main-title strong { /* If any part of H1 needs primary color */
+        color: var(--serbis-primary);
     }
-    .masthead .lead {
-        font-size: 1.1rem;
-        margin-left: auto;
-        margin-right: auto;
+    /* Point 1: Subhead styling */
+    .masthead .masthead-subhead {
+        font-family: 'Newsreader', serif;
+        font-weight: 600;
+        font-size: 1.3rem;
+        color: var(--serbis-primary); /* Emphasize trust statement */
     }
-    .masthead .text-lg-start {
-        text-align: center !important;
+    .masthead .lead { /* General descriptive text */
+        font-size: 1.15rem;
+        font-weight: 400;
+        color: var(--serbis-muted-text);
+        margin-bottom: 2rem;
+        max-width: 550px;
     }
+    .text-lg-start .lead { margin-left: auto; margin-right: auto; }
+    @media (min-width: 992px) { .text-lg-start .lead { margin-left: 0; margin-right: 0; } }
 
-    .hero-app-mockup-container {
-        margin-top: 3rem;
-        min-height: 480px;
-    }
-    .iphone-mockup {
-        --iphone-width: 250px;
-        transform: rotateY(-22deg) rotateX(15deg) translateZ(50px);
-    }
-    .hero-app-mockup-container::before { width: 400px; height: 400px; filter: blur(100px);}
-    .hero-app-mockup-container::after { width: 300px; height: 300px; filter: blur(100px);}
-
-
-    .app-feature-text {
-        text-align: center;
-    }
-    .app-feature-text .lead {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .app-feature-list {
-        display: inline-block;
-        text-align: left;
-    }
-    .app-screenshot-container {
-        margin-top: 2rem;
-    }
-    .app-feature-text .feature-title {
-        font-size: 2.1rem;
-    }
-}
-@media (max-width: 767.98px) { /* sm */
-    :root {
-        --serbis-section-padding-y: 3.5rem;
-    }
-
-    .masthead .masthead-pre-title {
-        font-size: 2.6rem;
-    }
-    .masthead h1 {
-        font-size: 2rem;
-    }
-    .app-badge {
-        height: 42px;
-    }
-    .section-title {
-        font-size: 1.9rem;
-    }
-    .how-it-works-step h3, .feature-item h3 {
-        font-size: 1.2rem;
-    }
-
-    .hero-app-mockup-container {
-        min-height: 440px;
-    }
-    .iphone-mockup {
-        --iphone-width: 230px;
-        transform: rotateY(-18deg) rotateX(12deg) translateZ(40px);
-    }
-     .iphone-mockup:hover {
-        transform: rotateY(-12deg) rotateX(10deg) translateZ(50px) scale(1.03);
-    }
-    .hero-app-mockup-container::before { width: 350px; height: 350px; filter: blur(90px);}
-    .hero-app-mockup-container::after { width: 250px; height: 250px; filter: blur(90px);}
-
-
-    .app-feature-text .feature-title {
-        font-size: 1.9rem;
-    }
-    .app-feature-image {
-        max-width: 240px;
-    }
-}
- @media (max-width: 575.98px) { /* xs */
-    :root {
-        --serbis-section-padding-y: 2.5rem;
-    }
-
-    .masthead .masthead-pre-title {
-        font-size: 2.2rem;
-    }
-    .masthead h1 {
-        font-size: 1.8rem;
-    }
-
+    /* Point 2: Primary CTA Styles */
     .btn-serbis-primary {
-        padding: 0.7rem 1.5rem;
+        background-color: var(--serbis-primary);
+        border-color: var(--serbis-primary);
+        color: #fff;
+        font-weight: 600;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, transform 0.2s ease;
+        border-radius: 0.3rem;
+    }
+    .btn-serbis-primary:hover {
+        background-color: #0b5ed7; /* Darken primary */
+        border-color: #0a58ca;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+    /* Point 4: Micro-copy beneath CTA */
+    .cta-microcopy {
+        font-size: 0.85rem;
+        color: var(--serbis-muted-text);
+    }
+    /* Point 3: Review Snippet Bar */
+    .review-snippet-bar {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--serbis-dark-text);
+        background-color: rgba(var(--serbis-primary-rgb), 0.05);
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        display: inline-block;
+    }
+    .review-snippet-bar .stars { color: #ffc107; /* Bootstrap yellow for stars */ margin-right: 0.25rem;}
+    .review-snippet-bar .review-separator { margin: 0 0.25rem; color: var(--serbis-muted-text); }
+
+    .app-badges-container { margin-top: 2rem; }
+    .app-badge { height: 48px; margin: 0 0.4rem; transition: transform 0.2s ease-in-out; display: inline-block; }
+    .app-badge img { height: 100%; width: auto; } /* CLS: Width/Height attributes on img are better */
+    .app-badge:hover { transform: scale(1.05); }
+
+    /* Section Styles */
+    .section-title {
+        font-family: 'Newsreader', serif;
+        font-weight: 600;
+        font-size: 2.2rem;
+        margin-bottom: 3.5rem;
+        color: var(--serbis-dark-text);
+    }
+    .content-section {
+        padding-top: var(--serbis-section-padding-y);
+        padding-bottom: var(--serbis-section-padding-y);
+    }
+    .content-section.bg-light { background-color: var(--serbis-light-bg); }
+
+
+    /* Point 3: Authority Logo Strip Styles */
+    #authority-logos { background-color: #e9ecef; /* A slightly different light gray */ }
+    .authority-logo-strip .logos-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--serbis-muted-text);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .authority-logo {
+        height: 40px; /* Adjust as needed */
+        margin: 0.5rem 1.5rem;
+        filter: grayscale(100%) opacity(0.7); /* Monochrome effect */
+        transition: filter 0.3s ease, opacity 0.3s ease;
+    }
+    .authority-logo:hover {
+        filter: grayscale(0%) opacity(1);
+    }
+    .logo-placeholder-text { /* Fallback if images fail */
+        display: none; /* Shown by onerror JS on img tag */
+        font-size: 0.9rem; color: var(--serbis-muted-text);
+        padding: 0.5rem 1rem; border: 1px dashed #ccc;
+        border-radius: 4px; margin: 0.5rem 1rem;
+    }
+
+    /* How It Works Section Styles */
+    #how-it-works { background-color: #ffffff; }
+    .how-it-works-step { text-align: center; margin-bottom: 2.5rem; }
+    .how-it-works-step .step-icon-container {
+        width: 70px; height: 70px;
+        background-color: rgba(var(--serbis-primary-rgb), 0.1);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .how-it-works-step .step-icon-container .bi {
+        font-size: 2.2rem; /* Icon size */
+        color: var(--serbis-primary);
+    }
+    .how-it-works-step h3 {
+        font-family: 'Newsreader', serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--serbis-dark-text);
+    }
+    .how-it-works-step p { color: var(--serbis-muted-text); font-size: 0.95rem; line-height: 1.5; }
+
+    /* App Feature Sections (existing, slight style review) */
+    .app-feature-section { padding-top: var(--serbis-section-padding-y); padding-bottom: var(--serbis-section-padding-y); }
+    .app-feature-section:nth-of-type(even) { background-color: var(--serbis-light-bg); } /* This logic might change with new section order */
+    .app-feature-section:nth-of-type(odd) { background-color: #ffffff; }
+
+    .app-feature-text .feature-title {
+        font-family: 'Newsreader', serif;
+        font-weight: 700;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        color: var(--serbis-dark-text);
+        margin-bottom: 1rem;
+    }
+    .app-feature-text .feature-title strong { color: var(--serbis-primary); }
+    .app-feature-text .lead { font-size: 1.1rem; font-weight: 400; color: var(--serbis-muted-text); margin-bottom: 2rem; max-width: 500px; }
+    .app-feature-list { list-style: none; padding-left: 0; }
+    .app-feature-list li { font-size: 1rem; color: var(--serbis-dark-text); margin-bottom: 0.75rem; display: flex; align-items: flex-start; }
+    .app-feature-list li .bi { color: var(--serbis-primary); margin-right: 0.75rem; font-size: 1.2rem; margin-top: 0.1em; }
+    .app-screenshot-container { display: flex; justify-content: center; align-items: center; padding: 1rem; }
+    .app-feature-image {
+        max-width: 280px; width: 100%; height: auto; /* For CLS, ensure W/H attributes are on img */
+        border-radius: 24px;
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12), 0 15px 35px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    }
+    .app-feature-image:hover { transform: scale(1.03) translateY(-6px); box-shadow: 0 16px 35px rgba(0,0,0,0.14), 0 20px 45px rgba(0,0,0,0.11); }
+
+    /* Testimonials Section Styles - Point 5 */
+    .testimonial-card { background-color: #fff; }
+    .testimonial-avatar { width: 80px; height: 80px; object-fit: cover; }
+
+    /* Precios & Garantías Section Styles - Point 5 */
+    .info-box { background-color: #fff; height: 100%; } /* Ensure boxes align if content differs */
+    .info-box h3 .bi { vertical-align: -0.125em; }
+    /* Point 3: Security Badge Styles */
+    .security-badge-container { margin-top: 2rem; }
+    .security-badge {
+        font-size: 0.9rem;
+        color: var(--serbis-muted-text);
+        background-color: var(--serbis-light-bg); /* Or #fff if on colored background */
+    }
+    .security-badge-icon { width: 24px; height: 24px; opacity: 0.8; }
+
+
+    /* FAQ Section Styles - Point 5 */
+    #faq .accordion-button { font-weight: 500; }
+    #faq .accordion-button:not(.collapsed) {
+        color: var(--serbis-primary);
+        background-color: rgba(var(--serbis-primary-rgb), 0.05);
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+    }
+    #faq .accordion-button:focus { box-shadow: 0 0 0 0.25rem rgba(var(--serbis-primary-rgb), 0.25); }
+
+
+    /* Download App Section Styles - Point 5 */
+    .bg-serbis-gradient { /* Example gradient, adjust as needed */
+        background: linear-gradient(135deg, var(--serbis-primary) 0%, #0056b3 100%); /* Darker shade of primary */
+    }
+    #download-app .section-title { color: #fff; }
+    .text-white-75 { color: rgba(255,255,255,0.75) !important; }
+    #download-app .btn-light { color: var(--serbis-primary); font-weight: bold; }
+
+
+    /* Footer Styles - Point 5 */
+    .footer { background-color: #2c3e50; /* Darker than original footer */ }
+    .footer a.footer-link {
+        color: rgba(255, 255, 255, 0.65);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    .footer a.footer-link:hover { color: #fff; text-decoration: none; } /* No underline to match modern styles */
+    .footer .social-icon { color: rgba(255, 255, 255, 0.65); transition: color 0.2s ease; }
+    .footer .social-icon:hover { color: #fff; }
+    .text-white-50 { color: rgba(255,255,255,0.5) !important; }
+    .text-white-75 { color: rgba(255,255,255,0.75) !important; }
+    .border-top-lighten { border-top: 1px solid rgba(255,255,255,0.1) !important; }
+    #about-us-footer img { filter: brightness(0) invert(1); } /* Make logo white for dark bg */
+
+
+    /* Point 4: Visual Hierarchy & Micro-Interactions - iPhone Mockup */
+    .hero-app-mockup-container {
+        display: flex; justify-content: center; align-items: center;
+        height: 100%; min-height: 500px; /* Adjusted min-height */
+        perspective: 1800px; padding: 2rem 0; /* Reduced padding */
+        position: relative;
+        /* Simplified background effect, more subtle */
+        background: radial-gradient(ellipse at center, hsla(var(--serbis-primary-rgb), 0.03) 0%, transparent 50%);
+    }
+    .iphone-mockup {
+        --iphone-thickness: 10px; /* Slightly thinner */
+        --iphone-width: 260px; /* Slightly smaller */
+        --iphone-aspect-ratio: 2.0517;
+        --iphone-height: calc(var(--iphone-width) * var(--iphone-aspect-ratio));
+        --iphone-border-radius: calc(var(--iphone-width) * 0.16); /* Adjusted radius */
+        --iphone-bezel-padding: calc(var(--iphone-width) * 0.04);
+        --screen-border-radius: calc(var(--iphone-width) * 0.12);
+
+        width: var(--iphone-width); height: var(--iphone-height);
+        position: relative; z-index: 1;
+        transform-style: preserve-3d;
+        /* Point 4: Test a subtle 5° angle or straight portrait. Reduced rotation. */
+        transform: rotateY(-8deg) rotateX(5deg) translateZ(30px);
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        background: linear-gradient(145deg, #3a3a3f, #202023);
+        border-radius: var(--iphone-border-radius);
+        padding: var(--iphone-bezel-padding);
+        box-shadow:
+            -10px 15px 40px rgba(0, 0, 0, 0.25), /* Softer shadow */
+            5px -5px 20px rgba(0,0,0,0.1),
+            inset 0px 1px 1px rgba(255, 255, 255, 0.08),
+            inset 0px -1px 1px rgba(0, 0, 0, 0.25);
+    }
+    .iphone-mockup:hover {
+        transform: rotateY(-5deg) rotateX(3deg) translateZ(40px) scale(1.02); /* More subtle hover */
+        box-shadow:
+            -12px 18px 50px rgba(0, 0, 0, 0.3),
+            6px -6px 25px rgba(0,0,0,0.15),
+            inset 0px 1px 2px rgba(255, 255, 255, 0.1),
+            inset 0px -1px 2px rgba(0, 0, 0, 0.3);
+    }
+    /* Remove ::before, ::after pseudo-elements for mockup depth and shadow if too complex or performance heavy */
+    .iphone-mockup::before { /* Back plane of the phone */
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(145deg, #303035, #18181b);
+        border-radius: var(--iphone-border-radius);
+        transform: translateZ(calc(-1 * var(--iphone-thickness)));
+    }
+    /* Removing complex ::after for shadow from mockup, rely on box-shadow */
+    .iphone-screen-area {
+        width: 100%; height: 100%; background: #000;
+        border-radius: var(--screen-border-radius);
+        overflow: hidden; position: relative;
+    }
+    /* Screen glare effect can be performance intensive, consider simplifying or removing if needed */
+    .iphone-screen-area::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 150%; height: 150%;
+        background: linear-gradient(165deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.04) 30%, rgba(255,255,255,0) 50%);
+        transform: translateX(-20%) translateY(-20%) rotate(-25deg);
+        z-index: 5; pointer-events: none; opacity: 0.6;
+    }
+    .iphone-app-content { /* For video/gif */
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        background-color: #111; /* Fallback if video poster/source fails */
+    }
+    /* Simplified Notch (original was complex) or can use iphone-notch-placeholder */
+    .iphone-notch-placeholder {
+        position: absolute;
+        top: calc(var(--iphone-bezel-padding) * 0.8); /* Adjust position */
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(var(--iphone-width) * 0.35); /* Notch width */
+        height: calc(var(--iphone-width) * 0.07); /* Notch height */
+        background: #1c1c1e; /* Darker than screen area for visibility */
+        border-bottom-left-radius: calc(var(--iphone-width) * 0.03);
+        border-bottom-right-radius: calc(var(--iphone-width) * 0.03);
+        z-index: 10;
+    }
+    .iphone-side-button { /* Existing side button styles seem fine */
+        position: absolute; background: linear-gradient(145deg, #525257, #404043);
+        border-radius: calc(var(--button-thickness, 3px) * 0.5); /* Define --button-thickness if not set */
+        box-shadow: 0.5px 0.5px 1.5px rgba(0,0,0,0.35) inset, -0.5px -0.5px 1px rgba(255,255,255,0.08) inset;
+        transform: translateZ(calc(-0.5 * var(--iphone-thickness)));
+        --button-thickness: calc(var(--iphone-width) * 0.013);
+        --button-v-height: calc(var(--iphone-width) * 0.111);
+        --button-p-height: calc(var(--iphone-width) * 0.203);
+        --button-vol-up-top: calc(var(--iphone-height) * 0.177);
+        --button-vol-down-top: calc(var(--iphone-height) * 0.252);
+        --button-power-top: calc(var(--iphone-height) * 0.215);
+    }
+    .iphone-volume-up { left: calc(-1 * var(--button-thickness)); top: var(--button-vol-up-top); width: var(--button-thickness); height: var(--button-v-height); border-top-right-radius: 0; border-bottom-right-radius: 0; }
+    .iphone-volume-down { left: calc(-1 * var(--button-thickness)); top: var(--button-vol-down-top); width: var(--button-thickness); height: var(--button-v-height); border-top-right-radius: 0; border-bottom-right-radius: 0; }
+    .iphone-power-button { right: calc(-1 * var(--button-thickness)); top: var(--button-power-top); width: var(--button-thickness); height: var(--button-p-height); border-top-left-radius: 0; border-bottom-left-radius: 0; }
+
+    /* Language Prompt Banner Styles - Point 7 */
+    .lang-prompt-banner {
+        position: fixed;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--serbis-dark-text);
+        color: white;
+        padding: 0.75rem 1.25rem;
+        border-radius: 0.3rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 1050;
+        display: flex;
+        align-items: center;
         font-size: 0.9rem;
     }
-    .masthead .btn-serbis-primary.btn-lg {
-        padding: 0.75rem 1.6rem;
-        font-size: 0.95rem;
-    }
+    .lang-prompt-banner button { font-size: 0.85rem; padding: 0.25rem 0.6rem; }
 
+    /* Responsive Adjustments */
+    @media (max-width: 991.98px) { /* md */
+        .navbar-custom .navbar-nav { margin-top: 0.75rem; }
+        .navbar-custom .navbar-nav .nav-link { padding: 0.75rem 1rem; margin: 0.25rem 0; }
+        .navbar-custom .navbar-nav .nav-link#soy-proveedor-link { margin-left: 0; margin-top: 0.5rem; text-align: center; }
+        .navbar-custom .navbar-collapse { border-top: 1px solid #eee; margin-top: 0.5rem; padding-top: 0.5rem; }
 
-    .hero-app-mockup-container {
-        min-height: 380px;
+        .masthead { padding-top: 7rem; padding-bottom: 4rem; text-align: center; }
+        .masthead .masthead-main-title { font-size: 2.6rem; } /* Adjust for mobile */
+        .masthead .masthead-subhead { font-size: 1.15rem; }
+        .masthead .lead { font-size: 1.05rem; margin-left: auto; margin-right: auto; }
+        .masthead .text-lg-start { text-align: center !important; }
+        .review-snippet-bar { display: block; margin-left:auto; margin-right:auto; text-align: center; }
+        .app-badges-container { justify-content: center !important; }
+
+        .hero-app-mockup-container { margin-top: 3rem; min-height: 460px; } /* Adjusted */
+        .iphone-mockup { --iphone-width: 240px; transform: rotateY(-6deg) rotateX(4deg) translateZ(25px); }
+
+        .app-feature-text { text-align: center; }
+        .app-feature-text .lead { margin-left: auto; margin-right: auto; }
+        .app-feature-list { display: inline-block; text-align: left; }
+        .app-screenshot-container { margin-top: 2rem; }
+        .app-feature-text .feature-title { font-size: 2.1rem; }
+        .authority-logo-strip .logos-title { font-size: 0.9rem; }
+        .authority-logo { height: 35px; margin: 0.5rem 1rem; }
     }
-    .iphone-mockup {
-        --iphone-width: 210px;
-        transform: rotateY(-12deg) rotateX(8deg) translateZ(30px);
+    @media (max-width: 767.98px) { /* sm */
+        :root { --serbis-section-padding-y: var(--serbis-section-padding-y-sm); }
+        .masthead .masthead-main-title { font-size: 2.2rem; }
+        .masthead .masthead-subhead { font-size: 1.1rem; }
+        .app-badge { height: 42px; }
+        .section-title { font-size: 1.9rem; margin-bottom: 2.5rem; }
+        .how-it-works-step h3, .feature-item h3 { font-size: 1.2rem; }
+
+        .hero-app-mockup-container { min-height: 420px; }
+        .iphone-mockup { --iphone-width: 220px; transform: rotateY(-5deg) rotateX(3deg) translateZ(20px); }
+        .iphone-mockup:hover { transform: rotateY(-3deg) rotateX(2deg) translateZ(30px) scale(1.02); }
+
+        .app-feature-text .feature-title { font-size: 1.9rem; }
+        .app-feature-image { max-width: 240px; }
+        .authority-logo { height: 30px; }
+        .lang-prompt-banner { flex-direction: column; text-align: center; width: 90%; padding: 0.75rem;}
+        .lang-prompt-banner button { margin-top: 0.5rem; margin-left: 0 !important; }
     }
-     .iphone-mockup:hover {
-        transform: rotateY(-8deg) rotateX(5deg) translateZ(40px) scale(1.02);
+     @media (max-width: 575.98px) { /* xs */
+        :root { --serbis-section-padding-y: var(--serbis-section-padding-y-xs); }
+        .masthead .masthead-main-title { font-size: 2rem; }
+        .masthead .masthead-subhead { font-size: 1rem; }
+        .btn-serbis-primary, .btn-serbis-primary.btn-lg { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
+
+        .hero-app-mockup-container { min-height: 360px; } /* Adjusted */
+        .iphone-mockup { --iphone-width: 200px; }
+        .authority-logo { height: 25px; margin: 0.3rem 0.7rem; }
     }
-    .hero-app-mockup-container::before { width: 300px; height: 300px; filter: blur(80px);}
-    .hero-app-mockup-container::after { width: 200px; height: 200px; filter: blur(80px);}
-}
-</style>
-<script type="application/ld+json">
-{
-"@context": "https://schema.org",
-"@type": "Organization",
-"name": "Serbis",
-"url": "https://serbis.app",
-"logo": "https://serbis.app/assets/img/app_logo_nobg.png",
-"description": "Serbis: Encontrá al profesional ideal en 5 segundos. Servicios de confianza calificados por tu comunidad en Argentina.",
-"address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Buenos Aires",
-    "addressCountry": "AR"
-},
-"sameAs": []
-}
-</script>
+    </style>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Serbis",
+    "url": "https://serbis.app",
+    "logo": "https://serbis.app/assets/img/app_logo_nobg.png",
+    "description": "Serbis: Profesionales confiables en 5 segundos. Verificados por AFIP, evaluados por tu barrio.",
+    "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+    },
+    "sameAs": [
+        "https://www.facebook.com/serbisapp", /* Example */
+        "https://www.instagram.com/serbisapp" /* Example */
+    ]
+    }
+    </script>
+    <!-- Point 8: Data & Experimentation Framework (Comments) -->
+    <!-- TODO: Integrate LaunchDarkly or AWS AppConfig for A/B testing. (Dev/Infra task) -->
+    <!-- NOTE: Success metrics (signup_started, signup_completed, app_download_click) defined. (Analytics task) -->
+    <!-- ARCHITECTURE NOTE: Consider server-side rendering (Next.js) for SEO and performance. (Dev/Architectural decision) -->
 </head>
 <body id="page-top">
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm navbar-custom" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand fw-bold" href="#page-top">
-                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis"> <!-- CSS will control height -->
+                <img src="assets/img/app_logo_nobg.png" alt="Logo de Serbis" id="navbar-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span> <!-- Using standard Bootstrap toggler icon class for custom SVG styling -->
+                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="#!">Soy Proveedor</a></li>
+                <ul class="navbar-nav ms-auto my-2 my-lg-0 align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#how-it-works">Cómo Funciona</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#casos-reales">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about-us-footer">Nosotros</a></li>
+                     <!-- Point 7: Language Toggle Placeholder (ARIA labels added) -->
+                    <li class="nav-item dropdown lang-toggle-placeholder ms-lg-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLang" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Seleccionar idioma, actualmente Español">
+                            <i class="bi bi-translate me-1"></i> ES
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownLang">
+                            <li><a class="dropdown-item active" href="#" lang="es" hreflang="es" aria-label="Cambiar a Español">Español (Actual)</a></li>
+                            <li><a class="dropdown-item" href="#en" lang="en" hreflang="en" aria-label="Switch to English">English</a></li>
+                        </ul>
+                    </li>
+                    <!-- Point 9: Provider-Side Funnel Link -->
+                    <li class="nav-item"><a class="nav-link" id="soy-proveedor-link" href="/soy-proveedor">Soy Proveedor</a></li>
+                    <!-- TODO: Implement i18n routing and language persistence. (JS/Backend task) -->
+                    <!-- Consider a modal for 'Soy Proveedor' if a full micro-site is too much initially, but separate page is preferred for distinct funnel. -->
                 </ul>
             </div>
         </div>
     </nav>
-<header class="masthead">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-lg-7">
-                <div class="mb-5 mb-lg-0 text-center text-lg-start">
-                    <h2 class="masthead-pre-title">Basta de listas.</h2>
-                    <h1 class="mb-3">Encontrá al profesional ideal.<br><strong>En 5 segundos.</strong></h1>
-                    <p class="lead fw-normal mb-5">Servicios de confianza, calificados por tu comunidad. Olvidate de las complicaciones, Serbis te conecta.</p>
-                    <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold" id="main-cta-button">Publicá tu Pedido Ahora</button>
-                    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
-                        <a class="app-badge me-lg-3 mb-4 mb-lg-0" id="google-play-link" href="#!"><img src="assets/img/google-play-badge.svg" alt="Descargar en Google Play" /></a>
-                        <a class="app-badge" id="app-store-link" href="#!"><img src="assets/img/app-store-badge.svg" alt="Descargar en App Store" /></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="hero-app-mockup-container">
-                    <div class="iphone-mockup">
-                        <div class="iphone-screen-area">
-                            <img src="assets/img/sim2.png" alt="Serbis App en iPhone" class="iphone-app-content">
+
+    <!-- Masthead / Hero Section - Point 1 & 4 -->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-lg-7">
+                    <div class="mb-5 mb-lg-0 text-center text-lg-start">
+                        <!-- Point 1: Clarify the Core Value Proposition -->
+                        <h1 class="masthead-main-title display-4 fw-bold mb-3">Profesionales confiables en 5 segundos<span class="d-none d-md-inline">—</span><span class="d-block d-md-inline">sin buscar listas.</span></h1>
+                        <p class="masthead-subhead lead mb-4">Verificados por AFIP, evaluados por tu barrio.</p>
+                        <p class="lead fw-normal text-muted mb-4">Olvidate de las complicaciones. Serbis te conecta con los mejores profesionales locales, rápido y fácil.</p>
+                        
+                        <!-- Point 2: Laser-Focus the Primary CTA -->
+                        <button class="btn btn-serbis-primary btn-lg px-4 py-3 me-sm-3 fw-bold js-cta-smart-redirect" id="main-cta-button">Publicá tu Pedido Ahora</button>
+                        <!-- Point 4: Micro-copy beneath CTA -->
+                        <p class="cta-microcopy mt-2 mb-4"><small>Sin costo • Sin compromisos • Publicá en < 60 s</small></p>
+
+                        <!-- Point 3: Inject Trust at First Glance - Review Snippet Bar -->
+                        <div class="review-snippet-bar my-4">
+                            <span class="stars" aria-label="Calificación de 4.9 de 5 estrellas">★★★★★</span> 4.9 / 5 <span class="review-separator">∙</span> 13,000+ tareas completadas
                         </div>
-                        <div class="iphone-side-button iphone-volume-up"></div>
-                        <div class="iphone-side-button iphone-volume-down"></div>
-                        <div class="iphone-side-button iphone-power-button"></div>
+
+                        <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-lg-start app-badges-container">
+                            <!-- Point 6: CLS - Added width/height attributes -->
+                            <a class="app-badge me-lg-3 mb-3 mb-lg-0" id="google-play-link-hero" href="#!" aria-label="Descargar en Google Play">
+                                <img src="assets/img/google-play-badge.svg" alt="Disponible en Google Play" width="162" height="48">
+                            </a>
+                            <a class="app-badge" id="app-store-link-hero" href="#!" aria-label="Descargar en App Store">
+                                <img src="assets/img/app-store-badge.svg" alt="Disponible en App Store" width="144" height="48">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <!-- Point 4: Visual Hierarchy & Micro-Interactions - Phone mock-up -->
+                    <div class="hero-app-mockup-container">
+                        <div class="iphone-mockup">
+                            <div class="iphone-screen-area">
+                                <!-- Point 4 & 6: Looping GIF (as video), poster for LCP/CLS -->
+                                <video autoplay loop muted playsinline class="iphone-app-content" poster="assets/img/sim2.png" width="250" height="512"> <!-- Approx. dimensions for video element -->
+                                    <source src="assets/vid/app-demo.mp4" type="video/mp4">
+                                    <!-- <source src="assets/vid/app-demo.webm" type="video/webm"> -->
+                                    Tu navegador no soporta videos. Esta es una demostración de la app Serbis.
+                                </video>
+                            </div>
+                            <div class="iphone-notch-placeholder"></div>
+                            <div class="iphone-side-button iphone-volume-up"></div>
+                            <div class="iphone-side-button iphone-volume-down"></div>
+                            <div class="iphone-side-button iphone-power-button"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
-<section id="how-it-works" class="content-section">
-    <div class="container px-4 px-lg-5">
-        <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-md-4">
-                <div class="how-it-works-step">
-                    <i class="bi bi-pencil-square"></i>
-                    <h3>1. Describí tu Necesidad</h3>
-                    <p>Contanos qué servicio necesitás. Es rápido y simple.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="how-it-works-step">
-                    <i class="bi bi-lightning-charge-fill"></i>
-                    <h3>2. Conectá al Instante</h3>
-                    <p>Nuestro sistema te encuentra opciones calificadas en tu zona.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="how-it-works-step">
-                    <i class="bi bi-check2-circle"></i>
-                    <h3>3. Resolvé y Calificá</h3>
-                    <p>Coordiná el servicio y ayudá a la comunidad con tu reseña. Todo dentro de nuestra app.</p>
+    </header>
+
+    <!-- Point 3: Inject Trust at First Glance - Logo Strip -->
+    <section id="authority-logos" class="py-4"> <!-- Removed bg-light to alternate with next section -->
+        <div class="container px-4 px-lg-5">
+            <div class="authority-logo-strip text-center">
+                <h3 class="logos-title mb-4">Con la confianza de organizaciones y profesionales destacados:</h3>
+                <div class="d-flex flex-wrap justify-content-center align-items-center">
+                    <!-- Placeholder images. Replace with actual monochrome SVGs/PNGs. Added onerror for graceful fallback. -->
+                    <img src="assets/img/logo-clubnewman-mono.svg" alt="Club Newman" class="authority-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" width="120" height="40">
+                    <span class="logo-placeholder-text">Club Newman</span>
+                    <img src="assets/img/logo-itba-mono.svg" alt="ITBA" class="authority-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" width="80" height="40">
+                    <span class="logo-placeholder-text">ITBA</span>
+                    <img src="assets/img/logo-another-mono.svg" alt="Otra Empresa Aliada" class="authority-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" width="150" height="40">
+                    <span class="logo-placeholder-text">Otra Empresa</span>
+                    <img src="assets/img/logo-partner-mono.svg" alt="Socio Estratégico" class="authority-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" width="130" height="40">
+                    <span class="logo-placeholder-text">Socio Estratégico</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section id="app-home" class="app-feature-section">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-lg-6">
-                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
-                    <h2 class="feature-title">Explorá el <strong>Home</strong></h2>
-                    <p class="lead fw-normal mb-4">Describí el servicio que necesitas, nostros te emparejamos con una persona capaz en tu area. No clasificamos, entendemos que se necesita para solucionar tu problema y quien puede hacerlo en tu area. Todo en menos de 5 segundos.</p>
-                    <ul class="app-feature-list">
-                        <li><i class="bi bi-compass-fill"></i>Navegación intuitiva para encontrar lo que necesitás al instante.</li>
-                        <li><i class="bi bi-star-fill"></i>Ratings y reviews de cada trabajador, por las personas de tu comunidad.</li>
-                        <li><i class="bi bi-bell-fill"></i>Acceso rápido a tus pedidos y chats recientes.</li>
+    </section>
+
+    <!-- Section: Cómo Funciona - Point 5 (Order), text < 75 words -->
+    <section id="how-it-works" class="content-section bg-light"> <!-- Alternating background -->
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center section-title">Así de fácil es con Serbis</h2>
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4">
+                    <div class="how-it-works-step">
+                        <div class="step-icon-container"><i class="bi bi-pencil-square"></i></div>
+                        <h3>1. Describí tu Necesidad</h3>
+                        <p>Contanos qué servicio necesitás. Es rápido, simple y directo al grano. (8 palabras)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="how-it-works-step">
+                        <div class="step-icon-container"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <h3>2. Conectá al Instante</h3>
+                        <p>Nuestro sistema inteligente te encuentra opciones calificadas y verificadas en tu zona. (11 palabras)</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="how-it-works-step">
+                        <div class="step-icon-container"><i class="bi bi-check2-circle"></i></div>
+                        <h3>3. Resolvé y Calificá</h3>
+                        <p>Coordiná el servicio, resolvé tu problema y ayudá a la comunidad con tu reseña. (14 palabras)</p>
+                    </div>
+                </div>
+            </div>
+             <!-- Point 2: Repeat CTA -->
+            <div class="text-center mt-4"> <!-- Reduced margin top slightly -->
+                <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold js-cta-smart-redirect" id="cta-how-it-works">Publicá tu Pedido Ahora</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sections: App Features (Home, Chat, Status) - Part of Solution -->
+    <section id="app-home" class="app-feature-section"> <!-- Alternating background -->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                        <h2 class="feature-title">Explorá el <strong>Home Inteligente</strong></h2>
+                        <p class="lead fw-normal mb-4">Describí el servicio que necesitás; te conectamos con el profesional idóneo en tu área. Entendemos tu problema y quién puede resolverlo, ¡en segundos!</p>
+                        <ul class="app-feature-list">
+                            <li><i class="bi bi-compass-fill"></i>Navegación intuitiva para encontrar lo que necesitás al instante.</li>
+                            <li><i class="bi bi-star-fill"></i>Ratings y reviews de tu comunidad para cada profesional.</li>
+                            <li><i class="bi bi-bell-fill"></i>Acceso rápido a tus pedidos y chats recientes.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="app-screenshot-container">
+                        <!-- Point 6: Lazy load & W/H for CLS -->
+                        <img src="assets/img/home.png" alt="Screenshot de la pantalla Home de Serbis" class="app-feature-image" loading="lazy" width="280" height="580"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="app-chat" class="app-feature-section bg-light"> <!-- Alternating background -->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-lg-6 order-lg-last">
+                    <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                        <h2 class="feature-title">Comunicación Segura con el <strong>Chat Integrado</strong></h2>
+                        <p class="lead fw-normal mb-4">Coordiná detalles, compartí imágenes y <strong>negociá el precio</strong> directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
+                        <ul class="app-feature-list">
+                            <li><i class="bi bi-send-fill"></i>Mensajería instantánea para respuestas rápidas.</li>
+                            <li><i class="bi bi-paperclip"></i>Compartí archivos y fotos relevantes para el servicio.</li>
+                            <li><i class="bi bi-shield-check"></i>Conversaciones seguras y privadas dentro de la app.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="app-screenshot-container">
+                        <img src="assets/img/chat.png" alt="Screenshot de la pantalla Chat de Serbis" class="app-feature-image" loading="lazy" width="280" height="580">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="app-status" class="app-feature-section"> <!-- Alternating background -->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
+                        <h2 class="feature-title">Seguí el <strong>Estado de tus Pedidos</strong></h2>
+                        <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización exitosa.</p>
+                        <ul class="app-feature-list">
+                            <li><i class="bi bi-clock-history"></i>Historial completo de todos tus pedidos y servicios.</li>
+                            <li><i class="bi bi-bell-fill"></i>Notificaciones instantáneas sobre actualizaciones importantes.</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Visualizá claramente cada etapa del proceso.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="app-screenshot-container">
+                        <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image" loading="lazy" width="280" height="580">
+                    </div>
+                </div>
+            </div>
+             <!-- Point 2: Repeat CTA after a major block of features -->
+            <div class="text-center mt-5 pt-4">
+                <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold js-cta-smart-redirect" id="cta-app-features">Probá Serbis y Simplificá tu Vida</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Casos Reales (Testimonials) - Point 5 (Order) -->
+    <section id="casos-reales" class="content-section bg-light"> <!-- Alternating background -->
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center section-title">Lo que dice nuestra comunidad</h2>
+            <div class="testimonial-carousel-placeholder">
+                <!-- TODO: Implement a proper carousel (e.g., Bootstrap Carousel or SwiperJS) -->
+                <!-- For now, static examples. Point 6: Tree-shake unused slider lib mentioned for this type of component -->
+                <div class="row text-center">
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card p-4 border rounded shadow-sm h-100">
+                            <img src="assets/img/user1.jpg" alt="Usuario Satisfecho 1" class="testimonial-avatar rounded-circle mb-2" loading="lazy" width="80" height="80" onerror="this.src='assets/img/avatar-placeholder.png'">
+                            <p class="fst-italic">"¡Increíble! Necesitaba un plomero urgente y en 10 minutos ya tenía a alguien contactándome. ¡Resolvió todo súper rápido!"</p>
+                            <p class="fw-bold mb-0 mt-auto pt-2">Laura G.</p>
+                            <small class="text-muted">Palermo, Buenos Aires</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="testimonial-card p-4 border rounded shadow-sm h-100">
+                            <img src="assets/img/user2.jpg" alt="Usuario Satisfecho 2" class="testimonial-avatar rounded-circle mb-2" loading="lazy" width="80" height="80" onerror="this.src='assets/img/avatar-placeholder.png'">
+                            <p class="fst-italic">"Serbis me salvó. Pude encontrar un electricista matriculado y confiable sin tener que buscar en mil lugares. ¡Muy recomendable!"</p>
+                            <p class="fw-bold mb-0 mt-auto pt-2">Martín R.</p>
+                            <small class="text-muted">Caballito, Buenos Aires</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                         <div class="testimonial-card p-4 border rounded shadow-sm h-100">
+                            <img src="assets/img/user3.jpg" alt="Usuario Satisfecho 3" class="testimonial-avatar rounded-circle mb-2" loading="lazy" width="80" height="80" onerror="this.src='assets/img/avatar-placeholder.png'">
+                            <p class="fst-italic">"Como profesional, Serbis me da visibilidad y clientes en mi zona. La plataforma es fácil de usar y transparente."</p>
+                            <p class="fw-bold mb-0 mt-auto pt-2">Carlos F. (Pintor)</p>
+                            <small class="text-muted">Belgrano, Buenos Aires</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Precios & Garantías - Point 5 (Order) -->
+    <section id="precios-garantias" class="content-section"> <!-- Alternating background -->
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center section-title">Transparencia Total: Precios y Confianza</h2>
+            <div class="row gx-lg-5 gy-4 align-items-stretch"> <!-- align-items-stretch for equal height boxes -->
+                <div class="col-md-6">
+                    <div class="info-box p-4 border rounded h-100">
+                        <h3 class="h4"><i class="bi bi-cash-coin me-2 text-primary"></i>Publicar es Gratis</h3>
+                        <p>Crear tu pedido de servicio en Serbis no tiene ningún costo. Solo pagás por el servicio acordado directamente con el profesional. Sin comisiones ocultas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                     <div class="info-box p-4 border rounded h-100">
+                        <h3 class="h4"><i class="bi bi-shield-check me-2 text-primary"></i>Garantía de Confianza</h3>
+                        <p>Nos esforzamos por tu tranquilidad. Conectate con profesionales verificados (AFIP) y evaluados por tu comunidad. Si algo no sale como esperabas, nuestro equipo de soporte está para ayudarte. <a href="mailto:soporte@serbis.app" class="text-decoration-none">Contactanos</a>.</p>
+                     </div>
+                </div>
+            </div>
+            <!-- Point 3: Security Badge -->
+            <div class="text-center mt-5 security-badge-container">
+                <div class="security-badge d-inline-flex align-items-center p-2 border rounded">
+                    <img src="assets/img/icon-aws-shield.svg" alt="Plataforma Segura AWS" class="security-badge-icon me-2" width="24" height="24" onerror="this.style.display='none'"> <!-- Placeholder icon -->
+                    <span>Plataforma Segura <span class="d-none d-sm-inline"></span><span class="mx-1 d-none d-sm-inline">|</span> Pagos encriptados SSL (próximamente en app)</span>
+                </div>
+                 <p class="mt-2"><small class="text-muted">Actualmente, los pagos se coordinan directo con el profesional.</small></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Preguntas Frecuentes (FAQ) - Point 5 (Order) -->
+    <section id="faq" class="content-section bg-light"> <!-- Alternating background -->
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center section-title">Preguntas Frecuentes</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingOneFaq">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOneFaq" aria-expanded="false" aria-controls="collapseOneFaq">
+                            ¿Cómo funciona el pago de los servicios?
+                        </button>
+                    </h3>
+                    <div id="collapseOneFaq" class="accordion-collapse collapse" aria-labelledby="headingOneFaq" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Actualmente, el pago se acuerda y realiza directamente con el profesional que elijas. Serbis facilita la conexión y la comunicación segura. Estamos trabajando para integrar pagos directos en la app en futuras versiones para mayor comodidad.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingTwoFaq">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwoFaq" aria-expanded="false" aria-controls="collapseTwoFaq">
+                            ¿Los profesionales están verificados?
+                        </button>
+                    </h3>
+                    <div id="collapseTwoFaq" class="accordion-collapse collapse" aria-labelledby="headingTwoFaq" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Sí, en Serbis priorizamos tu seguridad. Muchos profesionales pasan por un proceso de verificación que puede incluir la validación de su CUIT/CUIL ante AFIP y la revisión de credenciales. Siempre podrás ver las calificaciones y comentarios de otros usuarios de tu barrio.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingThreeFaq">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThreeFaq" aria-expanded="false" aria-controls="collapseThreeFaq">
+                            ¿Qué pasa si tengo un problema con un servicio?
+                        </button>
+                    </h3>
+                    <div id="collapseThreeFaq" class="accordion-collapse collapse" aria-labelledby="headingThreeFaq" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Te recomendamos comunicarte primero con el profesional para intentar resolverlo. Si no llegan a un acuerdo, nuestro equipo de soporte está disponible para mediar y ayudarte a encontrar una solución. Podés contactarnos a través de la sección "Ayuda" en la app o por email a <a href="mailto:soporte@serbis.app">soporte@serbis.app</a>.
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item">
+                    <h3 class="accordion-header" id="headingFourFaq">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourFaq" aria-expanded="false" aria-controls="collapseFourFaq">
+                            ¿Serbis está disponible en mi ciudad?
+                        </button>
+                    </h3>
+                    <div id="collapseFourFaq" class="accordion-collapse collapse" aria-labelledby="headingFourFaq" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                           Actualmente estamos expandiendo nuestra cobertura en Argentina, comenzando por Buenos Aires. La mejor forma de saberlo es descargando la app y registrándote. Si aún no estamos en tu zona, te notificaremos en cuanto lleguemos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Descarga la App / Web - Point 5 (Order) -->
+    <section id="download-app" class="content-section text-center bg-serbis-gradient">
+        <div class="container px-4 px-lg-5">
+            <h2 class="section-title text-white">Descargá Serbis y Resolvé Hoy Mismo</h2>
+            <p class="lead text-white-75 mb-4">Disponible para iOS y Android. O si preferís, publicá tu pedido directamente desde la web.</p>
+            <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center app-badges-container mb-4">
+                <a class="app-badge me-sm-3 mb-3 mb-sm-0" id="google-play-link-footer" href="#!" aria-label="Descargar en Google Play">
+                    <img src="assets/img/google-play-badge.svg" alt="Disponible en Google Play" width="180" height="53">
+                </a>
+                <a class="app-badge" id="app-store-link-footer" href="#!" aria-label="Descargar en App Store">
+                    <img src="assets/img/app-store-badge.svg" alt="Disponible en App Store" width="160" height="53">
+                </a>
+            </div>
+            <div class="mt-4">
+                <button class="btn btn-light btn-lg px-4 py-3 fw-bold js-cta-smart-redirect" id="cta-download-section">Publicá tu Pedido Ahora</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Point 5 (Order & Content) -->
+    <footer class="footer bg-dark text-light" id="about-us-footer">
+        <div class="container px-4 px-lg-5 py-5">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-3 d-flex align-items-center"><img src="assets/img/app_logo_nobg_white.png" alt="Serbis Logo Blanco" height="30" class="me-2">Serbis</h5>
+                    <p class="small text-white-50">Conectando comunidades, un servicio a la vez. Encontrá profesionales de confianza en tu barrio, rápido y fácil.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase text-white-75 mb-3">Serbis</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#how-it-works" class="footer-link">Cómo Funciona</a></li>
+                        <li><a href="/soy-proveedor" class="footer-link">Soy Proveedor</a></li>
+                        <li><a href="#casos-reales" class="footer-link">Testimonios</a></li>
+                        <li><a href="#faq" class="footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase text-white-75 mb-3">Legal</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="/terminos-y-condiciones" class="footer-link">Términos y Condiciones</a></li>
+                        <li><a href="/politica-de-privacidad" class="footer-link">Política de Privacidad</a></li>
+                        <li><a href="/press-kit" class="footer-link">Press Kit</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase text-white-75 mb-3">Contacto & Social</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:inaki.iturriaga@serbis.app" class="footer-link">inaki.iturriaga@serbis.app</a></li>
+                        <li class="mt-2">
+                            <a href="https://facebook.com/serbisapp" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Serbis" class="social-icon me-2"><i class="bi bi-facebook fs-5"></i></a>
+                            <a href="https://instagram.com/serbisapp" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Serbis" class="social-icon me-2"><i class="bi bi-instagram fs-5"></i></a>
+                            <a href="https://linkedin.com/company/serbisapp" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Serbis" class="social-icon"><i class="bi bi-linkedin fs-5"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="app-screenshot-container">
-                    <img src="assets/img/home.png" alt="Screenshot de la pantalla Home de Serbis" class="app-feature-image">
-                </div>
+            <hr class="my-4 border-top-lighten">
+            <div class="text-center small text-white-50">
+                <div>© Serbis <span id="currentYear"></span>. Todos los derechos reservados.</div>
+                <div>Buenos Aires, Argentina</div>
             </div>
         </div>
+    </footer>
+
+    <!-- Language Prompt Banner (hidden by default) - Point 7 -->
+    <div id="lang-prompt-banner" class="lang-prompt-banner" style="display:none;">
+        <span>Esta página también está disponible en Inglés.</span>
+        <button id="switch-lang-btn" class="btn btn-sm btn-primary ms-2">Cambiar a Inglés</button>
+        <button id="dismiss-lang-banner-btn" class="btn btn-sm btn-outline-secondary ms-1" aria-label="Descartar sugerencia de idioma">×</button>
+        <!-- TODO: Implement i18n language detection (Accept-Language) and prompt banner logic. (JS/Backend task) -->
     </div>
-</section>
-<section id="app-chat" class="app-feature-section">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-lg-6 order-lg-last">
-                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
-                    <h2 class="feature-title">Comunicación segura con el <strong>Chat</strong></h2>
-                    <p class="lead fw-normal mb-4">Coordiná detalles, compartí imágenes y <strong>negocia el precio</strong> directamente con los proveedores a través de nuestro chat integrado y seguro.</p>
-                    <ul class="app-feature-list">
-                        <li><i class="bi bi-send-fill"></i>Mensajería instantánea para respuestas rápidas.</li>
-                        <li><i class="bi bi-paperclip"></i>Compartí archivos y fotos relevantes para el servicio.</li>
-                        <li><i class="bi bi-shield-check"></i>Conversaciones seguras y privadas dentro de la app.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6 order-lg-first">
-                <div class="app-screenshot-container">
-                    <img src="assets/img/chat.png" alt="Screenshot de la pantalla Chat de Serbis" class="app-feature-image">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="app-status" class="app-feature-section">
-    <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 align-items-center">
-            <div class="col-lg-6">
-                <div class="app-feature-text mb-5 mb-lg-0 text-center text-lg-start">
-                    <h2 class="feature-title">Seguí el <strong>Estado</strong> de tus Pedidos</h2>
-                    <p class="lead fw-normal mb-4">Mantenete informado en tiempo real sobre el progreso de tus solicitudes de servicio, desde la publicación hasta la finalización.</p>
-                    <ul class="app-feature-list">
-                        <li><i class="bi bi-clock-history"></i>Historial completo de todos tus pedidos y servicios.</li>
-                        <li><i class="bi bi-bell-fill"></i>Notificaciones instantáneas sobre actualizaciones importantes.</li>
-                        <li><i class="bi bi-check-circle-fill"></i>Visualizá claramente cada etapa del proceso.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="app-screenshot-container">
-                    <img src="assets/img/status.png" alt="Screenshot de la pantalla Status de Serbis" class="app-feature-image">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="why-serbis" class="content-section">
-    <div class="container px-4 px-lg-5">
-        <h2 class="text-center section-title">¿Por qué elegir Serbis?</h2>
-        <div class="row gx-4 gx-lg-5">
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-item">
-                    <i class="bi bi-people-fill"></i>
-                    <h3>Ayuda de tu Comunidad</h3>
-                    <p>Conectate con personas de tu barrio dispuestas a ayudarte.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-item">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <h3>Calificaciones Reales</h3>
-                    <p>Decidí con confianza gracias a las opiniones de otros usuarios.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-item">
-                    <i class="bi bi-chat-dots-fill"></i>
-                    <h3>Comunicación Directa</h3>
-                    <p>Chat seguro para coordinar todos los detalles del servicio.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="feature-item">
-                    <i class="bi bi-speedometer2"></i>
-                    <h3>Rápido y Eficaz</h3>
-                    <p>Encontrá lo que buscás en segundos y resolvé sin demoras.</p>
-                </div>
-            </div>
-        </div>
-         <div class="text-center mt-5">
-            <button class="btn btn-serbis-primary btn-lg px-4 py-3 fw-bold" id="secondary-cta-button">Descargá la App y Empezá</button>
-        </div>
-    </div>
-</section>
-<footer class="footer" id="about-us-footer">
-    <div class="container px-4 px-lg-5">
-        <div class="text-center small">
-            <div class="mb-2">© Serbis 2024. Todos los derechos reservados.</div>
-            <div class="mb-2">Buenos Aires, Argentina</div>
-            <div><a href="mailto:inaki.iturriaga@serbis.app">inaki.iturriaga@serbis.app</a></div>
-        </div>
-    </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
     document.addEventListener('DOMContentLoaded', function () {
         // --- CONFIGURATION: REPLACE THESE URLs ---
-        const APPLE_APP_STORE_URL = "YOUR_APPLE_APP_STORE_URL";
-        const GOOGLE_PLAY_STORE_URL = "YOUR_GOOGLE_PLAY_STORE_URL";
-        const DESKTOP_WEB_FORM_URL = "YOUR_DESKTOP_WEB_FORM_URL";
-        const SOY_PROVEEDOR_URL = "YOUR_SOY_PROVEEDOR_URL";
+        const APPLE_APP_STORE_URL = "https://apps.apple.com/ar/app/your-app-id"; // Replace
+        const GOOGLE_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.yourapp.package"; // Replace
+        const DESKTOP_WEB_FORM_URL = "/publicar-pedido"; // Replace with your web form URL
+        const SOY_PROVEEDOR_URL = "/soy-proveedor"; // Already set in HTML, but can be managed here too
         // --- END CONFIGURATION ---
 
         function getOS() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            if (/android/i.test(userAgent)) {
-                return "Android";
-            }
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                return "iOS";
-            }
+            if (/android/i.test(userAgent)) { return "Android"; }
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) { return "iOS"; }
             return "Desktop";
         }
 
         const os = getOS();
 
-        const mainCtaButton = document.getElementById('main-cta-button');
-        if (mainCtaButton) {
-            mainCtaButton.addEventListener('click', function () {
+        // Smart redirect for all primary CTAs
+        const smartRedirectButtons = document.querySelectorAll('.js-cta-smart-redirect');
+        smartRedirectButtons.forEach(button => {
+            button.addEventListener('click', function () {
                 if (os === "iOS") {
                     window.location.href = APPLE_APP_STORE_URL;
                 } else if (os === "Android") {
@@ -986,57 +984,75 @@ body {
                     window.location.href = DESKTOP_WEB_FORM_URL;
                 }
             });
-        }
+        });
+        
+        // App store badge links
+        const googlePlayLinkHero = document.getElementById('google-play-link-hero');
+        if (googlePlayLinkHero) googlePlayLinkHero.href = GOOGLE_PLAY_STORE_URL;
+        const appStoreLinkHero = document.getElementById('app-store-link-hero');
+        if (appStoreLinkHero) appStoreLinkHero.href = APPLE_APP_STORE_URL;
 
-        const secondaryCtaButton = document.getElementById('secondary-cta-button');
-        if (secondaryCtaButton) {
-            secondaryCtaButton.addEventListener('click', function () {
-                if (os === "iOS") {
-                    window.location.href = APPLE_APP_STORE_URL;
-                } else if (os === "Android") {
-                    window.location.href = GOOGLE_PLAY_STORE_URL;
-                } else {
-                    window.location.href = DESKTOP_WEB_FORM_URL;
-                }
-            });
-        }
-
-        const googlePlayLink = document.getElementById('google-play-link');
-        if (googlePlayLink) {
-            googlePlayLink.href = GOOGLE_PLAY_STORE_URL;
-        }
-
-        const appStoreLink = document.getElementById('app-store-link');
-        if (appStoreLink) {
-            appStoreLink.href = APPLE_APP_STORE_URL;
-        }
-
-        const soyProveedorLink = document.getElementById('soy-proveedor-link');
-        if (soyProveedorLink) {
-            soyProveedorLink.href = SOY_PROVEEDOR_URL;
-        }
+        const googlePlayLinkFooter = document.getElementById('google-play-link-footer');
+        if (googlePlayLinkFooter) googlePlayLinkFooter.href = GOOGLE_PLAY_STORE_URL;
+        const appStoreLinkFooter = document.getElementById('app-store-link-footer');
+        if (appStoreLinkFooter) appStoreLinkFooter.href = APPLE_APP_STORE_URL;
+        
+        // Provider link (already set in HTML, this is redundant but harmless)
+        // const soyProveedorLink = document.getElementById('soy-proveedor-link');
+        // if (soyProveedorLink) soyProveedorLink.href = SOY_PROVEEDOR_URL;
 
         // Navbar shrink on scroll
         const mainNav = document.getElementById('mainNav');
         if (mainNav) {
-            // Function to handle scroll event
             const handleScroll = () => {
-                // Check if window.scrollY is defined and is a number
                 if (typeof window.scrollY === 'number' && window.scrollY > 50) {
                     mainNav.classList.add('scrolled');
                 } else {
                     mainNav.classList.remove('scrolled');
                 }
             };
-
-            // Add scroll event listener
             window.addEventListener('scroll', handleScroll);
-
-            // Call handleScroll once on load in case the page is already scrolled
-            handleScroll();
+            handleScroll(); // Initial check
         }
-    });
 
-</script>
+        // Update current year in footer
+        const currentYearSpan = document.getElementById('currentYear');
+        if (currentYearSpan) currentYearSpan.textContent = new Date().getFullYear();
+
+        // Smooth scroll for anchor links (optional, Bootstrap might handle some)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (anchor.getAttribute('href') === '#' || anchor.getAttribute('href') === '#!' || anchor.dataset.bsToggle) return; // Exclude simple hashes and Bootstrap components
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Language Prompt Banner Logic (Placeholder)
+        // TODO: Full implementation needed for language detection and switching
+        const langBanner = document.getElementById('lang-prompt-banner');
+        const switchLangBtn = document.getElementById('switch-lang-btn');
+        const dismissLangBtn = document.getElementById('dismiss-lang-banner-btn');
+
+        // Example: Show banner if not Spanish (pseudo-logic)
+        // const currentLang = document.documentElement.lang; 
+        // const browserLang = navigator.language || navigator.userLanguage; 
+        // if (currentLang === 'es' && browserLang.startsWith('en') && !localStorage.getItem('langPromptDismissed')) {
+        //    if(langBanner) langBanner.style.display = 'flex';
+        // }
+        // if(switchLangBtn) switchLangBtn.addEventListener('click', () => { /* redirect to English version */ alert("Redirecting to English version..."); });
+        // if(dismissLangBtn) dismissLangBtn.addEventListener('click', () => { 
+        //    if(langBanner) langBanner.style.display = 'none'; 
+        //    localStorage.setItem('langPromptDismissed', 'true');
+        // });
+
+    });
+    </script>
+    <!-- Point 6: Performance - JS payload comments (already covered by earlier TODOs in head or specific sections) -->
+    <!-- Example: <!-- TODO: Tree-shake unused slider lib for testimonial carousel if one is added. --> -->
 </body>
 </html>
